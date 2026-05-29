@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compétences — Sami ALAOUI KASMI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .skills-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px; }
+    .skill-card {
+      background:var(--card);border:1px solid var(--border2);
+      border-radius:var(--radius);padding:28px;
+      transition:var(--transition);position:relative;overflow:hidden;
+    }
+    .skill-card::before {
+      content:'';position:absolute;top:0;left:0;right:0;height:2px;
+      background:linear-gradient(90deg,var(--orange),transparent);
+      transform:scaleX(0);transform-origin:left;transition:var(--transition);
+    }
+    .skill-card:hover { border-color:var(--border);transform:translateY(-4px);box-shadow:var(--shadow-orange); }
+    .skill-card:hover::before { transform:scaleX(1); }
+    .sk-icon {
+      width:44px;height:44px;border-radius:10px;
+      background:var(--orange-glow);border:1px solid var(--border);
+      display:flex;align-items:center;justify-content:center;
+      color:var(--orange);font-size:1.1rem;margin-bottom:18px;
+    }
+    .sk-title { font-weight:700;font-size:1rem;margin-bottom:18px; }
+    .soft-grid { display:flex;flex-wrap:wrap;gap:7px;margin-top:8px; }
+    .soft-tag {
+      padding:5px 11px;border-radius:6px;
+      background:var(--bg3);border:1px solid var(--border2);
+      font-size:0.77rem;color:var(--text-muted);
+    }
+    .sk-section-label { font-size:0.76rem;color:var(--text-muted);font-weight:500;margin-bottom:10px;margin-top:18px; }
+
+    /* Radar chart (CSS-only approximation) */
+    .radar-wrap {
+      background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);
+      padding:32px;margin-top:48px;
+    }
+    .radar-title { font-size:1rem;font-weight:700;margin-bottom:24px; }
+    .level-bars { display:grid;gap:14px; }
+    .level-row { display:flex;align-items:center;gap:14px; }
+    .level-label { font-size:0.82rem;color:var(--text-muted);min-width:160px; }
+    .level-track { flex:1;height:6px;background:var(--bg3);border-radius:3px;overflow:hidden; }
+    .level-fill { height:100%;background:linear-gradient(90deg,var(--orange),var(--orange-light));border-radius:3px;width:0;transition:width 1.2s cubic-bezier(0.4,0,0.2,1); }
+    .level-pct { font-family:var(--mono);font-size:0.72rem;color:var(--orange);min-width:34px;text-align:right; }
+  </style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">&lt;<span>Sami</span> /&gt;</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="about.html">À propos</a></li>
+    <li><a href="competences.html">Compétences</a></li>
+    <li><a href="orange.html">Orange Business</a></li>
+    <li><a href="projets.html">Projets</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="#" class="nav-cv" onclick="event.preventDefault();alert('Ajoutez votre CV ici.')"><i class="fas fa-download"></i> Mon CV</a>
+  <div class="nav-burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Accueil</a>
+  <a href="about.html" onclick="closeMenu()">À propos</a>
+  <a href="competences.html" onclick="closeMenu()">Compétences</a>
+  <a href="orange.html" onclick="closeMenu()">Orange Business</a>
+  <a href="projets.html" onclick="closeMenu()">Projets</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+</div>
+
+<div class="page-header">
+  <div class="page-header-orb"></div>
+  <div class="container">
+    <div class="section-tag">Stack technique</div>
+    <h1>Compétences</h1>
+    <p>Compétences acquises en formation et renforcées par l'expérience terrain chez Orange Business.</p>
+  </div>
+</div>
+
+<section style="background:var(--bg)">
+  <div class="container">
+    <div class="section-header center fade-in">
+      <div class="section-tag">Technique</div>
+      <h2 class="section-title">Compétences techniques</h2>
+    </div>
+
+    <div class="skills-grid">
+
+      <!-- Réseaux -->
+      <div class="skill-card fade-in">
+        <div class="sk-icon"><i class="fas fa-network-wired"></i></div>
+        <div class="sk-title">Réseaux</div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">TCP/IP &amp; modèle OSI</span><span class="skill-bar-val">90%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Cisco IOS / Routage</span><span class="skill-bar-val">80%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">VLAN / STP / Trunk</span><span class="skill-bar-val">78%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="78"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">OSPF / BGP</span><span class="skill-bar-val">65%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="65"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">DHCP / DNS / NAT/PAT</span><span class="skill-bar-val">85%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">WiFi / WPA2-Enterprise</span><span class="skill-bar-val">70%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div></div>
+        <div class="sk-section-label">Outils réseau</div>
+        <div class="soft-grid"><span class="soft-tag">Wireshark</span><span class="soft-tag">Cisco Packet Tracer</span><span class="soft-tag">GNS3</span><span class="soft-tag">Nmap</span><span class="soft-tag">iperf3</span></div>
+      </div>
+
+      <!-- Systèmes -->
+      <div class="skill-card fade-in d1">
+        <div class="sk-icon"><i class="fas fa-server"></i></div>
+        <div class="sk-title">Systèmes</div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Linux (Debian / Ubuntu)</span><span class="skill-bar-val">82%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Windows Server 2019/2022</span><span class="skill-bar-val">72%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="72"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Active Directory / GPO</span><span class="skill-bar-val">65%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="65"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Bash scripting</span><span class="skill-bar-val">72%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="72"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">PowerShell</span><span class="skill-bar-val">62%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="62"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">VMware / VirtualBox</span><span class="skill-bar-val">76%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="76"></div></div></div>
+        <div class="sk-section-label">Outils systèmes</div>
+        <div class="soft-grid"><span class="soft-tag">GLPI</span><span class="soft-tag">Docker</span><span class="soft-tag">Zabbix</span><span class="soft-tag">Grafana</span><span class="soft-tag">Git</span></div>
+      </div>
+
+      <!-- Cybersécurité -->
+      <div class="skill-card fade-in d2">
+        <div class="sk-icon"><i class="fas fa-shield-halved"></i></div>
+        <div class="sk-title">Cybersécurité</div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Firewall / ACL / iptables</span><span class="skill-bar-val">76%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="76"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">VPN IPSec / SSL / WireGuard</span><span class="skill-bar-val">70%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Analyse de trafic / PCAP</span><span class="skill-bar-val">80%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Pentest (bases) / Metasploit</span><span class="skill-bar-val">52%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="52"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">SIEM / Monitoring / Alerting</span><span class="skill-bar-val">58%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="58"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Sécurité SIP / SRTP / TLS</span><span class="skill-bar-val">65%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="65"></div></div></div>
+        <div class="sk-section-label">Outils sécu</div>
+        <div class="soft-grid"><span class="soft-tag">Kali Linux</span><span class="soft-tag">Nmap</span><span class="soft-tag">Metasploit</span><span class="soft-tag">fail2ban</span><span class="soft-tag">OpenVAS</span></div>
+      </div>
+
+      <!-- Télécoms & Fibre -->
+      <div class="skill-card fade-in d3">
+        <div class="sk-icon"><i class="fas fa-wave-square"></i></div>
+        <div class="sk-title">Télécoms &amp; Fibre optique</div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">FTTH / FTTE / FTTO</span><span class="skill-bar-val">80%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">GPON / XGS-PON</span><span class="skill-bar-val">72%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="72"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Soudure optique / OTDR</span><span class="skill-bar-val">68%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="68"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">VoIP / SIP / RTP</span><span class="skill-bar-val">74%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="74"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">IPBX (Asterisk / 3CX)</span><span class="skill-bar-val">68%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="68"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">QoS &amp; priorisation de flux</span><span class="skill-bar-val">70%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div></div>
+        <div class="sk-section-label">Équipements</div>
+        <div class="soft-grid"><span class="soft-tag">ONT/OLT</span><span class="soft-tag">Powermètre optique</span><span class="soft-tag">Réflectomètre</span><span class="soft-tag">CPE Orange</span></div>
+      </div>
+
+      <!-- Dev & Automatisation -->
+      <div class="skill-card fade-in d1">
+        <div class="sk-icon"><i class="fas fa-code"></i></div>
+        <div class="sk-title">Dev &amp; Automatisation</div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Python (scripting réseau)</span><span class="skill-bar-val">72%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="72"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Bash / Shell scripting</span><span class="skill-bar-val">70%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Ansible (bases)</span><span class="skill-bar-val">45%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="45"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">HTML / CSS (web)</span><span class="skill-bar-val">60%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="60"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">SQL (bases)</span><span class="skill-bar-val">50%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="50"></div></div></div>
+        <div class="sk-section-label">Bibliothèques Python</div>
+        <div class="soft-grid"><span class="soft-tag">scapy</span><span class="soft-tag">netmiko</span><span class="soft-tag">paramiko</span><span class="soft-tag">pandas</span><span class="soft-tag">requests</span></div>
+      </div>
+
+      <!-- Soft Skills -->
+      <div class="skill-card fade-in d2">
+        <div class="sk-icon"><i class="fas fa-users"></i></div>
+        <div class="sk-title">Soft Skills</div>
+        <div style="display:grid;gap:10px;margin-top:6px">
+          <div style="background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:12px 14px">
+            <div style="font-size:0.8rem;font-weight:600;margin-bottom:4px"><i class="fas fa-bullseye" style="color:var(--orange);margin-right:7px"></i>Rigueur &amp; Organisation</div>
+            <div style="font-size:0.77rem;color:var(--text-muted)">Gestion de tickets GLPI, suivi des interventions, documentation systématique</div>
+          </div>
+          <div style="background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:12px 14px">
+            <div style="font-size:0.8rem;font-weight:600;margin-bottom:4px"><i class="fas fa-person-running" style="color:var(--orange);margin-right:7px"></i>Autonomie terrain</div>
+            <div style="font-size:0.77rem;color:var(--text-muted)">Interventions seul chez les clients, diagnostic et résolution en autonomie</div>
+          </div>
+          <div style="background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:12px 14px">
+            <div style="font-size:0.8rem;font-weight:600;margin-bottom:4px"><i class="fas fa-handshake" style="color:var(--orange);margin-right:7px"></i>Relation client</div>
+            <div style="font-size:0.77rem;color:var(--text-muted)">Explication technique adaptée, pédagogie, gestion des attentes</div>
+          </div>
+          <div style="background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:12px 14px">
+            <div style="font-size:0.8rem;font-weight:600;margin-bottom:4px"><i class="fas fa-lightbulb" style="color:var(--orange);margin-right:7px"></i>Curiosité &amp; Veille</div>
+            <div style="font-size:0.77rem;color:var(--text-muted)">Auto-formation continue, suivi des nouvelles technologies réseau et sécu</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>Conçu par <span>Sami ALAOUI KASMI</span> — BUT R&amp;T | Alternant Orange Business</p>
+    <div class="footer-links">
+      <a href="mailto:alaouikasmi.sami2007@hotmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+    <p style="margin-top:10px;font-size:0.73rem">© 2026 Sami ALAOUI KASMI</p>
+  </div>
+</footer>
+<script src="nav.js"></script>
+</body>
+</html>

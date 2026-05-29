@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>À propos & Formation — Sami ALAOUI KASMI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .about-grid { display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:start; }
+    .about-text p { color:var(--text-muted);margin-bottom:16px;font-size:0.97rem; }
+    .about-text p strong { color:var(--text); }
+    .goal-tags { display:flex;flex-wrap:wrap;gap:8px;margin-top:8px; }
+    .goal-tag {
+      padding:6px 14px;border-radius:20px;
+      background:var(--card);border:1px solid var(--border);
+      font-size:0.79rem;color:var(--orange);font-weight:500;
+      transition:var(--transition);display:flex;align-items:center;gap:6px;
+    }
+    .goal-tag:hover { background:var(--orange-glow);transform:translateY(-2px); }
+
+    /* ── Formation section ── */
+    #formation { background:var(--bg2); }
+    .formation-grid { display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:48px; }
+    .form-card {
+      background:var(--card);border:1px solid var(--border2);
+      border-radius:var(--radius);padding:28px;transition:var(--transition);
+    }
+    .form-card:hover { border-color:var(--border);box-shadow:var(--shadow); }
+    .form-card-icon {
+      width:48px;height:48px;border-radius:11px;
+      background:var(--orange-glow);border:1px solid var(--border);
+      display:flex;align-items:center;justify-content:center;
+      color:var(--orange);font-size:1.25rem;margin-bottom:16px;
+    }
+    .form-card h3 { font-size:1rem;font-weight:700;margin-bottom:5px; }
+    .form-card .school { font-size:0.82rem;color:var(--orange);margin-bottom:6px;font-weight:500; }
+    .form-card .years { font-family:var(--mono);font-size:0.74rem;color:var(--text-muted);margin-bottom:12px; }
+    .form-card p { font-size:0.84rem;color:var(--text-muted);line-height:1.7; }
+    .modules-list { display:flex;flex-wrap:wrap;gap:7px;margin-top:14px; }
+    .module-tag {
+      padding:4px 10px;border-radius:6px;
+      background:var(--bg3);border:1px solid var(--border2);
+      font-size:0.75rem;color:var(--text-muted);
+    }
+    /* Certifications */
+    .cert-grid { display:grid;grid-template-columns:1fr 1fr;gap:10px; }
+    .cert-item {
+      display:flex;align-items:center;gap:12px;
+      background:var(--card2);border:1px solid var(--border2);
+      border-radius:10px;padding:13px 16px;transition:var(--transition);
+    }
+    .cert-item:hover { border-color:var(--orange); }
+    .cert-icon { color:var(--orange);font-size:1.05rem;flex-shrink:0; }
+    .cert-info h4 { font-size:0.85rem;font-weight:600;margin-bottom:2px; }
+    .cert-info p { font-size:0.75rem;color:var(--text-muted); }
+    .cert-status-ok   { color:var(--green)!important; }
+    .cert-status-prog { color:var(--orange)!important; }
+
+    @media(max-width:900px){
+      .about-grid { grid-template-columns:1fr; }
+      .formation-grid { grid-template-columns:1fr; }
+      .cert-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">&lt;<span>Sami</span> /&gt;</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="about.html">À propos</a></li>
+    <li><a href="competences.html">Compétences</a></li>
+    <li><a href="orange.html">Orange Business</a></li>
+    <li><a href="projets.html">Projets</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="#" class="nav-cv" onclick="event.preventDefault();alert('Ajoutez votre CV ici.')"><i class="fas fa-download"></i> Mon CV</a>
+  <div class="nav-burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Accueil</a>
+  <a href="about.html" onclick="closeMenu()">À propos</a>
+  <a href="competences.html" onclick="closeMenu()">Compétences</a>
+  <a href="orange.html" onclick="closeMenu()">Orange Business</a>
+  <a href="projets.html" onclick="closeMenu()">Projets</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-orb"></div>
+  <div class="container">
+    <div class="section-tag">Présentation</div>
+    <h1>À propos &amp; Formation</h1>
+    <p>Mon parcours, mes motivations, ma formation et mes certifications.</p>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section id="about" style="background:var(--bg)">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="fade-in">
+        <div class="section-header">
+          <div class="section-tag">Qui suis-je</div>
+          <h2 class="section-title">Présentation</h2>
+        </div>
+        <div class="about-text">
+          <p>
+            Étudiant en <strong>BUT Réseaux &amp; Télécommunications</strong>, je suis actuellement en alternance chez
+            <strong>Orange Business</strong> où j'interviens chaque semaine sur des déploiements et configurations
+            de solutions télécoms pour des clients professionnels en Caen.
+          </p>
+          <p>
+            Curieux et rigoureux, je m'intéresse particulièrement à la <strong>cybersécurité</strong>,
+            à l'administration <strong>réseau</strong>, aux technologies de la <strong>fibre optique</strong>
+            et aux infrastructures <strong>cloud</strong>. Mon expérience terrain m'a donné une vision
+            concrète des problématiques d'entreprise.
+          </p>
+        </div>
+
+        <div style="margin-top:28px">
+          <h3 style="font-size:0.88rem;font-weight:700;color:var(--text-muted);margin-bottom:14px;font-family:var(--mono)">//&nbsp;Objectifs professionnels</h3>
+          <div class="goal-tags">
+            <span class="goal-tag"><i class="fas fa-shield-halved"></i> Cybersécurité</span>
+            <span class="goal-tag"><i class="fas fa-network-wired"></i> Architecture Réseau</span>
+            <span class="goal-tag"><i class="fas fa-cloud"></i> Cloud Computing</span>
+            <span class="goal-tag"><i class="fas fa-server"></i> Administration Systèmes</span>
+            <span class="goal-tag"><i class="fas fa-lock"></i> Sécurité des SI</span>
+            <span class="goal-tag"><i class="fas fa-phone-volume"></i> Téléphonie IP</span>
+            <span class="goal-tag"><i class="fas fa-eye"></i> SOC / SIEM</span>
+          </div>
+        </div>
+
+        <!-- Mini stats -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px">
+          <div style="background:var(--card);border:1px solid var(--border2);border-radius:10px;padding:18px;text-align:center">
+            <div style="font-size:1.6rem;font-weight:800;color:var(--orange)">1+</div>
+            <div style="font-size:0.73rem;color:var(--text-muted);margin-top:3px">Ans d'alternance</div>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border2);border-radius:10px;padding:18px;text-align:center">
+            <div style="font-size:1.6rem;font-weight:800;color:var(--orange)">250+</div>
+            <div style="font-size:0.73rem;color:var(--text-muted);margin-top:3px">Interventions terrain</div>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border2);border-radius:10px;padding:18px;text-align:center">
+            <div style="font-size:1.6rem;font-weight:800;color:var(--orange)">20</div>
+            <div style="font-size:0.73rem;color:var(--text-muted);margin-top:3px">Projets académiques</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <div class="fade-in d2">
+        <h3 style="font-size:0.88rem;font-weight:700;color:var(--text-muted);margin-bottom:22px;font-family:var(--mono)">//&nbsp;Parcours chronologique</h3>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"><i class="fas fa-briefcase"></i></div>
+            <div>
+              <div class="tl-year">2025 → Aujourd'hui</div>
+              <div class="tl-title">Alternant Technicien Télécoms — Orange Business</div>
+              <div class="tl-desc">Déploiement FTTH/FTTE/FTTO, routeurs, IPBX, Connect Pro. Caen.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"><i class="fas fa-graduation-cap"></i></div>
+            <div>
+              <div class="tl-year">2025 → Aujourd'hui</div>
+              <div class="tl-title">BUT Réseaux &amp; Télécommunications</div>
+              <div class="tl-desc">IUT en alternance — spécialité Cybersécurité</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"><i class="fas fa-school"></i></div>
+            <div>
+              <div class="tl-year">2022 → 2025</div>
+              <div class="tl-title">Baccalauréat</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            
+          </div>
+        </div>
+
+        <!-- Info card -->
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── FORMATION ── -->
+<section id="formation">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag">Formation académique</div>
+      <h2 class="section-title">Diplômes &amp; Cursus</h2>
+      <p class="section-subtitle">Un cursus technologique axé sur les réseaux, les télécommunications et la cybersécurité.</p>
+    </div>
+
+    <div class="formation-grid fade-in">
+      <div class="form-card">
+        <div class="form-card-icon"><i class="fas fa-graduation-cap"></i></div>
+        <h3>BUT Réseaux &amp; Télécommunications</h3>
+        <div class="school">IUT — Parcours Cybersécurité &amp; Réseaux d'entreprise</div>
+        <div class="years">2025 → Aujourd'hui &nbsp;|&nbsp; Alternance (1 mois IUT / 1 mois entreprise)</div>
+        <p>
+          Formation de niveau Bac+3 axée sur l'administration réseau, la sécurisation des systèmes d'information,
+          les technologies télécoms (FTTH, FTTO, VoIP) et le cloud computing.
+          L'alternance chez Orange Business apporte une dimension terrain indispensable.
+        </p>
+        <div class="modules-list">
+          <span class="module-tag">Administration réseaux</span>
+          <span class="module-tag">Cybersécurité</span>
+          <span class="module-tag">Linux / Windows Server</span>
+          <span class="module-tag">Protocoles télécoms</span>
+          <span class="module-tag">Cloud &amp; virtualisation</span>
+          <span class="module-tag">Scripts &amp; automatisation</span>
+          <span class="module-tag">Fibre optique</span>
+          <span class="module-tag">Téléphonie IP / VoIP</span>
+          <span class="module-tag">Projet professionnel</span>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <div class="form-card-icon"><i class="fas fa-school"></i></div>
+        <h3>Baccalauréat</h3>
+        <div class="school"></div>
+        <div class="years">2022 → 2025</div>
+        <p>
+          Formation technologique axée sur les systèmes embarqués, la programmation et les réseaux de communication.
+          Première approche des protocoles IP, de la programmation Python et de l'architecture numérique.
+          Projet de terminale : développement d'un système de surveillance réseau local.
+        </p>
+        <div class="modules-list">
+          <span class="module-tag">Programmation Python</span>
+          <span class="module-tag">Électronique numérique</span>
+          <span class="module-tag">Protocoles réseau IP</span>
+          <span class="module-tag">Systèmes embarqués</span>
+          <span class="module-tag">Mathématiques avancées</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="section-header fade-in" style="margin-top:20px">
+      <div class="section-tag">Certifications</div>
+      <h2 class="section-title">Certifications &amp; Objectifs</h2>
+    </div>
+
+    <div class="cert-grid fade-in d1">
+      <div class="cert-item">
+        <i class="fas fa-certificate cert-icon cert-status-prog"></i>
+        <div class="cert-info">
+          <h4>Cisco CCNA — En cours</h4>
+          <p>Routing &amp; Switching · Objectif 2025</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <i class="fas fa-shield-halved cert-icon cert-status-prog"></i>
+        <div class="cert-info">
+          <h4>CompTIA Security+</h4>
+          <p>Fondamentaux cybersécurité · Objectif 2026</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <i class="fab fa-microsoft cert-icon cert-status-prog"></i>
+        <div class="cert-info">
+          <h4>AZ-900 Azure Fundamentals</h4>
+          <p>Cloud Microsoft · Objectif 2026</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <i class="fas fa-user-secret cert-icon cert-status-prog"></i>
+        <div class="cert-info">
+          <h4>CEH — Certified Ethical Hacker</h4>
+          <p>Pentest &amp; sécurité offensive · Objectif 2026</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <i class="fas fa-check-circle cert-icon cert-status-ok"></i>
+        <div class="cert-info">
+          <h4>Habilitation électrique B0 H0</h4>
+          <p>Sécurité électrique terrain · Obtenu</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <i class="fas fa-check-circle cert-icon cert-status-ok"></i>
+        <div class="cert-info">
+          <h4>Permis de conduire B</h4>
+          <p>Mobilité interventions terrain · Obtenu</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>Conçu par <span>Sami ALAOUI KASMI</span> — BUT R&amp;T | Alternant Orange Business</p>
+    <div class="footer-links">
+      <a href="mailto:alaouikasmi.sami2007@hotmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+    <p style="margin-top:10px;font-size:0.73rem">© 2026 Sami ALAOUI KASMI</p>
+  </div>
+</footer>
+<script src="nav.js"></script>
+</body>
+</html>

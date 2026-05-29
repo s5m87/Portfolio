@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connect Pro — Notice d'installation | Orange Business</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="detail.css" />
+</head>
+<body>
+  <nav class="topbar">
+    <a href="../index.html#experience" class="back-btn"><i class="fas fa-arrow-left"></i> Retour au portfolio</a>
+    <div class="topbar-info">
+      <span class="badge-orange"><i class="fas fa-plug"></i> Connect Pro</span>
+    </div>
+  </nav>
+
+  <header class="page-hero" style="--accent:#FF6B00">
+    <div class="page-hero-bg"></div>
+    <div class="container">
+      <div class="page-hero-tag"><i class="fas fa-plug"></i> Orange Business — Offre Accès</div>
+      <h1 class="page-hero-title">Connect Pro</h1>
+      <p class="page-hero-sub">Solution d'accès internet haut débit professionnel avec QoS et SLA garantis pour TPE / PME et grandes entreprises</p>
+      <div class="hero-pills">
+        <span class="pill"><i class="fas fa-wifi"></i> ADSL2+ / VDSL2 / Fibre</span>
+        <span class="pill"><i class="fas fa-shield-halved"></i> SLA garanti</span>
+        <span class="pill"><i class="fas fa-chart-line"></i> QoS administrée</span>
+        <span class="pill"><i class="fas fa-clock"></i> Débit symétrique</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container page-body">
+
+    <!-- PRÉSENTATION -->
+    <section class="detail-section">
+      <div class="section-label"><i class="fas fa-info-circle"></i> Présentation de l'offre</div>
+      <div class="two-col">
+        <div>
+          <h2 class="section-h2">Qu'est-ce que Connect Pro ?</h2>
+          <p>Connect Pro est la solution d'accès internet professionnel d'Orange dédiée aux entreprises de toute taille. Elle garantit une connectivité haut débit avec un engagement de disponibilité contractuel (SLA), une qualité de service (QoS) administrée et un support technique prioritaire 24h/24.</p>
+          <p>Contrairement à une offre grand public, Connect Pro intègre :</p>
+          <ul class="feature-list">
+            <li><i class="fas fa-check"></i> Un accès dédié ou mutualisé selon le contrat (débit garanti jusqu'à 100%)</li>
+            <li><i class="fas fa-check"></i> Une adresse IP fixe (IPv4 et/ou IPv6)</li>
+            <li><i class="fas fa-check"></i> Un SLA de disponibilité jusqu'à 99,9% avec pénalités contractuelles</li>
+            <li><i class="fas fa-check"></i> Un équipement CPE fourni et maintenu par Orange</li>
+            <li><i class="fas fa-check"></i> Un portail d'administration Business permettant la supervision en temps réel</li>
+            <li><i class="fas fa-check"></i> Option de backup 4G/LTE en cas de coupure (failover automatique)</li>
+          </ul>
+        </div>
+        <div class="info-card-stack">
+          <div class="info-card">
+            <div class="info-card-icon" style="color:#FF6B00"><i class="fas fa-bolt"></i></div>
+            <div class="info-card-label">Débit descendant</div>
+            <div class="info-card-val">Jusqu'à 10 Gbps (Fibre)</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon" style="color:#FF6B00"><i class="fas fa-upload"></i></div>
+            <div class="info-card-label">Débit montant</div>
+            <div class="info-card-val">Symétrique sur fibre dédiée</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon" style="color:#2ECC71"><i class="fas fa-check-circle"></i></div>
+            <div class="info-card-label">Disponibilité SLA</div>
+            <div class="info-card-val">99,5% à 99,9%</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon" style="color:#3498DB"><i class="fas fa-headset"></i></div>
+            <div class="info-card-label">Support technique</div>
+            <div class="info-card-val">24h/24 — 7j/7</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHÉMA RÉSEAU SVG -->
+    <section class="detail-section">
+      <div class="section-label"><i class="fas fa-diagram-project"></i> Architecture réseau</div>
+      <div class="schema-wrap">
+        <svg viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg" class="network-svg">
+          <defs>
+            <marker id="arr" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 Z" fill="#FF6B00" opacity="0.8"/>
+            </marker>
+            <marker id="arr2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 Z" fill="#8B97B0" opacity="0.6"/>
+            </marker>
+            <filter id="glow"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+
+          <!-- Background -->
+          <rect width="900" height="340" rx="16" fill="#0E1420"/>
+          <rect x="1" y="1" width="898" height="338" rx="15" fill="none" stroke="#FF6B00" stroke-opacity="0.1" stroke-width="1"/>
+
+          <!-- Zone Internet -->
+          <rect x="20" y="80" width="130" height="180" rx="10" fill="#141A28" stroke="#FF6B00" stroke-opacity="0.2"/>
+          <text x="85" y="72" fill="#FF6B00" font-size="11" font-family="JetBrains Mono" text-anchor="middle" opacity="0.8">INTERNET</text>
+          <!-- Cloud icon -->
+          <ellipse cx="85" cy="155" rx="40" ry="28" fill="#FF6B00" opacity="0.1" filter="url(#glow)"/>
+          <text x="85" y="160" fill="#FF6B00" font-size="28" text-anchor="middle" font-family="Arial">☁</text>
+          <text x="85" y="190" fill="#8B97B0" font-size="9" text-anchor="middle">Réseau Orange</text>
+          <text x="85" y="203" fill="#8B97B0" font-size="9" text-anchor="middle">MPLS / Backbone</text>
+
+          <!-- Ligne NRO -->
+          <rect x="190" y="100" width="120" height="140" rx="10" fill="#141A28" stroke="#FF6B00" stroke-opacity="0.25"/>
+          <text x="250" y="118" fill="#FF6B00" font-size="10" font-family="JetBrains Mono" text-anchor="middle">NRO</text>
+          <rect x="215" y="128" width="70" height="40" rx="6" fill="#1A2235" stroke="#FF6B00" stroke-opacity="0.3"/>
+          <text x="250" y="150" fill="#E8EDF5" font-size="9" text-anchor="middle">DSLAM /</text>
+          <text x="250" y="162" fill="#E8EDF5" font-size="9" text-anchor="middle">OLT</text>
+          <rect x="215" y="180" width="70" height="30" rx="5" fill="#1A2235" stroke="#8B97B0" stroke-opacity="0.2"/>
+          <text x="250" y="198" fill="#8B97B0" font-size="8" text-anchor="middle">Équipement</text>
+          <text x="250" y="208" fill="#8B97B0" font-size="8" text-anchor="middle">Orange</text>
+
+          <!-- Modem/ONT -->
+          <rect x="360" y="90" width="130" height="160" rx="10" fill="#141A28" stroke="#FF6B00" stroke-opacity="0.3"/>
+          <text x="425" y="108" fill="#FF6B00" font-size="10" font-family="JetBrains Mono" text-anchor="middle">CPE / MODEM</text>
+          <rect x="385" y="118" width="80" height="50" rx="6" fill="#1A2235" stroke="#FF6B00" stroke-opacity="0.4"/>
+          <text x="425" y="138" fill="#E8EDF5" font-size="9" text-anchor="middle">Routeur Orange</text>
+          <text x="425" y="152" fill="#8B97B0" font-size="8" text-anchor="middle">PPPoE / DHCP</text>
+          <text x="425" y="164" fill="#8B97B0" font-size="8" text-anchor="middle">IP fixe WAN</text>
+          <!-- Ports indicators -->
+          <circle cx="395" cy="200" r="5" fill="#2ECC71" opacity="0.8"/>
+          <circle cx="410" cy="200" r="5" fill="#2ECC71" opacity="0.8"/>
+          <circle cx="425" cy="200" r="5" fill="#FF6B00" opacity="0.8"/>
+          <circle cx="440" cy="200" r="5" fill="#8B97B0" opacity="0.4"/>
+          <text x="425" y="222" fill="#8B97B0" font-size="8" text-anchor="middle">Ports LAN / WAN</text>
+
+          <!-- Firewall -->
+          <rect x="540" y="100" width="110" height="130" rx="10" fill="#141A28" stroke="#E74C3C" stroke-opacity="0.3"/>
+          <text x="595" y="118" fill="#E74C3C" font-size="10" font-family="JetBrains Mono" text-anchor="middle">FIREWALL</text>
+          <rect x="560" y="128" width="70" height="70" rx="6" fill="#1A2235" stroke="#E74C3C" stroke-opacity="0.25"/>
+          <text x="595" y="150" fill="#E8EDF5" font-size="8" text-anchor="middle">ACL / NAT</text>
+          <text x="595" y="163" fill="#8B97B0" font-size="7" text-anchor="middle">Filtrage entrant</text>
+          <text x="595" y="175" fill="#8B97B0" font-size="7" text-anchor="middle">Filtrage sortant</text>
+          <text x="595" y="187" fill="#8B97B0" font-size="7" text-anchor="middle">Port forwarding</text>
+
+          <!-- Switch LAN -->
+          <rect x="700" y="90" width="90" height="80" rx="10" fill="#141A28" stroke="#3498DB" stroke-opacity="0.3"/>
+          <text x="745" y="108" fill="#3498DB" font-size="10" font-family="JetBrains Mono" text-anchor="middle">SWITCH</text>
+          <rect x="715" y="116" width="60" height="35" rx="5" fill="#1A2235"/>
+          <text x="745" y="130" fill="#E8EDF5" font-size="8" text-anchor="middle">802.1Q</text>
+          <text x="745" y="143" fill="#8B97B0" font-size="7" text-anchor="middle">VLAN Mgmt</text>
+          <text x="745" y="155" fill="#8B97B0" font-size="7" text-anchor="middle">PoE+</text>
+
+          <!-- Devices -->
+          <rect x="700" y="200" width="38" height="60" rx="6" fill="#141A28" stroke="#8B97B0" stroke-opacity="0.2"/>
+          <text x="719" y="222" fill="#E8EDF5" font-size="7" text-anchor="middle">💻 PC</text>
+          <text x="719" y="250" fill="#8B97B0" font-size="6" text-anchor="middle">Poste</text>
+          <rect x="752" y="200" width="38" height="60" rx="6" fill="#141A28" stroke="#8B97B0" stroke-opacity="0.2"/>
+          <text x="771" y="222" fill="#E8EDF5" font-size="7" text-anchor="middle">📞 IP</text>
+          <text x="771" y="250" fill="#8B97B0" font-size="6" text-anchor="middle">Téléphone</text>
+
+          <!-- Arrows / Lines -->
+          <line x1="150" y1="170" x2="188" y2="170" stroke="#FF6B00" stroke-width="2" stroke-opacity="0.7" marker-end="url(#arr)"/>
+          <line x1="310" y1="165" x2="358" y2="165" stroke="#FF6B00" stroke-width="2" stroke-opacity="0.7" marker-end="url(#arr)"/>
+          <line x1="492" y1="160" x2="538" y2="160" stroke="#FF6B00" stroke-width="2" stroke-opacity="0.7" marker-end="url(#arr)"/>
+          <line x1="652" y1="150" x2="698" y2="135" stroke="#3498DB" stroke-width="2" stroke-opacity="0.7" marker-end="url(#arr2)"/>
+          <line x1="745" y1="172" x2="719" y2="198" stroke="#8B97B0" stroke-width="1.5" stroke-opacity="0.5" marker-end="url(#arr2)"/>
+          <line x1="745" y1="172" x2="771" y2="198" stroke="#8B97B0" stroke-width="1.5" stroke-opacity="0.5" marker-end="url(#arr2)"/>
+
+          <!-- Labels connexion -->
+          <text x="163" y="162" fill="#FF6B00" font-size="8" text-anchor="middle" opacity="0.8">Backbone</text>
+          <text x="332" y="157" fill="#FF6B00" font-size="8" text-anchor="middle" opacity="0.8">ADSL/Fibre</text>
+          <text x="516" y="152" fill="#FF6B00" font-size="8" text-anchor="middle" opacity="0.8">LAN RJ45</text>
+          <text x="672" y="138" fill="#3498DB" font-size="8" text-anchor="middle" opacity="0.8">Trunk</text>
+
+          <!-- Backup 4G -->
+          <rect x="360" y="270" width="130" height="50" rx="8" fill="#141A28" stroke="#F39C12" stroke-opacity="0.3" stroke-dasharray="4,3"/>
+          <text x="425" y="289" fill="#F39C12" font-size="8" text-anchor="middle">📶 Backup 4G/LTE</text>
+          <text x="425" y="305" fill="#8B97B0" font-size="7" text-anchor="middle">Failover automatique</text>
+          <line x1="425" y1="250" x2="425" y2="268" stroke="#F39C12" stroke-width="1.5" stroke-opacity="0.5" stroke-dasharray="3,3"/>
+
+          <!-- Title -->
+          <text x="450" y="25" fill="#E8EDF5" font-size="13" font-weight="bold" text-anchor="middle" font-family="Inter">Architecture Connect Pro — Orange Business</text>
+          <text x="450" y="42" fill="#8B97B0" font-size="9" text-anchor="middle">De l'accès WAN au réseau local client avec QoS et failover 4G</text>
+        </svg>
+        <div class="schema-legend">
+          <div class="legend-item"><span class="legend-dot" style="background:#FF6B00"></span> Flux principal Orange</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#3498DB"></span> Réseau local (LAN)</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#E74C3C"></span> Sécurité / Firewall</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#F39C12"></span> Backup 4G (failover)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRÉREQUIS -->
+    <section class="detail-section">
+      <div class="section-label"><i class="fas fa-clipboard-check"></i> Prérequis avant intervention</div>
+      <div class="prereq-grid">
+        <div class="prereq-card">
+          <div class="prereq-icon"><i class="fas fa-file-contract"></i></div>
+          <h3>Documents</h3>
+          <ul>
+            <li>Bon de commande client signé</li>
+            <li>Fiche technique de l'offre souscrite</li>
+            <li>Plan réseau du client (si fourni)</li>
+            <li>Numéro de ticket GLPI ouvert</li>
+          </ul>
+        </div>
+        <div class="prereq-card">
+          <div class="prereq-icon"><i class="fas fa-toolbox"></i></div>
+          <h3>Matériel</h3>
+          <ul>
+            <li>Routeur/Modem CPE fourni par Orange</li>
+            <li>Câbles RJ45 cat. 6 (plusieurs longueurs)</li>
+            <li>Câble console RJ45-DB9 ou USB</li>
+            <li>Testeur de câble réseau</li>
+            <li>Multimètre électrique</li>
+            <li>Laptop avec Wireshark et Putty</li>
+          </ul>
+        </div>
+        <div class="prereq-card">
+          <div class="prereq-icon"><i class="fas fa-network-wired"></i></div>
+          <h3>Vérifications réseau</h3>
+          <ul>
+            <li>Ligne téléphonique ou prise fibre active</li>
+            <li>Confirmation de l'adresse IP fixe attribuée</li>
+            <li>Identifiants PPPoE communiqués par Orange</li>
+            <li>Passerelle WAN et DNS Orange</li>
+          </ul>
+        </div>
+        <div class="prereq-card">
+          <div class="prereq-icon"><i class="fas fa-user"></i></div>
+          <h3>Coordination</h3>
+          <ul>
+            <li>Rendez-vous confirmé avec interlocuteur client</li>
+            <li>Accès aux locaux techniques (salle serveur)</li>
+            <li>Contact SI/réseau interne du client</li>
+            <li>Plage de maintenance validée</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOTICE D'INSTALLATION -->
+    <section class="detail-section">
+      <div class="section-label"><i class="fas fa-list-ol"></i> Notice d'installation — Étape par étape</div>
+      <div class="notice-steps">
+
+        <div class="notice-step">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <h3>Accueil et vérification documentaire</h3>
+            <p>À l'arrivée chez le client, se présenter et vérifier que les informations du bon de commande correspondent à la prestation attendue. Confirmer l'emplacement de l'installation.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Points à vérifier</div>
+              <div class="cmd-body">
+                ✓ Numéro de référence commande<br>
+                ✓ Adresse du site correspond<br>
+                ✓ Type d'offre (débit, technologie d'accès)<br>
+                ✓ Adresse IP fixe attribuée par Orange<br>
+                ✓ Accès à la baie ou au local technique
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <h3>Raccordement physique du CPE</h3>
+            <p>Installer le modem/routeur CPE dans la baie ou l'espace désigné. Connecter le câble d'accès WAN (ligne DSL ou fibre) et les câbles LAN vers le réseau client.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Câblage standard</div>
+              <div class="cmd-body">
+                PORT WAN  → Prise téléphonique / PTO fibre<br>
+                PORT LAN1 → Switch principal client (ou PC direct)<br>
+                PORT LAN2 → Backup / DMZ si besoin<br>
+                Alimentation → Bloc secteur 230V stabilisé<br><br>
+                <span style="color:#F39C12">⚠ Vérifier la polarité sur ligne DSL (L1/L2)</span><br>
+                <span style="color:#2ECC71">✓ LED WAN doit devenir verte après sync</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <h3>Configuration de l'interface WAN (PPPoE)</h3>
+            <p>Accéder à l'interface d'administration du CPE et configurer la connexion WAN avec les identifiants PPPoE fournis dans la fiche technique Orange.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Interface d'admin CPE (ex: Cisco / Huawei)</div>
+              <div class="cmd-body">
+                <span style="color:#FF6B00">interface dialer 0</span><br>
+                &nbsp;encapsulation ppp<br>
+                &nbsp;ppp chap hostname <span style="color:#2ECC71">login@orange.fr</span><br>
+                &nbsp;ppp chap password <span style="color:#2ECC71">motdepasse</span><br>
+                &nbsp;ip address negotiated<br>
+                &nbsp;no shutdown<br>
+                <br>
+                <span style="color:#FF6B00">ip route</span> 0.0.0.0 0.0.0.0 dialer0<br>
+                <span style="color:#FF6B00">ip nat outside</span> → sur interface WAN<br>
+                <span style="color:#8B97B0">! IP fixe attribuée automatiquement via PPPoE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">04</div>
+          <div class="step-content">
+            <h3>Configuration du réseau local (LAN / DHCP / NAT)</h3>
+            <p>Configurer l'interface LAN avec l'adressage IP du client, activer le serveur DHCP et mettre en place le NAT/PAT pour la translation d'adresses.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Configuration LAN + DHCP + NAT</div>
+              <div class="cmd-body">
+                <span style="color:#8B97B0">! Interface LAN</span><br>
+                <span style="color:#FF6B00">interface GigabitEthernet0/1</span><br>
+                &nbsp;ip address 192.168.1.1 255.255.255.0<br>
+                &nbsp;ip nat inside<br>
+                &nbsp;no shutdown<br>
+                <br>
+                <span style="color:#8B97B0">! Pool DHCP</span><br>
+                <span style="color:#FF6B00">ip dhcp pool CLIENT_LAN</span><br>
+                &nbsp;network 192.168.1.0 255.255.255.0<br>
+                &nbsp;default-router 192.168.1.1<br>
+                &nbsp;dns-server 80.10.246.2 80.10.246.129<br>
+                &nbsp;lease 1<br>
+                <br>
+                <span style="color:#8B97B0">! NAT overload (PAT)</span><br>
+                <span style="color:#FF6B00">ip nat inside source list 1 interface Dialer0 overload</span><br>
+                <span style="color:#FF6B00">access-list 1 permit</span> 192.168.1.0 0.0.0.255
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">05</div>
+          <div class="step-content">
+            <h3>Configuration VLAN (si segmentation requise)</h3>
+            <p>Si le client dispose de plusieurs services à isoler (Voix, Données, Management), configurer les VLANs sur le CPE et le switch en aval.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Exemple VLAN 802.1Q — 3 segments</div>
+              <div class="cmd-body">
+                <span style="color:#8B97B0">! Sous-interfaces LAN avec VLAN</span><br>
+                <span style="color:#FF6B00">interface Gi0/1.10</span><br>
+                &nbsp;encapsulation dot1Q <span style="color:#3498DB">10</span><br>
+                &nbsp;ip address 192.168.10.1 255.255.255.0<br>
+                &nbsp;description <span style="color:#2ECC71">VLAN-DATA</span><br>
+                <br>
+                <span style="color:#FF6B00">interface Gi0/1.20</span><br>
+                &nbsp;encapsulation dot1Q <span style="color:#3498DB">20</span><br>
+                &nbsp;ip address 10.0.20.1 255.255.255.0<br>
+                &nbsp;description <span style="color:#2ECC71">VLAN-VOIX</span><br>
+                &nbsp;ip dscp ef<span style="color:#8B97B0"> &lt;!-- Priorité QoS VoIP --&gt;</span><br>
+                <br>
+                <span style="color:#FF6B00">interface Gi0/1.99</span><br>
+                &nbsp;encapsulation dot1Q <span style="color:#3498DB">99</span><br>
+                &nbsp;ip address 172.16.99.1 255.255.255.0<br>
+                &nbsp;description <span style="color:#2ECC71">VLAN-MGMT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">06</div>
+          <div class="step-content">
+            <h3>Activation et tests de connectivité</h3>
+            <p>Vérifier la synchronisation WAN, tester la connectivité internet et mesurer les débits dans les deux sens pour valider le SLA.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Commandes de validation</div>
+              <div class="cmd-body">
+                <span style="color:#8B97B0">! Vérifier l'état de l'interface WAN</span><br>
+                <span style="color:#FF6B00">show interface Dialer0</span><br>
+                <span style="color:#2ECC71">→ Dialer0 is up, line protocol is up</span><br>
+                <span style="color:#2ECC71">→ Internet address is 90.x.x.x/32</span><br>
+                <br>
+                <span style="color:#8B97B0">! Test connectivité internet</span><br>
+                <span style="color:#FF6B00">ping 8.8.8.8 repeat 100</span><br>
+                <span style="color:#2ECC71">→ !!!!! (100% success, &lt;5ms)</span><br>
+                <br>
+                <span style="color:#8B97B0">! Vérification route par défaut</span><br>
+                <span style="color:#FF6B00">show ip route 0.0.0.0</span><br>
+                <br>
+                <span style="color:#8B97B0">! Test débit (depuis PC client)</span><br>
+                speedtest-cli --server orange → ↓ 200 Mbps ↑ 200 Mbps
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">07</div>
+          <div class="step-content">
+            <h3>Test de bascule Failover 4G</h3>
+            <p>Si l'option backup 4G est souscrite, tester la bascule automatique en simulant une coupure de la ligne principale.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Test failover</div>
+              <div class="cmd-body">
+                <span style="color:#8B97B0">! Déclencher la bascule manuellement</span><br>
+                <span style="color:#FF6B00">interface Dialer0</span><br>
+                &nbsp;shutdown<br>
+                <br>
+                <span style="color:#8B97B0">! Vérifier que le backup prend le relais</span><br>
+                <span style="color:#FF6B00">show ip interface brief</span><br>
+                <span style="color:#2ECC71">→ Cellular0/0/0 — UP — IP 4G attribuée</span><br>
+                <span style="color:#2ECC71">→ Ping 8.8.8.8 répond via 4G</span><br>
+                <br>
+                <span style="color:#8B97B0">! Restaurer la ligne principale</span><br>
+                <span style="color:#FF6B00">interface Dialer0</span><br>
+                &nbsp;no shutdown<br>
+                <span style="color:#2ECC71">→ Bascule retour automatique en &lt;30s</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">08</div>
+          <div class="step-content">
+            <h3>Clôture et remise en main client</h3>
+            <p>Rédiger le compte-rendu d'intervention, noter les paramètres de configuration et remettre les accès au client avec explication.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Éléments à documenter (CR d'intervention GLPI)</div>
+              <div class="cmd-body">
+                ✓ Date, heure début/fin d'intervention<br>
+                ✓ Référence commande et numéro de ticket<br>
+                ✓ Adresse IP WAN fixe attribuée<br>
+                ✓ Adresse IP LAN du routeur (passerelle)<br>
+                ✓ Plage DHCP configurée<br>
+                ✓ VLANs créés (ID + description + subnet)<br>
+                ✓ Résultat tests de débit (↓ X Mbps / ↑ X Mbps)<br>
+                ✓ Signature du bon de recette client<br>
+                ✓ Photos de l'installation câblage
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TROUBLESHOOTING -->
+    <section class="detail-section">
+      <div class="section-label"><i class="fas fa-bug"></i> Dépannage fréquent</div>
+      <div class="trouble-grid">
+        <div class="trouble-card">
+          <div class="trouble-symptom"><i class="fas fa-times-circle" style="color:#E74C3C"></i> LED WAN rouge / pas de sync</div>
+          <div class="trouble-cause">Ligne non activée côté NRO Orange, ou câble DSL défectueux</div>
+          <div class="trouble-fix">→ Vérifier activation dans le SI Orange → Tester avec câble de remplacement → Contacter le support Orange si persistant</div>
+        </div>
+        <div class="trouble-card">
+          <div class="trouble-symptom"><i class="fas fa-times-circle" style="color:#E74C3C"></i> Authentification PPPoE échoue</div>
+          <div class="trouble-cause">Identifiants PPPoE incorrects ou ligne non provisionnée</div>
+          <div class="trouble-fix">→ Vérifier login/password PPPoE dans la fiche technique → Confirmer le provisionnement auprès du back-office Orange</div>
+        </div>
+        <div class="trouble-card">
+          <div class="trouble-symptom"><i class="fas fa-times-circle" style="color:#E74C3C"></i> Pas d'accès internet côté LAN</div>
+          <div class="trouble-cause">NAT non configuré, route par défaut manquante</div>
+          <div class="trouble-fix">→ Vérifier <code>show ip nat translations</code> → Vérifier <code>show ip route 0.0.0.0</code> → Contrôler access-list NAT</div>
+        </div>
+        <div class="trouble-card">
+          <div class="trouble-symptom"><i class="fas fa-times-circle" style="color:#E74C3C"></i> Débit inférieur au contrat</div>
+          <div class="trouble-cause">Atténuation élevée sur ligne DSL, ou QoS mal configurée</div>
+          <div class="trouble-fix">→ Mesurer l'atténuation ligne (ATUC/ATUR) → Vérifier la distance au NRO → Signaler au NOC Orange si débit garanti non atteint</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    <div class="container">
+      <a href="../index.html#experience" class="back-btn"><i class="fas fa-arrow-left"></i> Retour au portfolio</a>
+      <p>Sami Alaouikasmi — Alternant Orange Business | BUT R&T</p>
+    </div>
+  </footer>
+
+  <script src="detail.js"></script>
+</body>
+</html>

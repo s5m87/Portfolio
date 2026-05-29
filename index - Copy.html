@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sami ALOUI KASMI — Étudiant BUT R&T | Alternant chez Orange</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --orange: #FF6B00;
+      --orange-light: #FF8C35;
+      --orange-glow: rgba(255,107,0,0.18);
+      --bg: #080C14;
+      --bg2: #0E1420;
+      --bg3: #141A28;
+      --card: #111827;
+      --card2: #1A2235;
+      --border: rgba(255,107,0,0.15);
+      --border2: rgba(255,255,255,0.07);
+      --text: #E8EDF5;
+      --text-muted: #8B97B0;
+      --text-faint: #4A5568;
+      --font: 'Inter', sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+      --radius: 14px;
+      --radius-sm: 8px;
+      --shadow: 0 4px 32px rgba(0,0,0,0.5);
+      --shadow-orange: 0 0 32px rgba(255,107,0,0.2);
+      --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    ::selection { background: var(--orange); color: #fff; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    section { padding: 100px 0; }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 3px; }
+
+    /* ===== NOISE OVERLAY ===== */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: 0.4;
+    }
+
+    /* ===== CONTAINER ===== */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+    /* ===== NAV ===== */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 68px;
+      background: rgba(8,12,20,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border2);
+      transition: var(--transition);
+    }
+    #navbar.scrolled { box-shadow: 0 4px 40px rgba(0,0,0,0.6); border-color: var(--border); }
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 1rem; font-weight: 500;
+      color: var(--orange);
+      letter-spacing: 0.05em;
+    }
+    .nav-logo span { color: var(--text-muted); }
+    .nav-links { display: flex; gap: 8px; list-style: none; }
+    .nav-links a {
+      padding: 6px 14px; border-radius: 6px;
+      font-size: 0.85rem; font-weight: 500; color: var(--text-muted);
+      transition: var(--transition);
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--orange); background: var(--orange-glow); }
+    .nav-cta {
+      padding: 8px 20px;
+      background: var(--orange); color: #fff;
+      border-radius: 8px; font-size: 0.82rem; font-weight: 600;
+      transition: var(--transition);
+      border: none; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 7px;
+    }
+    .nav-cta:hover { background: var(--orange-light); transform: translateY(-1px); box-shadow: var(--shadow-orange); }
+    .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .nav-burger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: var(--transition); }
+    .mobile-menu {
+      display: none; position: fixed; top: 68px; left: 0; right: 0;
+      background: rgba(8,12,20,0.97); backdrop-filter: blur(20px);
+      padding: 20px; z-index: 999;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a {
+      display: block; padding: 12px 16px; border-radius: 8px;
+      font-size: 0.95rem; font-weight: 500; color: var(--text-muted);
+      transition: var(--transition);
+    }
+    .mobile-menu a:hover { color: var(--orange); background: var(--orange-glow); }
+
+    /* ===== SECTION HEADER ===== */
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--mono); font-size: 0.78rem; font-weight: 500;
+      color: var(--orange); letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .section-tag::before, .section-tag::after {
+      content: ''; display: block; width: 24px; height: 1px; background: var(--orange); opacity: 0.6;
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800; line-height: 1.15;
+      background: linear-gradient(135deg, #fff 0%, var(--text-muted) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+    }
+    .section-subtitle { font-size: 1rem; color: var(--text-muted); max-width: 560px; }
+    .section-header { margin-bottom: 60px; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-tag { justify-content: center; }
+    .section-header.center .section-subtitle { margin: 0 auto; }
+
+    /* ===== HERO ===== */
+    #hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding-top: 68px;
+      position: relative; overflow: hidden;
+    }
+    .hero-grid-bg {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,107,0,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,107,0,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 40%, transparent 100%);
+    }
+    .hero-orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(80px); pointer-events: none;
+    }
+    .hero-orb-1 { width: 500px; height: 500px; background: rgba(255,107,0,0.12); top: -100px; right: -100px; }
+    .hero-orb-2 { width: 350px; height: 350px; background: rgba(255,107,0,0.06); bottom: 0; left: -80px; }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 400px;
+      gap: 60px; align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--orange-glow); border: 1px solid var(--border);
+      border-radius: 50px; padding: 6px 16px;
+      font-size: 0.78rem; font-weight: 500; color: var(--orange);
+      margin-bottom: 24px;
+    }
+    .hero-badge .dot { width: 7px; height: 7px; background: #2ECC71; border-radius: 50%; animation: pulse-dot 2s ease infinite; }
+    @keyframes pulse-dot { 0%,100%{box-shadow:0 0 0 0 rgba(46,204,113,0.5)} 50%{box-shadow:0 0 0 6px rgba(46,204,113,0)} }
+    .hero-name {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900; line-height: 1.05;
+      background: linear-gradient(135deg, #fff 30%, var(--text-muted) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 6px;
+    }
+    .hero-title {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--orange); font-weight: 600;
+      font-family: var(--mono); margin-bottom: 20px;
+      min-height: 2em;
+    }
+    .hero-desc { font-size: 1.05rem; color: var(--text-muted); max-width: 520px; margin-bottom: 36px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 13px 28px; border-radius: 10px;
+      font-size: 0.9rem; font-weight: 600;
+      transition: var(--transition); cursor: pointer; border: none;
+    }
+    .btn-primary { background: var(--orange); color: #fff; }
+    .btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); box-shadow: var(--shadow-orange); }
+    .btn-outline {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border2);
+    }
+    .btn-outline:hover { border-color: var(--orange); color: var(--orange); background: var(--orange-glow); transform: translateY(-2px); }
+    .hero-stats {
+      display: flex; gap: 32px; margin-top: 48px;
+      padding-top: 32px; border-top: 1px solid var(--border2);
+    }
+    .hero-stat-num { font-size: 1.7rem; font-weight: 800; color: var(--orange); }
+    .hero-stat-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+    .hero-photo-wrap {
+      position: relative; display: flex; justify-content: center;
+    }
+    .hero-photo-ring {
+      position: absolute; inset: -12px; border-radius: 50%;
+      background: conic-gradient(var(--orange) 0deg, transparent 120deg, var(--orange) 240deg, transparent 360deg);
+      animation: spin-ring 8s linear infinite;
+    }
+    @keyframes spin-ring { to { transform: rotate(360deg); } }
+    .hero-photo-inner {
+      position: relative; width: 280px; height: 280px; border-radius: 50%;
+      background: var(--card2);
+      overflow: hidden; z-index: 1;
+      border: 4px solid var(--bg);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-photo-inner img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-photo-placeholder {
+      font-size: 7rem; color: var(--text-faint);
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; height: 100%;
+    }
+    .hero-photo-badge {
+      position: absolute; bottom: 8px; right: 8px; z-index: 2;
+      background: var(--orange); color: #fff;
+      padding: 6px 12px; border-radius: 20px;
+      font-size: 0.72rem; font-weight: 700;
+      display: flex; align-items: center; gap: 6px;
+      box-shadow: 0 4px 16px rgba(255,107,0,0.4);
+    }
+
+    /* ===== ABOUT ===== */
+    #about { background: var(--bg2); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .about-text p { color: var(--text-muted); margin-bottom: 18px; font-size: 0.97rem; }
+    .about-text p strong { color: var(--text); }
+    .timeline { position: relative; margin-top: 40px; }
+    .timeline::before {
+      content: ''; position: absolute; left: 17px; top: 0; bottom: 0;
+      width: 1px; background: linear-gradient(to bottom, var(--orange), transparent);
+    }
+    .timeline-item { display: flex; gap: 20px; margin-bottom: 28px; position: relative; }
+    .timeline-dot {
+      width: 35px; height: 35px; border-radius: 50%; flex-shrink: 0;
+      background: var(--card2); border: 2px solid var(--orange);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--orange); font-size: 0.8rem; z-index: 1;
+    }
+    .timeline-content { padding-top: 4px; }
+    .timeline-year { font-family: var(--mono); font-size: 0.72rem; color: var(--orange); margin-bottom: 4px; }
+    .timeline-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 4px; }
+    .timeline-desc { font-size: 0.85rem; color: var(--text-muted); }
+    .about-goals { margin-top: 32px; }
+    .about-goals h3 { font-size: 1rem; font-weight: 700; margin-bottom: 16px; color: var(--text); }
+    .goal-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .goal-tag {
+      padding: 6px 14px; border-radius: 20px;
+      background: var(--card); border: 1px solid var(--border);
+      font-size: 0.8rem; color: var(--orange); font-weight: 500;
+      transition: var(--transition); display: flex; align-items: center; gap: 6px;
+    }
+    .goal-tag:hover { background: var(--orange-glow); transform: translateY(-2px); }
+
+    /* ===== SKILLS ===== */
+    #skills { background: var(--bg); }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .skill-card {
+      background: var(--card); border: 1px solid var(--border2);
+      border-radius: var(--radius); padding: 28px;
+      transition: var(--transition); position: relative; overflow: hidden;
+    }
+    .skill-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--orange), transparent);
+      transform: scaleX(0); transform-origin: left;
+      transition: var(--transition);
+    }
+    .skill-card:hover { border-color: var(--border); transform: translateY(-4px); box-shadow: var(--shadow-orange); }
+    .skill-card:hover::before { transform: scaleX(1); }
+    .skill-card-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: var(--orange-glow); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--orange); font-size: 1.1rem; margin-bottom: 18px;
+    }
+    .skill-card-title { font-weight: 700; font-size: 1rem; margin-bottom: 18px; }
+    .skill-bar-item { margin-bottom: 14px; }
+    .skill-bar-header { display: flex; justify-content: space-between; margin-bottom: 6px; }
+    .skill-bar-name { font-size: 0.82rem; color: var(--text-muted); }
+    .skill-bar-val { font-family: var(--mono); font-size: 0.78rem; color: var(--orange); }
+    .skill-bar-track {
+      height: 4px; background: var(--bg3); border-radius: 2px; overflow: hidden;
+    }
+    .skill-bar-fill {
+      height: 100%; background: linear-gradient(90deg, var(--orange), var(--orange-light));
+      border-radius: 2px; width: 0;
+      transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+    }
+    .soft-skills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .soft-tag {
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg3); border: 1px solid var(--border2);
+      font-size: 0.78rem; color: var(--text-muted);
+    }
+
+    /* ===== ORANGE EXPERIENCE ===== */
+    #experience { background: var(--bg2); }
+    .exp-header-card {
+      background: linear-gradient(135deg, #FF6B00 0%, #FF8C35 50%, #FFa84d 100%);
+      border-radius: var(--radius); padding: 40px;
+      display: flex; align-items: center; gap: 30px;
+      margin-bottom: 50px; position: relative; overflow: hidden;
+    }
+    .exp-header-card::before {
+      content: '';
+      position: absolute; top: -60px; right: -60px;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+    }
+    .exp-header-card::after {
+      content: '';
+      position: absolute; bottom: -40px; right: 80px;
+      width: 120px; height: 120px; border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+    }
+    .orange-logo-wrap {
+      width: 80px; height: 80px; border-radius: 16px;
+      background: rgba(255,255,255,0.2); backdrop-filter: blur(10px);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 2.5rem; color: #fff;
+    }
+    .exp-header-info h2 { font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 4px; }
+    .exp-header-info p { color: rgba(255,255,255,0.85); font-size: 0.97rem; }
+    .exp-header-meta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+    .exp-meta-pill {
+      background: rgba(255,255,255,0.2); color: #fff;
+      padding: 4px 12px; border-radius: 20px; font-size: 0.78rem; font-weight: 500;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .missions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; }
+    .mission-card {
+      background: var(--card); border: 1px solid var(--border2);
+      border-radius: var(--radius); overflow: hidden;
+      transition: var(--transition);
+    }
+    .mission-card:hover { border-color: var(--border); transform: translateY(-4px); box-shadow: var(--shadow); }
+    .mission-card-header {
+      background: var(--card2); padding: 20px 24px;
+      border-bottom: 1px solid var(--border2);
+      display: flex; align-items: center; gap: 14px;
+    }
+    .mission-icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      background: var(--orange-glow); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--orange); font-size: 1rem; flex-shrink: 0;
+    }
+    .mission-card-title { font-weight: 700; font-size: 0.97rem; }
+    .mission-card-subtitle { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+    .mission-card-body { padding: 24px; }
+    .mission-desc { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 18px; line-height: 1.7; }
+    .mission-steps { list-style: none; margin-bottom: 18px; }
+    .mission-steps li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.84rem; color: var(--text-muted);
+      padding: 7px 0; border-bottom: 1px solid var(--border2);
+    }
+    .mission-steps li:last-child { border: none; }
+    .mission-steps li i { color: var(--orange); font-size: 0.7rem; margin-top: 5px; flex-shrink: 0; }
+    .mission-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .tech-pill {
+      padding: 3px 10px; border-radius: 5px;
+      background: var(--bg3); border: 1px solid var(--border2);
+      font-family: var(--mono); font-size: 0.72rem; color: var(--orange);
+    }
+
+    /* ===== PROJECTS ===== */
+    #projects { background: var(--bg); }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+    .project-card {
+      background: var(--card); border: 1px solid var(--border2);
+      border-radius: var(--radius); padding: 28px;
+      transition: var(--transition); position: relative;
+    }
+    .project-card:hover { border-color: var(--border); transform: translateY(-4px); box-shadow: var(--shadow-orange); }
+    .project-num {
+      font-family: var(--mono); font-size: 0.7rem; color: var(--orange);
+      margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+    }
+    .project-num::after { content: ''; flex: 1; height: 1px; background: var(--border2); }
+    .project-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+    .project-desc { font-size: 0.86rem; color: var(--text-muted); margin-bottom: 18px; line-height: 1.7; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+    .project-tag {
+      padding: 4px 10px; border-radius: 5px;
+      background: var(--card2); font-size: 0.75rem; color: var(--text-muted);
+      border: 1px solid var(--border2);
+    }
+    .project-links { display: flex; gap: 12px; }
+    .project-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.82rem; color: var(--text-muted);
+      padding: 6px 12px; border-radius: 6px;
+      border: 1px solid var(--border2);
+      transition: var(--transition);
+    }
+    .project-link:hover { color: var(--orange); border-color: var(--orange); background: var(--orange-glow); }
+
+    /* ===== FORMATION ===== */
+    #formation { background: var(--bg2); }
+    .formation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+    .formation-card {
+      background: var(--card); border: 1px solid var(--border2);
+      border-radius: var(--radius); padding: 28px;
+      transition: var(--transition);
+    }
+    .formation-card:hover { border-color: var(--border); box-shadow: var(--shadow); }
+    .formation-card-icon {
+      width: 50px; height: 50px; border-radius: 12px;
+      background: var(--orange-glow); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--orange); font-size: 1.3rem; margin-bottom: 18px;
+    }
+    .formation-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
+    .formation-card .school { font-size: 0.85rem; color: var(--orange); margin-bottom: 8px; font-weight: 500; }
+    .formation-card .years { font-family: var(--mono); font-size: 0.78rem; color: var(--text-muted); margin-bottom: 14px; }
+    .formation-card p { font-size: 0.86rem; color: var(--text-muted); line-height: 1.7; }
+    .cert-grid { display: grid; gap: 12px; margin-top: 24px; }
+    .cert-item {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--card2); border: 1px solid var(--border2);
+      border-radius: 10px; padding: 14px 18px;
+      transition: var(--transition);
+    }
+    .cert-item:hover { border-color: var(--orange); }
+    .cert-icon { color: var(--orange); font-size: 1.1rem; flex-shrink: 0; }
+    .cert-info h4 { font-size: 0.88rem; font-weight: 600; }
+    .cert-info p { font-size: 0.78rem; color: var(--text-muted); }
+    .modules-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .module-tag {
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg3); border: 1px solid var(--border2);
+      font-size: 0.78rem; color: var(--text-muted);
+    }
+
+    /* ===== CONTACT ===== */
+    #contact { background: var(--bg); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; align-items: start; }
+    .contact-link {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 20px; border-radius: 10px;
+      background: var(--card); border: 1px solid var(--border2);
+      margin-bottom: 12px; transition: var(--transition);
+    }
+    .contact-link:hover { border-color: var(--orange); transform: translateX(4px); }
+    .contact-link-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--orange-glow); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--orange); font-size: 1rem; flex-shrink: 0;
+    }
+    .contact-link-label { font-size: 0.75rem; color: var(--text-muted); }
+    .contact-link-value { font-size: 0.9rem; font-weight: 500; }
+    .contact-form {
+      background: var(--card); border: 1px solid var(--border2);
+      border-radius: var(--radius); padding: 36px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block; font-size: 0.82rem; font-weight: 500;
+      color: var(--text-muted); margin-bottom: 8px;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%; padding: 12px 16px;
+      background: var(--bg3); border: 1px solid var(--border2);
+      border-radius: 8px; color: var(--text);
+      font-family: var(--font); font-size: 0.9rem;
+      transition: var(--transition); outline: none;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: var(--orange); box-shadow: 0 0 0 3px var(--orange-glow);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit { width: 100%; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--bg2); border-top: 1px solid var(--border2);
+      padding: 32px 0; text-align: center;
+    }
+    footer p { font-size: 0.82rem; color: var(--text-faint); }
+    footer span { color: var(--orange); }
+    .footer-links { display: flex; justify-content: center; gap: 20px; margin-top: 16px; }
+    .footer-links a {
+      color: var(--text-faint); font-size: 1.1rem;
+      transition: var(--transition);
+    }
+    .footer-links a:hover { color: var(--orange); transform: translateY(-2px); }
+
+    /* ===== DIVIDER ===== */
+    .divider {
+      height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-photo-wrap { order: -1; }
+      .hero-actions { justify-content: center; }
+      .hero-stats { justify-content: center; }
+      .hero-desc { margin: 0 auto 36px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .formation-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      section { padding: 70px 0; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-burger { display: flex; }
+      .exp-header-card { flex-direction: column; text-align: center; }
+      .exp-header-meta { justify-content: center; }
+      .hero-photo-inner { width: 220px; height: 220px; }
+      .missions-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      #navbar { padding: 0 20px; }
+      .hero-stats { flex-direction: column; gap: 16px; }
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-logo">&lt;<span>Sami</span> /&gt;</div>
+    <ul class="nav-links">
+      <li><a href="#hero">Accueil</a></li>
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#skills">Compétences</a></li>
+      <li><a href="#experience">Orange Business</a></li>
+      <li><a href="#projects">Projets</a></li>
+      <li><a href="#formation">Formation</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-burger" id="burger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#hero" onclick="closeMenu()">Accueil</a>
+    <a href="#about" onclick="closeMenu()">À propos</a>
+    <a href="#skills" onclick="closeMenu()">Compétences</a>
+    <a href="#experience" onclick="closeMenu()">Expérience Orange</a>
+    <a href="#projects" onclick="closeMenu()">Projets</a>
+    <a href="#formation" onclick="closeMenu()">Formation</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          
+          <h1 class="hero-name">Sami<br>ALAOUI KASMI</h1>
+          <p class="hero-title" id="heroTyping"></p>
+          <p class="hero-desc">
+            Passionné par les réseaux, la cybersécurité et les télécommunications.
+            En alternance chez <strong style="color:var(--orange)">Orange Business</strong>, je déploie et configure
+            des solutions télécoms professionnelles pour des clients entreprises.
+          </p>
+          <div class="hero-actions">
+
+            <a href="#contact" class="btn btn-outline">
+              <i class="fas fa-paper-plane"></i> Me contacter
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <div class="hero-stat-num">1+</div>
+              <div class="hero-stat-label">An d'alternance</div>
+            </div>
+            <div>
+              <div class="hero-stat-num">200+</div>
+              <div class="hero-stat-label">Interventions terrain</div>
+            </div>
+            <div>
+              <div class="hero-stat-num">10+</div>
+              <div class="hero-stat-label">Projets académiques</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-photo-wrap">
+          <div class="hero-photo-ring"></div>
+          <div class="hero-photo-inner">
+            <!-- Pour ajouter votre photo : remplacez le div ci-dessous par <img src="photo.jpg" alt="Sami ALAOUI KASMI" /> -->
+            <div class="hero-photo-placeholder">
+              <i class="fas fa-user"></i>
+            </div>
+          </div>
+          <div class="hero-photo-badge">
+            <i class="fas fa-wifi"></i> Orange Business
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text fade-in">
+          <div class="section-header">
+            <div class="section-tag">À propos</div>
+            <h2 class="section-title">Qui suis-je ?</h2>
+          </div>
+          <p>
+            Étudiant en <strong>BUT Réseaux &amp; Télécommunications</strong>, je suis actuellement en alternance chez
+            <strong>Orange Business</strong> où j'interviens quotidiennement sur des déploiements et configurations
+            de solutions télécoms pour des clients professionnels.
+          </p>
+          <p>
+            Curieux et rigoureux, je m'intéresse particulièrement à la <strong>cybersécurité</strong>,
+            à l'administration <strong>réseau</strong> et aux infrastructures <strong>cloud</strong>.
+            Mon expérience terrain m'a permis d'acquérir une solide maîtrise des protocoles,
+            équipements et solutions propres aux environnements d'entreprise.
+          </p>
+          <p>
+            Je cherche à développer mes compétences sur des projets ambitieux et à rejoindre
+            une équipe dynamique à l'issue de mon diplôme pour contribuer à des infrastructures
+            critiques et sécurisées.
+          </p>
+          <div class="about-goals">
+            <h3>Objectifs professionnels</h3>
+            <div class="goal-tags">
+              <span class="goal-tag"><i class="fas fa-shield-halved"></i> Cybersécurité</span>
+              <span class="goal-tag"><i class="fas fa-network-wired"></i> Architecture Réseau</span>
+              <span class="goal-tag"><i class="fas fa-cloud"></i> Cloud Computing</span>
+              <span class="goal-tag"><i class="fas fa-server"></i> Administration Systèmes</span>
+              <span class="goal-tag"><i class="fas fa-lock"></i> Sécurité des SI</span>
+              <span class="goal-tag"><i class="fas fa-globe"></i> Téléphonie IP</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-in delay-2">
+          <h3 style="font-size:1rem;font-weight:700;margin-bottom:24px;color:var(--text-muted);font-family:var(--mono)">//&nbsp;Parcours</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"><i class="fas fa-graduation-cap"></i></div>
+              <div class="timeline-content">
+                <div class="timeline-year">2025 → Aujourd'hui</div>
+                <div class="timeline-title">BUT Réseaux &amp; Télécommunications</div>
+                <div class="timeline-desc">IUT Réseaux & Télécommunications — Spécialité Cybersécurité</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"><i class="fas fa-briefcase"></i></div>
+              <div class="timeline-content">
+                <div class="timeline-year">2025 → Aujourd'hui</div>
+                <div class="timeline-title">Alternant Technicien — Orange Business</div>
+                <div class="timeline-desc">Déploiement FTTH / FTTE / FTTO, installation routeurs, IPBX, Connect Pro</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"><i class="fas fa-school"></i></div>
+              <div class="timeline-content">
+                <div class="timeline-year">2022 → 2025</div>
+                <div class="timeline-title">Baccalauréat</div>
+                <div class="timeline-desc">Lycée Lesage — Vannes</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header center fade-in">
+        <div class="section-tag">Compétences</div>
+        <h2 class="section-title">Stack technique</h2>
+        <p class="section-subtitle">Compétences techniques acquises en formation et renforcées par l'expérience terrain chez Orange.</p>
+      </div>
+      <div class="skills-grid">
+
+        <div class="skill-card fade-in">
+          <div class="skill-card-icon"><i class="fas fa-network-wired"></i></div>
+          <div class="skill-card-title">Réseaux</div>
+          <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">TCP/IP &amp; modèle OSI</span><span class="skill-bar-val">90%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div></div>
+          <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">Cisco IOS / Routage</span><span class="skill-bar-val">80%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div></div>
+          <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">VLAN / STP / OSPF</span><span class="skill-bar-val">75%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div></div>
+          <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">DHCP / DNS / NAT</span><span class="skill-bar-val">85%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div></div>
+          <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">BGP / MPLS</span><span class="skill-bar-val">55%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="55"></div></div></div>
+        </div>
+
+        <div class="skill-card fade-in delay-1">
+          <div class="skill-card-icon"><i class="fas fa-server"></i></div>
+          <div class="skill-card-title">Systèmes</div>
+          <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">Linux (Debian / Ubuntu)</span><span class="skill-bar-val">80%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div></div>
+          <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">Windows Server</span><span class="skill-bar-val">70%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div></div>
+          <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">Active Directory</span><span class="skill-bar-val">65%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="65"></div></div></div>
+          <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">Bash / PowerShell</span><span class="skill-bar-val">70%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div></div>
+          <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">Virtualisation (VMware / VBox)</span><span class="skill-bar-val">75%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div></div>
+        </div>
+
+        <div class="skill-card fade-in delay-2">
+          <div class="skill-card-icon"><i class="fas fa-shield-halved"></i></div>
+          <div class="skill-card-title">Cybersécurité</div>
+          <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">Firewall / ACL</span><span class="skill-bar-val">75%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div></div>
+          <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">VPN (IPSec / SSL)</span><span class="skill-bar-val">70%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div></div>
+          <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">Analyse de trafic réseau</span><span class="skill-bar-val">80%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div></div>
+          <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">Pentest (bases)</span><span class="skill-bar-val">50%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="50"></div></div></div>
+          <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">SIEM / Monitoring</span><span class="skill-bar-val">55%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="55"></div></div></div>
+        </div>
+
+        <div class="skill-card fade-in delay-3">
+          <div class="skill-card-icon"><i class="fas fa-tools"></i></div>
+          <div class="skill-card-title">Outils &amp; Soft Skills</div>
+          <div style="margin-bottom:18px">
+            <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:10px;font-weight:500">Outils techniques</div>
+            <div class="soft-skills">
+              <span class="soft-tag">Wireshark</span>
+              <span class="soft-tag">Packet Tracer</span>
+              <span class="soft-tag">GNS3</span>
+              <span class="soft-tag">Nmap</span>
+              <span class="soft-tag">Git</span>
+              <span class="soft-tag">GLPI</span>
+              <span class="soft-tag">Zabbix</span>
+              <span class="soft-tag">Python</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:10px;font-weight:500">Soft Skills</div>
+            <div class="soft-skills">
+              <span class="soft-tag">Rigueur</span>
+              <span class="soft-tag">Autonomie</span>
+              <span class="soft-tag">Adaptabilité</span>
+              <span class="soft-tag">Travail en équipe</span>
+              <span class="soft-tag">Sens client</span>
+              <span class="soft-tag">Curiosité</span>
+              <span class="soft-tag">Gestion du stress</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EXPERIENCE ORANGE -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag">Expérience professionnelle</div>
+        <h2 class="section-title">Alternance chez Orange Business</h2>
+        <p class="section-subtitle">Technicien télécoms terrain — déploiement et configuration de solutions professionnelles pour clients entreprises.</p>
+      </div>
+
+      <div class="exp-header-card fade-in">
+        <div class="orange-logo-wrap"><i class="fas fa-wifi"></i></div>
+        <div class="exp-header-info">
+          <h2>Orange Business Services</h2>
+          <p>Technicien Réseaux &amp; Télécommunications — Alternance</p>
+          <div class="exp-header-meta">
+            <span class="exp-meta-pill"><i class="fas fa-calendar"></i>&nbsp;2025 → Aujourd'hui</span>
+            <span class="exp-meta-pill"><i class="fas fa-map-marker-alt"></i>&nbsp;Caen</span>
+            <span class="exp-meta-pill"><i class="fas fa-building"></i>&nbsp;Interventions clients Professionnel & Entreprise B2B</span>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="missions-grid">
+
+        <!-- CONNECT PRO -->
+        <div class="mission-card fade-in">
+          <div class="mission-card-header">
+            <div class="mission-icon"><i class="fas fa-plug"></i></div>
+            <div>
+              <div class="mission-card-title">Installation Connect Pro</div>
+              <div class="mission-card-subtitle">Solution accès internet professionnel Orange</div>
+            </div>
+          </div>
+          <div class="mission-card-body">
+            <p class="mission-desc">
+              <strong style="color:var(--text)">Connect Pro</strong> est la solution d'accès internet haut débit d'Orange dédiée aux TPE/PME et grandes entreprises. Elle garantit un accès à débit symétrique avec un SLA de disponibilité contractuel, une QoS administrée et une supervision centralisée via le portail Orange Business. Elle peut s'appuyer sur diverses technologies d'accès : ADSL2+, VDSL2, SDSL ou Fibre optique.
+            </p>
+            <ul class="mission-steps">
+              <li><i class="fas fa-circle"></i>Lecture du bon de commande, vérification des prérequis et prise de rendez-vous client</li>
+              <li><i class="fas fa-circle"></i>Raccordement physique sur le réseau local client (armoire, patch panel, baie 19")</li>
+              <li><i class="fas fa-circle"></i>Configuration du modem/routeur fourni par Orange (authentification PPPoE, paramétrage WAN)</li>
+              <li><i class="fas fa-circle"></i>Mise en place du réseau local : plan d'adressage IP, serveur DHCP, segmentation VLAN si requise</li>
+              <li><i class="fas fa-circle"></i>Activation de la ligne dans le SI Orange et test de débit bi-directionnel</li>
+              <li><i class="fas fa-circle"></i>Configuration du firewall intégré, règles NAT/PAT, ouverture des ports métier</li>
+              <li><i class="fas fa-circle"></i>Test de bascule (failover 4G/fibre) et validation SLA avec mesures traceroute/ping</li>
+              <li><i class="fas fa-circle"></i>Remise en main client, explication de l'interface d'administration et clôture GLPI</li>
+            </ul>
+            <div class="mission-tech">
+              <span class="tech-pill">PPPoE</span><span class="tech-pill">DHCP</span><span class="tech-pill">NAT/PAT</span>
+              <span class="tech-pill">VLAN</span><span class="tech-pill">QoS</span><span class="tech-pill">IPv4/IPv6</span><span class="tech-pill">GLPI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- INSTALLATION ROUTEUR -->
+        <div class="mission-card fade-in delay-1">
+          <div class="mission-card-header">
+            <div class="mission-icon"><i class="fas fa-router"></i></div>
+            <div>
+              <div class="mission-card-title">Installation de Routeur</div>
+              <div class="mission-card-subtitle">Déploiement &amp; configuration d'équipements réseau</div>
+            </div>
+          </div>
+          <div class="mission-card-body">
+            <p class="mission-desc">
+              Déploiement et configuration de routeurs professionnels (Cisco ISR, Huawei AR, Juniper SRX) chez les clients Orange Business. La prestation couvre l'intégration physique dans l'infrastructure existante, la configuration complète (interfaces, routage, sécurité) et les tests de validation avant remise en production.
+            </p>
+            <ul class="mission-steps">
+              <li><i class="fas fa-circle"></i>Réception et vérification du matériel (routeur, câbles, modules SFP, documentations)</li>
+              <li><i class="fas fa-circle"></i>Montage en baie 19" et câblage réseau (cuivre RJ45, fibre SFP+, port console RJ45)</li>
+              <li><i class="fas fa-circle"></i>Configuration initiale via câble console (hostname, enable secret, comptes locaux, SSH)</li>
+              <li><i class="fas fa-circle"></i>Configuration des interfaces WAN (IP statique, PPPoE ou DHCP) et LAN (sous-interfaces VLAN)</li>
+              <li><i class="fas fa-circle"></i>Mise en place du routage statique ou dynamique (OSPF, BGP selon la topologie)</li>
+              <li><i class="fas fa-circle"></i>Configuration des ACL pour filtrage entrant/sortant et NAT/PAT pour translation d'adresses</li>
+              <li><i class="fas fa-circle"></i>Activation SNMP v2c/v3 pour intégration au système de monitoring Orange</li>
+              <li><i class="fas fa-circle"></i>Tests de connectivité end-to-end, mesures de latence et rédaction du CR d'intervention</li>
+            </ul>
+            <div class="mission-tech">
+              <span class="tech-pill">Cisco IOS</span><span class="tech-pill">OSPF</span><span class="tech-pill">BGP</span>
+              <span class="tech-pill">ACL</span><span class="tech-pill">SNMP v3</span><span class="tech-pill">SSH</span><span class="tech-pill">SFP+</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FTTH -->
+        <div class="mission-card fade-in delay-2">
+          <div class="mission-card-header">
+            <div class="mission-icon"><i class="fas fa-wave-square"></i></div>
+            <div>
+              <div class="mission-card-title">Prestation FTTH</div>
+              <div class="mission-card-subtitle">Fiber To The Home — Fibre jusqu'à l'abonné</div>
+            </div>
+          </div>
+          <div class="mission-card-body">
+            <p class="mission-desc">
+              <strong style="color:var(--text)">FTTH (Fiber To The Home)</strong> est l'architecture fibre optique passive (PON) qui amène la fibre directement jusqu'au logement ou au bureau de l'abonné, sans électronique active entre le NRO et le client. Elle offre des débits symétriques jusqu'à 10 Gbps (XGS-PON) avec une latence ultra-faible et une haute disponibilité.
+            </p>
+            <ul class="mission-steps">
+              <li><i class="fas fa-circle"></i>Vérification du tirage fibre existant (colonne montante, boîtier palier, PBO)</li>
+              <li><i class="fas fa-circle"></i>Raccordement du câble drop dans le boîtier de branchement optique (PBO)</li>
+              <li><i class="fas fa-circle"></i>Passage et lovage du câble fibre jusqu'à la PTO (Prise Terminale Optique)</li>
+              <li><i class="fas fa-circle"></i>Installation et configuration de l'ONT (Optical Network Terminal) fourni par Orange</li>
+              <li><i class="fas fa-circle"></i>Mesure de puissance optique avec powermètre et test réflectométrique (OTDR)</li>
+              <li><i class="fas fa-circle"></i>Activation du lien sur l'OLT Orange via portail SI et vérification de la synchronisation GPON</li>
+              <li><i class="fas fa-circle"></i>Configuration de la Livebox Pro / routeur client et test de débit symétrique</li>
+              <li><i class="fas fa-circle"></i>Clôture de l'intervention avec photos et rapport dans le système de gestion Orange</li>
+            </ul>
+            <div class="mission-tech">
+              <span class="tech-pill">GPON</span><span class="tech-pill">XGS-PON</span><span class="tech-pill">ONT/OLT</span>
+              <span class="tech-pill">OTDR</span><span class="tech-pill">PBO/PTO</span><span class="tech-pill">Powermètre</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FTTE -->
+        <div class="mission-card fade-in delay-1">
+          <div class="mission-card-header">
+            <div class="mission-icon"><i class="fas fa-building"></i></div>
+            <div>
+              <div class="mission-card-title">Prestation FTTE</div>
+              <div class="mission-card-subtitle">Fiber To The Enterprise — Fibre entreprise mutualisée</div>
+            </div>
+          </div>
+          <div class="mission-card-body">
+            <p class="mission-desc">
+              <strong style="color:var(--text)">FTTE (Fiber To The Enterprise)</strong> désigne l'architecture fibre mutualisée pour immeubles tertiaires : la fibre arrive en pied d'immeuble (NRO immeuble) puis est distribuée vers chaque étage et chaque locataire via un réseau de distribution interne. Solution intermédiaire entre FTTH et FTTO, elle permet de desservir plusieurs entreprises dans un même bâtiment.
+            </p>
+            <ul class="mission-steps">
+              <li><i class="fas fa-circle"></i>Analyse du plan de câblage interne de l'immeuble et des prises disponibles par étage</li>
+              <li><i class="fas fa-circle"></i>Raccordement dans la baie de répartition immeuble (NRO immeuble / DTIo)</li>
+              <li><i class="fas fa-circle"></i>Déploiement du câble fibre dans les gaines techniques verticales et horizontales</li>
+              <li><i class="fas fa-circle"></i>Installation du switch de distribution en étage (PoE+ pour téléphones IP et bornes WiFi)</li>
+              <li><i class="fas fa-circle"></i>Configuration des VLANs par entreprise locataire pour isolation et QoS des flux</li>
+              <li><i class="fas fa-circle"></i>Tests de continuité optique (réflectomètre), mesure d'atténuation et validation du débit</li>
+              <li><i class="fas fa-circle"></i>Mise à jour du dossier technique et du plan réseau dans le SI Orange</li>
+            </ul>
+            <div class="mission-tech">
+              <span class="tech-pill">Fibre OM3/OS2</span><span class="tech-pill">VLAN 802.1Q</span><span class="tech-pill">PoE+</span>
+              <span class="tech-pill">OTDR</span><span class="tech-pill">Trunk/Access</span><span class="tech-pill">DTIo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FTTO -->
+        <div class="mission-card fade-in delay-2">
+          <div class="mission-card-header">
+            <div class="mission-icon"><i class="fas fa-briefcase"></i></div>
+            <div>
+              <div class="mission-card-title">Prestation FTTO</div>
+              <div class="mission-card-subtitle">Fiber To The Office — Fibre dédiée entreprise premium</div>
+            </div>
+          </div>
+          <div class="mission-card-body">
+            <p class="mission-desc">
+              <strong style="color:var(--text)">FTTO (Fiber To The Office)</strong> est la solution fibre dédiée haut de gamme d'Orange pour les grandes entreprises et sites critiques. La fibre est tirée en point-à-point exclusif depuis le NRO jusqu'aux locaux du client, avec une bande passante garantie, un SLA de disponibilité de niveau 4 (99,9%), une infrastructure non mutualisée et une gestion proactive des incidents.
+            </p>
+            <ul class="mission-steps">
+              <li><i class="fas fa-circle"></i>Étude de faisabilité technique (distance, atténuation, génie civil si absence de fourreaux)</li>
+              <li><i class="fas fa-circle"></i>Tirage du câble fibre OS2 dédié depuis le NRO jusqu'aux locaux client</li>
+              <li><i class="fas fa-circle"></i>Soudure optique par fusion et lovage propre dans les boîtiers de répartition optique</li>
+              <li><i class="fas fa-circle"></i>Installation et configuration du routeur CPE dédié Orange (Cisco, Huawei)</li>
+              <li><i class="fas fa-circle"></i>Mise en place de la QoS end-to-end avec garantie de bande passante et priorisation des flux</li>
+              <li><i class="fas fa-circle"></i>Intégration au monitoring proactif Orange (SNMP, alertes automatiques, astreintes)</li>
+              <li><i class="fas fa-circle"></i>Réalisation de la recette technique avec le client et signature du PV de livraison</li>
+              <li><i class="fas fa-circle"></i>Documentation complète : schéma réseau, plan de câblage, paramètres de configuration</li>
+            </ul>
+            <div class="mission-tech">
+              <span class="tech-pill">Fibre OS2 dédiée</span><span class="tech-pill">Soudure optique</span><span class="tech-pill">SLA 99,9%</span>
+              <span class="tech-pill">QoS E2E</span><span class="tech-pill">CPE</span><span class="tech-pill">MPLS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- IPBX -->
+        <div class="mission-card fade-in delay-3">
+          <div class="mission-card-header">
+            <div class="mission-icon"><i class="fas fa-phone-volume"></i></div>
+            <div>
+              <div class="mission-card-title">Installation IPBX</div>
+              <div class="mission-card-subtitle">Autocommutateur IP — Téléphonie d'entreprise</div>
+            </div>
+          </div>
+          <div class="mission-card-body">
+            <p class="mission-desc">
+              Un <strong style="color:var(--text)">IPBX (IP Private Branch eXchange)</strong> est un autocommutateur téléphonique privé fonctionnant sur protocole SIP/H.323 via le réseau IP. Il remplace l'ancien PABX analogique et gère toutes les communications internes et externes de l'entreprise en offrant des fonctionnalités avancées : renvois, conférences, messagerie unifiée, IVR et files d'attente. Orange propose des solutions comme 3CX, Alcatel-Lucent OXO/OXE ou des solutions cloud (Business Talk).
+            </p>
+            <ul class="mission-steps">
+              <li><i class="fas fa-circle"></i>Analyse des besoins : nombre de postes, lignes SIP, fonctionnalités requises (IVR, groupes, conférence)</li>
+              <li><i class="fas fa-circle"></i>Installation physique du serveur IPBX (rack dédié ou serveur virtualisé)</li>
+              <li><i class="fas fa-circle"></i>Configuration des trunks SIP vers l'opérateur Orange (authentification, codec G.711/G.729)</li>
+              <li><i class="fas fa-circle"></i>Création des extensions internes, groupements d'appels, sonneries simultanées et DECT</li>
+              <li><i class="fas fa-circle"></i>Auto-provisioning des téléphones IP via DHCP option 66 (fichiers de configuration)</li>
+              <li><i class="fas fa-circle"></i>Configuration de la messagerie vocale unifiée, des IVR et des files d'attente avec musique d'attente</li>
+              <li><i class="fas fa-circle"></i>Sécurisation : fail2ban contre brute-force SIP, TLS pour signalisation, SRTP pour les flux médias</li>
+              <li><i class="fas fa-circle"></i>Test de charge, QoS VoIP (priorisation RTP), formation utilisateurs et remise de documentation</li>
+            </ul>
+            <div class="mission-tech">
+              <span class="tech-pill">SIP / RTP</span><span class="tech-pill">3CX / Asterisk</span><span class="tech-pill">SRTP/TLS</span>
+              <span class="tech-pill">DECT</span><span class="tech-pill">QoS VoIP</span><span class="tech-pill">G.711/G.729</span><span class="tech-pill">IVR</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag">Projets</div>
+        <h2 class="section-title">Réalisations académiques</h2>
+        <p class="section-subtitle">Projets réalisés en formation, combinant théorie et mise en pratique des compétences réseau et cybersécurité.</p>
+      </div>
+      <div class="projects-grid">
+
+        <div class="project-card fade-in">
+          <div class="project-num">01</div>
+          <div class="project-title">Infrastructure Réseau d'Entreprise</div>
+          <p class="project-desc">Conception et déploiement d'une infrastructure réseau multi-sites sous GNS3 : routage inter-VLAN, OSPF multi-area, redondance HSRP, filtrage ACL et accès VPN distant sécurisé pour 150 utilisateurs simulés.</p>
+          <div class="project-tags">
+            <span class="project-tag">GNS3</span><span class="project-tag">OSPF</span><span class="project-tag">VLAN</span>
+            <span class="project-tag">HSRP</span><span class="project-tag">VPN IPSec</span><span class="project-tag">ACL</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#" class="project-link"><i class="fas fa-file-alt"></i> Rapport</a>
+          </div>
+        </div>
+
+        <div class="project-card fade-in delay-1">
+          <div class="project-num">02</div>
+          <div class="project-title">Audit de Sécurité &amp; Pentest</div>
+          <p class="project-desc">Audit complet d'un réseau simulé : scan Nmap, analyse Wireshark, exploitation de vulnérabilités avec Metasploit, rapport de risques et recommandations de remédiation selon la méthodologie OWASP.</p>
+          <div class="project-tags">
+            <span class="project-tag">Nmap</span><span class="project-tag">Wireshark</span><span class="project-tag">Metasploit</span>
+            <span class="project-tag">Kali Linux</span><span class="project-tag">OWASP</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#" class="project-link"><i class="fas fa-file-alt"></i> Rapport</a>
+          </div>
+        </div>
+
+        <div class="project-card fade-in delay-2">
+          <div class="project-num">03</div>
+          <div class="project-title">Serveur Web Sécurisé Linux</div>
+          <p class="project-desc">Déploiement d'un serveur LAMP sécurisé sur Debian : Apache, certificat SSL Let's Encrypt, durcissement SSH, pare-feu iptables, fail2ban et supervision avec Zabbix. Hardening complet selon les recommandations ANSSI.</p>
+          <div class="project-tags">
+            <span class="project-tag">Linux Debian</span><span class="project-tag">Apache</span><span class="project-tag">SSL/TLS</span>
+            <span class="project-tag">iptables</span><span class="project-tag">Zabbix</span><span class="project-tag">fail2ban</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card fade-in delay-3">
+          <div class="project-num">04</div>
+          <div class="project-title">Script d'Inventaire Réseau Python</div>
+          <p class="project-desc">Script automatisé pour inventaire réseau : découverte d'hôtes via Nmap, récupération SNMP, génération de rapports CSV et alertes email automatiques en cas d'équipement hors-ligne.</p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span><span class="project-tag">SNMP</span><span class="project-tag">Nmap</span>
+            <span class="project-tag">Pandas</span><span class="project-tag">SMTP</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card fade-in delay-1">
+          <div class="project-num">05</div>
+          <div class="project-title">IPBX Asterisk — Téléphonie VoIP</div>
+          <p class="project-desc">Déploiement d'un IPBX Asterisk virtualisé : trunks SIP, extensions internes, messagerie vocale, IVR personnalisé et sécurisation complète contre les attaques SIP (fail2ban, TLS, SRTP).</p>
+          <div class="project-tags">
+            <span class="project-tag">Asterisk</span><span class="project-tag">SIP/RTP</span><span class="project-tag">FreePBX</span>
+            <span class="tech-pill">SRTP/TLS</span><span class="project-tag">VoIP</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#" class="project-link"><i class="fas fa-file-alt"></i> Rapport</a>
+          </div>
+        </div>
+
+        <div class="project-card fade-in delay-2">
+          <div class="project-num">06</div>
+          <div class="project-title">Dashboard Supervision Réseau</div>
+          <p class="project-desc">Tableau de bord de supervision avec Grafana + InfluxDB : métriques SNMP via Telegraf, alertes sur seuils, visualisation temps réel de la bande passante, latence et disponibilité des équipements réseau.</p>
+          <div class="project-tags">
+            <span class="project-tag">Grafana</span><span class="project-tag">InfluxDB</span><span class="project-tag">Telegraf</span>
+            <span class="project-tag">SNMP</span><span class="project-tag">Docker</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- FORMATION -->
+  <section id="formation">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag">Formation</div>
+        <h2 class="section-title">Parcours académique</h2>
+        <p class="section-subtitle">Un cursus technologique axé sur les réseaux, les télécommunications et la cybersécurité.</p>
+      </div>
+      <div class="formation-grid">
+        <div>
+          <div class="formation-card fade-in" style="margin-bottom:24px">
+            <div class="formation-card-icon"><i class="fas fa-graduation-cap"></i></div>
+            <h3>BUT Réseaux &amp; Télécommunications</h3>
+            <div class="school">IUT — Parcours Cybersécurité &amp; Réseaux d'entreprise</div>
+            <div class="years">2025 → 2027 &nbsp;|&nbsp; Alternance (1 mois IUT / 1 mois entreprise)</div>
+            <p>Formation de niveau Bac+3 axée sur l'administration réseau, la sécurisation des systèmes d'information, les technologies télécoms et le cloud computing. L'alternance chez Orange Business apporte une dimension terrain essentielle et concrète.</p>
+            <div class="modules-list">
+              <span class="module-tag">Administration réseaux</span>
+              <span class="module-tag">Cybersécurité</span>
+              <span class="module-tag">Systèmes Linux / Windows</span>
+              <span class="module-tag">Protocoles télécoms</span>
+              <span class="module-tag">Cloud &amp; virtualisation</span>
+              <span class="module-tag">Scripts &amp; automatisation</span>
+              <span class="module-tag">Fibre optique</span>
+              <span class="module-tag">Gestion de projets</span>
+            </div>
+          </div>
+          <div class="formation-card fade-in delay-1">
+            <div class="formation-card-icon"><i class="fas fa-school"></i></div>
+            <h3>Baccalauréat </h3>
+            <div class="school">Lycée Lesage — Vannes</div>
+            <div class="years">2021 → 2024</div>
+            </div>
+        </div>
+
+        <div class="fade-in delay-2">
+          <h3 style="font-size:1rem;font-weight:700;margin-bottom:20px;color:var(--text-muted);font-family:var(--mono)">//&nbsp;Certifications &amp; objectifs</h3>
+          <div class="cert-grid">
+            <div class="cert-item">
+              <div class="cert-icon"><i class="fas fa-spinner fa-spin" style="font-size:0.9rem"></i></div>
+              <div class="cert-info">
+                <h4>Cisco CCNA — En cours</h4>
+                <p>Routing &amp; Switching — Objectif 2025</p>
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon"><i class="fas fa-spinner fa-spin" style="font-size:0.9rem"></i></div>
+              <div class="cert-info">
+                <h4>CompTIA Security+</h4>
+                <p>Fondamentaux cybersécurité — Objectif 2025</p>
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon"><i class="fab fa-microsoft"></i></div>
+              <div class="cert-info">
+                <h4>AZ-900 Azure Fundamentals</h4>
+                <p>Cloud Microsoft — Objectif 2026</p>
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon"><i class="fas fa-user-secret"></i></div>
+              <div class="cert-info">
+                <h4>CEH — Certified Ethical Hacker</h4>
+                <p>Pentest &amp; sécurité offensive — Objectif 2026</p>
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon"><i class="fas fa-check-circle" style="color:#2ECC71"></i></div>
+              <div class="cert-info">
+                <h4>Habilitation électrique B0 H0</h4>
+                <p>Sécurité électrique terrain — Obtenu</p>
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon"><i class="fas fa-check-circle" style="color:#2ECC71"></i></div>
+              <div class="cert-info">
+                <h4>Permis de conduire B</h4>
+                <p>Mobilité interventions terrain — Obtenu</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header center fade-in">
+        <div class="section-tag">Contact</div>
+        <h2 class="section-title">Travaillons ensemble</h2>
+        <p class="section-subtitle">Une opportunité, un projet, une question ? Je suis disponible et ouvert à toute discussion professionnelle.</p>
+      </div>
+      <div class="contact-grid">
+
+        <div class="fade-in">
+          <a href="mailto:alaouikasmi.sami2007@hotmail.com" class="contact-link">
+            <div class="contact-link-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <div class="contact-link-label">Email professionnel</div>
+              <div class="contact-link-value">alaouikasmi.sami@gmail.com</div>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/sami-alaouikasmi" target="_blank" class="contact-link">
+            <div class="contact-link-icon"><i class="fab fa-linkedin-in"></i></div>
+            <div>
+              <div class="contact-link-label">LinkedIn</div>
+              <div class="contact-link-value">linkedin.com/in/sami-alaouikasmi</div>
+            </div>
+          </a>
+          <a href="https://github.com/sami-alaoui" target="_blank" class="contact-link">
+            <div class="contact-link-icon"><i class="fab fa-github"></i></div>
+            <div>
+              <div class="contact-link-label">GitHub</div>
+              <div class="contact-link-value">github.com/sami-alaoui</div>
+            </div>
+          </a>
+          <div class="contact-link" style="cursor:default">
+            <div class="contact-link-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <div class="contact-link-label">Localisation</div>
+              <div class="contact-link-value">Caen, France</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="contact-form fade-in delay-2">
+          <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:24px">Envoyer un message</h3>
+          <form id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">Nom complet</label>
+                <input type="text" id="fname" placeholder="Jean Dupont" required />
+              </div>
+              <div class="form-group">
+                <label for="femail">Email</label>
+                <input type="email" id="femail" placeholder="jean@entreprise.fr" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="fsubject">Objet</label>
+              <input type="text" id="fsubject" placeholder="Opportunité CDI / Stage / Collaboration..." required />
+            </div>
+            <div class="form-group">
+              <label for="fmessage">Message</label>
+              <textarea id="fmessage" placeholder="Bonjour Sami, je vous contacte au sujet de..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">
+              <i class="fas fa-paper-plane"></i> Envoyer le message
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p> <span>Sami ALAOUI KASMI</span> — Étudiant BUT R&amp;T | Alternant Orange Business</p>
+      <div class="footer-links">
+        <a href="mailto:alaouikasmi.sami2007@hotmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://linkedin.com/in/sami-alaouikasmi" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/sami-alaoui" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+      <p style="margin-top:12px;font-size:0.75rem">© 2026 Sami ALAOUI KASMI. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ---- Nav scroll + active link ----
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+      highlightNav();
+    });
+
+    function highlightNav() {
+      const sections = document.querySelectorAll('section[id]');
+      const links = document.querySelectorAll('.nav-links a');
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 120) current = s.id;
+      });
+      links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
+    }
+
+    // ---- Mobile menu ----
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+    function closeMenu() {
+      document.getElementById('mobileMenu').classList.remove('open');
+    }
+    document.addEventListener('click', (e) => {
+      const menu = document.getElementById('mobileMenu');
+      const burger = document.getElementById('burger');
+      if (!menu.contains(e.target) && !burger.contains(e.target)) {
+        menu.classList.remove('open');
+      }
+    });
+
+    // ---- Intersection Observer (fade-in + skill bars) ----
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+            bar.style.width = bar.dataset.width + '%';
+          });
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ---- Contact form ----
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type="submit"]');
+      const orig = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i> Message envoyé !';
+      btn.style.background = '#2ECC71';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.innerHTML = orig;
+        btn.style.background = '';
+        btn.disabled = false;
+        e.target.reset();
+      }, 3500);
+    }
+
+    // ---- Hero typing effect ----
+    const heroTyping = document.getElementById('heroTyping');
+    const phrases = [
+      '> Étudiant BUT R&T | Alternant @ Orange',
+      '> Réseaux · Cybersécurité · Cloud',
+      '> Passionné par les télécoms'
+    ];
+    let phraseIdx = 0, charIdx = 0, deleting = false;
+
+    function type() {
+      const current = phrases[phraseIdx];
+      if (!deleting) {
+        heroTyping.textContent = current.slice(0, ++charIdx);
+        if (charIdx === current.length) {
+          deleting = true;
+          setTimeout(type, 2200);
+          return;
+        }
+      } else {
+        heroTyping.textContent = current.slice(0, --charIdx);
+        if (charIdx === 0) {
+          deleting = false;
+          phraseIdx = (phraseIdx + 1) % phrases.length;
+        }
+      }
+      setTimeout(type, deleting ? 40 : 60);
+    }
+    setTimeout(type, 900);
+  </script>
+</body>
+</html>

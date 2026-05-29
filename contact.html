@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Sami Alaouikasmi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 40px;
+      align-items: start;
+      margin-top: 48px;
+    }
+
+    /* ── Left column ── */
+    .contact-info-stack { display: flex; flex-direction: column; gap: 16px; }
+
+    .contact-info-card {
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: 12px;
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: var(--transition);
+      text-decoration: none;
+      color: inherit;
+    }
+    .contact-info-card:hover {
+      border-color: var(--orange);
+      background: var(--card2);
+      transform: translateX(4px);
+    }
+    .contact-info-card .ci-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: var(--orange-glow);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--orange);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .ci-label { font-size: 0.72rem; color: var(--text-faint); margin-bottom: 2px; font-weight: 500; }
+    .ci-value { font-size: 0.92rem; color: var(--text); font-weight: 600; }
+    .ci-arrow { margin-left: auto; color: var(--text-faint); font-size: 0.75rem; }
+    .contact-info-card:hover .ci-arrow { color: var(--orange); }
+
+    /* Availability card */
+    .avail-card {
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: 12px;
+      padding: 22px;
+      margin-top: 4px;
+    }
+    .avail-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .avail-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #2ECC71;
+      flex-shrink: 0;
+      animation: pulse-dot 2s ease infinite;
+    }
+    .avail-header span {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .avail-rows { display: flex; flex-direction: column; gap: 8px; }
+    .avail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+    }
+    .avail-row-label { color: var(--text-muted); }
+    .avail-row-val { font-weight: 600; color: var(--text); font-family: var(--mono); font-size: 0.78rem; }
+    .avail-divider {
+      border: none;
+      border-top: 1px solid var(--border2);
+      margin: 10px 0;
+    }
+    .avail-note {
+      font-size: 0.78rem;
+      color: var(--text-faint);
+      line-height: 1.55;
+      margin-top: 10px;
+    }
+
+    /* ── Right column — Form ── */
+    .contact-form-wrap {
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: 14px;
+      padding: 32px 34px;
+    }
+    .form-header { margin-bottom: 26px; }
+    .form-header h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 6px; }
+    .form-header p { font-size: 0.86rem; color: var(--text-muted); line-height: 1.55; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .form-group label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--bg);
+      border: 1px solid var(--border2);
+      border-radius: 8px;
+      padding: 11px 14px;
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      transition: var(--transition);
+      outline: none;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--text-faint); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(255,107,0,0.1);
+    }
+    .form-group select option { background: var(--card); }
+    .form-group textarea { resize: vertical; min-height: 130px; }
+
+    .form-submit-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
+    .form-note {
+      font-size: 0.75rem;
+      color: var(--text-faint);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .form-note i { color: var(--orange); }
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 28px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: var(--sans);
+    }
+    .btn-submit:hover { background: var(--orange-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(255,107,0,0.35); }
+    .btn-submit:disabled { opacity: 0.7; cursor: default; transform: none; }
+
+    @media(max-width:860px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .contact-info-stack { order: 2; }
+      .contact-form-wrap { order: 1; }
+    }
+    @media(max-width:540px) {
+      .form-row { grid-template-columns: 1fr; }
+      .contact-form-wrap { padding: 22px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">&lt;<span>Sami</span> /&gt;</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="about.html">À propos</a></li>
+    <li><a href="competences.html">Compétences</a></li>
+    <li><a href="orange.html">Orange Business</a></li>
+    <li><a href="projets.html">Projets</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="#" class="nav-cv" onclick="event.preventDefault();alert('Remplacez ce lien par votre CV PDF.')">
+    <i class="fas fa-download"></i> Mon CV
+  </a>
+  <div class="nav-burger" id="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Accueil</a>
+  <a href="about.html" onclick="closeMenu()">À propos &amp; Formation</a>
+  <a href="competences.html" onclick="closeMenu()">Compétences</a>
+  <a href="orange.html" onclick="closeMenu()">Orange Business</a>
+  <a href="projets.html" onclick="closeMenu()">Projets</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+</div>
+
+<header class="page-header">
+  <div class="container">
+    <p class="page-header-pre"><i class="fas fa-envelope"></i> Contact</p>
+    <h1>Me Contacter</h1>
+    <p class="page-header-sub">Une question, une opportunité ou un projet à partager ? Écrivez-moi directement via le formulaire ou via mes coordonnées ci-dessous.</p>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- Left: info + availability -->
+        <div class="fade-in">
+          <div class="contact-info-stack">
+
+            <a href="mailto:alaouikasmi.sami@gmail.com" class="contact-info-card">
+              <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <div class="ci-label">Email</div>
+                <div class="ci-value">alaouikasmi.sami@gmail.com</div>
+              </div>
+              <i class="fas fa-arrow-right ci-arrow"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/sami-alaouikasmi" target="_blank" class="contact-info-card">
+              <div class="ci-icon"><i class="fab fa-linkedin-in"></i></div>
+              <div>
+                <div class="ci-label">LinkedIn</div>
+                <div class="ci-value">Sami ALAOUI KASMI</div>
+              </div>
+              <i class="fas fa-arrow-right ci-arrow"></i>
+            </a>
+
+            <a href="https://github.com/s5m87" target="_blank" class="contact-info-card">
+              <div class="ci-icon"><i class="fab fa-github"></i></div>
+              <div>
+                <div class="ci-label">GitHub</div>
+                <div class="ci-value">github.com/s5m87</div>
+              </div>
+              <i class="fas fa-arrow-right ci-arrow"></i>
+            </a>
+
+            <div class="contact-info-card" style="cursor:default;">
+              <div class="ci-icon"><i class="fas fa-location-dot"></i></div>
+              <div>
+                <div class="ci-label">Localisation</div>
+                <div class="ci-value">Caen, France</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Availability status -->
+          <div class="avail-card" style="margin-top:20px;">
+            <div class="avail-header">
+              <div class="avail-dot"></div>
+              <span>Contrat d'alternance</span>
+            </div>
+            <div class="avail-rows">
+              <div class="avail-row">
+                <span class="avail-row-label">Statut actuel</span>
+                <span class="avail-row-val" style="color:#2ECC71">En poste</span>
+              </div>
+              <div class="avail-row">
+                <span class="avail-row-label">Entreprise</span>
+                <span class="avail-row-val">Orange Business</span>
+              </div>
+              <hr class="avail-divider" />
+              <div class="avail-row">
+                <span class="avail-row-label">Contrat</span>
+                <span class="avail-row-val">Alternance</span>
+              </div>
+              <div class="avail-row">
+                <span class="avail-row-label">Rythme</span>
+                <span class="avail-row-val">1 mois / 1 mois</span>
+              </div>
+              <div class="avail-row">
+                <span class="avail-row-label">Fin de contrat</span>
+                <span class="avail-row-val">Août 2028</span>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+        <!-- Right: contact form -->
+        <div class="contact-form-wrap fade-in d1">
+          <div class="form-header">
+            <h2>Envoyer un message</h2>
+            <p>Remplissez le formulaire ci-dessous, je vous répondrai sous 48 h.</p>
+          </div>
+
+          <form onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">Prénom *</label>
+                <input type="text" id="fname" name="fname" placeholder="Jean" required />
+              </div>
+              <div class="form-group">
+                <label for="lname">Nom *</label>
+                <input type="text" id="lname" name="lname" placeholder="Dupont" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Adresse email *</label>
+              <input type="email" id="email" name="email" placeholder="jean.dupont@exemple.fr" required />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Sujet *</label>
+              <select id="subject" name="subject" required>
+                <option value="" disabled selected>Sélectionnez un sujet…</option>
+                <option value="alternance">Opportunité d'alternance</option>
+                <option value="stage">Proposition de stage</option>
+                <option value="emploi">Offre d'emploi (post-diplôme)</option>
+                <option value="collaboration">Collaboration académique</option>
+                <option value="projet">Projet commun</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" placeholder="Décrivez votre projet, votre besoin ou votre proposition…" required></textarea>
+            </div>
+
+            <div class="form-submit-row">
+              <p class="form-note"><i class=""></i></p>
+              <button type="submit" class="btn-submit">
+                <i class="fas fa-paper-plane"></i> Envoyer le message
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>Conçu par <span>Sami ALAOUI KASMI</span> — BUT R&amp;T | Alternant Orange Business</p>
+    <div class="footer-links">
+      <a href="mailto:alaouikasmi.sami@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/sami-alaouikasmi" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/s5m87" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+    <p style="margin-top:10px;font-size:0.73rem">© 2026 Sami ALAOUI KASMI</p>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>

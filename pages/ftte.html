@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FTTE — Notice d'installation | Orange Business</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="detail.css" />
+</head>
+<body>
+  <nav class="topbar">
+    <a href="../index.html#experience" class="back-btn"><i class="fas fa-arrow-left"></i> Retour au portfolio</a>
+    <span class="badge-orange"><i class="fas fa-building"></i> FTTE</span>
+  </nav>
+
+  <header class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container">
+      <div class="page-hero-tag"><i class="fas fa-building"></i> Orange Business — Fibre Entreprise</div>
+      <h1 class="page-hero-title">FTTE</h1>
+      <p class="page-hero-sub">Fiber To The Enterprise — Architecture fibre mutualisée pour immeubles tertiaires multi-locataires avec isolation VLAN par entreprise</p>
+      <div class="hero-pills">
+        <span class="pill"><i class="fas fa-building"></i> Immeuble tertiaire</span>
+        <span class="pill"><i class="fas fa-layer-group"></i> Multi-locataires</span>
+        <span class="pill"><i class="fas fa-tags"></i> VLAN 802.1Q par entreprise</span>
+        <span class="pill"><i class="fas fa-plug"></i> PoE+ pour téléphones IP</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container page-body">
+
+    <!-- PRÉSENTATION -->
+    <section class="detail-section">
+      <div class="section-label"><i class="fas fa-info-circle"></i> Comprendre le FTTE</div>
+      <div class="two-col">
+        <div>
+          <h2 class="section-h2">FTTE — Fibre mutualisée pour entreprises en immeuble</h2>
+          <p>Le <strong style="color:var(--text)">FTTE (Fiber To The Enterprise)</strong> désigne le déploiement de fibre optique jusqu'à chaque étage d'un immeuble tertiaire (bureaux, commerces), avec une distribution vers chaque locataire via un réseau interne structuré. C'est une solution intermédiaire entre le FTTH résidentiel et le FTTO dédié.</p>
+          <p>La fibre arrive en pied d'immeuble depuis le NRO Orange, puis est distribuée vers chaque étage à travers les gaines techniques verticales. Un <strong style="color:var(--text)">switch de distribution</strong> en étage assure la connectivité des postes et équipements téléphoniques. Chaque locataire est isolé via un VLAN dédié.</p>
+          <ul class="feature-list">
+            <li><i class="fas fa-check"></i> Une seule infrastructure fibre partagée entre tous les locataires</li>
+            <li><i class="fas fa-check"></i> Isolation complète par VLAN 802.1Q entre entreprises</li>
+            <li><i class="fas fa-check"></i> Switch PoE+ pour téléphones IP et bornes WiFi sans câble d'alimentation</li>
+            <li><i class="fas fa-check"></i> Débits garantis par QoS inter-VLAN</li>
+            <li><i class="fas fa-check"></i> Gestion centralisée via portail Orange Business</li>
+          </ul>
+        </div>
+        <div class="info-card-stack">
+          <div class="info-card">
+            <div class="info-card-icon"><i class="fas fa-building" style="color:#FF6B00"></i></div>
+            <div class="info-card-label">Cible</div>
+            <div class="info-card-val">Immeubles tertiaires 5–50 étages</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon"><i class="fas fa-users" style="color:#3498DB"></i></div>
+            <div class="info-card-label">Locataires max</div>
+            <div class="info-card-val">Jusqu'à 32 par colonne fibre</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon"><i class="fas fa-bolt" style="color:#F39C12"></i></div>
+            <div class="info-card-label">PoE+ par port switch</div>
+            <div class="info-card-val">Jusqu'à 30W par port</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon"><i class="fas fa-shield-halved" style="color:#2ECC71"></i></div>
+            <div class="info-card-label">Isolation</div>
+            <div class="info-card-val">VLAN 802.1Q — étanche</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHÉMA SVG FTTE -->
+    <section class="detail-section">
+      <div class="section-label"><i class="fas fa-diagram-project"></i> Architecture FTTE — Immeuble multi-étages</div>
+      <div class="schema-wrap">
+        <svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" class="network-svg">
+          <defs>
+            <marker id="tArr" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 Z" fill="#FF6B00" opacity="0.9"/>
+            </marker>
+            <marker id="tArrB" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 Z" fill="#3498DB" opacity="0.8"/>
+            </marker>
+          </defs>
+          <rect width="900" height="400" rx="16" fill="#0E1420"/>
+
+          <!-- NRO Orange -->
+          <rect x="15" y="150" width="110" height="100" rx="10" fill="#141A28" stroke="#FF6B00" stroke-opacity="0.35"/>
+          <text x="70" y="168" fill="#FF6B00" font-size="10" text-anchor="middle" font-family="JetBrains Mono">NRO</text>
+          <text x="70" y="182" fill="#8B97B0" font-size="7" text-anchor="middle">Orange</text>
+          <text x="70" y="220" fill="#FF6B00" font-size="22" text-anchor="middle">☁</text>
+          <text x="70" y="242" fill="#8B97B0" font-size="8" text-anchor="middle">Backbone MPLS</text>
+
+          <!-- Ligne fibre vers immeuble -->
+          <line x1="127" y1="200" x2="178" y2="200" stroke="#FF6B00" stroke-width="2.5" stroke-opacity="0.8" marker-end="url(#tArr)"/>
+          <text x="152" y="192" fill="#FF6B00" font-size="7" text-anchor="middle">Fibre OS2</text>
+          <text x="152" y="214" fill="#8B97B0" font-size="7" text-anchor="middle">Trunk multi-VLAN</text>
+
+          <!-- Immeuble -->
+          <rect x="180" y="20" width="220" height="360" rx="12" fill="#0a0f1a" stroke="#FF6B00" stroke-opacity="0.2" stroke-dasharray="6,4"/>
+          <text x="290" y="38" fill="#FF6B00" font-size="10" text-anchor="middle" font-family="JetBrains Mono">IMMEUBLE TERTIAIRE</text>
+
+          <!-- Répartiteur immeuble (DTIo / NRO immeuble) -->
+          <rect x="194" y="50" width="192" height="80" rx="8" fill="#141A28" stroke="#FF6B00" stroke-opacity="0.4"/>
+          <text x="290" y="68" fill="#FF6B00" font-size="9" text-anchor="middle" font-family="JetBrains Mono">DTIo / NRO IMMEUBLE</text>
+          <text x="290" y="82" fill="#8B97B0" font-size="7" text-anchor="middle">Répartiteur fibre optique</text>
+          <rect x="205" y="90" width="80" height="30" rx="5" fill="#1A2235" stroke="#FF6B00" stroke-opacity="0.3"/>
+          <text x="245" y="107" fill="#E8EDF5" font-size="8" text-anchor="middle">ODF / Baie brassage</text>
+          <rect x="295" y="90" width="80" height="30" rx="5" fill="#1A2235" stroke="#3498DB" stroke-opacity="0.3"/>
+          <text x="335" y="107" fill="#3498DB" font-size="8" text-anchor="middle">Switch cœur L3</text>
+          <text x="335" y="118" fill="#8B97B0" font-size="7" text-anchor="middle">routage inter-VLAN</text>
+
+          <!-- Colonne montante -->
+          <line x1="290" y1="132" x2="290" y2="148" stroke="#FF6B00" stroke-width="2" stroke-opacity="0.6"/>
+          <line x1="290" y1="148" x2="290" y2="175" stroke="#FF6B00" stroke-width="2" stroke-opacity="0.6"/>
+          <line x1="290" y1="175" x2="290" y2="220" stroke="#FF6B00" stroke-width="2" stroke-opacity="0.6"/>
+          <line x1="290" y1="220" x2="290" y2="265" stroke="#FF6B00" stroke-width="2" stroke-opacity="0.6"/>
+          <line x1="290" y1="265" x2="290" y2="310" stroke="#FF6B00" stroke-width="2" stroke-opacity="0.6"/>
+          <text x="278" y="240" fill="#FF6B00" font-size="8" transform="rotate(-90, 278, 240)">Colonne montante fibre OS2</text>
+
+          <!-- Étage 3 -->
+          <rect x="194" y="148" width="192" height="60" rx="6" fill="#141A28" stroke="#3498DB" stroke-opacity="0.3"/>
+          <text x="235" y="166" fill="#3498DB" font-size="8" text-anchor="middle" font-family="JetBrains Mono">ÉTAGE 3</text>
+          <rect x="303" y="154" width="75" height="45" rx="4" fill="#1A2235" stroke="#3498DB" stroke-opacity="0.3"/>
+          <text x="340" y="170" fill="#3498DB" font-size="8" text-anchor="middle">Switch L2</text>
+          <text x="340" y="181" fill="#8B97B0" font-size="7" text-anchor="middle">PoE+ 24p</text>
+          <text x="340" y="192" fill="#8B97B0" font-size="7" text-anchor="middle">VLAN 30</text>
+
+          <!-- Étage 2 -->
+          <rect x="194" y="218" width="192" height="60" rx="6" fill="#141A28" stroke="#FF6B00" stroke-opacity="0.35"/>
+          <text x="235" y="236" fill="#FF6B00" font-size="8" text-anchor="middle" font-family="JetBrains Mono">ÉTAGE 2 ★</text>
+          <rect x="303" y="224" width="75" height="45" rx="4" fill="#1A2235" stroke="#FF6B00" stroke-opacity="0.4"/>
+          <text x="340" y="240" fill="#FF6B00" font-size="8" text-anchor="middle">Switch L2</text>
+          <text x="340" y="251" fill="#8B97B0" font-size="7" text-anchor="middle">PoE+ 48p</text>
+          <text x="340" y="262" fill="#8B97B0" font-size="7" text-anchor="middle">VLAN 10/20</text>
+
+          <!-- Étage 1 -->
+          <rect x="194" y="288" width="192" height="60" rx="6" fill="#141A28" stroke="#3498DB" stroke-opacity="0.25"/>
+          <text x="235" y="306" fill="#3498DB" font-size="8" text-anchor="middle" font-family="JetBrains Mono">ÉTAGE 1</text>
+          <rect x="303" y="294" width="75" height="45" rx="4" fill="#1A2235" stroke="#3498DB" stroke-opacity="0.25"/>
+          <text x="340" y="310" fill="#3498DB" font-size="8" text-anchor="middle">Switch L2</text>
+          <text x="340" y="321" fill="#8B97B0" font-size="7" text-anchor="middle">PoE+ 24p</text>
+          <text x="340" y="332" fill="#8B97B0" font-size="7" text-anchor="middle">VLAN 40</text>
+
+          <!-- Horizontal arrows to switches -->
+          <line x1="292" y1="178" x2="301" y2="178" stroke="#FF6B00" stroke-width="1.5" stroke-opacity="0.7" marker-end="url(#tArr)"/>
+          <line x1="292" y1="247" x2="301" y2="247" stroke="#FF6B00" stroke-width="1.5" stroke-opacity="0.7" marker-end="url(#tArr)"/>
+          <line x1="292" y1="317" x2="301" y2="317" stroke="#FF6B00" stroke-width="1.5" stroke-opacity="0.7" marker-end="url(#tArr)"/>
+
+          <!-- Zone clients etage 2 (détail) -->
+          <rect x="450" y="80" width="420" height="300" rx="12" fill="#0a0f1a" stroke="#FF6B00" stroke-opacity="0.15" stroke-dasharray="5,4"/>
+          <text x="660" y="98" fill="#FF6B00" font-size="10" text-anchor="middle" font-family="JetBrains Mono">DÉTAIL ÉTAGE 2 — ENTREPRISE CLIENT</text>
+
+          <!-- Switch étage 2 (copie) -->
+          <rect x="460" y="110" width="100" height="80" rx="8" fill="#141A28" stroke="#FF6B00" stroke-opacity="0.4"/>
+          <text x="510" y="128" fill="#FF6B00" font-size="9" text-anchor="middle" font-family="JetBrains Mono">SW ÉTAGE 2</text>
+          <text x="510" y="142" fill="#E8EDF5" font-size="8" text-anchor="middle">Cisco C9200-48P</text>
+          <text x="510" y="155" fill="#8B97B0" font-size="7" text-anchor="middle">48 ports PoE+</text>
+          <text x="510" y="167" fill="#8B97B0" font-size="7" text-anchor="middle">2x SFP Uplink</text>
+          <text x="510" y="179" fill="#8B97B0" font-size="7" text-anchor="middle">VLAN 10 / 20 / 99</text>
+
+          <!-- Equipements réseau -->
+          <!-- PC Data -->
+          <rect x="580" y="110" width="70" height="55" rx="6" fill="#141A28" stroke="#3498DB" stroke-opacity="0.3"/>
+          <text x="615" y="128" fill="#3498DB" font-size="8" text-anchor="middle">VLAN 10</text>
+          <text x="615" y="140" fill="#E8EDF5" font-size="8" text-anchor="middle">💻 PC</text>
+          <text x="615" y="152" fill="#8B97B0" font-size="7" text-anchor="middle">192.168.10.x</text>
+
+          <!-- Téléphone IP -->
+          <rect x="660" y="110" width="70" height="55" rx="6" fill="#141A28" stroke="#9B59B6" stroke-opacity="0.35"/>
+          <text x="695" y="128" fill="#9B59B6" font-size="8" text-anchor="middle">VLAN 20</text>
+          <text x="695" y="140" fill="#E8EDF5" font-size="8" text-anchor="middle">📞 VoIP</text>
+          <text x="695" y="152" fill="#8B97B0" font-size="7" text-anchor="middle">10.0.20.x PoE</text>
+
+          <!-- Borne WiFi -->
+          <rect x="740" y="110" width="70" height="55" rx="6" fill="#141A28" stroke="#2ECC71" stroke-opacity="0.3"/>
+          <text x="775" y="128" fill="#2ECC71" font-size="8" text-anchor="middle">VLAN 10/20</text>
+          <text x="775" y="140" fill="#E8EDF5" font-size="8" text-anchor="middle">📡 AP WiFi</text>
+          <text x="775" y="152" fill="#8B97B0" font-size="7" text-anchor="middle">PoE+ 30W</text>
+
+          <!-- Imprimante -->
+          <rect x="820" y="110" width="40" height="55" rx="6" fill="#141A28" stroke="#8B97B0" stroke-opacity="0.2"/>
+          <text x="840" y="128" fill="#8B97B0" font-size="7" text-anchor="middle">VLAN</text>
+          <text x="840" y="140" fill="#E8EDF5" font-size="7" text-anchor="middle">🖨</text>
+          <text x="840" y="152" fill="#8B97B0" font-size="6" text-anchor="middle">Print</text>
+
+          <!-- Arrows switch to devices -->
+          <line x1="562" y1="150" x2="578" y2="150" stroke="#3498DB" stroke-width="1.5" stroke-opacity="0.7" marker-end="url(#tArrB)"/>
+          <line x1="562" y1="155" x2="658" y2="155" stroke="#9B59B6" stroke-width="1.5" stroke-opacity="0.6" marker-end="url(#tArrB)"/>
+          <line x1="562" y1="148" x2="738" y2="148" stroke="#2ECC71" stroke-width="1.5" stroke-opacity="0.6" marker-end="url(#tArrB)"/>
+          <line x1="562" y1="153" x2="818" y2="153" stroke="#8B97B0" stroke-width="1" stroke-opacity="0.4" marker-end="url(#tArrB)"/>
+
+          <!-- Config VLAN tableau -->
+          <rect x="460" y="210" width="390" height="150" rx="8" fill="#141A28" stroke="#FF6B00" stroke-opacity="0.2"/>
+          <text x="655" y="228" fill="#FF6B00" font-size="9" text-anchor="middle" font-family="JetBrains Mono">CONFIGURATION VLAN — SWITCH ÉTAGE 2</text>
+          <text x="480" y="250" fill="#8B97B0" font-size="8">VLAN</text>
+          <text x="530" y="250" fill="#8B97B0" font-size="8">Nom</text>
+          <text x="610" y="250" fill="#8B97B0" font-size="8">Subnet</text>
+          <text x="720" y="250" fill="#8B97B0" font-size="8">Accès / Trunk</text>
+          <line x1="465" y1="255" x2="840" y2="255" stroke="#FF6B00" stroke-opacity="0.15" stroke-width="1"/>
+          <text x="480" y="270" fill="#3498DB" font-size="8">10</text>
+          <text x="530" y="270" fill="#E8EDF5" font-size="8">DATA</text>
+          <text x="610" y="270" fill="#E8EDF5" font-size="8">192.168.10.0/24</text>
+          <text x="720" y="270" fill="#8B97B0" font-size="8">Access — PC, imprimantes</text>
+          <text x="480" y="288" fill="#9B59B6" font-size="8">20</text>
+          <text x="530" y="288" fill="#E8EDF5" font-size="8">VOIX</text>
+          <text x="610" y="288" fill="#E8EDF5" font-size="8">10.0.20.0/24</text>
+          <text x="720" y="288" fill="#8B97B0" font-size="8">Access voice — Téléphones PoE</text>
+          <text x="480" y="306" fill="#2ECC71" font-size="8">30</text>
+          <text x="530" y="306" fill="#E8EDF5" font-size="8">WIFI</text>
+          <text x="610" y="306" fill="#E8EDF5" font-size="8">192.168.30.0/24</text>
+          <text x="720" y="306" fill="#8B97B0" font-size="8">Trunk → AP WiFi</text>
+          <text x="480" y="324" fill="#27AE60" font-size="8">99</text>
+          <text x="530" y="324" fill="#E8EDF5" font-size="8">MGMT</text>
+          <text x="610" y="324" fill="#E8EDF5" font-size="8">172.16.99.0/24</text>
+          <text x="720" y="324" fill="#8B97B0" font-size="8">Admin switch / SNMP</text>
+          <text x="480" y="342" fill="#FF6B00" font-size="8">1</text>
+          <text x="530" y="342" fill="#E8EDF5" font-size="8">NATIVE</text>
+          <text x="610" y="342" fill="#E8EDF5" font-size="8">—</text>
+          <text x="720" y="342" fill="#8B97B0" font-size="8">Trunk vers switch cœur</text>
+
+          <!-- Arrow from immeuble to detail -->
+          <line x1="388" y1="247" x2="458" y2="150" stroke="#FF6B00" stroke-width="1.5" stroke-opacity="0.5" stroke-dasharray="4,3" marker-end="url(#tArr)"/>
+          <text x="415" y="182" fill="#FF6B00" font-size="7" text-anchor="middle" transform="rotate(-35,415,182)">Détail étage 2</text>
+
+          <text x="450" y="22" fill="#E8EDF5" font-size="13" font-weight="bold" text-anchor="middle" font-family="Inter">Architecture FTTE — Immeuble tertiaire multi-locataires</text>
+          <text x="450" y="38" fill="#8B97B0" font-size="9" text-anchor="middle">Distribution fibre par colonne montante + switch PoE+ par étage + isolation VLAN</text>
+        </svg>
+        <div class="schema-legend">
+          <div class="legend-item"><span class="legend-dot" style="background:#FF6B00"></span> Fibre optique / Backbone</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#3498DB"></span> VLAN Data</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#9B59B6"></span> VLAN Voix VoIP</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#2ECC71"></span> VLAN WiFi</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#27AE60"></span> VLAN Management</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOTICE INSTALLATION -->
+    <section class="detail-section">
+      <div class="section-label"><i class="fas fa-list-ol"></i> Notice d'installation FTTE</div>
+      <div class="notice-steps">
+
+        <div class="notice-step">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <h3>Analyse du câblage et plan d'immeuble</h3>
+            <p>Récupérer le plan de câblage de l'immeuble, identifier les gaines techniques disponibles et valider le parcours des câbles fibre avant toute intervention.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Points à vérifier avant démarrage</div>
+              <div class="cmd-body">
+✓ Plan de câblage immeuble (gaines, fourreaux, colonnes)
+✓ Emplacement du local technique (DTIo / NRO immeuble)
+✓ Identification des étages et locataires à desservir
+✓ Capacité des gaines techniques (place disponible)
+✓ Vérifier présence baie de brassage en pied d'immeuble
+✓ Accès aux locaux techniques (badge, clé syndic)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <h3>Raccordement dans le répartiteur immeuble (DTIo)</h3>
+            <p>Connecter le câble de transport Orange dans le DTIo (Distribution de Télécommunication d'Immeuble optique) et réaliser le brassage vers les fibres de colonne montante.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Raccordement DTIo</div>
+              <div class="cmd-body">
+✓ Localiser le câble de transport Orange (gaine extérieure)
+✓ Dénuder et préparer les fibres (protection, nettoyer)
+✓ Épissurer ou connecter sur la cassette ODF du DTIo
+✓ Jarretiérer vers les fibres de colonne montante (1 fibre/étage)
+✓ Étiqueter chaque jarretière : ETAGE-02-VL10, etc.
+✓ Mesure OTDR depuis DTIo vers chaque étage
+  Atténuation cible : &lt; 3 dB par étage (câble G.657 OS2)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <h3>Tirage de la fibre dans les gaines techniques</h3>
+            <p>Tirer les câbles fibre depuis le DTIo en pied d'immeuble jusqu'à chaque étage en passant dans les gaines techniques verticales.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Tirage fibre colonne montante</div>
+              <div class="cmd-body">
+CÂBLE : OS2 (G.652D) — fibre monomode 9/125 µm
+
+✓ Utiliser un câble multifibres (4 à 12 fibres) pour colonne
+✓ Introduire câble avec aiguille de tirage / pistolet air
+✓ Tension de tirage max : 1000 N (câble armé)
+✓ Protéger chaque percement de gaine avec fourreau PVC
+✓ Respecter rayon de courbure min : 20 × diamètre câble
+✓ Fixer tous les 2 mètres avec colliers inox
+✓ Laisser 1 mètre de mou à chaque étage (lovage)
+✓ Étiqueter chaque étage : câble + numéro fibre
+
+REPÉRAGE COULEUR GAINE DIN :
+🟦 Bleu  → Fibre 1 (étage 1)
+🟧 Orange → Fibre 2 (étage 2)
+🟩 Vert   → Fibre 3 (étage 3)  [etc.]
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">04</div>
+          <div class="step-content">
+            <h3>Installation du switch PoE+ en étage</h3>
+            <p>Installer le switch de distribution dans l'armoire de brassage de l'étage, câbler les ports SFP uplink en fibre et les ports cuivre RJ45 vers les postes de travail.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Installation switch étage — Cisco Catalyst C9200-48P</div>
+              <div class="cmd-body">
+✓ Monter switch dans armoire 19" de l'étage (ou murale)
+✓ Brancher alimentation secteur (230V / redondée si dispo)
+✓ Connecter port SFP Uplink1 → fibre colonne montante (OS2)
+✓ Connecter port SFP Uplink2 → redondance si possible
+✓ Câbler ports RJ45 → patch panel → prises RJ45 bureaux
+
+PoE BUDGET ÉTAGE :
+  Budget PoE total Cisco C9200-48P : 740W
+  Téléphone IP Cisco : 8W par port
+  Borne WiFi Cisco AP : 25W par port
+  → Max ~25 téléphones + 4 bornes simultanément
+
+CÂBLAGE CUIVRE POSTES :
+✓ Cat. 6A minimum (performance Gbit)
+✓ Longueur max patch + horizontal : 100 m
+✓ Test avec certifieur Fluke (NEXT, atténuation)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">05</div>
+          <div class="step-content">
+            <h3>Configuration des VLANs sur le switch</h3>
+            <p>Configurer les VLANs, les ports en mode access ou trunk, et la QoS pour la voix.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Configuration Cisco Catalyst — VLAN + Trunk</div>
+              <div class="cmd-body">
+<span style="color:#FF6B00">Switch# configure terminal</span>
+<span style="color:#8B97B0">! Création des VLANs</span>
+<span style="color:#FF6B00">vlan 10</span>
+  name DATA-POSTES
+<span style="color:#FF6B00">vlan 20</span>
+  name VOIX-VOIP
+<span style="color:#FF6B00">vlan 30</span>
+  name WIFI-INVITES
+<span style="color:#FF6B00">vlan 99</span>
+  name MANAGEMENT
+
+<span style="color:#8B97B0">! Port accès PC (ex: interface Gi1/0/1 à 24)</span>
+<span style="color:#FF6B00">interface range GigabitEthernet1/0/1-24</span>
+  switchport mode access
+  switchport access vlan 10
+  spanning-tree portfast
+  no shutdown
+
+<span style="color:#8B97B0">! Port téléphone IP PoE (VLAN voix + data simultané)</span>
+<span style="color:#FF6B00">interface range GigabitEthernet1/0/25-36</span>
+  switchport mode access
+  switchport access vlan 10
+  switchport voice vlan 20
+  spanning-tree portfast
+  power inline auto max 10000
+
+<span style="color:#8B97B0">! Uplink trunk vers switch cœur</span>
+<span style="color:#FF6B00">interface GigabitEthernet1/0/48</span>
+  switchport mode trunk
+  switchport trunk native vlan 1
+  switchport trunk allowed vlan 10,20,30,99
+
+<span style="color:#8B97B0">! QoS voix — Priorité DSCP EF</span>
+<span style="color:#FF6B00">mls qos</span>
+<span style="color:#FF6B00">mls qos trust dscp</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">06</div>
+          <div class="step-content">
+            <h3>Tests de continuité et validation</h3>
+            <p>Valider le câblage cuivre avec un certifieur, les liaisons optiques avec l'OTDR, et les VLANs par des tests de ping inter-VLAN.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Validation complète</div>
+              <div class="cmd-body">
+TEST OPTIQUE UPLINK :
+  OTDR : &lt; 3 dB par étage sur colonne
+  Powermètre uplink : dans seuil ONT/switch
+
+TEST CUIVRE POSTES (Fluke DTX-1800) :
+  NEXT : &gt; 43 dB (Cat. 6)
+  Atténuation : &lt; 21 dB à 250 MHz
+  Return Loss : &gt; 20 dB
+
+TEST VLAN (depuis PC sur VLAN 10) :
+  ping 192.168.10.1  → <span style="color:#2ECC71">OK (passerelle)</span>
+  ping 8.8.8.8       → <span style="color:#2ECC71">OK (internet)</span>
+  ping 10.0.20.5     → <span style="color:#E74C3C">ÉCHEC (inter-VLAN bloqué si voulu)</span>
+
+TEST PoE TÉLÉPHONE :
+  Brancher téléphone IP → boot PoE automatique
+  show power inline Gi1/0/25 → <span style="color:#2ECC71">On / 7.8W</span>
+
+RÉSULTAT → Saisir dans CR GLPI + photos
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TROUBLESHOOTING -->
+    <section class="detail-section">
+      <div class="section-label"><i class="fas fa-bug"></i> Dépannage fréquent FTTE</div>
+      <div class="trouble-grid">
+        <div class="trouble-card">
+          <div class="trouble-symptom"><i class="fas fa-times-circle" style="color:#E74C3C"></i> Uplink SFP ne monte pas</div>
+          <div class="trouble-cause">Module SFP incompatible (non Cisco), ou fibre OS2 mauvaise longueur d'onde (1310nm vs 1550nm)</div>
+          <div class="trouble-fix">→ Vérifier compatibilité SFP (Cisco certified) → Vérifier type fibre (OS2 pour SFP LX/LH)</div>
+        </div>
+        <div class="trouble-card">
+          <div class="trouble-symptom"><i class="fas fa-times-circle" style="color:#E74C3C"></i> Téléphone ne démarre pas (PoE)</div>
+          <div class="trouble-cause">Budget PoE du switch dépassé, ou port non configuré en "power inline auto"</div>
+          <div class="trouble-fix">→ show power inline → Vérifier budget total → Réduire devices PoE ou ajouter switch PoE</div>
+        </div>
+        <div class="trouble-card">
+          <div class="trouble-symptom"><i class="fas fa-times-circle" style="color:#E74C3C"></i> PC sur mauvais VLAN</div>
+          <div class="trouble-cause">Port en mode trunk au lieu de access, ou VLAN ID incorrect sur le port access</div>
+          <div class="trouble-fix">→ show interfaces Gi1/0/X trunk → Vérifier switchport access vlan 10</div>
+        </div>
+        <div class="trouble-card">
+          <div class="trouble-symptom"><i class="fas fa-times-circle" style="color:#E74C3C"></i> Spanning tree bloque un port</div>
+          <div class="trouble-cause">Boucle physique détectée, ou portfast non activé sur port d'accès</div>
+          <div class="trouble-fix">→ show spanning-tree → Activer spanning-tree portfast sur tous les ports access</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    <div class="container">
+      <a href="../index.html#experience" class="back-btn"><i class="fas fa-arrow-left"></i> Retour au portfolio</a>
+      <p>Sami Alaouikasmi — Alternant Orange Business | BUT R&T</p>
+    </div>
+  </footer>
+  <script src="detail.js"></script>
+</body>
+</html>

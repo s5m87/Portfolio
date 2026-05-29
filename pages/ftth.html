@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FTTH — Notice d'installation | Orange Business</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="detail.css" />
+</head>
+<body>
+  <nav class="topbar">
+    <a href="../index.html#experience" class="back-btn"><i class="fas fa-arrow-left"></i> Retour au portfolio</a>
+    <span class="badge-orange"><i class="fas fa-wave-square"></i> FTTH</span>
+  </nav>
+
+  <header class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container">
+      <div class="page-hero-tag"><i class="fas fa-wave-square"></i> Orange Business — Fibre Optique</div>
+      <h1 class="page-hero-title">FTTH</h1>
+      <p class="page-hero-sub">Fiber To The Home — Architecture fibre optique passive (PON) amenée directement jusqu'à l'abonné final pour des débits symétriques jusqu'à 10 Gbps</p>
+      <div class="hero-pills">
+        <span class="pill"><i class="fas fa-bezier-curve"></i> GPON / XGS-PON</span>
+        <span class="pill"><i class="fas fa-satellite-dish"></i> ONT / OLT</span>
+        <span class="pill"><i class="fas fa-ruler"></i> OTDR / Powermètre</span>
+        <span class="pill"><i class="fas fa-bolt"></i> Jusqu'à 10 Gbps symétrique</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container page-body">
+
+    <!-- PRÉSENTATION -->
+    <section class="detail-section">
+      <div class="section-label"><i class="fas fa-info-circle"></i> Comprendre le FTTH</div>
+      <div class="two-col">
+        <div>
+          <h2 class="section-h2">Architecture FTTH — Fibre Passive (PON)</h2>
+          <p>Le FTTH (Fiber To The Home) est l'architecture fibre optique qui tire un câble de verre jusqu'au domicile ou au bureau de l'abonné. C'est une architecture <strong style="color:var(--text)">passive</strong> : aucun équipement électronique actif n'est nécessaire entre le NRO (Nœud de Raccordement Optique) et l'abonné. Le signal lumineux se propage directement.</p>
+          <p>La technologie GPON (Gigabit PON) permet à un seul émetteur OLT de desservir jusqu'à 64 abonnés via un coupleur optique passif. La prochaine génération XGS-PON monte jusqu'à 10 Gbps symétrique.</p>
+          <ul class="feature-list">
+            <li><i class="fas fa-check"></i> Architecture passive : pas de panne électronique sur le réseau de distribution</li>
+            <li><i class="fas fa-check"></i> Débits symétriques : jusqu'à 10 Gbps descendant ET montant</li>
+            <li><i class="fas fa-check"></i> Faible atténuation : signal stable sur de longues distances (jusqu'à 20 km)</li>
+            <li><i class="fas fa-check"></i> Mutualisée : jusqu'à 64 abonnés par fibre OLT (splitter passif)</li>
+            <li><i class="fas fa-check"></i> Latence ultra-faible : &lt; 5ms pour les applications temps réel</li>
+          </ul>
+        </div>
+        <div class="info-card-stack">
+          <div class="info-card">
+            <div class="info-card-icon"><i class="fas fa-arrow-down" style="color:#FF6B00"></i></div>
+            <div class="info-card-label">Débit descendant GPON</div>
+            <div class="info-card-val">2,488 Gbps partagés</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon"><i class="fas fa-arrow-up" style="color:#FF6B00"></i></div>
+            <div class="info-card-label">Débit montant GPON</div>
+            <div class="info-card-val">1,244 Gbps partagés</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon"><i class="fas fa-bolt" style="color:#F39C12"></i></div>
+            <div class="info-card-label">XGS-PON (10G)</div>
+            <div class="info-card-val">10 Gbps symétrique</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon"><i class="fas fa-ruler" style="color:#2ECC71"></i></div>
+            <div class="info-card-label">Portée maximale</div>
+            <div class="info-card-val">20 km OLT → ONT</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHÉMA ARCHITECTURE FTTH -->
+    <section class="detail-section">
+      <div class="section-label"><i class="fas fa-diagram-project"></i> Architecture GPON — Du NRO à l'abonné</div>
+      <div class="schema-wrap">
+        <svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" class="network-svg">
+          <defs>
+            <marker id="fArr" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 Z" fill="#FF6B00" opacity="0.9"/>
+            </marker>
+            <linearGradient id="fiberGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#FF6B00;stop-opacity:1"/>
+              <stop offset="100%" style="stop-color:#FFa84d;stop-opacity:0.4"/>
+            </linearGradient>
+          </defs>
+          <rect width="900" height="320" rx="16" fill="#0E1420"/>
+
+          <!-- NRO -->
+          <rect x="15" y="60" width="130" height="200" rx="10" fill="#141A28" stroke="#FF6B00" stroke-opacity="0.35"/>
+          <text x="80" y="78" fill="#FF6B00" font-size="10" text-anchor="middle" font-family="JetBrains Mono">NRO</text>
+          <text x="80" y="90" fill="#8B97B0" font-size="7" text-anchor="middle">Nœud Raccordement Optique</text>
+          <rect x="28" y="100" width="104" height="55" rx="6" fill="#1A2235" stroke="#FF6B00" stroke-opacity="0.4"/>
+          <text x="80" y="118" fill="#FF6B00" font-size="9" text-anchor="middle" font-family="JetBrains Mono">OLT</text>
+          <text x="80" y="131" fill="#E8EDF5" font-size="8" text-anchor="middle">Optical Line Terminal</text>
+          <text x="80" y="143" fill="#8B97B0" font-size="7" text-anchor="middle">λ=1490nm (down)</text>
+          <text x="80" y="153" fill="#8B97B0" font-size="7" text-anchor="middle">λ=1310nm (up)</text>
+          <rect x="28" y="166" width="104" height="40" rx="5" fill="#1A2235"/>
+          <text x="80" y="180" fill="#8B97B0" font-size="8" text-anchor="middle">BRASSAGE</text>
+          <text x="80" y="193" fill="#8B97B0" font-size="7" text-anchor="middle">Câble armé 288 fibres</text>
+          <rect x="28" y="216" width="104" height="32" rx="5" fill="#1A2235"/>
+          <text x="80" y="230" fill="#8B97B0" font-size="7" text-anchor="middle">Équipement</text>
+          <text x="80" y="242" fill="#8B97B0" font-size="7" text-anchor="middle">actif réseau cœur</text>
+
+          <!-- Fibre Transport G652D -->
+          <line x1="147" y1="130" x2="215" y2="130" stroke="url(#fiberGrad)" stroke-width="3" marker-end="url(#fArr)"/>
+          <text x="181" y="122" fill="#FF6B00" font-size="8" text-anchor="middle">G.652D</text>
+          <text x="181" y="144" fill="#8B97B0" font-size="7" text-anchor="middle">Câble transport</text>
+
+          <!-- PMZ/NRO secondaire -->
+          <rect x="218" y="80" width="100" height="120" rx="8" fill="#141A28" stroke="#FF6B00" stroke-opacity="0.25"/>
+          <text x="268" y="97" fill="#FF6B00" font-size="9" text-anchor="middle" font-family="JetBrains Mono">PMZ</text>
+          <text x="268" y="108" fill="#8B97B0" font-size="7" text-anchor="middle">Point de Mutualisation</text>
+          <rect x="230" y="116" width="76" height="40" rx="5" fill="#1A2235" stroke="#FF6B00" stroke-opacity="0.3"/>
+          <text x="268" y="130" fill="#E8EDF5" font-size="8" text-anchor="middle">Coupleur 1:4</text>
+          <text x="268" y="143" fill="#8B97B0" font-size="7" text-anchor="middle">Splitter passif</text>
+          <text x="268" y="155" fill="#8B97B0" font-size="7" text-anchor="middle">−6 dB atténuation</text>
+          <text x="268" y="185" fill="#8B97B0" font-size="7" text-anchor="middle">Boîtier extérieur</text>
+          <text x="268" y="197" fill="#8B97B0" font-size="7" text-anchor="middle">rue / trottoir</text>
+
+          <!-- Fibre distribution -->
+          <line x1="320" y1="130" x2="388" y2="130" stroke="#FF6B00" stroke-width="2" stroke-opacity="0.7" marker-end="url(#fArr)"/>
+          <text x="354" y="122" fill="#8B97B0" font-size="7" text-anchor="middle">Distribution</text>
+
+          <!-- PBO Immeuble -->
+          <rect x="390" y="70" width="100" height="250" rx="10" fill="#0a0f1a" stroke="#FF6B00" stroke-opacity="0.25" stroke-dasharray="5,4"/>
+          <text x="440" y="87" fill="#FF6B00" font-size="9" text-anchor="middle" font-family="JetBrains Mono">IMMEUBLE</text>
+          <rect x="403" y="98" width="74" height="40" rx="5" fill="#141A28" stroke="#FF6B00" stroke-opacity="0.35"/>
+          <text x="440" y="113" fill="#FF6B00" font-size="8" text-anchor="middle">PBO</text>
+          <text x="440" y="126" fill="#8B97B0" font-size="7" text-anchor="middle">Boîtier Palier</text>
+          <rect x="403" y="148" width="74" height="30" rx="4" fill="#141A28"/>
+          <text x="440" y="160" fill="#8B97B0" font-size="7" text-anchor="middle">Coupleur 1:16</text>
+          <text x="440" y="172" fill="#8B97B0" font-size="7" text-anchor="middle">Splitter intérieur</text>
+
+          <!-- PTO par étage -->
+          <rect x="406" y="192" width="68" height="20" rx="4" fill="#1A2235" stroke="#8B97B0" stroke-opacity="0.2"/>
+          <text x="440" y="205" fill="#8B97B0" font-size="7" text-anchor="middle">PTO — Étage 1</text>
+          <rect x="406" y="220" width="68" height="20" rx="4" fill="#1A2235" stroke="#FF6B00" stroke-opacity="0.4"/>
+          <text x="440" y="233" fill="#FF6B00" font-size="7" text-anchor="middle">PTO — Étage 2 ★</text>
+          <rect x="406" y="248" width="68" height="20" rx="4" fill="#1A2235" stroke="#8B97B0" stroke-opacity="0.2"/>
+          <text x="440" y="261" fill="#8B97B0" font-size="7" text-anchor="middle">PTO — Étage 3</text>
+          <rect x="406" y="276" width="68" height="30" rx="4" fill="#1A2235" stroke="#8B97B0" stroke-opacity="0.15"/>
+          <text x="440" y="289" fill="#8B97B0" font-size="7" text-anchor="middle">PTO — Étage 4</text>
+          <text x="440" y="300" fill="#8B97B0" font-size="6" text-anchor="middle">…</text>
+
+          <!-- Câble drop -->
+          <line x1="476" y1="233" x2="548" y2="200" stroke="#FF6B00" stroke-width="2" stroke-opacity="0.8" marker-end="url(#fArr)"/>
+          <text x="510" y="208" fill="#FF6B00" font-size="7" text-anchor="middle">Câble drop</text>
+          <text x="510" y="218" fill="#8B97B0" font-size="6" text-anchor="middle">G.657A2</text>
+
+          <!-- Logement client -->
+          <rect x="550" y="110" width="200" height="170" rx="10" fill="#0a0f1a" stroke="#3498DB" stroke-opacity="0.3" stroke-dasharray="5,4"/>
+          <text x="650" y="128" fill="#3498DB" font-size="9" text-anchor="middle" font-family="JetBrains Mono">LOGEMENT / BUREAU CLIENT</text>
+
+          <!-- ONT -->
+          <rect x="562" y="138" width="110" height="70" rx="8" fill="#141A28" stroke="#FF6B00" stroke-opacity="0.4"/>
+          <text x="617" y="156" fill="#FF6B00" font-size="9" text-anchor="middle" font-family="JetBrains Mono">ONT</text>
+          <text x="617" y="169" fill="#E8EDF5" font-size="8" text-anchor="middle">Optical Network Terminal</text>
+          <!-- LED indicators -->
+          <circle cx="570" cy="195" r="4" fill="#2ECC71"/>
+          <text x="570" y="208" fill="#8B97B0" font-size="6" text-anchor="middle">PWR</text>
+          <circle cx="585" cy="195" r="4" fill="#2ECC71"/>
+          <text x="585" y="208" fill="#8B97B0" font-size="6" text-anchor="middle">PON</text>
+          <circle cx="600" cy="195" r="4" fill="#2ECC71"/>
+          <text x="600" y="208" fill="#8B97B0" font-size="6" text-anchor="middle">LOS</text>
+          <circle cx="615" cy="195" r="4" fill="#FF6B00"/>
+          <text x="615" y="208" fill="#8B97B0" font-size="6" text-anchor="middle">LAN</text>
+
+          <!-- Routeur client -->
+          <rect x="690" y="138" width="50" height="70" rx="6" fill="#141A28" stroke="#3498DB" stroke-opacity="0.3"/>
+          <text x="715" y="158" fill="#3498DB" font-size="8" text-anchor="middle">Box</text>
+          <text x="715" y="170" fill="#8B97B0" font-size="7" text-anchor="middle">Routeur</text>
+          <text x="715" y="195" fill="#2ECC71" font-size="7" text-anchor="middle">WiFi</text>
+
+          <!-- Arrow ONT → Routeur -->
+          <line x1="674" y1="173" x2="688" y2="173" stroke="#3498DB" stroke-width="2" stroke-opacity="0.7" marker-end="url(#fArr)"/>
+          <text x="681" y="165" fill="#8B97B0" font-size="6" text-anchor="middle">RJ45</text>
+
+          <!-- Périphériques -->
+          <text x="620" y="250" fill="#E8EDF5" font-size="9" text-anchor="middle">💻 📱 📺</text>
+          <text x="620" y="265" fill="#8B97B0" font-size="7" text-anchor="middle">Appareils client (WiFi / Ethernet)</text>
+          <line x1="715" y1="208" x2="670" y2="245" stroke="#8B97B0" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="3,3"/>
+
+          <!-- Mesures OTDR -->
+          <rect x="20" y="280" width="370" height="28" rx="6" fill="#141A28" stroke="#F39C12" stroke-opacity="0.3"/>
+          <text x="205" y="292" fill="#F39C12" font-size="8" text-anchor="middle">📐 Budget optique GPON : max −28 dB atténuation totale OLT → ONT</text>
+          <text x="205" y="303" fill="#8B97B0" font-size="7" text-anchor="middle">Mesure powermètre obligatoire à chaque jonction</text>
+
+          <text x="450" y="28" fill="#E8EDF5" font-size="13" font-weight="bold" text-anchor="middle" font-family="Inter">Architecture FTTH GPON — NRO jusqu'à l'abonné</text>
+          <text x="450" y="46" fill="#8B97B0" font-size="9" text-anchor="middle">Réseau passif sans équipement actif entre NRO et ONT client — Budget optique : 28 dB max</text>
+        </svg>
+        <div class="schema-legend">
+          <div class="legend-item"><span class="legend-dot" style="background:#FF6B00"></span> Fibre optique OS2 / Signal GPON</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#3498DB"></span> Réseau local client</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#F39C12"></span> Limite budget optique</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#2ECC71"></span> Équipements actifs (ONT, OLT)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GLOSSAIRE FTTH -->
+    <section class="detail-section">
+      <div class="section-label"><i class="fas fa-book"></i> Glossaire des équipements FTTH</div>
+      <div class="cards-grid">
+        <div class="detail-card">
+          <div class="detail-card-icon"><i class="fas fa-server"></i></div>
+          <h3>OLT — Optical Line Terminal</h3>
+          <ul>
+            <li>Équipement actif situé au NRO</li>
+            <li>Émet le signal laser vers les abonnés</li>
+            <li>Gère la synchronisation TDMA des ONTs</li>
+            <li>Connexion réseau cœur Orange (10G/100G)</li>
+            <li>1 port OLT → jusqu'à 64 abonnés (GPON)</li>
+          </ul>
+        </div>
+        <div class="detail-card">
+          <div class="detail-card-icon"><i class="fas fa-code-branch"></i></div>
+          <h3>Splitter — Coupleur passif</h3>
+          <ul>
+            <li>Divise le signal optique sans électricité</li>
+            <li>Ratios : 1:2, 1:4, 1:8, 1:16, 1:32, 1:64</li>
+            <li>Atténuation : −3 dB par doublement</li>
+            <li>1:32 = −15 dB d'atténuation</li>
+            <li>Installé en PMZ extérieur ou PBO palier</li>
+          </ul>
+        </div>
+        <div class="detail-card">
+          <div class="detail-card-icon"><i class="fas fa-box"></i></div>
+          <h3>PBO — Point de Branchement Optique</h3>
+          <ul>
+            <li>Boîtier d'immeuble en pied de colonne</li>
+            <li>Contient le coupleur 1:16 ou 1:32</li>
+            <li>Permet le branchement des câbles drop</li>
+            <li>Accès technicien Orange uniquement</li>
+            <li>Connexion vers chaque palier via jarretière</li>
+          </ul>
+        </div>
+        <div class="detail-card">
+          <div class="detail-card-icon"><i class="fas fa-plug"></i></div>
+          <h3>ONT — Optical Network Terminal</h3>
+          <ul>
+            <li>Convertit signal optique ↔ signal électrique</li>
+            <li>Installé chez l'abonné (proche PTO)</li>
+            <li>Ports LAN RJ45 GigabitEthernet</li>
+            <li>LED : PWR / PON / LOS / LAN</li>
+            <li>Configuré et authentifié par OLT via PLOAM</li>
+          </ul>
+        </div>
+        <div class="detail-card">
+          <div class="detail-card-icon"><i class="fas fa-dot-circle"></i></div>
+          <h3>PTO — Prise Terminale Optique</h3>
+          <ul>
+            <li>Prise fibre murale chez l'abonné</li>
+            <li>Connecteur SC/APC (vert) standard Orange</li>
+            <li>Terminaison du câble drop G.657</li>
+            <li>Point de démarcation réseau Orange/client</li>
+            <li>Nettoyage obligatoire avant connexion</li>
+          </ul>
+        </div>
+        <div class="detail-card">
+          <div class="detail-card-icon"><i class="fas fa-ruler"></i></div>
+          <h3>OTDR — Réflectomètre optique</h3>
+          <ul>
+            <li>Mesure l'atténuation sur la fibre</li>
+            <li>Détecte les cassures et mauvaises jonctions</li>
+            <li>Identifie la distance des défauts</li>
+            <li>Budget max GPON : −28 dB total</li>
+            <li>Résultat archivé dans dossier technique</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOTICE INSTALLATION -->
+    <section class="detail-section">
+      <div class="section-label"><i class="fas fa-list-ol"></i> Notice d'installation FTTH — Étape par étape</div>
+      <div class="notice-steps">
+
+        <div class="notice-step">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <h3>Vérification du tirage existant et du PBO</h3>
+            <p>Identifier le PBO (Point de Branchement Optique) de l'immeuble, vérifier qu'une fibre est bien disponible pour le logement/bureau concerné.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Vérifications terrain PBO</div>
+              <div class="cmd-body">
+✓ Localiser le PBO (cave, local technique, pied de colonne)
+✓ Ouvrir le PBO avec la clé triangulaire Orange
+✓ Identifier la fibre disponible selon le bon de commande
+✓ Vérifier l'état du coupleur (pas de coupure, propre)
+✓ Repérer le numéro de port dédié au logement/bureau
+✓ Documenter avec photos (numéro PBO, port utilisé)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <h3>Passage du câble drop G.657A2</h3>
+            <p>Tirer le câble de branchement (câble drop) depuis le PBO jusqu'à la PTO dans le logement. Le câble G.657A2 est conçu pour les courbures serrées en immeuble.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Passage câble drop — Règles de tirage</div>
+              <div class="cmd-body">
+CÂBLE : G.657A2 — Rayon de courbure min. 7,5 mm
+GAINE  : Passage dans goulotte ou sous moulure PVC
+
+✓ Tirer doucement (tension max 80N)
+✓ Ne pas croiser les câbles, lovage propre
+✓ Respecter les courbures : angle 90° avec coude PVC
+✓ Fixer tous les 50 cm avec collier de câblage
+✓ Étiqueter les deux extrémités : N° logement / date
+
+<span style="color:#F39C12">⚠ Ne jamais écraser ni plier à moins de 7,5 mm de rayon</span>
+<span style="color:#F39C12">⚠ Tester la continuité optique avant de fermer les caches</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <h3>Installation de la PTO (Prise Terminale Optique)</h3>
+            <p>Fixer la boîte de PTO sur le mur, y épissurer ou connecter le câble drop, et y monter le connecteur SC/APC.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Montage PTO — Procédure</div>
+              <div class="cmd-body">
+✓ Fixer la boîte PTO sur le mur (hauteur 30 cm du sol min.)
+✓ Dénuder le câble drop sur 10 cm
+✓ Nettoyer la fibre nue à l'alcool isopropylique 99%
+✓ Cliver proprement avec le cleaver (angle &lt;0.5°)
+✓ Insérer dans connecteur SC/APC pré-poli (vert)
+✓ Mesurer la réflectance : &lt; −60 dB (SC/APC)
+✓ Langer et lover l'excédent de fibre dans la PTO
+
+CONNECTEUR : SC/APC (biseau 8°) — Couleur VERTE
+<span style="color:#2ECC71">✓ Nettoyer chaque connecteur avant toute connexion</span>
+<span style="color:#2ECC71">✓ Utiliser stylet de nettoyage One-Click Cleaner</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">04</div>
+          <div class="step-content">
+            <h3>Connexion au PBO et jarretière optique</h3>
+            <p>Brancher la jarretière optique depuis le port PBO vers le câble drop, en respectant le bon port selon le plan de câblage.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Raccordement PBO</div>
+              <div class="cmd-body">
+✓ Identifier le port PBO alloué (bon de commande)
+✓ Nettoyer le connecteur de la jarretière (One-Click)
+✓ Vérifier le connecteur côté câble drop (SC/APC propre)
+✓ Connecter jarretière → port PBO dédié
+✓ Connecter côté câble drop → port sortie PBO logement
+✓ Refermer le PBO proprement (pas de câble coincé)
+
+<span style="color:#3498DB">ℹ Jarretière standard Orange : SC/APC — SC/APC — 1m</span>
+<span style="color:#3498DB">ℹ Couleur jaune (OS2 monomode)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">05</div>
+          <div class="step-content">
+            <h3>Mesures OTDR et powermètre</h3>
+            <p>Effectuer les mesures obligatoires pour valider la qualité de la liaison optique avant d'installer l'ONT.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Mesures optiques — Seuils GPON Orange</div>
+              <div class="cmd-body">
+POWERMÈTRE (depuis PTO, source OLT Orange) :
+  Puissance reçue : entre <span style="color:#2ECC71">−8 dBm</span> et <span style="color:#2ECC71">−27 dBm</span>
+  En dehors → vérifier jonctions, splitter, câble
+
+OTDR (mesure trajet complet) :
+  Atténuation totale : &lt; <span style="color:#2ECC71">28 dB</span> (budget GPON)
+  Perte par jonction : &lt; 0,5 dB
+  Perte par connecteur : &lt; 0,5 dB
+  Réflectance connecteur : &lt; −50 dB
+
+RÉSULTATS À ARCHIVER :
+✓ Capture écran OTDR (fichier .SOR)
+✓ Valeur powermètre notée dans CR
+✓ Photos de chaque jonction
+
+<span style="color:#F39C12">⚠ Si puissance &lt; −27 dBm → ONT ne synchronisera pas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">06</div>
+          <div class="step-content">
+            <h3>Installation et configuration de l'ONT</h3>
+            <p>Brancher l'ONT (Optical Network Terminal) sur la PTO, le connecter au réseau local du client et vérifier sa synchronisation avec l'OLT.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Installation ONT — Séquence de démarrage</div>
+              <div class="cmd-body">
+1. Brancher câble SC/APC PTO → port PON de l'ONT (couleur bleue)
+2. Alimenter l'ONT (cordon secteur)
+3. Attendre la séquence de boot (~60 secondes)
+
+SÉQUENCE LED ATTENDUE :
+  PWR  → 🟢 Vert fixe (alimentation OK)
+  PON  → 🟡 Clignotant → 🟢 Vert fixe (sync GPON OK)
+  LOS  → 🔴 Rouge = PAS de signal optique (problème !)
+  LOS  → ⚫ Éteint = Signal optique OK
+  LAN  → 🟢 Clignotant (trafic) ou fixe (lien actif)
+
+<span style="color:#2ECC71">✓ PON vert fixe = ONT authentifié par OLT Orange</span>
+<span style="color:#E74C3C">✗ LOS rouge = Pas de lumière → vérifier PTO et jonctions</span>
+
+4. Connecter câble RJ45 ONT LAN → port WAN Livebox/routeur
+5. Vérifier attribution DHCP WAN → Internet fonctionnel
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">07</div>
+          <div class="step-content">
+            <h3>Test de débit et validation finale</h3>
+            <p>Effectuer un test de débit complet pour valider l'offre souscrite et finaliser la remise en main client.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Tests de validation FTTH</div>
+              <div class="cmd-body">
+TEST DÉBIT (depuis PC connecté en filaire RJ45) :
+  → speedtest-cli --server orange-nantes
+  ↓ Descendant : &gt; 900 Mbps (offre 1 Gbps)
+  ↑ Montant    : &gt; 500 Mbps (GPON partagé up)
+  Ping         : &lt; 5 ms vers serveur Orange
+
+TEST LATENCE :
+  → ping -c 100 8.8.8.8
+  Moyenne : &lt; 8 ms | Perte paquets : 0%
+
+TEST DNS :
+  → nslookup orange.fr 80.10.246.2 → Résolution OK
+
+CLÔTURE :
+✓ Compléter le CR dans le SI Orange
+✓ Photographier l'installation (ONT, PTO, câblage)
+✓ Saisir valeurs OTDR et powermètre dans le dossier
+✓ Faire signer le bon de recette au client
+✓ Expliquer les LED ONT au client
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TROUBLESHOOTING -->
+    <section class="detail-section">
+      <div class="section-label"><i class="fas fa-bug"></i> Dépannage fréquent FTTH</div>
+      <div class="trouble-grid">
+        <div class="trouble-card">
+          <div class="trouble-symptom"><i class="fas fa-times-circle" style="color:#E74C3C"></i> LED LOS rouge (pas de signal)</div>
+          <div class="trouble-cause">Connecteur SC/APC mal branché, fibre cassée ou PBO non connecté</div>
+          <div class="trouble-fix">→ Vérifier et nettoyer tous les connecteurs → Mesure powermètre → OTDR si cassure suspectée</div>
+        </div>
+        <div class="trouble-card">
+          <div class="trouble-symptom"><i class="fas fa-times-circle" style="color:#E74C3C"></i> PON clignote sans se fixer</div>
+          <div class="trouble-cause">ONT pas provisionné côté OLT, ou mauvais numéro de série saisi</div>
+          <div class="trouble-fix">→ Vérifier numéro S/N de l'ONT dans le SI Orange → Contacter le back-office pour re-provisionnement</div>
+        </div>
+        <div class="trouble-card">
+          <div class="trouble-symptom"><i class="fas fa-times-circle" style="color:#E74C3C"></i> Puissance optique hors seuil</div>
+          <div class="trouble-cause">Trop de pertes (mauvais clivage, connecteur sale, fibre pliée)</div>
+          <div class="trouble-fix">→ Nettoyer tous les connecteurs (One-Click) → Vérifier courbures câble → Refaire le clivage si besoin</div>
+        </div>
+        <div class="trouble-card">
+          <div class="trouble-symptom"><i class="fas fa-times-circle" style="color:#E74C3C"></i> Débit très inférieur au contrat</div>
+          <div class="trouble-cause">Test effectué en WiFi, ou câble RJ45 cat. 5 limitant</div>
+          <div class="trouble-fix">→ Toujours tester en filaire RJ45 cat. 6 → Vérifier que le PC a une carte réseau 1G</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    <div class="container">
+      <a href="../index.html#experience" class="back-btn"><i class="fas fa-arrow-left"></i> Retour au portfolio</a>
+      <p>Sami Alaouikasmi — Alternant Orange Business | BUT R&T</p>
+    </div>
+  </footer>
+  <script src="detail.js"></script>
+</body>
+</html>

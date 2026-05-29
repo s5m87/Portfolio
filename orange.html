@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orange Business — Sami ALAOUI KASMI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .orange-header-card {
+      background: linear-gradient(135deg,#FF6B00,#FF8C35,#FFa84d);
+      border-radius: var(--radius); padding: 38px; margin-bottom: 48px;
+      display: flex; align-items: center; gap: 28px;
+      position: relative; overflow: hidden;
+    }
+    .orange-header-card::before { content:''; position:absolute; top:-70px; right:-70px; width:220px; height:220px; border-radius:50%; background:rgba(255,255,255,0.08); }
+    .orange-header-card::after  { content:''; position:absolute; bottom:-40px; right:90px; width:130px; height:130px; border-radius:50%; background:rgba(255,255,255,0.05); }
+    .oh-icon { width:78px; height:78px; border-radius:16px; background:rgba(255,255,255,0.2); backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; font-size:2.4rem; color:#fff; flex-shrink:0; }
+    .oh-info h2 { font-size:1.75rem; font-weight:800; color:#fff; margin-bottom:4px; }
+    .oh-info p  { color:rgba(255,255,255,0.85); font-size:0.95rem; }
+    .oh-pills   { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
+    .oh-pill    { background:rgba(255,255,255,0.2); color:#fff; padding:4px 13px; border-radius:20px; font-size:0.76rem; font-weight:500; display:flex; align-items:center; gap:6px; }
+
+    .missions-wrap { display:grid; gap:36px; }
+    .mission-card  { background:var(--card); border:1px solid var(--border2); border-radius:var(--radius); overflow:hidden; transition:var(--transition); }
+    .mission-card:hover { border-color:var(--border); box-shadow:var(--shadow); }
+
+    /* Diagram area */
+    .diagram-area { background:var(--bg3); border-bottom:1px solid var(--border2); padding:18px 22px 12px; }
+    .diagram-label { font-family:var(--mono); font-size:0.7rem; color:var(--orange); margin-bottom:10px; letter-spacing:0.08em; }
+
+    /* Description */
+    .mission-desc { font-size:0.88rem; color:var(--text-muted); margin-bottom:16px; line-height:1.75; }
+    .mission-steps-list { list-style:none; margin-bottom:18px; }
+    .mission-steps-list li { display:flex; align-items:flex-start; gap:9px; font-size:0.83rem; color:var(--text-muted); padding:6px 0; border-bottom:1px solid var(--border2); }
+    .mission-steps-list li:last-child { border:none; }
+    .mission-steps-list li i { color:var(--orange); font-size:0.68rem; margin-top:5px; flex-shrink:0; }
+
+    /* Notice toggle */
+    .notice-title-bar { cursor:pointer; user-select:none; display:flex; align-items:center; gap:12px; }
+    .notice-title-bar:hover { background:rgba(255,107,0,0.05); }
+    .ntoggle { margin-left:auto; color:var(--text-muted); transition:transform 0.3s; font-size:0.8rem; transform:rotate(0deg); }
+    .notice-body { overflow:hidden; max-height:0; transition:max-height 0.45s cubic-bezier(0.4,0,0.2,1); }
+    .notice-body.open { max-height:2400px; }
+    .ntoggle.open { transform:rotate(180deg); }
+
+    @media(max-width:768px) { .orange-header-card { flex-direction:column; text-align:center; } .oh-pills { justify-content:center; } }
+  </style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">&lt;<span>Sami</span> /&gt;</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="about.html">À propos</a></li>
+    <li><a href="competences.html">Compétences</a></li>
+    <li><a href="orange.html">Orange Business</a></li>
+    <li><a href="projets.html">Projets</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="#" class="nav-cv" onclick="event.preventDefault()"><i class="fas fa-download"></i> Mon CV</a>
+  <div class="nav-burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Accueil</a>
+  <a href="about.html" onclick="closeMenu()">À propos</a>
+  <a href="competences.html" onclick="closeMenu()">Compétences</a>
+  <a href="orange.html" onclick="closeMenu()">Orange Business</a>
+  <a href="projets.html" onclick="closeMenu()">Projets</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+</div>
+
+<div class="page-header">
+  <div class="page-header-orb"></div>
+  <div class="container">
+    <div class="section-tag">Expérience professionnelle</div>
+    <h1>Orange Business</h1>
+    <p>Missions terrain, prestations techniques et notices d'installation détaillées.</p>
+  </div>
+</div>
+
+<section style="background:var(--bg2)">
+<div class="container">
+
+  <!-- Company banner -->
+  <div class="orange-header-card fade-in">
+    <div class="oh-icon"><i class="fas fa-wifi"></i></div>
+    <div class="oh-info">
+      <h2>Orange Business Services</h2>
+      <p>Technicien d'intervention — Alternance 2025 → 2028</p>
+      <div class="oh-pills">
+        <span class="oh-pill"><i class="fas fa-calendar"></i>3 ans d'alternance</span>
+        <span class="oh-pill"><i class="fas fa-map-marker-alt"></i>Caen (Calvados)</span>
+        <span class="oh-pill"><i class="fas fa-building"></i>Clients B2B (Business to Business)</span>
+        <span class="oh-pill"><i class="fas fa-hard-hat"></i>Terrain &amp; bureau</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="missions-wrap">
+
+<!-- ═══════════════════════════════════════════════
+     MISSION 1 — CONNECT PRO
+═══════════════════════════════════════════════ -->
+<div class="mission-card fade-in">
+  <div class="mission-hdr">
+    <div class="mission-icon"><i class="fas fa-plug"></i></div>
+    <div class="mission-hdr-text">
+      <h3>Installation Connect Pro</h3>
+      <p>Solution accès internet professionnel Orange — TPE/PME &amp; grandes entreprises</p>
+    </div>
+  </div>
+
+  <div class="diagram-area">
+    <div class="diagram-label">// Architecture réseau Connect Pro</div>
+    <svg viewBox="0 0 700 150" xmlns="http://www.w3.org/2000/svg" width="100%">
+      <defs>
+        <marker id="cp-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#FF6B00"/></marker>
+        <marker id="cp-b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#3B82F6"/></marker>
+      </defs>
+      <!-- Internet cloud -->
+      <ellipse cx="52" cy="75" rx="44" ry="32" fill="#1A2235" stroke="#FF6B00" stroke-width="1.5"/>
+      <text x="52" y="71" text-anchor="middle" fill="#E8EDF5" font-size="11" font-family="Inter,sans-serif" font-weight="600">Internet</text>
+      <text x="52" y="84" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">ISP Orange</text>
+      <!-- WAN line -->
+      <line x1="96" y1="75" x2="142" y2="75" stroke="#FF6B00" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#cp-a)"/>
+      <text x="119" y="68" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">WAN/xDSL/Fibre</text>
+      <!-- Modem Orange -->
+      <rect x="143" y="50" width="105" height="50" rx="8" fill="#1A2235" stroke="#FF6B00" stroke-width="1.5"/>
+      <text x="195" y="72" text-anchor="middle" fill="#E8EDF5" font-size="11" font-family="Inter,sans-serif" font-weight="600">Modem-Routeur</text>
+      <text x="195" y="84" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">Connect Pro Orange</text>
+      <text x="195" y="95" text-anchor="middle" fill="#FF6B00" font-size="8" font-family="JetBrains Mono,monospace">PPPoE / IP fixe</text>
+      <!-- LAN line -->
+      <line x1="248" y1="75" x2="303" y2="75" stroke="#FF6B00" stroke-width="2" marker-end="url(#cp-a)"/>
+      <text x="275" y="68" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">LAN</text>
+      <!-- Firewall/Switch -->
+      <rect x="305" y="50" width="90" height="50" rx="8" fill="#1A2235" stroke="#FF6B00" stroke-width="1.5"/>
+      <text x="350" y="72" text-anchor="middle" fill="#E8EDF5" font-size="11" font-family="Inter,sans-serif" font-weight="600">Firewall</text>
+      <text x="350" y="84" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">NAT / ACL</text>
+      <text x="350" y="95" text-anchor="middle" fill="#FF6B00" font-size="8" font-family="JetBrains Mono,monospace">DMZ / VPN</text>
+      <!-- Switch line -->
+      <line x1="395" y1="75" x2="440" y2="75" stroke="#3B82F6" stroke-width="2" marker-end="url(#cp-b)"/>
+      <!-- Switch -->
+      <rect x="442" y="50" width="80" height="50" rx="8" fill="#1A2235" stroke="#3B82F6" stroke-width="1.5"/>
+      <text x="482" y="72" text-anchor="middle" fill="#E8EDF5" font-size="11" font-family="Inter,sans-serif" font-weight="600">Switch</text>
+      <text x="482" y="84" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">VLAN / PoE</text>
+      <text x="482" y="95" text-anchor="middle" fill="#3B82F6" font-size="8" font-family="JetBrains Mono,monospace">802.1Q</text>
+      <!-- Endpoints -->
+      <line x1="522" y1="65" x2="564" y2="42" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#cp-b)"/>
+      <line x1="522" y1="75" x2="564" y2="75" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#cp-b)"/>
+      <line x1="522" y1="85" x2="564" y2="108" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#cp-b)"/>
+      <rect x="566" y="28" width="60" height="28" rx="6" fill="#1A2235" stroke="#3B82F6" stroke-width="1"/>
+      <text x="596" y="45" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">PCs / Serveurs</text>
+      <rect x="566" y="61" width="60" height="28" rx="6" fill="#1A2235" stroke="#3B82F6" stroke-width="1"/>
+      <text x="596" y="78" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">Téléphones IP</text>
+      <rect x="566" y="94" width="60" height="28" rx="6" fill="#1A2235" stroke="#3B82F6" stroke-width="1"/>
+      <text x="596" y="111" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">Bornes WiFi</text>
+      <!-- Legend -->
+      <line x1="10" y1="138" x2="34" y2="138" stroke="#FF6B00" stroke-width="2" stroke-dasharray="5,3"/>
+      <text x="38" y="141" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Accès WAN</text>
+      <line x1="130" y1="138" x2="154" y2="138" stroke="#3B82F6" stroke-width="2"/>
+      <text x="158" y="141" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">LAN entreprise</text>
+    </svg>
+  </div>
+
+  <div class="mission-body">
+    <p class="mission-desc"><strong style="color:var(--text)">Connect Pro</strong> est la solution d'accès internet haut débit d'Orange dédiée aux entreprises. Elle garantit un accès symétrique avec SLA contractuel, QoS administrée et supervision centralisée. Disponible sur ADSL2+, VDSL2, SDSL ou Fibre selon la zone géographique.</p>
+    <ul class="mission-steps-list">
+      <li><i class="fas fa-circle"></i>Vérification du bon de commande et des prérequis d'installation (prise téléphonique/fibre, alimentation, espace baie)</li>
+      <li><i class="fas fa-circle"></i>Raccordement physique du modem-routeur sur la prise de desserte et le réseau local client</li>
+      <li><i class="fas fa-circle"></i>Configuration WAN : paramètres PPPoE (login, mot de passe Orange) ou IP fixe selon offre</li>
+      <li><i class="fas fa-circle"></i>Configuration LAN : adressage IP, serveur DHCP, segmentation VLAN si nécessaire</li>
+      <li><i class="fas fa-circle"></i>Paramétrage firewall, règles NAT/PAT et ouverture des ports métier demandés</li>
+      <li><i class="fas fa-circle"></i>Test de débit bidirectionnel, traceroute, validation SLA et test de bascule 4G si souscrit</li>
+      <li><i class="fas fa-circle"></i>Remise en main client, explication de l'interface d'admin et clôture du ticket GLPI</li>
+    </ul>
+    <div class="pills" style="margin-bottom:20px">
+      <span class="tech-pill">PPPoE</span><span class="tech-pill">DHCP</span><span class="tech-pill">NAT/PAT</span>
+      <span class="tech-pill">VLAN 802.1Q</span><span class="tech-pill">QoS</span><span class="tech-pill">IPv4/IPv6</span><span class="tech-pill">GLPI</span>
+    </div>
+
+    <!-- Notice -->
+    <div class="notice-wrap">
+      <div class="notice-title-bar" onclick="toggleNotice(this)">
+        <span class="notice-badge">NOTICE D'INSTALLATION</span>
+        <h4>Fiche Technique — Connect Pro</h4>
+        <i class="fas fa-chevron-down ntoggle"></i>
+      </div>
+      <div class="notice-body">
+        <div class="notice-body-inner" style="padding:24px;display:grid;gap:22px">
+          <div class="notice-section">
+            <h5><i class="fas fa-box-open"></i> Prérequis</h5>
+            <div class="prereq-grid">
+              <div class="prereq-card">
+                <div class="pc-label">Matériel</div>
+                <ul><li>Modem-routeur Orange fourni (Livebox Pro / modèle dédié)</li><li>Câbles RJ45 Cat6 (1m, 3m, 5m)</li><li>Câble d'alimentation secteur</li><li>Testeur de câble RJ45</li><li>Outillage passe-câble si nécessaire</li></ul>
+              </div>
+              <div class="prereq-card">
+                <div class="pc-label">Logiciel &amp; Documents</div>
+                <ul><li>Bon de commande client signé</li><li>Paramètres PPPoE ou IP fixe fournis par Orange</li><li>Accès portail SI Orange (activation ligne)</li><li>Ticket GLPI ouvert avec référence intervention</li></ul>
+              </div>
+            </div>
+          </div>
+          <div class="notice-section">
+            <h5><i class="fas fa-list-ol"></i> Étapes d'installation</h5>
+            <div class="notice-steps">
+              <div class="n-step"><div class="step-num">1</div><div class="step-body"><h6>Vérification et préparation du site</h6><p>Contrôler la présence de la prise de desserte (DSL ou fibre), vérifier l'alimentation disponible, repérer l'emplacement de montage du routeur. Lire le bon de commande et identifier les options souscrites (QoS, VPN, IP fixe…).</p></div></div>
+              <div class="n-step"><div class="step-num">2</div><div class="step-body"><h6>Raccordement physique</h6><p>Brancher le câble de desserte (ligne DSL ou cordon fibre) sur le port WAN du modem. Relier le modem au switch ou aux postes clients via RJ45 Cat6. Alimenter le modem et attendre la synchronisation (voyant DSL ou Fibre fixe).</p>
+              <div class="callout warn"><i class="fas fa-exclamation-triangle"></i>Ne pas alimenter le modem avant le raccordement complet des câbles réseau pour éviter une mauvaise attribution DHCP automatique.</div></div></div>
+              <div class="n-step"><div class="step-num">3</div><div class="step-body"><h6>Configuration WAN</h6><p>Accéder à l'interface d'administration du routeur (192.168.1.1). Saisir les identifiants PPPoE fournis par Orange. Si IP fixe : renseigner l'adresse IP publique, masque, passerelle et DNS Orange. Sauvegarder et vérifier la connexion internet.</p></div></div>
+              <div class="n-step"><div class="step-num">4</div><div class="step-body"><h6>Configuration LAN &amp; DHCP</h6><p>Définir la plage d'adresses IP privées (ex : 192.168.10.0/24). Activer le serveur DHCP avec plage d'attribution, durée de bail, DNS. Créer les VLANs si segmentation requise (voix, données, invité). Configurer les sous-interfaces sur le routeur.</p></div></div>
+              <div class="n-step"><div class="step-num">5</div><div class="step-body"><h6>Sécurité : Firewall et NAT</h6><p>Vérifier que le firewall est actif en mode stateful. Configurer les règles NAT/PAT pour les services exposés (serveur mail, VPN distant, caméras IP…). Bloquer les ports non utilisés. Activer le journal des connexions.</p>
+              <div class="callout warn"><i class="fas fa-exclamation-triangle"></i>Ne jamais ouvrir le port 23 (Telnet) ou le port 80 sur l'IP WAN sans vérification expresse du client.</div></div></div>
+              <div class="n-step"><div class="step-num">6</div><div class="step-body"><h6>Tests de validation</h6><p>Ping vers passerelle Orange, vers 8.8.8.8, vers un nom de domaine (test DNS). Mesurer le débit upload/download avec iperf3 ou speedtest. Effectuer un traceroute pour vérifier le chemin. Si failover 4G souscrit : débrancher la ligne fixe et vérifier la bascule automatique.</p>
+              <div class="callout ok"><i class="fas fa-check-circle"></i>Le débit mesuré doit atteindre au minimum 90% du débit contractualisé. Tout écart doit être signalé au NOC Orange.</div></div></div>
+              <div class="n-step"><div class="step-num">7</div><div class="step-body"><h6>Remise client et clôture</h6><p>Étiqueter le modem et les câbles. Remettre le guide utilisateur et les paramètres de l'interface admin. Expliquer la procédure en cas de panne. Clôturer le ticket GLPI avec photos, mesures de débit et configuration résumée.</p></div></div>
+            </div>
+          </div>
+          <div class="notice-section">
+            <h5><i class="fas fa-clipboard-check"></i> Checklist de validation</h5>
+            <div class="n-checklist">
+              <div class="n-check"><i class="fas fa-check-square"></i>Synchronisation ligne WAN confirmée</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>Débit mesuré conforme au contrat</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>DHCP fonctionnel sur tous les ports LAN</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>NAT/PAT testé pour les services exposés</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>Résolution DNS opérationnelle</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>Ticket GLPI clôturé avec PV</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     MISSION 2 — ROUTEUR
+═══════════════════════════════════════════════ -->
+<div class="mission-card fade-in d1">
+  <div class="mission-hdr">
+    <div class="mission-icon"><i class="fas fa-router"></i></div>
+    <div class="mission-hdr-text">
+      <h3>Installation de Routeur</h3>
+      <p>Déploiement &amp; configuration d'équipements réseau professionnels en baie</p>
+    </div>
+  </div>
+
+  <div class="diagram-area">
+    <div class="diagram-label">// Architecture — Routeur en baie 19"</div>
+    <svg viewBox="0 0 700 155" xmlns="http://www.w3.org/2000/svg" width="100%">
+      <defs>
+        <marker id="rt-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#FF6B00"/></marker>
+        <marker id="rt-b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#3B82F6"/></marker>
+      </defs>
+      <!-- WAN -->
+      <ellipse cx="52" cy="75" rx="44" ry="32" fill="#1A2235" stroke="#FF6B00" stroke-width="1.5"/>
+      <text x="52" y="71" text-anchor="middle" fill="#E8EDF5" font-size="11" font-family="Inter,sans-serif" font-weight="600">Internet</text>
+      <text x="52" y="84" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">WAN / MPLS</text>
+      <line x1="96" y1="75" x2="148" y2="75" stroke="#FF6B00" stroke-width="2" marker-end="url(#rt-a)"/>
+      <text x="122" y="68" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">SFP+ / RJ45</text>
+      <!-- Rack outline -->
+      <rect x="148" y="20" width="130" height="115" rx="6" fill="#0E1420" stroke="#4A5568" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <text x="213" y="35" text-anchor="middle" fill="#4A5568" font-size="8" font-family="JetBrains Mono,monospace">BAIE 19"</text>
+      <!-- Router in rack -->
+      <rect x="158" y="42" width="110" height="40" rx="5" fill="#1A2235" stroke="#FF6B00" stroke-width="1.5"/>
+      <text x="213" y="60" text-anchor="middle" fill="#E8EDF5" font-size="11" font-family="Inter,sans-serif" font-weight="600">Routeur Cisco</text>
+      <text x="213" y="74" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">ISR 4000 / Huawei AR</text>
+      <!-- Switch in rack -->
+      <rect x="158" y="90" width="110" height="36" rx="5" fill="#1A2235" stroke="#4A5568" stroke-width="1"/>
+      <text x="213" y="110" text-anchor="middle" fill="#8B97B0" font-size="10" font-family="Inter,sans-serif">Patch Panel</text>
+      <!-- LAN out -->
+      <line x1="278" y1="62" x2="338" y2="62" stroke="#3B82F6" stroke-width="2" marker-end="url(#rt-b)"/>
+      <text x="308" y="55" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">LAN Gig</text>
+      <!-- Switch core -->
+      <rect x="340" y="45" width="95" height="54" rx="8" fill="#1A2235" stroke="#3B82F6" stroke-width="1.5"/>
+      <text x="387" y="67" text-anchor="middle" fill="#E8EDF5" font-size="11" font-family="Inter,sans-serif" font-weight="600">Switch Core</text>
+      <text x="387" y="80" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">VLAN / STP</text>
+      <text x="387" y="92" text-anchor="middle" fill="#3B82F6" font-size="8" font-family="JetBrains Mono,monospace">PoE+ 802.3at</text>
+      <!-- Endpoints -->
+      <line x1="435" y1="60" x2="490" y2="40" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#rt-b)"/>
+      <line x1="435" y1="72" x2="490" y2="72" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#rt-b)"/>
+      <line x1="435" y1="84" x2="490" y2="104" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#rt-b)"/>
+      <rect x="492" y="26" width="80" height="28" rx="6" fill="#1A2235" stroke="#3B82F6" stroke-width="1"/>
+      <text x="532" y="43" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">Postes / Serveurs</text>
+      <rect x="492" y="58" width="80" height="28" rx="6" fill="#1A2235" stroke="#3B82F6" stroke-width="1"/>
+      <text x="532" y="75" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">Téléphones IP</text>
+      <rect x="492" y="90" width="80" height="28" rx="6" fill="#1A2235" stroke="#3B82F6" stroke-width="1"/>
+      <text x="532" y="107" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">Bornes WiFi AP</text>
+      <!-- Console port -->
+      <line x1="213" y1="135" x2="213" y2="145" stroke="#4A5568" stroke-width="1"/>
+      <text x="213" y="152" text-anchor="middle" fill="#4A5568" font-size="8" font-family="JetBrains Mono,monospace">Console RJ45</text>
+    </svg>
+  </div>
+
+  <div class="mission-body">
+    <p class="mission-desc"><strong style="color:var(--text)">Déploiement de routeurs professionnels</strong> (Cisco ISR, Huawei AR, Juniper SRX) chez les clients Orange Business. La prestation inclut le montage physique en baie 19", la configuration complète via console série, l'intégration dans l'infrastructure existante et les tests de validation en conditions réelles.</p>
+    <ul class="mission-steps-list">
+      <li><i class="fas fa-circle"></i>Réception du matériel, vérification du contenu et des numéros de série</li>
+      <li><i class="fas fa-circle"></i>Montage en baie 19", câblage WAN (fibre SFP+ ou RJ45 Cat6) et LAN</li>
+      <li><i class="fas fa-circle"></i>Configuration initiale via câble console (hostname, users, SSH, enable secret)</li>
+      <li><i class="fas fa-circle"></i>Configuration des interfaces WAN/LAN, sous-interfaces VLAN, adressage IP</li>
+      <li><i class="fas fa-circle"></i>Mise en place du routage statique ou dynamique (OSPF, eBGP selon topologie)</li>
+      <li><i class="fas fa-circle"></i>Configuration des ACL, NAT overload, et intégration SNMP au monitoring Orange</li>
+    </ul>
+    <div class="pills" style="margin-bottom:20px">
+      <span class="tech-pill">Cisco IOS</span><span class="tech-pill">OSPF</span><span class="tech-pill">BGP</span>
+      <span class="tech-pill">ACL</span><span class="tech-pill">SSH</span><span class="tech-pill">SNMP v3</span><span class="tech-pill">SFP+</span>
+    </div>
+
+    <div class="notice-wrap">
+      <div class="notice-title-bar" onclick="toggleNotice(this)">
+        <span class="notice-badge">NOTICE D'INSTALLATION</span>
+        <h4>Fiche Technique — Installation Routeur</h4>
+        <i class="fas fa-chevron-down ntoggle"></i>
+      </div>
+      <div class="notice-body">
+        <div style="padding:24px;display:grid;gap:22px">
+          <div class="notice-section">
+            <h5><i class="fas fa-box-open"></i> Prérequis</h5>
+            <div class="prereq-grid">
+              <div class="prereq-card">
+                <div class="pc-label">Matériel</div>
+                <ul><li>Routeur Cisco ISR 4000 / Huawei AR (selon commande)</li><li>Câble console RJ45-USB ou RJ45-DB9</li><li>Modules SFP/SFP+ si interface fibre requise</li><li>Câbles réseau RJ45 Cat6 (WAN et LAN)</li><li>Visseaux 19" et clips de baie</li></ul>
+              </div>
+              <div class="prereq-card">
+                <div class="pc-label">Logiciel &amp; Outils</div>
+                <ul><li>PuTTY ou SecureCRT (émulateur console)</li><li>Fichier de configuration pré-établi par l'ingénieur réseau</li><li>Schéma d'adressage et plan réseau client</li><li>Accès GLPI pour clôture d'intervention</li></ul>
+              </div>
+            </div>
+          </div>
+          <div class="notice-section">
+            <h5><i class="fas fa-list-ol"></i> Étapes d'installation</h5>
+            <div class="notice-steps">
+              <div class="n-step"><div class="step-num">1</div><div class="step-body"><h6>Réception et inspection matérielle</h6><p>Vérifier la référence du routeur, les modules installés (interfaces Gig, SFP), l'état physique et le numéro de série. Comparer avec le bon de livraison. Mettre à jour le firmware si une version plus récente est requise.</p></div></div>
+              <div class="n-step"><div class="step-num">2</div><div class="step-body"><h6>Montage physique en baie 19"</h6><p>Fixer le routeur dans la baie avec les vis adaptées. Respecter l'espace de ventilation (1U libre au-dessus et en dessous). Relier le câble d'alimentation redondant si disponible. Étiqueter le routeur (hostname, adresse IP management).</p>
+              <div class="callout warn"><i class="fas fa-exclamation-triangle"></i>Ne pas alimenter l'équipement avant la fin du câblage. Respecter les consignes de sécurité électrique (habilitation B0 H0).</div></div></div>
+              <div class="n-step"><div class="step-num">3</div><div class="step-body"><h6>Configuration initiale via console</h6><p>Connecter le câble console (9600 bauds, 8N1). Accéder au mode privilégié (<code style="color:var(--orange);font-family:var(--mono);font-size:0.82em">enable</code>). Configurer : hostname, domaine, enable secret (hash SHA-256), utilisateurs locaux, accès SSH v2 uniquement, timeout de session.</p></div></div>
+              <div class="n-step"><div class="step-num">4</div><div class="step-body"><h6>Configuration des interfaces réseau</h6><p>Configurer les interfaces WAN (GigE0/0/0 ou port SFP) : adresse IP fixe ou PPPoE. Configurer les interfaces LAN avec sous-interfaces VLAN (encapsulation dot1Q). Activer OSPF ou BGP selon la topologie cible définie dans le schéma réseau.</p></div></div>
+              <div class="n-step"><div class="step-num">5</div><div class="step-body"><h6>Sécurité et filtrage</h6><p>Appliquer les ACL entrantes sur l'interface WAN (bloquer les réseaux RFC1918 entrants, les fragments, les spoofing d'adresses). Configurer NAT overload si translation requise. Désactiver les services inutiles (HTTP server, CDP sur WAN, finger…).</p>
+              <div class="callout info"><i class="fas fa-info-circle"></i>Utiliser la commande <code style="color:var(--blue);font-family:var(--mono);font-size:0.82em">service password-encryption</code> et stocker la configuration dans un dépôt sécurisé.</div></div></div>
+              <div class="n-step"><div class="step-num">6</div><div class="step-body"><h6>Intégration supervision SNMP</h6><p>Configurer SNMP v3 (AuthPriv) avec community string chiffrée. Déclarer l'adresse du serveur NMS Orange (Zabbix/SolarWinds). Tester la collecte OID (sysUpTime, ifOperStatus, bgpPeerState). Activer les traps SNMP pour les alertes critiques.</p></div></div>
+              <div class="n-step"><div class="step-num">7</div><div class="step-body"><h6>Tests et validation finale</h6><p>Ping entre tous les VLANs, test traceroute WAN, vérifier les tables de routage (<code style="color:var(--orange);font-family:var(--mono);font-size:0.82em">show ip route</code>). Simuler une panne d'interface pour vérifier la convergence OSPF. Sauvegarder la configuration (<code style="color:var(--orange);font-family:var(--mono);font-size:0.82em">copy run start</code>).</p></div></div>
+            </div>
+          </div>
+          <div class="notice-section">
+            <h5><i class="fas fa-clipboard-check"></i> Checklist de validation</h5>
+            <div class="n-checklist">
+              <div class="n-check"><i class="fas fa-check-square"></i>Console SSH accessible (port 22 uniquement)</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>Table de routage complète et cohérente</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>Ping inter-VLAN fonctionnel</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>SNMP v3 collecté par le NMS</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>Configuration sauvegardée (NVRAM + backup)</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>Étiquettes et documentation à jour</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     MISSION 3 — FTTH
+═══════════════════════════════════════════════ -->
+<div class="mission-card fade-in">
+  <div class="mission-hdr">
+    <div class="mission-icon"><i class="fas fa-wave-square"></i></div>
+    <div class="mission-hdr-text">
+      <h3>Prestation FTTH</h3>
+      <p>Fiber To The Home — Architecture optique passive GPON/XGS-PON jusqu'à l'abonné</p>
+    </div>
+  </div>
+
+  <div class="diagram-area">
+    <div class="diagram-label">// Architecture réseau FTTH — Réseau Optique Passif (PON)</div>
+    <svg viewBox="0 0 700 155" xmlns="http://www.w3.org/2000/svg" width="100%">
+      <defs>
+        <marker id="ft-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#FF6B00"/></marker>
+        <marker id="ft-g" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2ECC71"/></marker>
+        <marker id="ft-b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#3B82F6"/></marker>
+      </defs>
+      <!-- OLT -->
+      <rect x="5" y="46" width="90" height="58" rx="8" fill="#1A2235" stroke="#FF6B00" stroke-width="1.5"/>
+      <text x="50" y="68" text-anchor="middle" fill="#E8EDF5" font-size="11" font-family="Inter,sans-serif" font-weight="600">OLT</text>
+      <text x="50" y="81" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">NRO Orange</text>
+      <text x="50" y="97" text-anchor="middle" fill="#FF6B00" font-size="8" font-family="JetBrains Mono,monospace">XGS-PON</text>
+      <!-- GPON fiber line -->
+      <line x1="95" y1="75" x2="148" y2="75" stroke="#FF6B00" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#ft-a)"/>
+      <text x="121" y="68" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Fibre transport</text>
+      <!-- Splitter -->
+      <rect x="150" y="46" width="90" height="58" rx="8" fill="#1A2235" stroke="#FF6B00" stroke-width="1.5"/>
+      <text x="195" y="68" text-anchor="middle" fill="#E8EDF5" font-size="11" font-family="Inter,sans-serif" font-weight="600">Splitter</text>
+      <text x="195" y="81" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">1:32 passif</text>
+      <text x="195" y="97" text-anchor="middle" fill="#FF6B00" font-size="8" font-family="JetBrains Mono,monospace">Sans alim.</text>
+      <!-- Distribution fiber -->
+      <line x1="240" y1="75" x2="293" y2="75" stroke="#FF6B00" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#ft-a)"/>
+      <text x="266" y="68" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Câble distrib.</text>
+      <!-- PBO -->
+      <rect x="295" y="46" width="82" height="58" rx="8" fill="#1A2235" stroke="#FF6B00" stroke-width="1.5"/>
+      <text x="336" y="65" text-anchor="middle" fill="#E8EDF5" font-size="11" font-family="Inter,sans-serif" font-weight="600">PBO</text>
+      <text x="336" y="78" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">Boîtier palier</text>
+      <text x="336" y="91" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Immeuble</text>
+      <text x="336" y="100" text-anchor="middle" fill="#FF6B00" font-size="8" font-family="JetBrains Mono,monospace">SC/APC</text>
+      <!-- Drop cable -->
+      <line x1="377" y1="75" x2="430" y2="75" stroke="#2ECC71" stroke-width="2" marker-end="url(#ft-g)"/>
+      <text x="403" y="68" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Câble drop</text>
+      <!-- ONT -->
+      <rect x="432" y="46" width="82" height="58" rx="8" fill="#1A2235" stroke="#2ECC71" stroke-width="1.5"/>
+      <text x="473" y="65" text-anchor="middle" fill="#E8EDF5" font-size="11" font-family="Inter,sans-serif" font-weight="600">ONT / PTO</text>
+      <text x="473" y="78" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">Chez l'abonné</text>
+      <text x="473" y="91" text-anchor="middle" fill="#2ECC71" font-size="8" font-family="JetBrains Mono,monospace">Optique→ETH</text>
+      <!-- Ethernet -->
+      <line x1="514" y1="75" x2="568" y2="75" stroke="#3B82F6" stroke-width="2" marker-end="url(#ft-b)"/>
+      <text x="541" y="68" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Ethernet</text>
+      <!-- Livebox -->
+      <rect x="570" y="46" width="115" height="58" rx="8" fill="#1A2235" stroke="#3B82F6" stroke-width="1.5"/>
+      <text x="627" y="68" text-anchor="middle" fill="#E8EDF5" font-size="11" font-family="Inter,sans-serif" font-weight="600">Livebox Pro</text>
+      <text x="627" y="81" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">Routeur CPE</text>
+      <text x="627" y="97" text-anchor="middle" fill="#3B82F6" font-size="8" font-family="JetBrains Mono,monospace">WiFi 6 + LAN</text>
+      <!-- Legend -->
+      <line x1="10" y1="138" x2="36" y2="138" stroke="#FF6B00" stroke-width="2" stroke-dasharray="5,3"/>
+      <text x="40" y="141" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Fibre GPON (passive)</text>
+      <line x1="185" y1="138" x2="208" y2="138" stroke="#2ECC71" stroke-width="2"/>
+      <text x="212" y="141" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Câble drop (dernier km)</text>
+      <line x1="380" y1="138" x2="403" y2="138" stroke="#3B82F6" stroke-width="2"/>
+      <text x="407" y="141" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Ethernet RJ45</text>
+    </svg>
+  </div>
+
+  <div class="mission-body">
+    <p class="mission-desc"><strong style="color:var(--text)">FTTH (Fiber To The Home)</strong> est l'architecture fibre optique passive (PON) amenant la fibre directement jusqu'à l'abonné sans électronique active entre le NRO et le client. Le réseau utilise un splitter passif 1:32 qui partage la fibre de l'OLT entre 32 abonnés. Elle offre des débits symétriques jusqu'à 10 Gbps (XGS-PON) avec une latence inférieure à 5 ms.</p>
+    <ul class="mission-steps-list">
+      <li><i class="fas fa-circle"></i>Vérification du tirage fibre existant (colonne montante, boîtier de palier PBO)</li>
+      <li><i class="fas fa-circle"></i>Raccordement du câble drop dans le boîtier PBO avec connecteur SC/APC</li>
+      <li><i class="fas fa-circle"></i>Passage et lovage du câble fibre drop jusqu'à la prise terminale optique (PTO)</li>
+      <li><i class="fas fa-circle"></i>Installation et configuration de l'ONT fourni par Orange (bridging / routing)</li>
+      <li><i class="fas fa-circle"></i>Mesure de puissance optique (powermètre), test OTDR, validation de l'atténuation</li>
+      <li><i class="fas fa-circle"></i>Activation du lien sur l'OLT Orange via portail SI et vérification de la synchro GPON</li>
+    </ul>
+    <div class="pills" style="margin-bottom:20px">
+      <span class="tech-pill">GPON</span><span class="tech-pill">XGS-PON</span><span class="tech-pill">ONT/OLT</span>
+      <span class="tech-pill">OTDR</span><span class="tech-pill">PBO/PTO</span><span class="tech-pill">Powermètre</span><span class="tech-pill">SC/APC</span>
+    </div>
+
+    <div class="notice-wrap">
+      <div class="notice-title-bar" onclick="toggleNotice(this)">
+        <span class="notice-badge">NOTICE D'INSTALLATION</span>
+        <h4>Fiche Technique — FTTH</h4>
+        <i class="fas fa-chevron-down ntoggle"></i>
+      </div>
+      <div class="notice-body">
+        <div style="padding:24px;display:grid;gap:22px">
+          <div class="notice-section">
+            <h5><i class="fas fa-box-open"></i> Prérequis</h5>
+            <div class="prereq-grid">
+              <div class="prereq-card">
+                <div class="pc-label">Matériel &amp; Outillage</div>
+                <ul><li>ONT Orange (modèle selon offre souscrite)</li><li>Câble drop fibre monomode OS2 (longueur à mesurer)</li><li>Connecteurs SC/APC pré-connectorisés</li><li>Powermètre optique + source lumineuse</li><li>Réflectomètre OTDR (si tirage &gt; 50m)</li><li>Pince à dénuder fibre, nettoyeur SC/APC</li></ul>
+              </div>
+              <div class="prereq-card">
+                <div class="pc-label">Documents &amp; Accès</div>
+                <ul><li>Bon de commande avec identifiant ONU/ONT</li><li>Plan d'immeuble (localisation PBO et chemin de câble)</li><li>Accès portail SI Orange (activation de la ligne)</li><li>Coordonnées du NOC Orange en cas d'anomalie signal</li></ul>
+              </div>
+            </div>
+          </div>
+          <div class="notice-section">
+            <h5><i class="fas fa-list-ol"></i> Étapes d'installation</h5>
+            <div class="notice-steps">
+              <div class="n-step"><div class="step-num">1</div><div class="step-body"><h6>Repérage et vérification du réseau de desserte</h6><p>Identifier le PBO dans la colonne montante (boîtier plastique orange mural). Vérifier la disponibilité d'un port libre. Mesurer la puissance optique sur le port avec le powermètre : valeur attendue entre -8 dBm et -27 dBm. En dessous de -27 dBm = signal insuffisant, contacter le NOC.</p></div></div>
+              <div class="n-step"><div class="step-num">2</div><div class="step-body"><h6>Raccordement au PBO</h6><p>Insérer le connecteur SC/APC du câble drop dans le port PBO dédié. Respecter le code couleur (SC/APC = vert, SC/PC = bleu). Bien verrouiller le connecteur (rotation 1/4 de tour). Lover l'excédent de câble proprement dans le PBO.</p>
+              <div class="callout warn"><i class="fas fa-exclamation-triangle"></i>Ne jamais regarder directement dans une fibre sans vérification de l'extinction de la source. Utiliser systématiquement les lunettes de protection pour fibre optique.</div></div></div>
+              <div class="n-step"><div class="step-num">3</div><div class="step-body"><h6>Passage du câble drop</h6><p>Tirer le câble drop depuis le PBO jusqu'à l'appartement/bureau via les gaines ou chemins de câble existants. Éviter les rayons de courbure inférieurs à 30mm. Utiliser des colliers à intervalles réguliers. Laisser une réserve de 50cm en PBO et 1m chez le client.</p></div></div>
+              <div class="n-step"><div class="step-num">4</div><div class="step-body"><h6>Installation de la PTO et raccordement ONT</h6><p>Fixer la prise terminale optique (PTO) sur le mur. Connecter le câble drop sur la PTO (côté réseau). Brancher un jarretière SC/APC entre la PTO et le port PON de l'ONT. Alimenter l'ONT et attendre la synchronisation (LED PON fixe verte).</p></div></div>
+              <div class="n-step"><div class="step-num">5</div><div class="step-body"><h6>Mesures optiques et validation du signal</h6><p>Mesurer la puissance en réception sur l'ONT : valeur nominale entre -15 dBm et -27 dBm (GPON) ou -10 dBm à -29 dBm (XGS-PON). Effectuer une mesure OTDR si tirage &gt; 50m pour détecter toute perte anormale ou réflexion. Documenter les mesures dans le CR d'intervention.</p>
+              <div class="callout info"><i class="fas fa-info-circle"></i>Une perte par connecteur doit être inférieure à 0,5 dB. Une perte par épissure de fusion doit être inférieure à 0,1 dB.</div></div></div>
+              <div class="n-step"><div class="step-num">6</div><div class="step-body"><h6>Activation et configuration ONT</h6><p>Sur le portail SI Orange, saisir le numéro de série ONT (LOID) et activer la ligne. L'ONT se configure automatiquement par OMCI. Vérifier la synchronisation complète (LED Internet fixe verte). Configurer la Livebox Pro en mode routeur ou bridge selon la demande.</p></div></div>
+              <div class="n-step"><div class="step-num">7</div><div class="step-body"><h6>Tests débit et remise client</h6><p>Mesurer le débit via iperf3 ou speedtest : minimum 90% du débit souscrit. Tester la latence (ping &lt; 5ms vers passerelle Orange). Brancher les équipements client (PCs, téléphones IP, NAS) et vérifier la connectivité. Remettre le guide utilisateur et clôturer le ticket.</p></div></div>
+            </div>
+          </div>
+          <div class="notice-section">
+            <h5><i class="fas fa-clipboard-check"></i> Checklist de validation</h5>
+            <div class="n-checklist">
+              <div class="n-check"><i class="fas fa-check-square"></i>Puissance optique dans la plage nominale</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>LED ONT : PON + Internet fixes (verts)</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>Débit mesuré ≥ 90% débit contractualisé</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>Latence &lt; 5ms vers passerelle</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>Mesures OTDR documentées</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>PTO et ONT correctement fixés</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     MISSION 4 — FTTE
+═══════════════════════════════════════════════ -->
+<div class="mission-card fade-in d1">
+  <div class="mission-hdr">
+    <div class="mission-icon"><i class="fas fa-building"></i></div>
+    <div class="mission-hdr-text">
+      <h3>Prestation FTTE</h3>
+      <p>Fiber To The Enterprise — Distribution fibre mutualisée en immeuble tertiaire</p>
+    </div>
+  </div>
+
+  <div class="diagram-area">
+    <div class="diagram-label">// Architecture réseau FTTE — Immeuble multi-entreprises</div>
+    <svg viewBox="0 0 700 155" xmlns="http://www.w3.org/2000/svg" width="100%">
+      <defs>
+        <marker id="fte-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#FF6B00"/></marker>
+        <marker id="fte-b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#3B82F6"/></marker>
+      </defs>
+      <!-- Orange network -->
+      <rect x="5" y="52" width="90" height="50" rx="8" fill="#1A2235" stroke="#FF6B00" stroke-width="1.5"/>
+      <text x="50" y="73" text-anchor="middle" fill="#E8EDF5" font-size="10" font-family="Inter,sans-serif" font-weight="600">Réseau Orange</text>
+      <text x="50" y="86" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">Fibre de desserte</text>
+      <text x="50" y="97" text-anchor="middle" fill="#FF6B00" font-size="8" font-family="JetBrains Mono,monospace">GPON / P2P</text>
+      <!-- Line to NRO immeuble -->
+      <line x1="95" y1="77" x2="148" y2="77" stroke="#FF6B00" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#fte-a)"/>
+      <text x="121" y="70" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Fibre</text>
+      <!-- NRO Immeuble / DTIo -->
+      <rect x="150" y="46" width="95" height="62" rx="8" fill="#1A2235" stroke="#FF6B00" stroke-width="1.5"/>
+      <text x="197" y="68" text-anchor="middle" fill="#E8EDF5" font-size="10" font-family="Inter,sans-serif" font-weight="600">NRO / DTIo</text>
+      <text x="197" y="81" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">Immeuble</text>
+      <text x="197" y="94" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Pied de colonne</text>
+      <text x="197" y="104" text-anchor="middle" fill="#FF6B00" font-size="8" font-family="JetBrains Mono,monospace">Fibre OS2/OM3</text>
+      <!-- Vertical line (colonne montante) -->
+      <line x1="280" y1="77" x2="310" y2="77" stroke="#FF6B00" stroke-width="2" marker-end="url(#fte-a)"/>
+      <text x="295" y="68" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Colonne</text>
+      <!-- Building floors box -->
+      <rect x="312" y="15" width="105" height="128" rx="8" fill="#0E1420" stroke="#4A5568" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <text x="364" y="28" text-anchor="middle" fill="#4A5568" font-size="8" font-family="JetBrains Mono,monospace">IMMEUBLE</text>
+      <rect x="320" y="33" width="89" height="26" rx="4" fill="#1A2235" stroke="#FF6B00" stroke-width="1"/>
+      <text x="364" y="48" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Switch Ét. 3 — VLAN 30</text>
+      <rect x="320" y="66" width="89" height="26" rx="4" fill="#1A2235" stroke="#FF6B00" stroke-width="1"/>
+      <text x="364" y="81" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Switch Ét. 2 — VLAN 20</text>
+      <rect x="320" y="99" width="89" height="26" rx="4" fill="#1A2235" stroke="#FF6B00" stroke-width="1"/>
+      <text x="364" y="114" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Switch Ét. 1 — VLAN 10</text>
+      <!-- Lines to offices -->
+      <line x1="409" y1="46" x2="450" y2="38" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#fte-b)"/>
+      <line x1="409" y1="79" x2="450" y2="79" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#fte-b)"/>
+      <line x1="409" y1="112" x2="450" y2="120" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#fte-b)"/>
+      <rect x="452" y="24" width="80" height="28" rx="5" fill="#1A2235" stroke="#3B82F6" stroke-width="1"/>
+      <text x="492" y="41" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Entreprise A — 3e</text>
+      <rect x="452" y="65" width="80" height="28" rx="5" fill="#1A2235" stroke="#3B82F6" stroke-width="1"/>
+      <text x="492" y="82" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Entreprise B — 2e</text>
+      <rect x="452" y="106" width="80" height="28" rx="5" fill="#1A2235" stroke="#3B82F6" stroke-width="1"/>
+      <text x="492" y="123" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Entreprise C — 1er</text>
+      <!-- Legend -->
+      <line x1="550" y1="60" x2="574" y2="60" stroke="#FF6B00" stroke-width="2" stroke-dasharray="5,3"/>
+      <text x="578" y="63" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Fibre mutualisée</text>
+      <line x1="550" y1="78" x2="574" y2="78" stroke="#3B82F6" stroke-width="2"/>
+      <text x="578" y="81" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">LAN client (isolé)</text>
+    </svg>
+  </div>
+
+  <div class="mission-body">
+    <p class="mission-desc"><strong style="color:var(--text)">FTTE (Fiber To The Enterprise)</strong> désigne l'architecture fibre mutualisée pour immeubles tertiaires. La fibre arrive en pied d'immeuble (NRO immeuble / DTIo), puis est distribuée par étage via une colonne montante fibre. Chaque entreprise locataire bénéficie d'un VLAN dédié pour l'isolation des flux. Solution idéale pour les immeubles de bureaux multi-locataires.</p>
+    <ul class="mission-steps-list">
+      <li><i class="fas fa-circle"></i>Visite technique préalable : analyse du plan de câblage et des gaines techniques</li>
+      <li><i class="fas fa-circle"></i>Raccordement dans la baie de répartition immeuble (NRO immeuble / DTIo)</li>
+      <li><i class="fas fa-circle"></i>Déploiement de la colonne montante fibre dans les gaines techniques verticales</li>
+      <li><i class="fas fa-circle"></i>Installation d'un switch de distribution par étage (PoE+ pour téléphones et APs WiFi)</li>
+      <li><i class="fas fa-circle"></i>Configuration des VLANs par entreprise locataire (isolation et QoS des flux)</li>
+      <li><i class="fas fa-circle"></i>Tests de continuité optique, mesure d'atténuation et validation des débits par VLAN</li>
+    </ul>
+    <div class="pills" style="margin-bottom:20px">
+      <span class="tech-pill">Fibre OS2/OM3</span><span class="tech-pill">VLAN 802.1Q</span><span class="tech-pill">PoE+ 802.3at</span>
+      <span class="tech-pill">OTDR</span><span class="tech-pill">DTIo</span><span class="tech-pill">Trunk/Access</span>
+    </div>
+
+    <div class="notice-wrap">
+      <div class="notice-title-bar" onclick="toggleNotice(this)">
+        <span class="notice-badge">NOTICE D'INSTALLATION</span>
+        <h4>Fiche Technique — FTTE</h4>
+        <i class="fas fa-chevron-down ntoggle"></i>
+      </div>
+      <div class="notice-body">
+        <div style="padding:24px;display:grid;gap:22px">
+          <div class="notice-section">
+            <h5><i class="fas fa-box-open"></i> Prérequis</h5>
+            <div class="prereq-grid">
+              <div class="prereq-card">
+                <div class="pc-label">Matériel</div>
+                <ul><li>Câble fibre OS2 ou OM3 (selon distance et débit)</li><li>Cordons optiques SC/APC ou LC</li><li>Switch de distribution PoE+ (Cisco Catalyst / Huawei)</li><li>Outillage : réflectomètre OTDR, powermètre, soudeuse</li><li>Fixations, colliers, chemins de câble</li></ul>
+              </div>
+              <div class="prereq-card">
+                <div class="pc-label">Documents</div>
+                <ul><li>Plan de câblage de l'immeuble (gaines techniques)</li><li>Référentiel technique FTTE Orange</li><li>Liste des VLANs à créer par locataire</li><li>Autorisation du gestionnaire de l'immeuble (syndic)</li></ul>
+              </div>
+            </div>
+          </div>
+          <div class="notice-section">
+            <h5><i class="fas fa-list-ol"></i> Étapes d'installation</h5>
+            <div class="notice-steps">
+              <div class="n-step"><div class="step-num">1</div><div class="step-body"><h6>Visite technique préalable</h6><p>Repérer les gaines techniques verticales disponibles, mesurer les distances entre le DTIo et chaque étage, identifier les emplacements des futurs switchs d'étage. Vérifier l'alimentation électrique disponible (220V + prise réseau management).</p></div></div>
+              <div class="n-step"><div class="step-num">2</div><div class="step-body"><h6>Raccordement au NRO Immeuble / DTIo</h6><p>Connecter le câble fibre principale dans le DTIo (dispositif de terminaison intérieure optique). Respecter le lovage (rayon min 30mm). Étiqueter chaque fibre selon le plan. Vérifier la puissance optique reçue depuis le réseau Orange.</p></div></div>
+              <div class="n-step"><div class="step-num">3</div><div class="step-body"><h6>Déploiement de la colonne montante</h6><p>Tirer le câble fibre dans les gaines techniques verticales en passant par les fourreaux disponibles. Utiliser des tire-fils et des protège-câbles aux coudes. Laisser une réserve de 1m par étage. Fixer solidement le câble tous les 50cm.</p></div></div>
+              <div class="n-step"><div class="step-num">4</div><div class="step-body"><h6>Installation du switch d'étage</h6><p>Fixer le switch dans un boîtier mural ou une mini-baie. Brancher la fibre sur le port uplink SFP. Connecter l'alimentation. Effectuer la configuration initiale via console : hostname, VLAN, spanning-tree, SNMP.</p>
+              <div class="callout info"><i class="fas fa-info-circle"></i>Activer le protocole Spanning Tree (RSTP) sur tous les switches pour éviter les boucles réseau en cas de câblage redondant.</div></div></div>
+              <div class="n-step"><div class="step-num">5</div><div class="step-body"><h6>Configuration des VLANs</h6><p>Créer un VLAN par entreprise locataire (ex: VLAN 10 = Entreprise A, VLAN 20 = Entreprise B). Configurer les ports en mode Access avec le VLAN approprié. Configurer le port uplink en mode Trunk (autoriser tous les VLANs). Appliquer une politique QoS pour prioriser la voix.</p></div></div>
+              <div class="n-step"><div class="step-num">6</div><div class="step-body"><h6>Tests et validation</h6><p>Mesures OTDR sur chaque tronçon fibre. Vérifier l'atténuation (&lt; 0,4 dB/km pour OS2). Tester la connectivité inter-VLAN (doit être impossible sans routeur). Mesurer le débit par VLAN avec iperf3. Vérifier l'isolement entre locataires.</p>
+              <div class="callout ok"><i class="fas fa-check-circle"></i>L'isolation VLAN est critique : tester systématiquement qu'un poste du VLAN 10 ne peut pas pinguer un poste du VLAN 20.</div></div></div>
+            </div>
+          </div>
+          <div class="notice-section">
+            <h5><i class="fas fa-clipboard-check"></i> Checklist de validation</h5>
+            <div class="n-checklist">
+              <div class="n-check"><i class="fas fa-check-square"></i>Atténuation fibre conforme (&lt; 0,4 dB/km)</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>VLANs correctement isolés entre locataires</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>PoE fonctionnel sur tous les ports</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>Spanning Tree actif (pas de boucle)</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>Débit ≥ 90% contractualisé par VLAN</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>Plan réseau mis à jour</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     MISSION 5 — FTTO
+═══════════════════════════════════════════════ -->
+<div class="mission-card fade-in">
+  <div class="mission-hdr">
+    <div class="mission-icon"><i class="fas fa-briefcase"></i></div>
+    <div class="mission-hdr-text">
+      <h3>Prestation FTTO</h3>
+      <p>Fiber To The Office — Fibre dédiée point-à-point, SLA 99,9%, bande passante garantie</p>
+    </div>
+  </div>
+
+  <div class="diagram-area">
+    <div class="diagram-label">// Architecture FTTO — Fibre dédiée point-à-point (P2P)</div>
+    <svg viewBox="0 0 700 155" xmlns="http://www.w3.org/2000/svg" width="100%">
+      <defs>
+        <marker id="fo-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#FF6B00"/></marker>
+        <marker id="fo-b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#3B82F6"/></marker>
+      </defs>
+      <!-- NRO -->
+      <rect x="5" y="46" width="95" height="62" rx="8" fill="#1A2235" stroke="#FF6B00" stroke-width="2"/>
+      <text x="52" y="68" text-anchor="middle" fill="#E8EDF5" font-size="11" font-family="Inter,sans-serif" font-weight="700">NRO Orange</text>
+      <text x="52" y="81" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">Nœud de Raccord.</text>
+      <text x="52" y="97" text-anchor="middle" fill="#FF6B00" font-size="8" font-family="JetBrains Mono,monospace">P2P · OS2</text>
+      <!-- Dedicated fiber (thick line) -->
+      <line x1="100" y1="77" x2="390" y2="77" stroke="#FF6B00" stroke-width="3" marker-end="url(#fo-a)"/>
+      <line x1="100" y1="82" x2="390" y2="82" stroke="#FF6B00" stroke-width="1" stroke-dasharray="3,3"/>
+      <!-- Label on fiber -->
+      <rect x="175" y="58" width="160" height="32" rx="6" fill="rgba(255,107,0,0.08)" stroke="rgba(255,107,0,0.2)" stroke-width="1"/>
+      <text x="255" y="71" text-anchor="middle" fill="#FF6B00" font-size="9" font-family="Inter,sans-serif" font-weight="600">Fibre dédiée OS2</text>
+      <text x="255" y="83" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Point-à-point non mutualisée · SLA 99,9%</text>
+      <!-- CPE -->
+      <rect x="392" y="46" width="95" height="62" rx="8" fill="#1A2235" stroke="#FF6B00" stroke-width="1.5"/>
+      <text x="439" y="68" text-anchor="middle" fill="#E8EDF5" font-size="11" font-family="Inter,sans-serif" font-weight="600">CPE Routeur</text>
+      <text x="439" y="81" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">Dédié Orange</text>
+      <text x="439" y="97" text-anchor="middle" fill="#FF6B00" font-size="8" font-family="JetBrains Mono,monospace">Cisco / Huawei</text>
+      <!-- LAN line -->
+      <line x1="487" y1="77" x2="540" y2="77" stroke="#3B82F6" stroke-width="2" marker-end="url(#fo-b)"/>
+      <text x="513" y="70" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">LAN entreprise</text>
+      <!-- Enterprise LAN -->
+      <rect x="542" y="35" width="150" height="88" rx="8" fill="#0E1420" stroke="#4A5568" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <text x="617" y="52" text-anchor="middle" fill="#4A5568" font-size="8" font-family="JetBrains Mono,monospace">LAN ENTREPRISE</text>
+      <rect x="552" y="57" width="60" height="22" rx="4" fill="#1A2235" stroke="#3B82F6" stroke-width="1"/>
+      <text x="582" y="70" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Serveurs</text>
+      <rect x="622" y="57" width="60" height="22" rx="4" fill="#1A2235" stroke="#3B82F6" stroke-width="1"/>
+      <text x="652" y="70" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Postes</text>
+      <rect x="552" y="87" width="130" height="22" rx="4" fill="#1A2235" stroke="#3B82F6" stroke-width="1"/>
+      <text x="617" y="100" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Téléphonie IP / Vidéo</text>
+      <!-- SLA badge -->
+      <rect x="5" y="125" width="100" height="22" rx="5" fill="rgba(46,204,113,0.1)" stroke="rgba(46,204,113,0.3)" stroke-width="1"/>
+      <text x="55" y="138" text-anchor="middle" fill="#2ECC71" font-size="8" font-family="JetBrains Mono,monospace">SLA 99,9% garanti</text>
+      <rect x="115" y="125" width="120" height="22" rx="5" fill="rgba(255,107,0,0.08)" stroke="rgba(255,107,0,0.2)" stroke-width="1"/>
+      <text x="175" y="138" text-anchor="middle" fill="#FF6B00" font-size="8" font-family="JetBrains Mono,monospace">Non mutualisée</text>
+      <rect x="245" y="125" width="110" height="22" rx="5" fill="rgba(59,130,246,0.08)" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
+      <text x="300" y="138" text-anchor="middle" fill="#3B82F6" font-size="8" font-family="JetBrains Mono,monospace">QoS E2E garantie</text>
+    </svg>
+  </div>
+
+  <div class="mission-body">
+    <p class="mission-desc"><strong style="color:var(--text)">FTTO (Fiber To The Office)</strong> est la solution fibre dédiée haut de gamme d'Orange pour les sites critiques. La fibre est tirée en point-à-point depuis le NRO jusqu'aux locaux, sans mutualisation. Bande passante garantie (10M à 10Gbps), SLA de disponibilité 99,9%, supervision proactive et intervention sous 4h en cas de panne.</p>
+    <ul class="mission-steps-list">
+      <li><i class="fas fa-circle"></i>Étude de faisabilité : distance, atténuation, génie civil si absence de fourreaux disponibles</li>
+      <li><i class="fas fa-circle"></i>Tirage du câble fibre OS2 dédié depuis le NRO jusqu'aux locaux client</li>
+      <li><i class="fas fa-circle"></i>Soudure optique par fusion, lovage dans boîtiers de répartition optique</li>
+      <li><i class="fas fa-circle"></i>Installation et configuration du routeur CPE dédié Orange (Cisco, Huawei)</li>
+      <li><i class="fas fa-circle"></i>Mise en place QoS end-to-end avec garantie de bande passante et priorisation des flux</li>
+      <li><i class="fas fa-circle"></i>Intégration au monitoring proactif Orange (SNMP, alertes automatiques)</li>
+      <li><i class="fas fa-circle"></i>Recette technique avec le client et signature du PV de livraison</li>
+    </ul>
+    <div class="pills" style="margin-bottom:20px">
+      <span class="tech-pill">Fibre OS2 P2P</span><span class="tech-pill">Soudure optique</span><span class="tech-pill">SLA 99,9%</span>
+      <span class="tech-pill">QoS E2E</span><span class="tech-pill">CPE dédié</span><span class="tech-pill">MPLS</span>
+    </div>
+
+    <div class="notice-wrap">
+      <div class="notice-title-bar" onclick="toggleNotice(this)">
+        <span class="notice-badge">NOTICE D'INSTALLATION</span>
+        <h4>Fiche Technique — FTTO</h4>
+        <i class="fas fa-chevron-down ntoggle"></i>
+      </div>
+      <div class="notice-body">
+        <div style="padding:24px;display:grid;gap:22px">
+          <div class="notice-section">
+            <h5><i class="fas fa-box-open"></i> Prérequis</h5>
+            <div class="prereq-grid">
+              <div class="prereq-card">
+                <div class="pc-label">Matériel</div>
+                <ul><li>Câble fibre monomode OS2 (longueur selon étude)</li><li>Soudeuse optique par fusion (ex: Fujikura, Sumitomo)</li><li>OTDR calibré + powermètre</li><li>CPE Routeur Orange dédié (pré-configuré en usine)</li><li>Boîtiers de répartition optique (BRO)</li></ul>
+              </div>
+              <div class="prereq-card">
+                <div class="pc-label">Études &amp; Autorisations</div>
+                <ul><li>Étude de faisabilité validée par l'ingénieur réseau</li><li>Dossier génie civil si nouveaux fourreaux requis</li><li>Accès au NRO et aux locaux clients</li><li>Contrat FTTO signé avec SLA défini</li></ul>
+              </div>
+            </div>
+            <div class="callout warn" style="margin-top:12px"><i class="fas fa-exclamation-triangle"></i><strong>Important :</strong> Une prestation FTTO nécessite une étude préalable obligatoire. Ne pas commencer les travaux sans validation de la faisabilité technique et de l'atténuation budgétaire du lien.</div>
+          </div>
+          <div class="notice-section">
+            <h5><i class="fas fa-list-ol"></i> Étapes d'installation</h5>
+            <div class="notice-steps">
+              <div class="n-step"><div class="step-num">1</div><div class="step-body"><h6>Étude de faisabilité et préparation</h6><p>Calculer le budget d'atténuation du lien : distance × 0,4 dB/km (OS2) + pertes connecteurs + pertes épissures. Le total doit rester &lt; 28 dB. Si des fourreaux sont à créer, lancer le dossier génie civil. Pré-configurer le CPE en usine selon les paramètres Orange.</p></div></div>
+              <div class="n-step"><div class="step-num">2</div><div class="step-body"><h6>Tirage du câble fibre OS2</h6><p>Tirer la fibre dans les fourreaux depuis le NRO jusqu'aux locaux client. Utiliser un tire-fils motorisé si nécessaire. Laisser 5m de mou au NRO et 3m aux locaux pour permettre les épissures. Ne jamais plier la fibre en dessous du rayon de courbure minimal (30mm).</p></div></div>
+              <div class="n-step"><div class="step-num">3</div><div class="step-body"><h6>Soudure optique par fusion</h6><p>Dénuder et nettoyer la fibre. Couper perpendiculairement avec le cleaver (angle &lt; 0,5°). Effectuer la fusion dans la soudeuse automatique. Vérifier la perte de fusion affichée (&lt; 0,05 dB). Protéger l'épissure avec le sleeve de protection thermique.</p>
+              <div class="callout info"><i class="fas fa-info-circle"></i>Une mauvaise coupe de la fibre est la première cause d'une perte d'épissure élevée. Nettoyer systématiquement les fibres avec de l'alcool isopropylique avant clivage.</div></div></div>
+              <div class="n-step"><div class="step-num">4</div><div class="step-body"><h6>Mesures OTDR et validation du lien</h6><p>Réaliser une mesure OTDR bidirectionnelle (depuis NRO et depuis les locaux). Vérifier : atténuation totale, localisation des épissures et connecteurs, absence de réflexions anormales. Comparer les mesures au budget d'atténuation calculé. Tout dépassement de 2 dB doit être investigué.</p></div></div>
+              <div class="n-step"><div class="step-num">5</div><div class="step-body"><h6>Installation et configuration du CPE</h6><p>Installer le routeur CPE dédié dans la baie ou l'armoire client. Brancher la fibre sur le port WAN SFP. Le CPE est pré-configuré par Orange (OSPF/BGP, QoS, adressage). Vérifier le montage et l'établissement de la session de routage avec le réseau Orange.</p></div></div>
+              <div class="n-step"><div class="step-num">6</div><div class="step-body"><h6>Mise en service QoS et SLA</h6><p>Vérifier la configuration QoS (classes de service : voix, données critiques, best effort). Tester la garantie de bande passante avec iperf3. Confirmer l'intégration au monitoring Orange (SNMPv3, syslog). Effectuer un test de disponibilité sur 30 minutes.</p></div></div>
+              <div class="n-step"><div class="step-num">7</div><div class="step-body"><h6>Recette et PV de livraison</h6><p>Présenter les mesures OTDR, les tests de débit et les captures de configuration au client. Faire signer le PV de recette. Remettre le dossier technique complet (schéma de câblage, mesures, paramètres CPE). Expliquer la procédure d'escalade en cas d'incident SLA.</p></div></div>
+            </div>
+          </div>
+          <div class="notice-section">
+            <h5><i class="fas fa-clipboard-check"></i> Checklist de validation</h5>
+            <div class="n-checklist">
+              <div class="n-check"><i class="fas fa-check-square"></i>Atténuation totale &lt; budget calculé</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>OTDR bidirectionnel documenté</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>Session BGP/OSPF établie avec Orange</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>Débit garanti mesuré et conforme</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>QoS validée (voix prioritaire)</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>PV de recette signé par le client</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     MISSION 6 — IPBX
+═══════════════════════════════════════════════ -->
+<div class="mission-card fade-in d1">
+  <div class="mission-hdr">
+    <div class="mission-icon"><i class="fas fa-phone-volume"></i></div>
+    <div class="mission-hdr-text">
+      <h3>Installation IPBX</h3>
+      <p>Autocommutateur IP — Téléphonie d'entreprise SIP/VoIP avec messagerie unifiée</p>
+    </div>
+  </div>
+
+  <div class="diagram-area">
+    <div class="diagram-label">// Architecture IPBX — Téléphonie IP d'entreprise</div>
+    <svg viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg" width="100%">
+      <defs>
+        <marker id="ip-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#FF6B00"/></marker>
+        <marker id="ip-b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#3B82F6"/></marker>
+        <marker id="ip-g" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2ECC71"/></marker>
+      </defs>
+      <!-- PSTN / SIP Trunk -->
+      <rect x="5" y="55" width="105" height="50" rx="8" fill="#1A2235" stroke="#FF6B00" stroke-width="1.5"/>
+      <text x="57" y="75" text-anchor="middle" fill="#E8EDF5" font-size="10" font-family="Inter,sans-serif" font-weight="600">SIP Trunk</text>
+      <text x="57" y="88" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">Orange SIP / PSTN</text>
+      <text x="57" y="100" text-anchor="middle" fill="#FF6B00" font-size="8" font-family="JetBrains Mono,monospace">G.711 / G.729</text>
+      <!-- SIP line -->
+      <line x1="110" y1="80" x2="173" y2="80" stroke="#FF6B00" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#ip-a)"/>
+      <text x="141" y="73" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">SIP / TLS</text>
+      <!-- IPBX Server -->
+      <rect x="175" y="40" width="120" height="80" rx="8" fill="#1A2235" stroke="#FF6B00" stroke-width="2"/>
+      <text x="235" y="64" text-anchor="middle" fill="#E8EDF5" font-size="12" font-family="Inter,sans-serif" font-weight="700">IPBX</text>
+      <text x="235" y="78" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">3CX / Asterisk</text>
+      <text x="235" y="91" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Alcatel OXO/OXE</text>
+      <text x="235" y="110" text-anchor="middle" fill="#FF6B00" font-size="8" font-family="JetBrains Mono,monospace">SRTP · TLS</text>
+      <!-- Lines from IPBX to endpoints -->
+      <line x1="295" y1="60" x2="365" y2="33" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#ip-b)"/>
+      <line x1="295" y1="70" x2="365" y2="65" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#ip-b)"/>
+      <line x1="295" y1="80" x2="365" y2="97" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#ip-b)"/>
+      <line x1="295" y1="90" x2="365" y2="129" stroke="#2ECC71" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#ip-g)"/>
+      <!-- IP Phone 1 -->
+      <rect x="367" y="18" width="110" height="30" rx="6" fill="#1A2235" stroke="#3B82F6" stroke-width="1"/>
+      <text x="422" y="35" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">Téléphone IP (×N)</text>
+      <!-- IP Phone 2 -->
+      <rect x="367" y="50" width="110" height="30" rx="6" fill="#1A2235" stroke="#3B82F6" stroke-width="1"/>
+      <text x="422" y="67" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">Téléphone IP PoE</text>
+      <!-- Softphone -->
+      <rect x="367" y="82" width="110" height="30" rx="6" fill="#1A2235" stroke="#3B82F6" stroke-width="1"/>
+      <text x="422" y="99" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">Softphone / PC</text>
+      <!-- DECT -->
+      <rect x="367" y="114" width="110" height="30" rx="6" fill="#1A2235" stroke="#2ECC71" stroke-width="1"/>
+      <text x="422" y="131" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">DECT / Mobile</text>
+      <!-- IVR / features -->
+      <rect x="510" y="45" width="115" height="70" rx="8" fill="#0E1420" stroke="#4A5568" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <text x="567" y="62" text-anchor="middle" fill="#4A5568" font-size="8" font-family="JetBrains Mono,monospace">FONCTIONNALITÉS</text>
+      <text x="567" y="77" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">IVR / File d'attente</text>
+      <text x="567" y="90" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Messagerie vocale</text>
+      <text x="567" y="103" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Conférence / Renvoi</text>
+      <!-- Legend -->
+      <line x1="10" y1="148" x2="34" y2="148" stroke="#3B82F6" stroke-width="2"/>
+      <text x="38" y="151" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">SIP/RTP (chiffré SRTP)</text>
+      <line x1="200" y1="148" x2="224" y2="148" stroke="#2ECC71" stroke-width="2" stroke-dasharray="4,2"/>
+      <text x="228" y="151" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">SIP sans fil (DECT/WiFi)</text>
+    </svg>
+  </div>
+
+  <div class="mission-body">
+    <p class="mission-desc"><strong style="color:var(--text)">IPBX (IP Private Branch eXchange)</strong> est un autocommutateur téléphonique privé fonctionnant sur protocole SIP/H.323 via le réseau IP. Il remplace l'ancien PABX analogique et gère toutes les communications internes/externes de l'entreprise. Orange propose des solutions 3CX, Alcatel OXO Connect, ou Business Talk (cloud). Les flux vocaux sont chiffrés via SRTP et la signalisation via TLS.</p>
+    <ul class="mission-steps-list">
+      <li><i class="fas fa-circle"></i>Analyse des besoins : nombre de postes, lignes SIP, fonctionnalités (IVR, file d'attente, renvoi)</li>
+      <li><i class="fas fa-circle"></i>Installation physique du serveur IPBX (rack dédié ou VM selon solution)</li>
+      <li><i class="fas fa-circle"></i>Configuration des trunks SIP vers Orange (authentification, codecs G.711/G.729, SIP OPTIONS keepalive)</li>
+      <li><i class="fas fa-circle"></i>Création des extensions, groupements d'appels, files d'attente et messagerie vocale</li>
+      <li><i class="fas fa-circle"></i>Auto-provisioning des téléphones IP via DHCP option 66 (fichier de configuration automatique)</li>
+      <li><i class="fas fa-circle"></i>Sécurisation : fail2ban contre brute-force SIP, TLS pour signalisation, SRTP pour flux média</li>
+      <li><i class="fas fa-circle"></i>Tests de charge, QoS VoIP (DSCP EF pour RTP) et formation utilisateurs</li>
+    </ul>
+    <div class="pills" style="margin-bottom:20px">
+      <span class="tech-pill">SIP / RTP</span><span class="tech-pill">SRTP / TLS</span><span class="tech-pill">3CX / Asterisk</span>
+      <span class="tech-pill">DECT</span><span class="tech-pill">G.711 / G.729</span><span class="tech-pill">QoS DSCP EF</span><span class="tech-pill">IVR</span>
+    </div>
+
+    <div class="notice-wrap">
+      <div class="notice-title-bar" onclick="toggleNotice(this)">
+        <span class="notice-badge">NOTICE D'INSTALLATION</span>
+        <h4>Fiche Technique — IPBX</h4>
+        <i class="fas fa-chevron-down ntoggle"></i>
+      </div>
+      <div class="notice-body">
+        <div style="padding:24px;display:grid;gap:22px">
+          <div class="notice-section">
+            <h5><i class="fas fa-box-open"></i> Prérequis</h5>
+            <div class="prereq-grid">
+              <div class="prereq-card">
+                <div class="pc-label">Matériel</div>
+                <ul><li>Serveur ou appliance IPBX (3CX / Alcatel OXO Connect)</li><li>Téléphones IP compatibles SIP (PoE)</li><li>Switch PoE+ dédié voix (VLAN voix séparé)</li><li>Base et combinés DECT si déploiement sans fil</li><li>Câbles RJ45 Cat6, alimentation ondulée (UPS)</li></ul>
+              </div>
+              <div class="prereq-card">
+                <div class="pc-label">Informations client</div>
+                <ul><li>Plan de numérotation interne (plage d'extensions)</li><li>Numéros DDI (Direct Dial In) fournis par Orange</li><li>Paramètres du trunk SIP Orange (serveur, credentials)</li><li>Liste des utilisateurs et de leurs besoins (renvoi, groupe…)</li></ul>
+              </div>
+            </div>
+          </div>
+          <div class="notice-section">
+            <h5><i class="fas fa-list-ol"></i> Étapes d'installation</h5>
+            <div class="notice-steps">
+              <div class="n-step"><div class="step-num">1</div><div class="step-body"><h6>Analyse des besoins et plan de numérotation</h6><p>Recenser le nombre de postes internes, les groupements d'appels, les files d'attente, l'IVR (accueil vocal), les renvois et les numéros DDI. Créer un plan de numérotation (ex : 1xx pour postes, 200-299 pour salles, 300+ pour groupements). Valider avec le client avant installation.</p></div></div>
+              <div class="n-step"><div class="step-num">2</div><div class="step-body"><h6>Installation physique du serveur IPBX</h6><p>Installer le serveur dans la baie réseau du client. Connecter sur le VLAN voix dédié. Pour une solution virtualisée (3CX sur VM), créer la VM avec les ressources recommandées (4 vCPU, 8 Go RAM minimum pour &gt; 50 postes). Mettre à jour le firmware/OS avant configuration.</p>
+              <div class="callout warn"><i class="fas fa-exclamation-triangle"></i>Le réseau VoIP doit obligatoirement être sur un VLAN dédié, séparé du VLAN données, pour garantir la qualité audio et la sécurité.</div></div></div>
+              <div class="n-step"><div class="step-num">3</div><div class="step-body"><h6>Configuration du trunk SIP Orange</h6><p>Créer le trunk SIP dans l'interface admin de l'IPBX. Renseigner le serveur SIP d'Orange (proxy SIP), les credentials d'authentification, les numéros DDI. Sélectionner les codecs dans l'ordre de priorité : G.711 ulaw/alaw, puis G.729 pour économiser la bande passante. Activer SIP OPTIONS heartbeat toutes les 30s.</p></div></div>
+              <div class="n-step"><div class="step-num">4</div><div class="step-body"><h6>Création des extensions et groupements</h6><p>Créer chaque extension SIP avec : numéro interne, nom, mot de passe SIP fort. Créer les groupements d'appels (ring all / round-robin / least-used). Configurer les files d'attente avec musique d'attente, annonces et time-out. Créer l'IVR (menu vocal) avec les routes selon les touches.</p></div></div>
+              <div class="n-step"><div class="step-num">5</div><div class="step-body"><h6>Auto-provisioning des téléphones IP</h6><p>Configurer l'option DHCP 66 (TFTP server) pointant vers le serveur de provisioning de l'IPBX. Brancher les téléphones sur les ports PoE : ils récupèrent automatiquement leur configuration (adresse IP, serveur SIP, extension). Vérifier l'enregistrement SIP de chaque poste dans la console IPBX.</p>
+              <div class="callout info"><i class="fas fa-info-circle"></i>Si le DHCP option 66 n'est pas disponible, utiliser le PnP (Plug and Play) via URL de configuration encodée dans le téléphone ou la provisioning platform du fabricant.</div></div></div>
+              <div class="n-step"><div class="step-num">6</div><div class="step-body"><h6>Sécurisation de l'IPBX</h6><p>Installer et configurer fail2ban (bloquer après 5 échecs SIP REGISTER). Activer TLS pour la signalisation SIP (port 5061) avec un certificat valide. Activer SRTP pour le chiffrement des flux RTP. Restreindre l'accès admin à l'IP du réseau LAN uniquement. Désactiver les comptes SIP par défaut.</p>
+              <div class="callout warn"><i class="fas fa-exclamation-triangle"></i>Un IPBX non sécurisé est une cible prioritaire pour les fraudeurs téléphoniques (toll fraud). Une seule compromission peut générer des milliers d'euros de communications vers des numéros surtaxés.</div></div></div>
+              <div class="n-step"><div class="step-num">7</div><div class="step-body"><h6>QoS VoIP et tests de qualité</h6><p>Configurer le marquage DSCP EF (Expedited Forwarding, valeur 46) sur les flux RTP dans le switch et le routeur. Vérifier la priorisation sur toute la chaîne réseau. Tester la qualité audio avec le score MOS (Mean Opinion Score) &gt; 4 attendu. Effectuer des tests de charge (appels simultanés).</p></div></div>
+            </div>
+          </div>
+          <div class="notice-section">
+            <h5><i class="fas fa-clipboard-check"></i> Checklist de validation</h5>
+            <div class="n-checklist">
+              <div class="n-check"><i class="fas fa-check-square"></i>Trunk SIP Orange enregistré et actif</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>Tous les postes SIP enregistrés</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>Appels internes et externes testés</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>IVR et messagerie vocale fonctionnels</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>SRTP/TLS actifs (chiffrement vocal)</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>fail2ban actif (anti-brute force SIP)</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>QoS DSCP EF configurée sur le réseau</div>
+              <div class="n-check"><i class="fas fa-check-square"></i>Formation utilisateurs effectuée</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div><!-- /missions-wrap -->
+</div><!-- /container -->
+</section>
+
+<footer>
+  <div class="container">
+    <p>Conçu par <span>Sami ALAOUI KASMI</span> — BUT R&amp;T | Alternant Orange Business</p>
+    <div class="footer-links">
+      <a href="mailto:alaouikasmi.sami2007@hotmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+    <p style="margin-top:10px;font-size:0.73rem">© 2026 Sami ALAOUI KASMI</p>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+<script>
+function toggleNotice(bar) {
+  const body = bar.nextElementSibling;
+  const icon = bar.querySelector('.ntoggle');
+  body.classList.toggle('open');
+  icon.classList.toggle('open');
+}
+</script>
+</body>
+</html>

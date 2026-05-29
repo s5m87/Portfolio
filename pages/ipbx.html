@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IPBX — Notice d'installation | Orange Business</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="detail.css" />
+</head>
+<body>
+  <nav class="topbar">
+    <a href="../index.html#experience" class="back-btn"><i class="fas fa-arrow-left"></i> Retour au portfolio</a>
+    <span class="badge-orange"><i class="fas fa-phone-volume"></i> IPBX</span>
+  </nav>
+
+  <header class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container">
+      <div class="page-hero-tag"><i class="fas fa-phone-volume"></i> Orange Business — Téléphonie IP</div>
+      <h1 class="page-hero-title">IPBX</h1>
+      <p class="page-hero-sub">Autocommutateur IP privé — Système de téléphonie d'entreprise VoIP avec trunks SIP, messagerie unifiée, IVR et sécurisation complète des flux voix</p>
+      <div class="hero-pills">
+        <span class="pill"><i class="fas fa-phone"></i> SIP / RTP / G.711</span>
+        <span class="pill"><i class="fas fa-server"></i> 3CX / Asterisk / FreePBX</span>
+        <span class="pill"><i class="fas fa-lock"></i> TLS + SRTP</span>
+        <span class="pill"><i class="fas fa-voicemail"></i> Messagerie unifiée</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container page-body">
+
+    <!-- PRÉSENTATION -->
+    <section class="detail-section">
+      <div class="section-label"><i class="fas fa-info-circle"></i> Comprendre l'IPBX</div>
+      <div class="two-col">
+        <div>
+          <h2 class="section-h2">L'IPBX — Téléphonie d'entreprise sur IP</h2>
+          <p>Un <strong style="color:var(--text)">IPBX (IP Private Branch eXchange)</strong> est un autocommutateur téléphonique privé utilisant le protocole IP pour acheminer les appels. Il remplace l'ancien PABX analogique ou numérique (ISDN) et transforme les communications téléphoniques en flux de données transitant sur le réseau informatique de l'entreprise.</p>
+          <p>Les solutions les plus déployées chez les clients Orange Business sont <strong style="color:var(--text)">3CX</strong> (solution logicielle Windows/Linux), <strong style="color:var(--text)">Alcatel-Lucent OXO Connect</strong>, <strong style="color:var(--text)">Asterisk</strong> et la solution cloud <strong style="color:var(--text)">Business Talk</strong> d'Orange.</p>
+          <ul class="feature-list">
+            <li><i class="fas fa-check"></i> Gestion des appels internes (internes gratuits entre postes)</li>
+            <li><i class="fas fa-check"></i> Trunks SIP vers opérateur pour appels externes</li>
+            <li><i class="fas fa-check"></i> Messagerie vocale et messagerie unifiée (email)</li>
+            <li><i class="fas fa-check"></i> IVR (serveur vocal interactif) et files d'attente</li>
+            <li><i class="fas fa-check"></i> Renvois d'appels, conférences, supervision d'appels</li>
+            <li><i class="fas fa-check"></i> Terminaux DECT sans fil pour mobilité interne</li>
+          </ul>
+          <div class="info-box">
+            <i class="fas fa-info-circle"></i>
+            <p>Sur un IPBX bien configuré, la qualité voix (MOS) doit être ≥ 4,0 (sur 5). Cela nécessite une QoS réseau avec DSCP EF (Expedited Forwarding) et une latence &lt; 150ms, une gigue &lt; 30ms et un taux de perte &lt; 1%.</p>
+          </div>
+        </div>
+        <div class="info-card-stack">
+          <div class="info-card">
+            <div class="info-card-icon"><i class="fas fa-phone" style="color:#FF6B00"></i></div>
+            <div class="info-card-label">Protocole de signalisation</div>
+            <div class="info-card-val">SIP (RFC 3261)</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon"><i class="fas fa-wave-square" style="color:#3498DB"></i></div>
+            <div class="info-card-label">Transport média</div>
+            <div class="info-card-val">RTP / SRTP (voix chiffrée)</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon"><i class="fas fa-code" style="color:#2ECC71"></i></div>
+            <div class="info-card-label">Codecs voix</div>
+            <div class="info-card-val">G.711 (PCMA/PCMU), G.729</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon"><i class="fas fa-lock" style="color:#E74C3C"></i></div>
+            <div class="info-card-label">Chiffrement</div>
+            <div class="info-card-val">TLS (signal) + SRTP (média)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHÉMA SVG IPBX -->
+    <section class="detail-section">
+      <div class="section-label"><i class="fas fa-diagram-project"></i> Architecture IPBX — Schéma complet</div>
+      <div class="schema-wrap">
+        <svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" class="network-svg">
+          <defs>
+            <marker id="pArr" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 Z" fill="#FF6B00" opacity="0.9"/>
+            </marker>
+            <marker id="pArrG" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 Z" fill="#2ECC71" opacity="0.8"/>
+            </marker>
+            <marker id="pArrB" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 Z" fill="#9B59B6" opacity="0.8"/>
+            </marker>
+          </defs>
+          <rect width="900" height="400" rx="16" fill="#0E1420"/>
+
+          <!-- Opérateur Orange (SIP Trunk) -->
+          <rect x="15" y="100" width="120" height="140" rx="10" fill="#141A28" stroke="#FF6B00" stroke-opacity="0.35"/>
+          <text x="75" y="118" fill="#FF6B00" font-size="9" text-anchor="middle" font-family="JetBrains Mono">OPÉRATEUR</text>
+          <text x="75" y="130" fill="#FF6B00" font-size="8" text-anchor="middle">Orange Business</text>
+          <text x="75" y="165" fill="#FF6B00" font-size="22" text-anchor="middle">☁</text>
+          <text x="75" y="190" fill="#8B97B0" font-size="8" text-anchor="middle">SIP Trunk</text>
+          <text x="75" y="204" fill="#8B97B0" font-size="7" text-anchor="middle">DDI / Numérotation</text>
+          <text x="75" y="218" fill="#8B97B0" font-size="7" text-anchor="middle">10 appels simultanés</text>
+          <text x="75" y="232" fill="#8B97B0" font-size="7" text-anchor="middle">G.711 / TLS</text>
+
+          <!-- IPBX Server -->
+          <rect x="185" y="60" width="170" height="260" rx="12" fill="#141A28" stroke="#FF6B00" stroke-opacity="0.4"/>
+          <text x="270" y="78" fill="#FF6B00" font-size="10" text-anchor="middle" font-family="JetBrains Mono">SERVEUR IPBX</text>
+          <text x="270" y="90" fill="#8B97B0" font-size="7" text-anchor="middle">3CX / Asterisk / FreePBX</text>
+
+          <!-- Modules IPBX -->
+          <rect x="197" y="100" width="146" height="30" rx="5" fill="#1A2235" stroke="#FF6B00" stroke-opacity="0.25"/>
+          <text x="270" y="118" fill="#E8EDF5" font-size="8" text-anchor="middle">📞 Moteur SIP (signalisation)</text>
+
+          <rect x="197" y="136" width="146" height="30" rx="5" fill="#1A2235" stroke="#3498DB" stroke-opacity="0.25"/>
+          <text x="270" y="154" fill="#E8EDF5" font-size="8" text-anchor="middle">🎵 Moteur RTP (média)</text>
+
+          <rect x="197" y="172" width="146" height="30" rx="5" fill="#1A2235" stroke="#9B59B6" stroke-opacity="0.25"/>
+          <text x="270" y="190" fill="#E8EDF5" font-size="8" text-anchor="middle">📬 Messagerie vocale</text>
+
+          <rect x="197" y="208" width="146" height="30" rx="5" fill="#1A2235" stroke="#27AE60" stroke-opacity="0.25"/>
+          <text x="270" y="226" fill="#E8EDF5" font-size="8" text-anchor="middle">🤖 IVR / Files d'attente</text>
+
+          <rect x="197" y="244" width="146" height="30" rx="5" fill="#1A2235" stroke="#E74C3C" stroke-opacity="0.25"/>
+          <text x="270" y="262" fill="#E8EDF5" font-size="8" text-anchor="middle">🔐 TLS + SRTP</text>
+
+          <rect x="197" y="280" width="146" height="28" rx="5" fill="#1A2235" stroke="#F39C12" stroke-opacity="0.25"/>
+          <text x="270" y="297" fill="#E8EDF5" font-size="8" text-anchor="middle">📊 CDR / Statistiques</text>
+
+          <!-- SIP Trunk line -->
+          <line x1="137" y1="170" x2="183" y2="170" stroke="#FF6B00" stroke-width="2.5" stroke-opacity="0.8" marker-end="url(#pArr)"/>
+          <text x="160" y="162" fill="#FF6B00" font-size="7" text-anchor="middle">SIP/TLS</text>
+          <text x="160" y="182" fill="#8B97B0" font-size="6" text-anchor="middle">UDP/5060</text>
+
+          <!-- DHCP / Auto-provisionning -->
+          <rect x="185" y="335" width="170" height="50" rx="8" fill="#141A28" stroke="#F39C12" stroke-opacity="0.3"/>
+          <text x="270" y="353" fill="#F39C12" font-size="8" text-anchor="middle" font-family="JetBrains Mono">AUTO-PROVISIONING</text>
+          <text x="270" y="366" fill="#8B97B0" font-size="7" text-anchor="middle">DHCP option 66 → URL config</text>
+          <text x="270" y="378" fill="#8B97B0" font-size="7" text-anchor="middle">Téléphones se configurent seuls</text>
+
+          <!-- Switch réseau -->
+          <rect x="410" y="160" width="100" height="110" rx="8" fill="#141A28" stroke="#3498DB" stroke-opacity="0.3"/>
+          <text x="460" y="178" fill="#3498DB" font-size="9" text-anchor="middle" font-family="JetBrains Mono">SWITCH PoE</text>
+          <text x="460" y="192" fill="#E8EDF5" font-size="8" text-anchor="middle">VLAN 10 (Data)</text>
+          <text x="460" y="205" fill="#E8EDF5" font-size="8" text-anchor="middle">VLAN 20 (Voix)</text>
+          <text x="460" y="218" fill="#8B97B0" font-size="7" text-anchor="middle">Trunk IPBX</text>
+          <text x="460" y="231" fill="#8B97B0" font-size="7" text-anchor="middle">QoS DSCP EF</text>
+          <text x="460" y="244" fill="#8B97B0" font-size="7" text-anchor="middle">PoE+ 30W/port</text>
+          <text x="460" y="258" fill="#8B97B0" font-size="7" text-anchor="middle">Portfast activé</text>
+
+          <!-- Arrow IPBX → Switch -->
+          <line x1="357" y1="200" x2="408" y2="200" stroke="#3498DB" stroke-width="2" stroke-opacity="0.7" marker-end="url(#pArr)"/>
+          <text x="383" y="193" fill="#8B97B0" font-size="7" text-anchor="middle">LAN RJ45</text>
+
+          <!-- Téléphones IP -->
+          <rect x="555" y="60" width="90" height="90" rx="8" fill="#141A28" stroke="#9B59B6" stroke-opacity="0.3"/>
+          <text x="600" y="78" fill="#9B59B6" font-size="8" text-anchor="middle" font-family="JetBrains Mono">TÉL. IP</text>
+          <text x="600" y="93" fill="#E8EDF5" font-size="9" text-anchor="middle">📞</text>
+          <text x="600" y="110" fill="#8B97B0" font-size="7" text-anchor="middle">Cisco CP-8841</text>
+          <text x="600" y="122" fill="#8B97B0" font-size="7" text-anchor="middle">PoE — VLAN 20</text>
+          <text x="600" y="134" fill="#8B97B0" font-size="7" text-anchor="middle">G.711 / TLS</text>
+          <text x="600" y="145" fill="#2ECC71" font-size="6" text-anchor="middle">Auto-provisionné</text>
+
+          <!-- Softphone -->
+          <rect x="660" y="60" width="90" height="90" rx="8" fill="#141A28" stroke="#3498DB" stroke-opacity="0.25"/>
+          <text x="705" y="78" fill="#3498DB" font-size="8" text-anchor="middle" font-family="JetBrains Mono">SOFTPHONE</text>
+          <text x="705" y="93" fill="#E8EDF5" font-size="9" text-anchor="middle">💻</text>
+          <text x="705" y="110" fill="#8B97B0" font-size="7" text-anchor="middle">3CX App / Zoiper</text>
+          <text x="705" y="122" fill="#8B97B0" font-size="7" text-anchor="middle">PC / Mobile</text>
+          <text x="705" y="134" fill="#8B97B0" font-size="7" text-anchor="middle">WebRTC</text>
+
+          <!-- DECT -->
+          <rect x="765" y="60" width="90" height="90" rx="8" fill="#141A28" stroke="#27AE60" stroke-opacity="0.25"/>
+          <text x="810" y="78" fill="#27AE60" font-size="8" text-anchor="middle" font-family="JetBrains Mono">DECT</text>
+          <text x="810" y="93" fill="#E8EDF5" font-size="9" text-anchor="middle">📱</text>
+          <text x="810" y="110" fill="#8B97B0" font-size="7" text-anchor="middle">Gigaset / Yealink</text>
+          <text x="810" y="122" fill="#8B97B0" font-size="7" text-anchor="middle">Cordless VoIP</span></text>
+          <text x="810" y="134" fill="#8B97B0" font-size="7" text-anchor="middle">Rayon 30m</text>
+
+          <!-- Arrows Switch → Devices -->
+          <line x1="510" y1="190" x2="553" y2="110" stroke="#9B59B6" stroke-width="1.5" stroke-opacity="0.6" marker-end="url(#pArrB)"/>
+          <line x1="510" y1="200" x2="658" y2="110" stroke="#3498DB" stroke-width="1.5" stroke-opacity="0.5" marker-end="url(#pArr)"/>
+          <line x1="510" y1="210" x2="763" y2="110" stroke="#27AE60" stroke-width="1.5" stroke-opacity="0.5" marker-end="url(#pArrG)"/>
+
+          <!-- Zone sécurité / Fail2ban -->
+          <rect x="555" y="180" width="200" height="100" rx="8" fill="#141A28" stroke="#E74C3C" stroke-opacity="0.3"/>
+          <text x="655" y="198" fill="#E74C3C" font-size="9" text-anchor="middle" font-family="JetBrains Mono">SÉCURITÉ SIP</text>
+          <text x="655" y="214" fill="#8B97B0" font-size="7" text-anchor="middle">🛡 fail2ban — Blocage brute-force</text>
+          <text x="655" y="228" fill="#8B97B0" font-size="7" text-anchor="middle">🔐 TLS 1.2/1.3 — Signalisation</text>
+          <text x="655" y="242" fill="#8B97B0" font-size="7" text-anchor="middle">🎭 SRTP — Chiffrement média</text>
+          <text x="655" y="256" fill="#8B97B0" font-size="7" text-anchor="middle">🌐 Filtrage IP — Whitelist SIP</text>
+          <text x="655" y="270" fill="#8B97B0" font-size="7" text-anchor="middle">⏱ Rate limiting — 5 req/sec max</text>
+
+          <!-- Zone fonctionnalités -->
+          <rect x="555" y="295" width="295" height="80" rx="8" fill="#141A28" stroke="#F39C12" stroke-opacity="0.2"/>
+          <text x="702" y="313" fill="#F39C12" font-size="9" text-anchor="middle" font-family="JetBrains Mono">FONCTIONNALITÉS AVANCÉES</text>
+          <text x="580" y="330" fill="#8B97B0" font-size="7">🤖 IVR personnalisé</text>
+          <text x="580" y="344" fill="#8B97B0" font-size="7">📧 Messagerie vocale → Email</text>
+          <text x="580" y="358" fill="#8B97B0" font-size="7">🔄 Renvoi d'appels</text>
+          <text x="705" y="330" fill="#8B97B0" font-size="7">👥 Files d'attente</text>
+          <text x="705" y="344" fill="#8B97B0" font-size="7">🎵 Musique d'attente</text>
+          <text x="705" y="358" fill="#8B97B0" font-size="7">📊 Supervision temps réel</text>
+
+          <text x="450" y="22" fill="#E8EDF5" font-size="13" font-weight="bold" text-anchor="middle" font-family="Inter">Architecture IPBX — Téléphonie VoIP d'entreprise</text>
+          <text x="450" y="40" fill="#8B97B0" font-size="9" text-anchor="middle">3CX / Asterisk avec trunk SIP Orange, téléphones IP auto-provisionnés et sécurité TLS/SRTP</text>
+        </svg>
+        <div class="schema-legend">
+          <div class="legend-item"><span class="legend-dot" style="background:#FF6B00"></span> SIP Trunk Orange / Signalisation</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#9B59B6"></span> Téléphones IP (SIP)</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#3498DB"></span> Softphones</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#27AE60"></span> DECT sans fil</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#E74C3C"></span> Sécurité TLS/SRTP</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROTOCOLES -->
+    <section class="detail-section">
+      <div class="section-label"><i class="fas fa-network-wired"></i> Protocoles SIP et RTP</div>
+      <div class="cards-grid">
+        <div class="detail-card">
+          <div class="detail-card-icon"><i class="fas fa-exchange-alt"></i></div>
+          <h3>SIP — Session Initiation Protocol</h3>
+          <ul>
+            <li>Protocole de signalisation (RFC 3261)</li>
+            <li>Port UDP/TCP 5060 (non chiffré)</li>
+            <li>Port TLS 5061 (chiffré et authentifié)</li>
+            <li>Méthodes : INVITE, ACK, BYE, CANCEL</li>
+            <li>Statut : 200 OK, 407 Auth, 404 Not Found</li>
+          </ul>
+        </div>
+        <div class="detail-card">
+          <div class="detail-card-icon"><i class="fas fa-microphone"></i></div>
+          <h3>RTP — Real-time Transport Protocol</h3>
+          <ul>
+            <li>Transport des flux médias (voix/vidéo)</li>
+            <li>Ports UDP dynamiques : 10000–20000</li>
+            <li>SRTP = RTP + chiffrement AES-128</li>
+            <li>RTCP pour statistiques qualité (MOS)</li>
+            <li>Sensible à la latence et la gigue</li>
+          </ul>
+        </div>
+        <div class="detail-card">
+          <div class="detail-card-icon"><i class="fas fa-compress-arrows-alt"></i></div>
+          <h3>Codecs voix</h3>
+          <ul>
+            <li>G.711 PCMA/PCMU : 64 kbps — haute qualité</li>
+            <li>G.729 : 8 kbps — compression forte</li>
+            <li>G.722 : 64 kbps — haute définition (HD)</li>
+            <li>Opus : variable, webRTC moderne</li>
+            <li>Transcoding IPBX si codecs différents</li>
+          </ul>
+        </div>
+        <div class="detail-card">
+          <div class="detail-card-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Qualité VoIP (MOS)</h3>
+          <ul>
+            <li>MOS ≥ 4,0 = qualité excellente</li>
+            <li>Latence max : 150ms (one-way)</li>
+            <li>Gigue max : 30ms</li>
+            <li>Perte paquets max : 1%</li>
+            <li>QoS DSCP EF (46) obligatoire sur réseau</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOTICE INSTALLATION -->
+    <section class="detail-section">
+      <div class="section-label"><i class="fas fa-list-ol"></i> Notice d'installation IPBX — Étape par étape</div>
+      <div class="notice-steps">
+
+        <div class="notice-step">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <h3>Analyse des besoins et dimensionnement</h3>
+            <p>Définir avec le client le nombre de postes, lignes externes, fonctionnalités requises et les flux d'appels attendus pour dimensionner correctement l'IPBX.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Questions clés de dimensionnement</div>
+              <div class="cmd-body">
+UTILISATEURS :
+  → Nombre de postes IP : ___
+  → Nombre de postes DECT : ___
+  → Softphones (PC/Mobile) : ___
+
+LIGNES EXTERNES (SIP Trunk Orange) :
+  → Nombre d'appels simultanés max : ___
+  → Numéros DDI à porter : ___
+  → Indicatif externe : ___
+
+FONCTIONNALITÉS :
+  → IVR (arbre d'appels) : Oui / Non
+  → Files d'attente : Oui / Non — Nombre : ___
+  → Messagerie vocale → Email : Oui / Non
+  → Conférence audio : Nombre participants max ___
+  → Enregistrement appels : Oui / Non (RGPD !)
+
+SERVEUR IPBX :
+  → VM ou physique ?
+  → OS : Debian Linux / Windows Server ?
+  → RAM min : 4 Go pour 50 postes
+  → CPU : 2 vCPU min, 4 vCPU pour 100+ postes
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <h3>Installation du serveur IPBX (3CX sur Debian)</h3>
+            <p>Installer le système d'exploitation et le logiciel IPBX sur le serveur ou la VM dédiée.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Installation 3CX sur Debian 12</div>
+              <div class="cmd-body">
+<span style="color:#8B97B0">! Prérequis système</span>
+apt update &amp;&amp; apt upgrade -y
+hostnamectl set-hostname ipbx-client.local
+
+<span style="color:#8B97B0">! Télécharger et installer 3CX</span>
+wget -O- https://downloads.3cx.com/downloads/3CXPbx.list \
+  | tee /etc/apt/sources.list.d/3CXPbx.list
+wget -O- https://downloads.3cx.com/downloads/3cxpbx_public.key \
+  | gpg --dearmor | tee /usr/share/keyrings/3cx-archive-keyring.gpg
+apt update
+apt install -y 3cxpbx
+
+<span style="color:#8B97B0">! L'assistant web démarre automatiquement sur port 5001</span>
+<span style="color:#2ECC71">→ http://IP-SERVEUR:5001 pour configuration initiale</span>
+
+<span style="color:#8B97B0">! Configurer IP statique</span>
+<span style="color:#FF6B00">nano /etc/network/interfaces</span>
+auto eth0
+iface eth0 inet static
+  address <span style="color:#3498DB">192.168.99.10</span>
+  netmask 255.255.255.0
+  gateway 192.168.99.1
+  dns-nameservers 8.8.8.8
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <h3>Configuration du Trunk SIP Orange</h3>
+            <p>Connecter l'IPBX au réseau Orange Business via un trunk SIP pour les appels externes (entrants et sortants).</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Configuration Trunk SIP (interface web 3CX)</div>
+              <div class="cmd-body">
+PARAMÈTRES TRUNK SIP ORANGE (3CX) :
+  Nom         : Orange-Business-Trunk
+  Hôte SIP    : sip.orange-business.com:5060
+  Transport   : UDP (ou TLS port 5061)
+  Username    : <span style="color:#2ECC71">DDI_LOGIN_ORANGE</span>
+  Password    : <span style="color:#2ECC71">SIP_PASSWORD_ORANGE</span>
+  Auth ID     : <span style="color:#2ECC71">AUTH_ID_ORANGE</span>
+  Canal max   : 10 (selon contrat SIP Trunk)
+  Re-INVITE   : Oui (optimisation media)
+
+<span style="color:#8B97B0">! Vérification Asterisk (si Asterisk brut)</span>
+<span style="color:#FF6B00">sip show peers</span>
+<span style="color:#2ECC71">→ orange-trunk     sip.orange.biz    Yes    Yes    3600  OK (32 ms)</span>
+
+<span style="color:#8B97B0">! Règles de sortie (outbound routes)</span>
+Préfixe : 0   → Trunk Orange (appels nationaux)
+Préfixe : 00  → Trunk Orange (international)
+Préfixe : 15  → Trunk Orange (urgences)
+
+<span style="color:#8B97B0">! Test appel sortant</span>
+<span style="color:#FF6B00">originate SIP/3010 extension 0123456789@trunk</span>
+<span style="color:#2ECC71">→ Appel passant → Facturation Orange</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">04</div>
+          <div class="step-content">
+            <h3>Création des extensions et groupements</h3>
+            <p>Créer toutes les extensions internes (postes), groupements d'appels (ring groups) et configurer les renvois.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Extensions et groupements — Asterisk dialplan</div>
+              <div class="cmd-body">
+<span style="color:#8B97B0">! Exemple dialplan Asterisk (/etc/asterisk/extensions.conf)</span>
+[from-internal]
+<span style="color:#8B97B0">; Appels internes entre extensions</span>
+<span style="color:#FF6B00">exten => _3XXX,1,Dial(SIP/${EXTEN},30)</span>
+  same => n,VoiceMail(${EXTEN}@default,u)
+  same => n,Hangup()
+
+<span style="color:#8B97B0">; Appels vers lignes externes via trunk</span>
+<span style="color:#FF6B00">exten => _0.,1,Dial(SIP/orange-trunk/${EXTEN:1})</span>
+  same => n,Hangup()
+
+<span style="color:#8B97B0">; Groupement accueil (sonnerie simultanée 3010, 3011, 3012)</span>
+<span style="color:#FF6B00">exten => 3000,1,Dial(SIP/3010&amp;SIP/3011&amp;SIP/3012,20)</span>
+  same => n,VoiceMail(3000@default,u)
+
+<span style="color:#8B97B0">; Extension avec renvoi vers mobile après 15s</span>
+<span style="color:#FF6B00">exten => 3015,1,Dial(SIP/3015,15)</span>
+  same => n,Dial(SIP/orange-trunk/0612345678)
+  same => n,VoiceMail(3015@default,u)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">05</div>
+          <div class="step-content">
+            <h3>Auto-provisioning des téléphones IP (DHCP option 66)</h3>
+            <p>Configurer le serveur DHCP pour distribuer automatiquement l'URL de configuration aux téléphones IP au démarrage.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">DHCP option 66 + fichier de provisioning</div>
+              <div class="cmd-body">
+<span style="color:#8B97B0">! Configuration DHCP (ex: isc-dhcp-server)</span>
+subnet 192.168.20.0 netmask 255.255.255.0 {
+  range 192.168.20.100 192.168.20.200;
+  option routers 192.168.20.1;
+  option domain-name-servers 8.8.8.8;
+  <span style="color:#FF6B00">option tftp-server-name "http://192.168.99.10/prov/"</span>;
+  <span style="color:#8B97B0"># Option 66 = URL du serveur de provisioning 3CX</span>
+}
+
+<span style="color:#8B97B0">! Fichier de provisioning par téléphone (MAC address)</span>
+<span style="color:#8B97B0">! Ex: /var/lib/tftpboot/prov/0015659A1234.xml (Cisco)</span>
+&lt;device&gt;
+  &lt;sip&gt;
+    &lt;proxy&gt;<span style="color:#3498DB">192.168.99.10</span>&lt;/proxy&gt;
+    &lt;port&gt;5061&lt;/port&gt;
+    &lt;transport&gt;TLS&lt;/transport&gt;
+    &lt;username&gt;<span style="color:#2ECC71">3010</span>&lt;/username&gt;
+    &lt;password&gt;<span style="color:#2ECC71">P@ss3010!</span>&lt;/password&gt;
+    &lt;display-name&gt;Sami ALAOUIKASMI&lt;/display-name&gt;
+    &lt;codec&gt;G722,G711a,G729&lt;/codec&gt;
+    &lt;srtp&gt;required&lt;/srtp&gt;
+  &lt;/sip&gt;
+&lt;/device&gt;
+
+<span style="color:#2ECC71">✓ Le téléphone se configure automatiquement au boot</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">06</div>
+          <div class="step-content">
+            <h3>IVR — Serveur Vocal Interactif</h3>
+            <p>Configurer l'IVR (accueil téléphonique automatique) avec l'arbre d'appels défini par le client.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">IVR Asterisk — Accueil + menu</div>
+              <div class="cmd-body">
+<span style="color:#8B97B0">! IVR principal — Numéro d'accueil</span>
+[ivr-accueil]
+<span style="color:#FF6B00">exten => s,1,Answer()</span>
+  same => n,Wait(1)
+  same => n,Background(accueil-bonjour)
+  <span style="color:#8B97B0">; Message audio : "Bienvenue chez Entreprise X..."</span>
+  same => n,Background(ivr-menu)
+  <span style="color:#8B97B0">; Message : "Tapez 1 pour Commercial, 2 pour SAV..."</span>
+  same => n,WaitExten(5)
+
+<span style="color:#FF6B00">exten => 1,1,Goto(groupement-commercial,s,1)</span>
+<span style="color:#FF6B00">exten => 2,1,Goto(groupement-sav,s,1)</span>
+<span style="color:#FF6B00">exten => 0,1,Goto(groupement-accueil,s,1)</span>
+
+<span style="color:#8B97B0">; Timeout (pas de touche)</span>
+<span style="color:#FF6B00">exten => t,1,Goto(ivr-accueil,s,1)</span>
+<span style="color:#8B97B0">; Erreur (mauvaise touche)</span>
+<span style="color:#FF6B00">exten => i,1,Goto(ivr-accueil,s,1)</span>
+
+<span style="color:#8B97B0">! File d'attente commercial avec musique</span>
+[groupement-commercial]
+<span style="color:#FF6B00">exten => s,1,Queue(commercial,t,,,120)</span>
+  same => n,VoiceMail(3000@default,u)
+  <span style="color:#8B97B0">; Débordement vers messagerie si attente &gt; 120s</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">07</div>
+          <div class="step-content">
+            <h3>Sécurisation TLS / SRTP / fail2ban</h3>
+            <p>Sécuriser l'IPBX contre les attaques SIP (brute-force, SIP flood, toll-fraud) qui peuvent générer des factures téléphoniques très élevées si compromis.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Sécurisation IPBX — Asterisk + fail2ban</div>
+              <div class="cmd-body">
+<span style="color:#8B97B0">! 1. Activer TLS (chiffrement signalisation SIP)</span>
+<span style="color:#8B97B0">! /etc/asterisk/sip.conf</span>
+<span style="color:#FF6B00">tlsenable=yes</span>
+<span style="color:#FF6B00">tlsbindaddr=0.0.0.0</span>
+<span style="color:#FF6B00">tlscertfile=/etc/ssl/asterisk/asterisk.pem</span>
+<span style="color:#FF6B00">tlsprivatekey=/etc/ssl/asterisk/asterisk.key</span>
+<span style="color:#FF6B00">tlscafile=/etc/ssl/asterisk/ca.pem</span>
+
+<span style="color:#8B97B0">! 2. SRTP obligatoire pour tous les terminaux</span>
+<span style="color:#8B97B0">! Sur chaque extension</span>
+<span style="color:#FF6B00">encryption=yes</span>
+<span style="color:#FF6B00">avpf=yes</span>
+
+<span style="color:#8B97B0">! 3. fail2ban contre brute-force SIP</span>
+<span style="color:#8B97B0">! /etc/fail2ban/jail.local</span>
+[asterisk]
+enabled = true
+port    = 5060,5061
+filter  = asterisk
+logpath = /var/log/asterisk/messages
+maxretry = 3
+bantime  = 3600
+findtime = 600
+
+<span style="color:#8B97B0">! 4. Firewall iptables — limiter SIP</span>
+<span style="color:#FF6B00">iptables -A INPUT -p udp --dport 5060 -m limit</span> --limit 5/sec -j ACCEPT
+<span style="color:#FF6B00">iptables -A INPUT -p udp --dport 5060 -j DROP</span>
+<span style="color:#8B97B0"># Max 5 req SIP/sec depuis même IP</span>
+
+<span style="color:#8B97B0">! 5. Whitelist IP du trunk Orange (bloquer tout autre)</span>
+<span style="color:#FF6B00">iptables -A INPUT -p udp --dport 5060</span> -s <span style="color:#3498DB">IP-TRUNK-ORANGE</span> -j ACCEPT
+<span style="color:#FF6B00">iptables -A INPUT -p udp --dport 5060 -j DROP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-step">
+          <div class="step-num">08</div>
+          <div class="step-content">
+            <h3>Tests de qualité et formation utilisateurs</h3>
+            <p>Valider la qualité des appels (MOS), tester toutes les fonctionnalités et former les utilisateurs clés.</p>
+            <div class="cmd-block">
+              <div class="cmd-label">Tests finaux et validation IPBX</div>
+              <div class="cmd-body">
+TEST APPELS INTERNES :
+  Extension 3010 → 3011 → <span style="color:#2ECC71">Connexion &lt; 2s — Audio OK</span>
+  MOS mesuré : <span style="color:#2ECC71">&gt; 4.0</span> (WireShark → Telephony → RTP Stream)
+
+TEST APPELS EXTERNES :
+  Appel sortant vers mobile → <span style="color:#2ECC71">OK</span>
+  Appel entrant depuis externe → <span style="color:#2ECC71">IVR déclenché OK</span>
+  Numéro appelant affiché correct (CLI) → <span style="color:#2ECC71">OK</span>
+
+TEST IVR :
+  ✓ Message d'accueil joue correctement
+  ✓ Touche 1 → Commercial (ring group)
+  ✓ Touche 2 → SAV (queue + musique attente)
+  ✓ Timeout → Retour au menu IVR
+
+TEST MESSAGERIE :
+  ✓ Dépôt message vocal → Envoi email OK
+  ✓ Écoute depuis téléphone (*98)
+
+TEST SÉCURITÉ :
+  nmap -sU -p 5060 IP_IPBX → port filtré depuis internet
+  fail2ban-client status asterisk → actif
+  sipvicious / svwar → IPBX détecte et bloque
+
+FORMATION CLIENT :
+  ✓ Utilisation téléphone IP (transfert, mise en attente)
+  ✓ Messagerie vocale (dépôt / écoute)
+  ✓ Interface admin web (ajout extension)
+  ✓ Remise guide utilisateur PDF
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TROUBLESHOOTING -->
+    <section class="detail-section">
+      <div class="section-label"><i class="fas fa-bug"></i> Dépannage fréquent IPBX</div>
+      <div class="trouble-grid">
+        <div class="trouble-card">
+          <div class="trouble-symptom"><i class="fas fa-times-circle" style="color:#E74C3C"></i> Trunk SIP désenregistré</div>
+          <div class="trouble-cause">Identifiants incorrects, IP source non autorisée chez Orange, ou NAT mal géré</div>
+          <div class="trouble-fix">→ sip show registry → Vérifier credentials → Activer nat=force_rport dans sip.conf</div>
+        </div>
+        <div class="trouble-card">
+          <div class="trouble-symptom"><i class="fas fa-times-circle" style="color:#E74C3C"></i> Audio dans un seul sens (one-way audio)</div>
+          <div class="trouble-cause">Problème NAT media — le flux RTP ne revient pas (adresse privée envoyée à l'opérateur)</div>
+          <div class="trouble-fix">→ Activer externip= (IP publique) dans sip.conf → localnet=192.168.0.0/16 → Vérifier ports UDP 10000-20000 ouverts</div>
+        </div>
+        <div class="trouble-card">
+          <div class="trouble-symptom"><i class="fas fa-times-circle" style="color:#E74C3C"></i> Qualité voix dégradée (saccades)</div>
+          <div class="trouble-cause">Pas de QoS réseau, gigue &gt; 30ms, ou codec G.729 mal implémenté</div>
+          <div class="trouble-fix">→ Activer DSCP EF sur switch (mls qos trust dscp) → Passer en G.711 → Mesurer gigue avec Wireshark</div>
+        </div>
+        <div class="trouble-card">
+          <div class="trouble-symptom"><i class="fas fa-times-circle" style="color:#E74C3C"></i> Toll fraud (appels frauduleux)</div>
+          <div class="trouble-cause">IPBX exposé sur internet sans protection, extensions avec mots de passe faibles</div>
+          <div class="trouble-fix">→ fail2ban immédiatement → Changer tous les MDP → Whitelist IP trunk Orange → Surveiller CDR appels</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    <div class="container">
+      <a href="../index.html#experience" class="back-btn"><i class="fas fa-arrow-left"></i> Retour au portfolio</a>
+      <p>Sami Alaouikasmi — Alternant Orange Business | BUT R&T</p>
+    </div>
+  </footer>
+  <script src="detail.js"></script>
+</body>
+</html>
