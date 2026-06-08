@@ -17,10 +17,11 @@
     <ul class="nav-links">
       <li><a href="../index.html">Accueil</a></li>
       <li><a href="../about.html">À propos</a></li>
-      <li><a href="../competences.html">Bilan compétences</a></li>
-      <li><a href="../stack.html">Stack technique</a></li>
-      <li><a href="../orange.html">Orange Business</a></li>
-      <li><a href="../projets.html">Projets</a></li>
+      <li><a href="../orange.html">Entreprise</a></li>
+      <li><a href="../missions.html">Missions</a></li>
+      <li><a href="../competences.html">Bilans</a></li>
+      <li><a href="../projets.html">Projets IUT</a></li>
+      <li><a href="../stack.html">Stack</a></li>
       <li><a href="../contact.html">Contact</a></li>
     </ul>
     <a href="../CV Sami ALAOUI KASMI.pdf" download class="nav-cv"><i class="fas fa-download"></i> Mon CV</a>
@@ -29,17 +30,18 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="../index.html" onclick="closeMenu()">Accueil</a>
     <a href="../about.html" onclick="closeMenu()">À propos</a>
-    <a href="../competences.html" onclick="closeMenu()">Bilan compétences</a>
-    <a href="../stack.html" onclick="closeMenu()">Stack technique</a>
-    <a href="../orange.html" onclick="closeMenu()">Orange Business</a>
-    <a href="../projets.html" onclick="closeMenu()">Projets</a>
+    <a href="../orange.html" onclick="closeMenu()">Entreprise</a>
+    <a href="../missions.html" onclick="closeMenu()">Missions</a>
+    <a href="../competences.html" onclick="closeMenu()">Bilans</a>
+    <a href="../projets.html" onclick="closeMenu()">Projets IUT</a>
+    <a href="../stack.html" onclick="closeMenu()">Stack</a>
     <a href="../contact.html" onclick="closeMenu()">Contact</a>
   </div>
 
   <div class="page-header">
     <div class="page-header-orb"></div>
     <div class="container">
-      <a href="../orange.html" class="mission-back-btn"><i class="fas fa-arrow-left"></i> Retour à Orange Business</a>
+      <a href="../missions.html" class="mission-back-btn"><i class="fas fa-arrow-left"></i> Retour à la liste des missions</a>
       <div class="section-tag">Mission 2</div>
       <h1>Installation de Routeur</h1>
       <p>Déploiement &amp; configuration d'équipements réseau professionnels en baie 19"</p>
@@ -125,16 +127,100 @@
           </div>
 
           <div class="mission-body">
+            <div class="mission-period">
+              <i class="fas fa-calendar-alt"></i> Mission 2 / 5 · S1-S2 — Novembre 2025 à Mars 2026 · ~15 déploiements
+            </div>
             <p class="mission-desc"><strong style="color:var(--text)">Déploiement de routeurs professionnels</strong>
               (Cisco ISR, Huawei AR, Juniper SRX) chez les clients Orange Business. La prestation inclut le montage
               physique en baie 19", la configuration complète via console série, l'intégration dans l'infrastructure
               existante et les tests de validation en conditions réelles.</p>
 
-            <div class="pills" style="margin-bottom:20px">
+            <!-- ─── Contexte & objectifs ─── -->
+            <div class="context-block">
+              <div class="block-title"><i class="fas fa-bullseye"></i> Contexte &amp; objectifs</div>
+              <div class="context-grid">
+                <div class="context-item">
+                  <div class="ci-label">Type d'activité</div>
+                  <div class="ci-value">Déploiement de <strong>routeurs en production</strong> sur sites clients PME/ETI : montage baie, config console, intégration dans architecture existante.</div>
+                </div>
+                <div class="context-item">
+                  <div class="ci-label">Enjeux techniques</div>
+                  <div class="ci-value">Configuration <strong>OSPF/BGP</strong> sans rupture, ACL sécurisantes, hardening IOS, sauvegarde des configs avant toute modification.</div>
+                </div>
+                <div class="context-item">
+                  <div class="ci-label">Enjeux organisationnels</div>
+                  <div class="ci-value">Intervention souvent en <strong>fenêtre de maintenance</strong> (soir/week-end) pour limiter la rupture de service. Coordination avec l'ingénieur réseau Orange.</div>
+                </div>
+                <div class="context-item">
+                  <div class="ci-label">Acteurs impliqués</div>
+                  <div class="ci-value">Tuteur, <strong>ingénieur réseau Orange</strong> (préparation de la config cible), RSI client, équipe N3 si dépannage complexe.</div>
+                </div>
+                <div class="context-item">
+                  <div class="ci-label">Contraintes</div>
+                  <div class="ci-value">Erreur de config = <strong>perte d'exploitation immédiate</strong> côté client. Gestion thermique en baie, étiquetage rigoureux exigé.</div>
+                </div>
+                <div class="context-item">
+                  <div class="ci-label">Objectif personnel</div>
+                  <div class="ci-value">Maîtriser la <strong>syntaxe Cisco IOS</strong> et savoir déployer en autonomie une config OSPF mono-zone fournie par l'ingénieur.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pills" style="margin-bottom:20px;margin-top:22px">
               <span class="tech-pill">Cisco IOS</span><span class="tech-pill">OSPF</span><span
                 class="tech-pill">BGP</span>
               <span class="tech-pill">ACL</span><span class="tech-pill">SSH</span><span class="tech-pill">SNMP
                 v3</span><span class="tech-pill">SFP+</span>
+            </div>
+
+            <!-- ─── Tâches réalisées & évolution chronologique ─── -->
+            <div class="tasks-block">
+              <div class="block-title"><i class="fas fa-clipboard-list"></i> Tâches réalisées &amp; évolution chronologique</div>
+              <div class="tasks-timeline">
+                <div class="task-step">
+                  <div class="task-step-head">
+                    Phase 1 — Découverte
+                    <span class="task-step-period">Nov. 2025</span>
+                  </div>
+                  <div class="task-step-body">
+                    <strong>Observation pure</strong> sur 3 déploiements avec mon tuteur. Apprentissage du câble console RJ45-USB, des modes <code>user</code>/<code>privileged</code>/<code>config</code>, de la séquence <code>copy running-config startup-config</code>. Lecture des schémas réseau cibles fournis par l'ingénieur Orange.
+                    <div class="task-tools">
+                      <span class="task-tool">PuTTY</span>
+                      <span class="task-tool">Cisco IOS CLI</span>
+                      <span class="task-tool">Lecture schémas Visio</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="task-step">
+                  <div class="task-step-head">
+                    Phase 2 — Exécution sous validation
+                    <span class="task-step-period">Déc. 2025 → Janv. 2026</span>
+                  </div>
+                  <div class="task-step-body">
+                    <strong>Je tape la config</strong> dictée puis copiée depuis le fichier de l'ingénieur, tuteur en relecture. Apprentissage progressif des ACL standards/étendues, du routage OSPF mono-zone, des sous-interfaces VLAN dot1Q. Première erreur marquante : oubli de <code>copy run start</code> avant un reboot — j'ai mis en place ma checklist personnelle.
+                    <div class="task-tools">
+                      <span class="task-tool">Templates Cisco</span>
+                      <span class="task-tool">TFTP backup</span>
+                      <span class="task-tool">show ip route / ospf neighbor</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="task-step">
+                  <div class="task-step-head">
+                    Phase 3 — Autonomie partielle
+                    <span class="task-step-period">Févr. → Mars 2026</span>
+                  </div>
+                  <div class="task-step-body">
+                    <strong>Déploiement en autonomie</strong> sur les routeurs simples (OSPF mono-zone, ACL standards, NAT). Je rédige la config avant intervention et la fais <strong>relire par l'ingénieur Orange</strong> avant déploiement. Sur les configurations BGP multi-AS ou redistribution complexe, je reste accompagné — l'enjeu d'erreur est trop élevé.
+                    <div class="task-tools">
+                      <span class="task-tool">Rédaction config autonome</span>
+                      <span class="task-tool">SNMPv3</span>
+                      <span class="task-tool">NTP</span>
+                      <span class="task-tool">SSH hardening</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <!-- ─── Compétences & AC mobilisés ─── -->
@@ -221,6 +307,53 @@
 
               <div class="gallery-item">
                 <img src="/Portfolio/images/IMG_1444.JPG" alt="Tests de validation finale et sauvegarde de la configuration">
+              </div>
+            </div>
+
+            <!-- ─── Traces & preuves ─── -->
+            <div class="traces-block">
+              <div class="block-title"><i class="fas fa-folder-open"></i> Traces &amp; preuves personnelles</div>
+              <div class="traces-grid">
+
+                <div class="trace-card">
+                  <div class="trace-card-head">
+                    <div class="tc-ico"><i class="fas fa-terminal"></i></div>
+                    <div class="tc-title">Extrait de configuration OSPF déployée</div>
+                  </div>
+                  <div class="trace-card-desc">
+                    Configuration OSPF mono-zone que j'ai déployée sur un routeur Cisco ISR (anonymisée). Hardening de base inclus : SSH v2 only, désactivation Telnet et HTTP.
+                  </div>
+                  <pre><span class="cmt">! Config saisie par Sami AK — relue par ingé Orange</span>
+<span class="kw">router ospf</span> 1
+  network <span class="str">10.10.0.0 0.0.255.255</span> area 0
+  passive-interface default
+  no passive-interface GigabitEthernet0/1
+<span class="kw">line vty</span> 0 15
+  transport input <span class="str">ssh</span>
+  exec-timeout 5 0
+<span class="kw">no</span> ip http server
+<span class="kw">service</span> password-encryption</pre>
+                </div>
+
+                <div class="trace-card">
+                  <div class="trace-card-head">
+                    <div class="tc-ico"><i class="fas fa-list-check"></i></div>
+                    <div class="tc-title">Checklist personnelle "Commandes à ne jamais oublier"</div>
+                  </div>
+                  <div class="trace-card-desc">
+                    Pense-bête que j'ai construit après avoir oublié <code>copy run start</code> et perdu une demi-journée. Désormais collé sur ma sacoche d'intervention.
+                  </div>
+                  <pre><span class="cmt"># Checklist Sami — avant tout reboot routeur</span>
+<span class="kw">[1]</span> <span class="str">show running-config</span> <span class="cmt"># vérif</span>
+<span class="kw">[2]</span> <span class="str">copy running-config tftp:</span> <span class="cmt"># backup externe</span>
+<span class="kw">[3]</span> <span class="str">copy running-config startup-config</span>
+<span class="kw">[4]</span> <span class="str">show startup-config</span> <span class="cmt"># confirme</span>
+<span class="kw">[5]</span> <span class="str">reload</span> <span class="cmt"># avec confirmation</span></pre>
+                </div>
+
+
+
+                
               </div>
             </div>
 

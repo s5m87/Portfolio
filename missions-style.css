@@ -616,3 +616,232 @@
     flex-wrap: wrap;
   }
 }
+
+/* ═══════════════════════════════════════════════
+   Blocs ajoutés pour conformité grille portfolio
+   - Contexte & objectifs
+   - Tâches réalisées & évolution chronologique
+   - Traces & preuves
+═══════════════════════════════════════════════ */
+
+.context-block,
+.tasks-block,
+.traces-block {
+  background: var(--card2);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  padding: 22px;
+  margin-top: 22px;
+}
+
+.context-block { border-left: 3px solid #3B82F6; }
+.tasks-block   { border-left: 3px solid #F59E0B; }
+.traces-block  { border-left: 3px solid #A855F7; }
+
+.context-block .block-title i { color: #3B82F6; }
+.tasks-block   .block-title i { color: #F59E0B; }
+.traces-block  .block-title i { color: #A855F7; }
+
+/* Grille des items contextuels */
+.context-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 14px;
+}
+.context-item {
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.context-item .ci-label {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--orange);
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+.context-item .ci-value {
+  font-size: 0.86rem;
+  color: var(--text);
+  line-height: 1.55;
+}
+.context-item .ci-value strong { color: var(--text); }
+
+/* Chronologie des tâches : timeline verticale */
+.tasks-timeline {
+  position: relative;
+  margin-left: 16px;
+  padding-left: 22px;
+  border-left: 2px dashed var(--border2);
+}
+.task-step {
+  position: relative;
+  padding-bottom: 18px;
+}
+.task-step:last-child { padding-bottom: 0; }
+.task-step::before {
+  content: '';
+  position: absolute;
+  left: -29px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--orange);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--orange);
+}
+.task-step-head {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+.task-step-period {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--orange);
+  background: var(--orange-glow);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.task-step-body {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+.task-step-body strong { color: var(--text); }
+.task-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+.task-tool {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  color: var(--text-muted);
+}
+
+/* Cartes traces & preuves */
+.traces-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+}
+.trace-card {
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-radius: 10px;
+  padding: 16px;
+}
+.trace-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.trace-card-head .tc-ico {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  color: #A855F7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+.trace-card-head .tc-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.trace-card-desc {
+  font-size: 0.81rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 8px;
+}
+.trace-card-quote {
+  background: var(--bg3);
+  border-left: 2px solid #A855F7;
+  padding: 10px 12px;
+  font-size: 0.8rem;
+  color: var(--text);
+  font-style: italic;
+  line-height: 1.55;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+.trace-card-quote .tcq-author {
+  display: block;
+  margin-top: 6px;
+  font-style: normal;
+  font-size: 0.72rem;
+  color: var(--orange);
+  font-weight: 600;
+}
+.trace-card pre {
+  background: #0a0f1a;
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: #c8d6ec;
+  overflow-x: auto;
+  line-height: 1.5;
+  margin-top: 6px;
+}
+.trace-card pre .cmt { color: #6b7d99; }
+.trace-card pre .kw  { color: #FF8C35; }
+.trace-card pre .str { color: #2ECC71; }
+.trace-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.74rem;
+  color: #A855F7;
+  font-family: var(--mono);
+  margin-top: 6px;
+  text-decoration: none;
+}
+.trace-link:hover { text-decoration: underline; }
+
+/* Période de mission */
+.mission-period {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--orange-glow);
+  border: 1px solid var(--border);
+  color: var(--orange);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: var(--mono);
+  margin-bottom: 16px;
+}
+.mission-period i { font-size: 0.75rem; }
+
+@media (max-width: 640px) {
+  .context-grid,
+  .traces-grid {
+    grid-template-columns: 1fr;
+  }
+}

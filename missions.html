@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mes Missions — Sami ALAOUI KASMI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Intro */
+    .missions-intro {
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 36px;
+    }
+    .missions-intro p {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 10px;
+    }
+    .missions-intro p:last-child { margin-bottom: 0; }
+    .missions-intro p strong { color: var(--text); }
+
+    /* Mini stats bar */
+    .missions-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+    .ms-card {
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+    }
+    .ms-num {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--orange);
+      font-family: var(--mono);
+    }
+    .ms-lbl {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Grille des missions */
+    .missions-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+    .mission-link-card {
+      display: flex;
+      gap: 18px;
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius);
+      padding: 26px;
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .mission-link-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--orange);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.3s ease;
+    }
+    .mission-link-card:hover {
+      border-color: var(--orange);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(255, 107, 0, 0.12);
+    }
+    .mission-link-card:hover::before { transform: scaleY(1); }
+    .mlc-icon {
+      width: 56px; height: 56px;
+      border-radius: 12px;
+      background: var(--orange-glow);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--orange);
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .mlc-body { flex: 1; }
+    .mlc-tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--orange);
+      background: var(--orange-glow);
+      padding: 3px 9px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+    .mlc-period {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-left: 8px;
+    }
+    .mlc-body h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 7px;
+      color: var(--text);
+    }
+    .mlc-body p {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+    .mlc-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .mlc-tech span {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+      color: var(--text-muted);
+    }
+    .mlc-cta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--orange);
+      padding-top: 10px;
+      border-top: 1px dashed var(--border2);
+    }
+    .mlc-cta i { transition: transform 0.3s ease; }
+    .mission-link-card:hover .mlc-cta i { transform: translateX(6px); }
+
+    /* Encart méthodo */
+    .methodo-block {
+      background: linear-gradient(135deg, rgba(255, 107, 0, 0.05), rgba(255, 107, 0, 0.02));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-top: 40px;
+    }
+    .methodo-block h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .methodo-block h3 i { color: var(--orange); }
+    .methodo-block p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+    .methodo-block ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 8px;
+    }
+    .methodo-block ul li {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      padding: 5px 0 5px 24px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .methodo-block ul li::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      color: var(--orange);
+      font-size: 0.78rem;
+      top: 7px;
+    }
+
+    @media (max-width: 900px) {
+      .missions-cards-grid { grid-template-columns: 1fr; }
+      .missions-stats { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 540px) {
+      .mission-link-card { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+    <a href="index.html" class="nav-logo">&lt;<span>Sami</span> /&gt;</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="about.html">À propos</a></li>
+      <li><a href="orange.html">Entreprise</a></li>
+      <li><a href="missions.html">Missions</a></li>
+      <li><a href="competences.html">Bilans</a></li>
+      <li><a href="projets.html">Projets IUT</a></li>
+      <li><a href="stack.html">Stack</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="CV Sami ALAOUI KASMI.pdf" download class="nav-cv"><i class="fas fa-download"></i> Mon CV</a>
+    <div class="nav-burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" onclick="closeMenu()">Accueil</a>
+    <a href="about.html" onclick="closeMenu()">À propos</a>
+    <a href="orange.html" onclick="closeMenu()">Entreprise</a>
+    <a href="missions.html" onclick="closeMenu()">Missions</a>
+    <a href="competences.html" onclick="closeMenu()">Bilans</a>
+    <a href="projets.html" onclick="closeMenu()">Projets IUT</a>
+    <a href="stack.html" onclick="closeMenu()">Stack</a>
+    <a href="contact.html" onclick="closeMenu()">Contact</a>
+  </div>
+
+<div class="page-header">
+  <div class="page-header-orb"></div>
+  <div class="container">
+    <div class="section-tag">Expérience en alternance</div>
+    <h1>Mes Missions</h1>
+    <p>Les 5 missions significatives réalisées chez Orange Business durant l'année — chaque mission est documentée individuellement (contexte, tâches, traces, compétences mobilisées, analyse réflexive).</p>
+  </div>
+</div>
+
+<section style="background:var(--bg)">
+  <div class="container">
+
+    <!-- Intro -->
+    <div class="missions-intro fade-in">
+      <p>
+        Cette page rassemble les <strong>5 missions significatives</strong> que j'ai menées au cours de mon
+        année d'alternance chez Orange Business, classées par ordre chronologique de prise en main.
+        Chaque mission est documentée selon une structure homogène conforme aux exigences du portfolio :
+        <strong>contexte et objectifs</strong>, <strong>tâches réalisées et évolution chronologique</strong>,
+        <strong>compétences et apprentissages critiques mobilisés</strong>, <strong>traces et preuves</strong>,
+        et <strong>analyse réflexive avec autoévaluation</strong>.
+      </p>
+      <p>
+        L'objectif n'est pas d'exposer la simple réussite opérationnelle des interventions, mais bien de
+        <strong>rendre lisible ma progression</strong> dans la maîtrise des compétences du référentiel
+        BUT R&amp;T, au travers de situations professionnelles réelles.
+      </p>
+    </div>
+
+    <!-- Stats récap -->
+    <div class="missions-stats fade-in d1">
+      <div class="ms-card">
+        <div class="ms-num">5</div>
+        <div class="ms-lbl">Missions significatives</div>
+      </div>
+      <div class="ms-card">
+        <div class="ms-num">12</div>
+        <div class="ms-lbl">Mois d'alternance</div>
+      </div>
+      <div class="ms-card">
+        <div class="ms-num">4</div>
+        <div class="ms-lbl">Compétences travaillées</div>
+      </div>
+      <div class="ms-card">
+        <div class="ms-num">15+</div>
+        <div class="ms-lbl">AC mobilisés</div>
+      </div>
+    </div>
+
+    <!-- Cartes missions -->
+    <div class="missions-cards-grid">
+
+      <!-- Mission 1 — Connect Pro -->
+      <a href="pages/mission-connect-pro.html" class="mission-link-card fade-in">
+        <div class="mlc-icon"><i class="fas fa-plug"></i></div>
+        <div class="mlc-body">
+          <div>
+            <span class="mlc-tag">Mission 1</span>
+            <span class="mlc-period">S1 — Sept. 2025 → Janv. 2026</span>
+          </div>
+          <h3>Installation Connect Pro</h3>
+          <p>Solution accès internet professionnel Orange pour TPE/PME. Configuration PPPoE, DHCP, NAT, VLAN et remise client.</p>
+          <div class="mlc-tech">
+            <span>PPPoE</span><span>DHCP</span><span>NAT/PAT</span><span>VLAN</span><span>QoS</span>
+          </div>
+          <div class="mlc-cta">Voir la fiche complète <i class="fas fa-arrow-right"></i></div>
+        </div>
+      </a>
+
+      <!-- Mission 2 — Routeur -->
+      <a href="pages/mission-routeur.html" class="mission-link-card fade-in d1">
+        <div class="mlc-icon"><i class="fas fa-network-wired"></i></div>
+        <div class="mlc-body">
+          <div>
+            <span class="mlc-tag">Mission 2</span>
+            <span class="mlc-period">S1 — Nov. 2025 → Mars 2026</span>
+          </div>
+          <h3>Installation de Routeur</h3>
+          <p>Déploiement et configuration de routeurs Cisco/Huawei en baie 19" chez les clients Orange Business. Routage OSPF/BGP, ACL et hardening IOS.</p>
+          <div class="mlc-tech">
+            <span>Cisco IOS</span><span>OSPF</span><span>BGP</span><span>ACL</span><span>SSH</span>
+          </div>
+          <div class="mlc-cta">Voir la fiche complète <i class="fas fa-arrow-right"></i></div>
+        </div>
+      </a>
+
+      <!-- Mission 3 & 4 — Fibre -->
+      <a href="pages/mission-fibre.html" class="mission-link-card fade-in d2">
+        <div class="mlc-icon"><i class="fas fa-wave-square"></i></div>
+        <div class="mlc-body">
+          <div>
+            <span class="mlc-tag">Missions 3 &amp; 4</span>
+            <span class="mlc-period">S2 — Janv. → Juin 2026</span>
+          </div>
+          <h3>Prestations Fibre Optique</h3>
+          <p>FTTH/FTTE et FTTO — déploiement, soudure optique, mesures OTDR et powermètre. Architectures GPON mutualisées et fibre dédiée point-à-point.</p>
+          <div class="mlc-tech">
+            <span>GPON</span><span>XGS-PON</span><span>OTDR</span><span>FTTO</span><span>MPLS</span>
+          </div>
+          <div class="mlc-cta">Voir les fiches complètes <i class="fas fa-arrow-right"></i></div>
+        </div>
+      </a>
+
+      <!-- Mission 5 — IPBX -->
+      <a href="pages/mission-ipbx.html" class="mission-link-card fade-in d3">
+        <div class="mlc-icon"><i class="fas fa-phone-volume"></i></div>
+        <div class="mlc-body">
+          <div>
+            <span class="mlc-tag">Mission 5</span>
+            <span class="mlc-period">S2 — Mars → Juin 2026</span>
+          </div>
+          <h3>Installation IPBX</h3>
+          <p>Autocommutateur IP — Téléphonie d'entreprise SIP/VoIP avec messagerie unifiée. Configuration 3CX/Asterisk, sécurité SIP-TLS et hardening anti-fraude.</p>
+          <div class="mlc-tech">
+            <span>SIP / RTP</span><span>SRTP / TLS</span><span>3CX</span><span>DECT</span><span>IVR</span>
+          </div>
+          <div class="mlc-cta">Voir la fiche complète <i class="fas fa-arrow-right"></i></div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Méthodologie -->
+    <div class="methodo-block fade-in">
+      <h3><i class="fas fa-compass"></i> Méthodologie d'analyse retenue</h3>
+      <p>
+        Chaque fiche mission est construite selon la même trame, conforme au cadre du portfolio
+        d'alternance R&amp;T. Cette homogénéité permet de comparer les missions entre elles et de
+        rendre lisible ma trajectoire de développement de compétences au fil de l'année :
+      </p>
+      <ul>
+        <li><strong>Contexte et objectifs</strong> — type d'activité, enjeux techniques et organisationnels, acteurs impliqués, contraintes propres à la mission.</li>
+        <li><strong>Tâches réalisées et évolution chronologique</strong> — description en 3 étapes (prise en main → exécution accompagnée → autonomie), outils mobilisés, collaborations.</li>
+        <li><strong>Compétences et Apprentissages Critiques</strong> — référence explicite au référentiel BUT R&amp;T avec justification du lien mission ↔ AC.</li>
+        <li><strong>Traces et preuves</strong> — livrables professionnels, extraits de configuration, retours du tuteur, procédures rédigées, captures d'interventions.</li>
+        <li><strong>Analyse réflexive et autoévaluation</strong> — ce que j'ai appris, les difficultés rencontrées, comment je les ai surmontées, l'évolution de mon autonomie, et mon niveau auto-évalué avec axes de progrès.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p><span>Sami ALAOUI KASMI</span> — BUT R&amp;T | Alternant Orange Business — Caen, Calvados</p>
+    <div class="footer-links">
+      <a href="mailto:alaouikasmi.sami@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/sami-alaouikasmi" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/s5m87" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+</footer>
+<script src="nav.js"></script>
+</body>
+</html>

@@ -267,28 +267,30 @@
 </head>
 <body>
 <nav id="navbar">
-  <a href="index.html" class="nav-logo">&lt;<span>Sami</span> /&gt;</a>
-  <ul class="nav-links">
-    <li><a href="index.html">Accueil</a></li>
-    <li><a href="about.html">À propos</a></li>
-    <li><a href="competences.html">Bilan compétences</a></li>
-    <li><a href="stack.html">Stack technique</a></li>
-    <li><a href="orange.html">Orange Business</a></li>
-    <li><a href="projets.html">Projets</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <a href="CV Sami ALAOUI KASMI.pdf" download class="nav-cv"><i class="fas fa-download"></i> Mon CV</a>
-  <div class="nav-burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html" onclick="closeMenu()">Accueil</a>
-  <a href="about.html" onclick="closeMenu()">À propos</a>
-  <a href="competences.html" onclick="closeMenu()">Bilan compétences</a>
-  <a href="stack.html" onclick="closeMenu()">Stack technique</a>
-  <a href="orange.html" onclick="closeMenu()">Orange Business</a>
-  <a href="projets.html" onclick="closeMenu()">Projets</a>
-  <a href="contact.html" onclick="closeMenu()">Contact</a>
-</div>
+    <a href="index.html" class="nav-logo">&lt;<span>Sami</span> /&gt;</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="about.html">À propos</a></li>
+      <li><a href="orange.html">Entreprise</a></li>
+      <li><a href="missions.html">Missions</a></li>
+      <li><a href="competences.html">Bilans</a></li>
+      <li><a href="projets.html">Projets IUT</a></li>
+      <li><a href="stack.html">Stack</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="CV Sami ALAOUI KASMI.pdf" download class="nav-cv"><i class="fas fa-download"></i> Mon CV</a>
+    <div class="nav-burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" onclick="closeMenu()">Accueil</a>
+    <a href="about.html" onclick="closeMenu()">À propos</a>
+    <a href="orange.html" onclick="closeMenu()">Entreprise</a>
+    <a href="missions.html" onclick="closeMenu()">Missions</a>
+    <a href="competences.html" onclick="closeMenu()">Bilans</a>
+    <a href="projets.html" onclick="closeMenu()">Projets IUT</a>
+    <a href="stack.html" onclick="closeMenu()">Stack</a>
+    <a href="contact.html" onclick="closeMenu()">Contact</a>
+  </div>
 
 <div class="page-header">
   <div class="page-header-orb"></div>
@@ -346,9 +348,9 @@
           <div class="ent-col">
             <div class="col-head"><i class="fas fa-wifi"></i> Renforcé en entreprise</div>
             <ul class="col-list">
-              <li>Déploiement de routeurs Cisco/Huawei en production (Mission Routeur)</li>
+              <li>Déploiement de routeurs Cisco/Huawei en production (<a href="pages/mission-routeur.html" style="color:var(--orange)">Mission 2 — Routeur</a>)</li>
               <li>Configuration OSPF mono-zone en environnement réel</li>
-              <li>Mise en service de Connect Pro chez plus de 30 clients</li>
+              <li>Mise en service de Connect Pro chez plus de 30 clients (<a href="pages/mission-connect-pro.html" style="color:var(--orange)">Mission 1</a>)</li>
               <li>Diagnostic terrain : ping, traceroute, lecture de logs routeur</li>
               <li>Documentation GLPI et procédures internes Orange</li>
             </ul>
@@ -416,10 +418,10 @@
           <div class="ent-col">
             <div class="col-head"><i class="fas fa-wifi"></i> Renforcé en entreprise</div>
             <ul class="col-list">
-              <li>Tirage de câble drop et soudure optique (Missions FTTH, FTTE, FTTO)</li>
+              <li>Tirage de câble drop et soudure optique (<a href="pages/mission-fibre.html" style="color:var(--orange)">Missions 3 &amp; 4 — Fibre FTTH, FTTE, FTTO</a>)</li>
               <li>Mesures terrain : powermètre, OTDR sur traces réelles</li>
               <li>Compréhension concrète de la chaîne GPON Orange (OLT → ONT)</li>
-              <li>Configuration et exploitation d'IPBX (Mission IPBX)</li>
+              <li>Configuration et exploitation d'IPBX (<a href="pages/mission-ipbx.html" style="color:var(--orange)">Mission 5 — IPBX</a>)</li>
               <li>Connexions multi-site MPLS et VLAN inter-locataires (FTTE)</li>
               <li>Relation directe avec le client final (savoir-être commercial)</li>
             </ul>
@@ -604,23 +606,62 @@
     </div>
 
     <!-- ═══════════════════════════════════════════════
-        AUTO-ÉVALUATION GLOBALE & PROJECTION
+        SYNTHÈSE TRANSVERSALE & PROJECTION FINALE
     ═══════════════════════════════════════════════ -->
     <div class="global-eval fade-in">
-      <h2><i class="fas fa-compass"></i> Auto-évaluation globale et perspectives</h2>
+      <h2><i class="fas fa-compass"></i> Synthèse transversale et projection professionnelle</h2>
+
+      <h3 style="font-size:1rem;font-weight:700;color:var(--text);margin-top:18px;margin-bottom:10px">
+        <i class="fas fa-chart-bar" style="color:var(--orange);margin-right:6px"></i> Positionnement global sur les 4 compétences
+      </h3>
       <p>
         À mi-parcours de mon BUT R&amp;T, je considère que <strong>RT2 est aujourd'hui ma compétence
         la plus solide</strong> grâce à l'effet combiné des cours sur la transmission et des nombreuses
         missions terrain Orange (FTTH, FTTE, FTTO, IPBX). <strong>RT1 progresse vite</strong> car j'y suis
         confronté quasi quotidiennement, mais BGP et l'automatisation restent à consolider.
-      </p>
-      <p>
         <strong>RT3 et Cyber</strong> sont mes deux axes d'effort principaux : RT3 parce que mon poste
         actuel est plus orienté terrain que développement, et Cyber parce que c'est l'orientation
-        professionnelle que je vise. Je compte profiter de ma 3ᵉ année (parcours Cyber au BUT) et de la
-        suite de mon alternance pour combler ces écarts.
+        professionnelle que je vise.
       </p>
+
+      <h3 style="font-size:1rem;font-weight:700;color:var(--text);margin-top:22px;margin-bottom:10px">
+        <i class="fas fa-link" style="color:var(--orange);margin-right:6px"></i> Complémentarité IUT / Entreprise — analyse transversale
+      </h3>
       <p>
+        Sur les 4 compétences, le constat est le même : l'<strong>IUT m'apporte le cadre théorique et la
+        capacité à généraliser</strong> (pourquoi telle architecture, quelles alternatives), tandis que
+        l'<strong>entreprise m'apporte la rigueur opérationnelle et la confrontation au réel</strong>
+        (rigueur d'étiquetage, gestion du client, respect des SLA, conséquences immédiates des erreurs).
+        Aucune de mes 5 missions n'aurait été réalisable sans cette double exposition — et c'est précisément
+        la valeur du format alternance.
+      </p>
+
+      <h3 style="font-size:1rem;font-weight:700;color:var(--text);margin-top:22px;margin-bottom:10px">
+        <i class="fas fa-arrow-up" style="color:var(--orange);margin-right:6px"></i> Réinvestissement des acquis en BUT2 et BUT3
+      </h3>
+      <p>
+        Les acquis de cette première année seront directement mobilisés sur :
+      </p>
+      <ul style="list-style:none;padding:0;font-size:0.9rem;color:var(--text-muted);line-height:1.75;margin-top:6px">
+        <li>▸ <strong>SAÉ3.Cyber.03</strong> — Concevoir un réseau informatique (réinvestissement RT1 + RT2 + premiers AC Cyber)</li>
+        <li>▸ <strong>SAÉ3.Cyber.04</strong> — Découverte du pentesting (capitalisation sur l'expérience hardening IPBX)</li>
+        <li>▸ <strong>SAÉ4.Cyber.01</strong> — Sécuriser un système d'information (compétence cible)</li>
+        <li>▸ <strong>SAÉ4.Cyber.STAGE</strong> — Stage de fin de BUT, orienté SOC ou ingénierie sécurité réseau</li>
+      </ul>
+
+      <h3 style="font-size:1rem;font-weight:700;color:var(--text);margin-top:22px;margin-bottom:10px">
+        <i class="fas fa-bullseye" style="color:var(--orange);margin-right:6px"></i> Projection vers le métier visé
+      </h3>
+      <p>
+        L'écart entre mon niveau actuel et le métier d'<strong>analyste SOC niveau 2</strong> visé porte
+        principalement sur les AC <strong>AC25.01</strong> (administration des protections contre les
+        logiciels malveillants) et <strong>AC25.02</strong> (outils de pentest), ainsi que sur l'automatisation
+        réseau (AC23.01). Je compte combler ces écarts via le parcours Cyber du BUT à partir du S3, les
+        certifications visées (CCNA puis Security+ puis CEH), et un stage de fin de BUT en environnement
+        SOC ou sécurité offensive.
+      </p>
+
+      <p style="margin-top:20px;font-style:italic;font-size:0.86rem;color:var(--text-faint);border-left:2px solid var(--orange);padding-left:14px">
         Le portfolio que vous consultez aujourd'hui est lui-même un livrable de la compétence RT3 :
         sa conception (HTML/CSS/JS, structuration, navigation, charte graphique) m'a permis de pratiquer
         concrètement les apprentissages critiques AC23.02 (développer une application web) et AC23.04

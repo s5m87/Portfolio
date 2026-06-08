@@ -17,10 +17,11 @@
     <ul class="nav-links">
       <li><a href="../index.html">Accueil</a></li>
       <li><a href="../about.html">À propos</a></li>
-      <li><a href="../competences.html">Bilan compétences</a></li>
-      <li><a href="../stack.html">Stack technique</a></li>
-      <li><a href="../orange.html">Orange Business</a></li>
-      <li><a href="../projets.html">Projets</a></li>
+      <li><a href="../orange.html">Entreprise</a></li>
+      <li><a href="../missions.html">Missions</a></li>
+      <li><a href="../competences.html">Bilans</a></li>
+      <li><a href="../projets.html">Projets IUT</a></li>
+      <li><a href="../stack.html">Stack</a></li>
       <li><a href="../contact.html">Contact</a></li>
     </ul>
     <a href="../CV Sami ALAOUI KASMI.pdf" download class="nav-cv"><i class="fas fa-download"></i> Mon CV</a>
@@ -29,17 +30,18 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="../index.html" onclick="closeMenu()">Accueil</a>
     <a href="../about.html" onclick="closeMenu()">À propos</a>
-    <a href="../competences.html" onclick="closeMenu()">Bilan compétences</a>
-    <a href="../stack.html" onclick="closeMenu()">Stack technique</a>
-    <a href="../orange.html" onclick="closeMenu()">Orange Business</a>
-    <a href="../projets.html" onclick="closeMenu()">Projets</a>
+    <a href="../orange.html" onclick="closeMenu()">Entreprise</a>
+    <a href="../missions.html" onclick="closeMenu()">Missions</a>
+    <a href="../competences.html" onclick="closeMenu()">Bilans</a>
+    <a href="../projets.html" onclick="closeMenu()">Projets IUT</a>
+    <a href="../stack.html" onclick="closeMenu()">Stack</a>
     <a href="../contact.html" onclick="closeMenu()">Contact</a>
   </div>
 
   <div class="page-header">
     <div class="page-header-orb"></div>
     <div class="container">
-      <a href="../orange.html" class="mission-back-btn"><i class="fas fa-arrow-left"></i> Retour à Orange Business</a>
+      <a href="../missions.html" class="mission-back-btn"><i class="fas fa-arrow-left"></i> Retour à la liste des missions</a>
       <div class="section-tag">Mission 5</div>
       <h1>Installation IPBX</h1>
       <p>Autocommutateur IP — Téléphonie d'entreprise SIP/VoIP avec messagerie unifiée</p>
@@ -138,6 +140,9 @@
           </div>
 
           <div class="mission-body">
+            <div class="mission-period">
+              <i class="fas fa-calendar-alt"></i> Mission 5 / 5 · S2 — Mars à Juin 2026 · ~6 déploiements IPBX
+            </div>
             <p class="mission-desc"><strong style="color:var(--text)">IPBX (IP Private Branch eXchange)</strong>
               est
               un
@@ -149,11 +154,92 @@
               chiffrés
               via SRTP et la signalisation via TLS.</p>
 
-            <div class="pills" style="margin-bottom:20px">
+            <!-- ─── Contexte & objectifs ─── -->
+            <div class="context-block">
+              <div class="block-title"><i class="fas fa-bullseye"></i> Contexte &amp; objectifs</div>
+              <div class="context-grid">
+                <div class="context-item">
+                  <div class="ci-label">Type d'activité</div>
+                  <div class="ci-value">Installation et configuration d'<strong>autocommutateurs IP</strong> (3CX, Asterisk, Alcatel OXO) chez les clients PME : extensions, SDA, IVR, messagerie unifiée.</div>
+                </div>
+                <div class="context-item">
+                  <div class="ci-label">Enjeux techniques</div>
+                  <div class="ci-value">Mission la plus <strong>transversale</strong> : réseau (VLAN voix, QoS DSCP EF), télécoms (SIP, RTP, codecs), système (admin serveur), sécurité (SRTP, anti-toll fraud).</div>
+                </div>
+                <div class="context-item">
+                  <div class="ci-label">Enjeux organisationnels</div>
+                  <div class="ci-value">Migration souvent <strong>PABX analogique → IPBX</strong> : portage des numéros, mapping des extensions historiques, fenêtre de bascule très sensible.</div>
+                </div>
+                <div class="context-item">
+                  <div class="ci-label">Acteurs impliqués</div>
+                  <div class="ci-value">Tuteur, équipe ToIP Orange, <strong>opérateur portage de numéros</strong>, utilisateurs finaux (formation post-bascule), DSI client.</div>
+                </div>
+                <div class="context-item">
+                  <div class="ci-label">Contraintes</div>
+                  <div class="ci-value"><strong>Coupure téléphonique</strong> = perte de chiffre d'affaires immédiate. Risque de fraude téléphonique (toll fraud) si mauvaise sécurisation SIP.</div>
+                </div>
+                <div class="context-item">
+                  <div class="ci-label">Objectif personnel</div>
+                  <div class="ci-value">Maîtriser l'<strong>administration 3CX</strong>, savoir diagnostiquer un flux SIP avec Wireshark, comprendre les vecteurs d'attaque toll-fraud.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pills" style="margin-bottom:20px;margin-top:22px">
               <span class="tech-pill">SIP / RTP</span><span class="tech-pill">SRTP / TLS</span><span
                 class="tech-pill">3CX / Asterisk</span>
               <span class="tech-pill">DECT</span><span class="tech-pill">G.711 / G.729</span><span class="tech-pill">QoS
                 DSCP EF</span><span class="tech-pill">IVR</span>
+            </div>
+
+            <!-- ─── Tâches réalisées & évolution chronologique ─── -->
+            <div class="tasks-block">
+              <div class="block-title"><i class="fas fa-clipboard-list"></i> Tâches réalisées &amp; évolution chronologique</div>
+              <div class="tasks-timeline">
+                <div class="task-step">
+                  <div class="task-step-head">
+                    Phase 1 — Découverte ToIP
+                    <span class="task-step-period">Mars 2026</span>
+                  </div>
+                  <div class="task-step-body">
+                    Observation de 2 mises en service IPBX 3CX. Apprentissage du <strong>protocole SIP</strong> (REGISTER, INVITE, BYE), des codecs (G.711, G.729), du marquage QoS DSCP EF pour la voix. Première manipulation Wireshark pour observer les flux.
+                    <div class="task-tools">
+                      <span class="task-tool">3CX Management Console</span>
+                      <span class="task-tool">Wireshark (lecture SIP)</span>
+                      <span class="task-tool">Yealink T48S</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="task-step">
+                  <div class="task-step-head">
+                    Phase 2 — Erreur formatrice
+                    <span class="task-step-period">Avril 2026</span>
+                  </div>
+                  <div class="task-step-body">
+                    <strong>Migration PABX → IPBX qui a mal tourné</strong> : sous-estimation du portage SDA et du mapping des extensions. Demi-journée d'utilisateurs injoignables. Construction avec mon tuteur de la <strong>checklist de bascule</strong> qui est désormais utilisée par toute l'équipe. Apprentissage de l'analyse Wireshark pour diagnostiquer les REGISTER refusés.
+                    <div class="task-tools">
+                      <span class="task-tool">Checklist bascule (rédigée)</span>
+                      <span class="task-tool">Diagnostic SIP REGISTER</span>
+                      <span class="task-tool">Coordination opérateur</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="task-step">
+                  <div class="task-step-head">
+                    Phase 3 — Autonomie partielle
+                    <span class="task-step-period">Mai → Juin 2026</span>
+                  </div>
+                  <div class="task-step-body">
+                    <strong>Autonomie complète sur ajout/suppression de postes</strong> sur un IPBX existant. Configuration de l'IVR, file d'attente, plages horaires, messagerie vocale. Sur les déploiements complets ou migrations PABX→IPBX, je travaille <strong>toujours en binôme</strong> avec mon tuteur — l'enjeu d'une coupure téléphonique reste trop sensible.
+                    <div class="task-tools">
+                      <span class="task-tool">3CX (admin extensions)</span>
+                      <span class="task-tool">Hardening SIP-TLS</span>
+                      <span class="task-tool">Configuration IVR</span>
+                      <span class="task-tool">Sécurisation anti-toll-fraud</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <!-- ─── Compétences & AC mobilisés ─── -->
@@ -249,6 +335,50 @@
                 <img src="/Portfolio/images/PABX2.jpg" alt="Tests d'appels entrants/sortants et vérification de la QoS voix">
               </div>
             </div>
+
+            <!-- ─── Traces & preuves ─── -->
+            <div class="traces-block">
+              <div class="block-title"><i class="fas fa-folder-open"></i> Traces &amp; preuves personnelles</div>
+              <div class="traces-grid">
+
+                <div class="trace-card">
+                  <div class="trace-card-head">
+                    <div class="tc-ico"><i class="fas fa-list-check"></i></div>
+                    <div class="tc-title">Checklist de bascule PABX → IPBX (rédigée)</div>
+                  </div>
+                  <div class="trace-card-desc">
+                    Procédure que j'ai co-construite avec mon tuteur après l'erreur d'avril 2026 — désormais utilisée par toute l'équipe d'intervention sur les migrations IPBX.
+                  </div>
+                  <pre><span class="cmt"># Checklist bascule PABX → IPBX — Sami AK</span>
+<span class="kw">[J-7]</span>  Export <span class="str">extensions + SDA</span> du PABX existant
+<span class="kw">[J-7]</span>  Mapping ext. → numéros nouveaux
+<span class="kw">[J-3]</span>  Validation portage côté opérateur
+<span class="kw">[J-1]</span>  Tests d'appels sur IPBX en parallèle
+<span class="kw">[J]</span>    Bascule SDA + redirection appels critiques
+<span class="kw">[J+1]</span>  Tour utilisateurs / formation rapide</pre>
+                </div>
+
+                <div class="trace-card">
+                  <div class="trace-card-head">
+                    <div class="tc-ico"><i class="fas fa-shield-halved"></i></div>
+                    <div class="tc-title">Hardening SIP anti-toll-fraud</div>
+                  </div>
+                  <div class="trace-card-desc">
+                    Configuration de durcissement que j'applique systématiquement sur les nouveaux déploiements IPBX 3CX pour prévenir la fraude téléphonique internationale.
+                  </div>
+                  <pre><span class="cmt"># 3CX hardening — Sami AK</span>
+<span class="kw">→</span> Désactivation appels <span class="str">internationaux</span> par défaut
+<span class="kw">→</span> Mots de passe ext. : <span class="str">12 car. min</span>
+<span class="kw">→</span> Whitelist IP autorisées à <span class="kw">REGISTER</span>
+<span class="kw">→</span> SIP-TLS forcé, SRTP obligatoire
+<span class="kw">→</span> Anti-bruteforce : <span class="str">5 tentatives → ban</span></pre>
+                </div>
+
+              
+
+              </div>
+            </div>
+
             <div class="notice-wrap">
               <div class="notice-title-bar" onclick="toggleNotice(this)">
                 <span class="notice-badge">NOTICE D'INSTALLATION</span>
