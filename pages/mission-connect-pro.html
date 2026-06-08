@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation Connect Pro — Sami ALAOUI KASMI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../missions-style.css" />
+</head>
+
+<body>
+  <nav id="navbar">
+    <a href="../index.html" class="nav-logo">&lt;<span>Sami</span> /&gt;</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Accueil</a></li>
+      <li><a href="../about.html">À propos</a></li>
+      <li><a href="../competences.html">Bilan compétences</a></li>
+      <li><a href="../stack.html">Stack technique</a></li>
+      <li><a href="../orange.html">Orange Business</a></li>
+      <li><a href="../projets.html">Projets</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <a href="../CV Sami ALAOUI KASMI.pdf" download class="nav-cv"><i class="fas fa-download"></i> Mon CV</a>
+    <div class="nav-burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html" onclick="closeMenu()">Accueil</a>
+    <a href="../about.html" onclick="closeMenu()">À propos</a>
+    <a href="../competences.html" onclick="closeMenu()">Bilan compétences</a>
+    <a href="../stack.html" onclick="closeMenu()">Stack technique</a>
+    <a href="../orange.html" onclick="closeMenu()">Orange Business</a>
+    <a href="../projets.html" onclick="closeMenu()">Projets</a>
+    <a href="../contact.html" onclick="closeMenu()">Contact</a>
+  </div>
+
+  <div class="page-header">
+    <div class="page-header-orb"></div>
+    <div class="container">
+      <a href="../orange.html" class="mission-back-btn"><i class="fas fa-arrow-left"></i> Retour à Orange Business</a>
+      <div class="section-tag">Mission 1</div>
+      <h1>Installation Connect Pro</h1>
+      <p>Solution accès internet professionnel Orange — TPE/PME &amp; grandes entreprises</p>
+    </div>
+  </div>
+
+  <section style="background:var(--bg2);padding-bottom:60px">
+    <div class="container">
+<div class="mission-card fade-in">
+          <div class="mission-hdr">
+            <div class="mission-icon"><i class="fas fa-plug"></i></div>
+            <div class="mission-hdr-text">
+              <h3>Installation Connect Pro</h3>
+              <p>Solution accès internet professionnel Orange — TPE/PME &amp; grandes entreprises</p>
+            </div>
+          </div>
+
+          <div class="diagram-area">
+            <div class="diagram-label">// Architecture réseau Connect Pro</div>
+            <svg viewBox="0 0 700 150" xmlns="http://www.w3.org/2000/svg" width="100%">
+              <defs>
+                <marker id="cp-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+                  <path d="M0 0 L8 4 L0 8 z" fill="#FF6B00" />
+                </marker>
+                <marker id="cp-b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+                  <path d="M0 0 L8 4 L0 8 z" fill="#3B82F6" />
+                </marker>
+              </defs>
+              <!-- Internet cloud -->
+              <ellipse cx="52" cy="75" rx="44" ry="32" fill="#1A2235" stroke="#FF6B00" stroke-width="1.5" />
+              <text x="52" y="71" text-anchor="middle" fill="#E8EDF5" font-size="11" font-family="Inter,sans-serif"
+                font-weight="600">Internet</text>
+              <text x="52" y="84" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">ISP
+                Orange</text>
+              <!-- WAN line -->
+              <line x1="96" y1="75" x2="142" y2="75" stroke="#FF6B00" stroke-width="2" stroke-dasharray="5,3"
+                marker-end="url(#cp-a)" />
+              <text x="119" y="68" text-anchor="middle" fill="#8B97B0" font-size="8"
+                font-family="Inter,sans-serif">WAN/xDSL/Fibre</text>
+              <!-- Modem Orange -->
+              <rect x="143" y="50" width="105" height="50" rx="8" fill="#1A2235" stroke="#FF6B00" stroke-width="1.5" />
+              <text x="195" y="72" text-anchor="middle" fill="#E8EDF5" font-size="11" font-family="Inter,sans-serif"
+                font-weight="600">Modem-Routeur</text>
+              <text x="195" y="84" text-anchor="middle" fill="#8B97B0" font-size="9"
+                font-family="Inter,sans-serif">Connect Pro Orange</text>
+              <text x="195" y="95" text-anchor="middle" fill="#FF6B00" font-size="8"
+                font-family="JetBrains Mono,monospace">PPPoE / IP fixe</text>
+              <!-- LAN line -->
+              <line x1="248" y1="75" x2="303" y2="75" stroke="#FF6B00" stroke-width="2" marker-end="url(#cp-a)" />
+              <text x="275" y="68" text-anchor="middle" fill="#8B97B0" font-size="8"
+                font-family="Inter,sans-serif">LAN</text>
+              <!-- Firewall/Switch -->
+              <rect x="305" y="50" width="90" height="50" rx="8" fill="#1A2235" stroke="#FF6B00" stroke-width="1.5" />
+              <text x="350" y="72" text-anchor="middle" fill="#E8EDF5" font-size="11" font-family="Inter,sans-serif"
+                font-weight="600">Firewall</text>
+              <text x="350" y="84" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">NAT
+                / ACL</text>
+              <text x="350" y="95" text-anchor="middle" fill="#FF6B00" font-size="8"
+                font-family="JetBrains Mono,monospace">DMZ / VPN</text>
+              <!-- Switch line -->
+              <line x1="395" y1="75" x2="440" y2="75" stroke="#3B82F6" stroke-width="2" marker-end="url(#cp-b)" />
+              <!-- Switch -->
+              <rect x="442" y="50" width="80" height="50" rx="8" fill="#1A2235" stroke="#3B82F6" stroke-width="1.5" />
+              <text x="482" y="72" text-anchor="middle" fill="#E8EDF5" font-size="11" font-family="Inter,sans-serif"
+                font-weight="600">Switch</text>
+              <text x="482" y="84" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">VLAN
+                / PoE</text>
+              <text x="482" y="95" text-anchor="middle" fill="#3B82F6" font-size="8"
+                font-family="JetBrains Mono,monospace">802.1Q</text>
+              <!-- Endpoints -->
+              <line x1="522" y1="65" x2="564" y2="42" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#cp-b)" />
+              <line x1="522" y1="75" x2="564" y2="75" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#cp-b)" />
+              <line x1="522" y1="85" x2="564" y2="108" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#cp-b)" />
+              <rect x="566" y="28" width="60" height="28" rx="6" fill="#1A2235" stroke="#3B82F6" stroke-width="1" />
+              <text x="596" y="45" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">PCs
+                / Serveurs</text>
+              <rect x="566" y="61" width="60" height="28" rx="6" fill="#1A2235" stroke="#3B82F6" stroke-width="1" />
+              <text x="596" y="78" text-anchor="middle" fill="#8B97B0" font-size="9"
+                font-family="Inter,sans-serif">Téléphones IP</text>
+              <rect x="566" y="94" width="60" height="28" rx="6" fill="#1A2235" stroke="#3B82F6" stroke-width="1" />
+              <text x="596" y="111" text-anchor="middle" fill="#8B97B0" font-size="9"
+                font-family="Inter,sans-serif">Bornes WiFi</text>
+              <!-- Legend -->
+              <line x1="10" y1="138" x2="34" y2="138" stroke="#FF6B00" stroke-width="2" stroke-dasharray="5,3" />
+              <text x="38" y="141" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">Accès WAN</text>
+              <line x1="130" y1="138" x2="154" y2="138" stroke="#3B82F6" stroke-width="2" />
+              <text x="158" y="141" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">LAN entreprise</text>
+            </svg>
+          </div>
+
+          <div class="mission-body">
+            <p class="mission-desc"><strong style="color:var(--text)">Connect Pro</strong> est la solution d'accès
+              internet haut débit d'Orange dédiée aux entreprises. Elle garantit un accès symétrique avec SLA
+              contractuel, QoS administrée et supervision centralisée. Disponible sur ADSL2+, VDSL2, SDSL ou Fibre selon
+              la zone géographique.</p>
+
+            <div class="pills" style="margin-bottom:20px">
+              <span class="tech-pill">PPPoE</span><span class="tech-pill">DHCP</span><span
+                class="tech-pill">NAT/PAT</span>
+              <span class="tech-pill">VLAN 802.1Q</span><span class="tech-pill">QoS</span><span
+                class="tech-pill">IPv4/IPv6</span><span class="tech-pill">GLPI</span>
+            </div>
+
+            <!-- ─── Compétences & AC mobilisés ─── -->
+            <div class="ac-block">
+              <div class="block-title"><i class="fas fa-graduation-cap"></i> Compétences &amp; Apprentissages Critiques mobilisés</div>
+
+              <div class="competence-group">
+                <div class="competence-head">RT1 — Administrer les réseaux et l'Internet · Niveau 2</div>
+                <ul class="ac-list">
+                  <li><span class="ac-code">AC21.03</span>Déploiement de postes clients : raccordement du modem Orange, brassage RJ45 Cat6, configuration DHCP et sous-réseaux LAN chez le client.</li>
+                  <li><span class="ac-code">AC21.05</span>Identification des réseaux opérateurs : reconnaissance des architectures d'accès (xDSL, fibre Orange) et de leur intégration dans l'infrastructure Internet.</li>
+                </ul>
+              </div>
+
+              <div class="competence-group">
+                <div class="competence-head">RT2 — Connecter les entreprises et les usagers · Niveau 2</div>
+                <ul class="ac-list">
+                  <li><span class="ac-code">AC22.05</span>Lecture critique du cahier des charges : analyse du bon de commande, vérification des options souscrites (QoS, IP fixe, failover 4G).</li>
+                  <li><span class="ac-code">AC12.05</span>Communication avec un tiers : remise client, vulgarisation technique de la procédure de panne, adaptation du discours selon l'interlocuteur (gérant, IT interne, utilisateur final).</li>
+                </ul>
+              </div>
+
+              <div class="competence-group">
+                <div class="competence-head">Cyber1 — Administrer un SI sécurisé · Niveau 1</div>
+                <ul class="ac-list">
+                  <li><span class="ac-code">AC24.01</span>Mise en œuvre des bonnes pratiques cybersécurité : changement des mots de passe par défaut, désactivation Telnet, fermeture des ports inutiles, journalisation activée.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- ─── Analyse réflexive et autoévaluation ─── -->
+            <div class="reflex-block">
+              <div class="block-title"><i class="fas fa-brain"></i> Analyse réflexive &amp; autoévaluation</div>
+              <div class="reflex-grid">
+                <div class="reflex-item">
+                  <div class="reflex-item-icon"><i class="fas fa-lightbulb"></i></div>
+                  <div class="reflex-item-body">
+                    <div class="reflex-item-label">Ce que j'ai appris</div>
+                    <div class="reflex-item-text">Connect Pro m'a permis de comprendre concrètement la différence entre une offre grand public et une offre B2B : SLA contractuel, débit garanti, IP fixe, support 24/7. J'ai aussi appris à structurer mon intervention selon une logique métier (prérequis → câblage → config → tests → remise client) plutôt que d'improviser.</div>
+                  </div>
+                </div>
+                <div class="reflex-item">
+                  <div class="reflex-item-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                  <div class="reflex-item-body">
+                    <div class="reflex-item-label">Difficultés rencontrées</div>
+                    <div class="reflex-item-text">Lors d'une de mes premières interventions, je n'arrivais pas à faire synchroniser la ligne malgré un câblage correct : c'était en fait un défaut d'activation côté SI Orange. J'ai aussi eu du mal au début à expliquer simplement à un client non technique pourquoi son ancien matériel n'était pas compatible avec l'offre Pro.</div>
+                  </div>
+                </div>
+                <div class="reflex-item">
+                  <div class="reflex-item-icon"><i class="fas fa-tools"></i></div>
+                  <div class="reflex-item-body">
+                    <div class="reflex-item-label">Comment je les ai surmontées</div>
+                    <div class="reflex-item-text">J'ai pris l'habitude de vérifier systématiquement le statut d'activation de la ligne dans le portail SI Orange avant de me déplacer. Pour la communication client, je m'inspire désormais des analogies de mon tuteur (« une fibre Pro, c'est comme avoir une voie dédiée sur l'autoroute alors qu'une box grand public partage la voie avec les voisins »).</div>
+                  </div>
+                </div>
+                <div class="reflex-item">
+                  <div class="reflex-item-icon"><i class="fas fa-chart-line"></i></div>
+                  <div class="reflex-item-body">
+                    <div class="reflex-item-label">Évolution de mon autonomie</div>
+                    <div class="reflex-item-text">Au début, j'étais en doublon avec mon tuteur sur toutes les installations Connect Pro. Aujourd'hui, je réalise ces interventions en autonomie complète, de la préparation au PV de mise en service, en n'appelant l'astreinte que sur les cas atypiques (problème SI, désynchronisation ligne).</div>
+                  </div>
+                </div>
+              </div>
+              <div class="self-eval-row">
+                <span class="self-eval-label">Niveau auto-évalué :</span>
+                <span class="level-badge maitrise"><i class="fas fa-check-circle"></i> Maîtrisé</span>
+                <span class="self-eval-label" style="margin-left:auto">Axes de progrès : approfondir la QoS DSCP avancée et la gestion du failover 4G en cas de panne fibre.</span>
+              </div>
+            </div>
+
+            <div class="mission-gallery">
+              <div class="gallery-item">
+                <img src="/Portfolio/images/connect_pro_1.jpg" alt="Livebox Pro Orange installée chez le client après raccordement">
+              </div>
+
+              <div class="gallery-item">
+                <img src="/Portfolio/images/Yealink1.jpg" alt="Téléphone IP Yealink raccordé en PoE sur le réseau Connect Pro">
+              </div>
+
+              <div class="gallery-item">
+                <img src="/Portfolio/images/Yealink2.jpg" alt="Configuration des comptes SIP sur le poste Yealink">
+              </div>
+
+              <div class="gallery-item">
+                <img src="/Portfolio/images/IMG_1447.JPG" alt="Tests de débit et de connectivité après mise en service">
+              </div>
+            </div>
+            <!-- Notice -->
+            <div class="notice-wrap">
+              <div class="notice-title-bar" onclick="toggleNotice(this)">
+                <span class="notice-badge">NOTICE D'INSTALLATION</span>
+                <h4>Fiche Technique — Connect Pro</h4>
+                <i class="fas fa-chevron-down ntoggle"></i>
+              </div>
+              <div class="notice-body">
+                <div class="notice-body-inner" style="padding:24px;display:grid;gap:22px">
+                  <div class="notice-section">
+                    <h5><i class="fas fa-box-open"></i> Prérequis</h5>
+                    <div class="prereq-grid">
+                      <div class="prereq-card">
+                        <div class="pc-label">Matériel</div>
+                        <ul>
+                          <li>Modem-routeur Orange fourni (Livebox Pro / modèle dédié)</li>
+                          <li>Câbles RJ45 Cat6 (1m, 3m, 5m)</li>
+                          <li>Câble d'alimentation secteur</li>
+                          <li>Testeur de câble RJ45</li>
+                          <li>Outillage passe-câble si nécessaire</li>
+                        </ul>
+                      </div>
+                      <div class="prereq-card">
+                        <div class="pc-label">Logiciel &amp; Documents</div>
+                        <ul>
+                          <li>Bon de commande client signé</li>
+                          <li>Paramètres PPPoE ou IP fixe fournis par Orange</li>
+                          <li>Accès portail SI Orange (activation ligne)</li>
+                          <li>Ticket GLPI ouvert avec référence intervention</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="notice-section">
+                    <h5><i class="fas fa-list-ol"></i> Étapes d'installation</h5>
+                    <div class="notice-steps">
+                      <div class="n-step">
+                        <div class="step-num">1</div>
+                        <div class="step-body">
+                          <h6>Vérification et préparation du site</h6>
+                          <p>Contrôler la présence de la prise de desserte (DSL ou fibre), vérifier l'alimentation
+                            disponible, repérer l'emplacement de montage du routeur. Lire le bon de commande et
+                            identifier les options souscrites (QoS, VPN, IP fixe…).</p>
+                        </div>
+                      </div>
+                      <div class="n-step">
+                        <div class="step-num">2</div>
+                        <div class="step-body">
+                          <h6>Raccordement physique</h6>
+                          <p>Brancher le câble de desserte (ligne DSL ou cordon fibre) sur le port WAN du modem. Relier
+                            le modem au switch ou aux postes clients via RJ45 Cat6. Alimenter le modem et attendre la
+                            synchronisation (voyant DSL ou Fibre fixe).</p>
+                          <div class="callout warn"><i class="fas fa-exclamation-triangle"></i>Ne pas alimenter le modem
+                            avant le raccordement complet des câbles réseau pour éviter une mauvaise attribution DHCP
+                            automatique.</div>
+                        </div>
+                      </div>
+                      <div class="n-step">
+                        <div class="step-num">3</div>
+                        <div class="step-body">
+                          <h6>Configuration WAN</h6>
+                          <p>Accéder à l'interface d'administration du routeur (192.168.1.1). Saisir les identifiants
+                            PPPoE fournis par Orange. Si IP fixe : renseigner l'adresse IP publique, masque, passerelle
+                            et DNS Orange. Sauvegarder et vérifier la connexion internet.</p>
+                        </div>
+                      </div>
+                      <div class="n-step">
+                        <div class="step-num">4</div>
+                        <div class="step-body">
+                          <h6>Configuration LAN &amp; DHCP</h6>
+                          <p>Définir la plage d'adresses IP privées (ex : 192.168.10.0/24). Activer le serveur DHCP avec
+                            plage d'attribution, durée de bail, DNS. Créer les VLANs si segmentation requise (voix,
+                            données, invité). Configurer les sous-interfaces sur le routeur.</p>
+                        </div>
+                      </div>
+                      <div class="n-step">
+                        <div class="step-num">5</div>
+                        <div class="step-body">
+                          <h6>Sécurité : Firewall et NAT</h6>
+                          <p>Vérifier que le firewall est actif en mode stateful. Configurer les règles NAT/PAT pour les
+                            services exposés (serveur mail, VPN distant, caméras IP…). Bloquer les ports non utilisés.
+                            Activer le journal des connexions.</p>
+                          <div class="callout warn"><i class="fas fa-exclamation-triangle"></i>Ne jamais ouvrir le port
+                            23 (Telnet) ou le port 80 sur l'IP WAN sans vérification expresse du client.</div>
+                        </div>
+                      </div>
+                      <div class="n-step">
+                        <div class="step-num">6</div>
+                        <div class="step-body">
+                          <h6>Tests de validation</h6>
+                          <p>Ping vers passerelle Orange, vers 8.8.8.8, vers un nom de domaine (test DNS). Mesurer le
+                            débit upload/download avec iperf3 ou speedtest. Effectuer un traceroute pour vérifier le
+                            chemin. Si failover 4G souscrit : débrancher la ligne fixe et vérifier la bascule
+                            automatique.</p>
+                          <div class="callout ok"><i class="fas fa-check-circle"></i>Le débit mesuré doit atteindre au
+                            minimum 90% du débit contractualisé. Tout écart doit être signalé.</div>
+                        </div>
+                      </div>
+                      <div class="n-step">
+                        <div class="step-num">7</div>
+                        <div class="step-body">
+                          <h6>Remise client et clôture</h6>
+                          <p>Étiqueter le modem et les câbles. Remettre le guide utilisateur et les paramètres de
+                            l'interface admin. Expliquer la procédure en cas de panne. Clôturer le ticket GLPI avec
+                            photos, mesures de débit et configuration résumée.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="notice-section">
+                    <h5><i class="fas fa-clipboard-check"></i> Checklist de validation</h5>
+                    <div class="n-checklist">
+                      <div class="n-check"><i class="fas fa-check-square"></i>Synchronisation ligne WAN confirmée</div>
+                      <div class="n-check"><i class="fas fa-check-square"></i>Débit mesuré conforme au contrat</div>
+                      <div class="n-check"><i class="fas fa-check-square"></i>DHCP fonctionnel sur tous les ports LAN
+                      </div>
+                      <div class="n-check"><i class="fas fa-check-square"></i>NAT/PAT testé pour les services exposés
+                      </div>
+                      <div class="n-check"><i class="fas fa-check-square"></i>Résolution DNS opérationnelle</div>
+                      <div class="n-check"><i class="fas fa-check-square"></i>Ticket GLPI clôturé avec PV</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p><span>Sami ALAOUI KASMI</span> — BUT R&amp;T | Alternant Orange Business</p>
+      <div class="footer-links">
+        <a href="mailto:alaouikasmi.sami@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/sami-alaouikasmi" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/s5m87" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+      
+    </div>
+  </footer>
+
+  <script src="../nav.js"></script>
+  <script>
+    function toggleNotice(bar) {
+      const body = bar.nextElementSibling;
+      const icon = bar.querySelector('.ntoggle');
+      body.classList.toggle('open');
+      icon.classList.toggle('open');
+    }
+  </script>
+</body>
+
+</html>

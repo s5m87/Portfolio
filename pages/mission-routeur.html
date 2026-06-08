@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation de Routeur — Sami ALAOUI KASMI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../missions-style.css" />
+</head>
+
+<body>
+  <nav id="navbar">
+    <a href="../index.html" class="nav-logo">&lt;<span>Sami</span> /&gt;</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Accueil</a></li>
+      <li><a href="../about.html">À propos</a></li>
+      <li><a href="../competences.html">Bilan compétences</a></li>
+      <li><a href="../stack.html">Stack technique</a></li>
+      <li><a href="../orange.html">Orange Business</a></li>
+      <li><a href="../projets.html">Projets</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <a href="../CV Sami ALAOUI KASMI.pdf" download class="nav-cv"><i class="fas fa-download"></i> Mon CV</a>
+    <div class="nav-burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html" onclick="closeMenu()">Accueil</a>
+    <a href="../about.html" onclick="closeMenu()">À propos</a>
+    <a href="../competences.html" onclick="closeMenu()">Bilan compétences</a>
+    <a href="../stack.html" onclick="closeMenu()">Stack technique</a>
+    <a href="../orange.html" onclick="closeMenu()">Orange Business</a>
+    <a href="../projets.html" onclick="closeMenu()">Projets</a>
+    <a href="../contact.html" onclick="closeMenu()">Contact</a>
+  </div>
+
+  <div class="page-header">
+    <div class="page-header-orb"></div>
+    <div class="container">
+      <a href="../orange.html" class="mission-back-btn"><i class="fas fa-arrow-left"></i> Retour à Orange Business</a>
+      <div class="section-tag">Mission 2</div>
+      <h1>Installation de Routeur</h1>
+      <p>Déploiement &amp; configuration d'équipements réseau professionnels en baie 19"</p>
+    </div>
+  </div>
+
+  <section style="background:var(--bg2);padding-bottom:60px">
+    <div class="container">
+<div class="mission-card fade-in d1">
+          <div class="mission-hdr">
+            <div class="mission-icon"><i class="fas fa-network-wired"></i></div>
+            <div class="mission-hdr-text">
+              <h3>Installation de Routeur</h3>
+              <p>Déploiement &amp; configuration d'équipements réseau professionnels en baie</p>
+            </div>
+          </div>
+
+          <div class="diagram-area">
+            <div class="diagram-label">// Architecture — Routeur en baie 19"</div>
+            <svg viewBox="0 0 700 155" xmlns="http://www.w3.org/2000/svg" width="100%">
+              <defs>
+                <marker id="rt-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+                  <path d="M0 0 L8 4 L0 8 z" fill="#FF6B00" />
+                </marker>
+                <marker id="rt-b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+                  <path d="M0 0 L8 4 L0 8 z" fill="#3B82F6" />
+                </marker>
+              </defs>
+              <!-- WAN -->
+              <ellipse cx="52" cy="75" rx="44" ry="32" fill="#1A2235" stroke="#FF6B00" stroke-width="1.5" />
+              <text x="52" y="71" text-anchor="middle" fill="#E8EDF5" font-size="11" font-family="Inter,sans-serif"
+                font-weight="600">Internet</text>
+              <text x="52" y="84" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">WAN /
+                MPLS</text>
+              <line x1="96" y1="75" x2="148" y2="75" stroke="#FF6B00" stroke-width="2" marker-end="url(#rt-a)" />
+              <text x="122" y="68" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">SFP+
+                / RJ45</text>
+              <!-- Rack outline -->
+              <rect x="148" y="20" width="130" height="115" rx="6" fill="#0E1420" stroke="#4A5568" stroke-width="1.5"
+                stroke-dasharray="4,2" />
+              <text x="213" y="35" text-anchor="middle" fill="#4A5568" font-size="8"
+                font-family="JetBrains Mono,monospace">BAIE 19"</text>
+              <!-- Router in rack -->
+              <rect x="158" y="42" width="110" height="40" rx="5" fill="#1A2235" stroke="#FF6B00" stroke-width="1.5" />
+              <text x="213" y="60" text-anchor="middle" fill="#E8EDF5" font-size="11" font-family="Inter,sans-serif"
+                font-weight="600">Routeur Cisco</text>
+              <text x="213" y="74" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">ISR
+                4000 / Huawei AR</text>
+              <!-- Switch in rack -->
+              <rect x="158" y="90" width="110" height="36" rx="5" fill="#1A2235" stroke="#4A5568" stroke-width="1" />
+              <text x="213" y="110" text-anchor="middle" fill="#8B97B0" font-size="10"
+                font-family="Inter,sans-serif">Patch Panel</text>
+              <!-- LAN out -->
+              <line x1="278" y1="62" x2="338" y2="62" stroke="#3B82F6" stroke-width="2" marker-end="url(#rt-b)" />
+              <text x="308" y="55" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">LAN
+                Gig</text>
+              <!-- Switch core -->
+              <rect x="340" y="45" width="95" height="54" rx="8" fill="#1A2235" stroke="#3B82F6" stroke-width="1.5" />
+              <text x="387" y="67" text-anchor="middle" fill="#E8EDF5" font-size="11" font-family="Inter,sans-serif"
+                font-weight="600">Switch Core</text>
+              <text x="387" y="80" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">VLAN
+                / STP</text>
+              <text x="387" y="92" text-anchor="middle" fill="#3B82F6" font-size="8"
+                font-family="JetBrains Mono,monospace">PoE+ 802.3at</text>
+              <!-- Endpoints -->
+              <line x1="435" y1="60" x2="490" y2="40" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#rt-b)" />
+              <line x1="435" y1="72" x2="490" y2="72" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#rt-b)" />
+              <line x1="435" y1="84" x2="490" y2="104" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#rt-b)" />
+              <rect x="492" y="26" width="80" height="28" rx="6" fill="#1A2235" stroke="#3B82F6" stroke-width="1" />
+              <text x="532" y="43" text-anchor="middle" fill="#8B97B0" font-size="9"
+                font-family="Inter,sans-serif">Postes / Serveurs</text>
+              <rect x="492" y="58" width="80" height="28" rx="6" fill="#1A2235" stroke="#3B82F6" stroke-width="1" />
+              <text x="532" y="75" text-anchor="middle" fill="#8B97B0" font-size="9"
+                font-family="Inter,sans-serif">Téléphones IP</text>
+              <rect x="492" y="90" width="80" height="28" rx="6" fill="#1A2235" stroke="#3B82F6" stroke-width="1" />
+              <text x="532" y="107" text-anchor="middle" fill="#8B97B0" font-size="9"
+                font-family="Inter,sans-serif">Bornes WiFi AP</text>
+              <!-- Console port -->
+              <line x1="213" y1="135" x2="213" y2="145" stroke="#4A5568" stroke-width="1" />
+              <text x="213" y="152" text-anchor="middle" fill="#4A5568" font-size="8"
+                font-family="JetBrains Mono,monospace">Console RJ45</text>
+            </svg>
+          </div>
+
+          <div class="mission-body">
+            <p class="mission-desc"><strong style="color:var(--text)">Déploiement de routeurs professionnels</strong>
+              (Cisco ISR, Huawei AR, Juniper SRX) chez les clients Orange Business. La prestation inclut le montage
+              physique en baie 19", la configuration complète via console série, l'intégration dans l'infrastructure
+              existante et les tests de validation en conditions réelles.</p>
+
+            <div class="pills" style="margin-bottom:20px">
+              <span class="tech-pill">Cisco IOS</span><span class="tech-pill">OSPF</span><span
+                class="tech-pill">BGP</span>
+              <span class="tech-pill">ACL</span><span class="tech-pill">SSH</span><span class="tech-pill">SNMP
+                v3</span><span class="tech-pill">SFP+</span>
+            </div>
+
+            <!-- ─── Compétences & AC mobilisés ─── -->
+            <div class="ac-block">
+              <div class="block-title"><i class="fas fa-graduation-cap"></i> Compétences &amp; Apprentissages Critiques mobilisés</div>
+
+              <div class="competence-group">
+                <div class="competence-head">RT1 — Administrer les réseaux et l'Internet · Niveau 2</div>
+                <ul class="ac-list">
+                  <li><span class="ac-code">AC21.01</span>Configuration et dépannage du routage dynamique : mise en place d'OSPF (zone 0, redistribution) et de BGP pour les sites multi-opérateurs.</li>
+                  <li><span class="ac-code">AC21.02</span>Politique simple de QoS et fonctions de base de la sécurité : classes de service (voix EF, données AF21, best effort), ACL d'entrée WAN, hardening IOS.</li>
+                  <li><span class="ac-code">AC21.04</span>Déploiement de services réseaux avancés : sous-interfaces VLAN dot1Q, NAT/PAT, SNMPv3 supervision, NTP synchronisé.</li>
+                </ul>
+              </div>
+
+              <div class="competence-group">
+                <div class="competence-head">Cyber1 — Administrer un SI sécurisé · Niveau 1</div>
+                <ul class="ac-list">
+                  <li><span class="ac-code">AC24.02</span>Outils fondamentaux de sécurisation : ACL inbound, SSH v2 uniquement, désactivation des services inutiles (HTTP server, CDP sur WAN), <em>service password-encryption</em>.</li>
+                  <li><span class="ac-code">AC24.03</span>Sécurisation des services : authentification AAA locale, hash SHA-256 pour les secrets, timeout de session VTY.</li>
+                </ul>
+              </div>
+
+              <div class="competence-group">
+                <div class="competence-head">Compétences transversales</div>
+                <ul class="ac-list">
+                  <li><span class="ac-code">AC21.06</span>Travail en équipe : coordination avec l'ingénieur réseau pour valider la configuration cible avant déploiement.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- ─── Analyse réflexive et autoévaluation ─── -->
+            <div class="reflex-block">
+              <div class="block-title"><i class="fas fa-brain"></i> Analyse réflexive &amp; autoévaluation</div>
+              <div class="reflex-grid">
+                <div class="reflex-item">
+                  <div class="reflex-item-icon"><i class="fas fa-lightbulb"></i></div>
+                  <div class="reflex-item-body">
+                    <div class="reflex-item-label">Ce que j'ai appris</div>
+                    <div class="reflex-item-text">L'installation en baie 19" m'a fait comprendre la différence entre le réseau « cours/TP » et le réseau réel : importance de l'étiquetage, de la documentation, de la gestion thermique, et du fait qu'une mauvaise config en production a un impact business immédiat (perte d'exploitation). J'ai vraiment intégré la chaîne câble console → mode privilégié → config → sauvegarde startup-config.</li>
+                  </div>
+                </div>
+                <div class="reflex-item">
+                  <div class="reflex-item-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                  <div class="reflex-item-body">
+                    <div class="reflex-item-label">Difficultés rencontrées</div>
+                    <div class="reflex-item-text">La syntaxe Cisco IOS est dense et je me suis trompé plusieurs fois entre <code>copy running-config startup-config</code> et l'inverse, ce qui m'a coûté une demi-journée à reconfigurer un routeur après reboot. J'ai aussi eu du mal au début à lire les schémas réseau d'architecture cible (notation des sous-réseaux, conventions d'adressage internes Orange).</div>
+                  </div>
+                </div>
+                <div class="reflex-item">
+                  <div class="reflex-item-icon"><i class="fas fa-tools"></i></div>
+                  <div class="reflex-item-body">
+                    <div class="reflex-item-label">Comment je les ai surmontées</div>
+                    <div class="reflex-item-text">Je me suis créé une checklist personnelle (« commandes à ne jamais oublier ») et je sauvegarde systématiquement la config avant chaque modification avec <code>copy running tftp:</code>. Pour les schémas, j'ai pris l'habitude de redessiner sur papier les plages d'adresses avant toute config — ça a éliminé 90% de mes erreurs d'IP.</div>
+                  </div>
+                </div>
+                <div class="reflex-item">
+                  <div class="reflex-item-icon"><i class="fas fa-chart-line"></i></div>
+                  <div class="reflex-item-body">
+                    <div class="reflex-item-label">Évolution de mon autonomie</div>
+                    <div class="reflex-item-text">Du « je tape ce que mon tuteur dicte » à « je rédige la config en suivant le schéma puis je la fais relire avant déploiement ». Je n'ai pas encore l'autonomie complète sur les configurations BGP complexes, mais je gère seul les déploiements OSPF mono-zone et les ACL standards.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="self-eval-row">
+                <span class="self-eval-label">Niveau auto-évalué :</span>
+                <span class="level-badge intermediaire"><i class="fas fa-chart-bar"></i> Intermédiaire</span>
+                <span class="self-eval-label" style="margin-left:auto">Axes de progrès : maîtriser BGP (peering, route-maps), automatiser les déploiements via Ansible ou Netmiko.</span>
+              </div>
+            </div>
+
+            <div class="mission-gallery">
+              <div class="gallery-item">
+                <img src="/Portfolio/images/LBB7PRO.jpg" alt="Routeur professionnel Cisco/Huawei installé en baie 19 pouces">
+              </div>
+
+              <div class="gallery-item">
+                <img src="/Portfolio/images/LBB230.png" alt="Configuration des interfaces réseau via console série">
+              </div>
+
+              <div class="gallery-item">
+                <img src="/Portfolio/images/IMG_1441.JPG" alt="Vérification du routage dynamique OSPF et des ACL appliquées">
+              </div>
+
+              <div class="gallery-item">
+                <img src="/Portfolio/images/IMG_1444.JPG" alt="Tests de validation finale et sauvegarde de la configuration">
+              </div>
+            </div>
+
+
+
+
+            <div class="notice-wrap">
+              <div class="notice-title-bar" onclick="toggleNotice(this)">
+                <span class="notice-badge">NOTICE D'INSTALLATION</span>
+                <h4>Fiche Technique — Installation Routeur</h4>
+                <i class="fas fa-chevron-down ntoggle"></i>
+              </div>
+              <div class="notice-body">
+                <div style="padding:24px;display:grid;gap:22px">
+                  <div class="notice-section">
+                    <h5><i class="fas fa-box-open"></i> Prérequis</h5>
+                    <div class="prereq-grid">
+                      <div class="prereq-card">
+                        <div class="pc-label">Matériel</div>
+                        <ul>
+                          <li>Routeur Cisco ISR 4000 / Huawei AR (selon commande)</li>
+                          <li>Câble console RJ45-USB ou RJ45-DB9</li>
+                          <li>Modules SFP/SFP+ si interface fibre requise</li>
+                          <li>Câbles réseau RJ45 Cat6 (WAN et LAN)</li>
+                          <li>Visseaux 19" et clips de baie</li>
+                        </ul>
+                      </div>
+                      <div class="prereq-card">
+                        <div class="pc-label">Logiciel &amp; Outils</div>
+                        <ul>
+                          <li>PuTTY ou SecureCRT (émulateur console)</li>
+                          <li>Fichier de configuration pré-établi par l'ingénieur réseau</li>
+                          <li>Schéma d'adressage et plan réseau client</li>
+                          <li>Accès GLPI pour clôture d'intervention</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="notice-section">
+                    <h5><i class="fas fa-list-ol"></i> Étapes d'installation</h5>
+                    <div class="notice-steps">
+                      <div class="n-step">
+                        <div class="step-num">1</div>
+                        <div class="step-body">
+                          <h6>Réception et inspection matérielle</h6>
+                          <p>Vérifier la référence du routeur, les modules installés (interfaces Gig, SFP), l'état
+                            physique et le numéro de série. Comparer avec le bon de livraison. Mettre à jour le
+                            firmware
+                            si une version plus récente est requise.</p>
+                        </div>
+                      </div>
+                      <div class="n-step">
+                        <div class="step-num">2</div>
+                        <div class="step-body">
+                          <h6>Montage physique en baie 19"</h6>
+                          <p>Fixer le routeur dans la baie avec les vis adaptées. Respecter l'espace de ventilation
+                            (1U
+                            libre au-dessus et en dessous). Relier le câble d'alimentation redondant si disponible.
+                            Étiqueter le routeur (hostname, adresse IP management).</p>
+                          <div class="callout warn"><i class="fas fa-exclamation-triangle"></i>Ne pas alimenter
+                            l'équipement avant la fin du câblage. Respecter les consignes de sécurité électrique
+                            (habilitation B0 H0).</div>
+                        </div>
+                      </div>
+                      <div class="n-step">
+                        <div class="step-num">3</div>
+                        <div class="step-body">
+                          <h6>Configuration initiale via console</h6>
+                          <p>Connecter le câble console (9600 bauds, 8N1). Accéder au mode privilégié (<code
+                              style="color:var(--orange);font-family:var(--mono);font-size:0.82em">enable</code>).
+                            Configurer : hostname, domaine, enable secret (hash SHA-256), utilisateurs locaux, accès
+                            SSH
+                            v2 uniquement, timeout de session.</p>
+                        </div>
+                      </div>
+                      <div class="n-step">
+                        <div class="step-num">4</div>
+                        <div class="step-body">
+                          <h6>Configuration des interfaces réseau</h6>
+                          <p>Configurer les interfaces WAN (GigE0/0/0 ou port SFP) : adresse IP fixe ou PPPoE.
+                            Configurer les interfaces LAN avec sous-interfaces VLAN (encapsulation dot1Q). Activer
+                            OSPF
+                            ou BGP selon la topologie cible définie dans le schéma réseau.</p>
+                        </div>
+                      </div>
+                      <div class="n-step">
+                        <div class="step-num">5</div>
+                        <div class="step-body">
+                          <h6>Sécurité et filtrage</h6>
+                          <p>Appliquer les ACL entrantes sur l'interface WAN (bloquer les réseaux RFC1918 entrants,
+                            les
+                            fragments, les spoofing d'adresses). Configurer NAT overload si translation requise.
+                            Désactiver les services inutiles (HTTP server, CDP sur WAN, finger…).</p>
+                          <div class="callout info"><i class="fas fa-info-circle"></i>Utiliser la commande <code
+                              style="color:var(--blue);font-family:var(--mono);font-size:0.82em">service password-encryption</code>
+                            et stocker la configuration dans un dépôt sécurisé.</div>
+                        </div>
+                      </div>
+                      <div class="n-step">
+                        <div class="step-num">6</div>
+                        <div class="step-body">
+                          <h6>Intégration supervision SNMP</h6>
+                          <p>Configurer SNMP v3 (AuthPriv) avec community string chiffrée. Déclarer l'adresse du
+                            serveur
+                            NMS Orange (Zabbix/SolarWinds). Tester la collecte OID (sysUpTime, ifOperStatus,
+                            bgpPeerState). Activer les traps SNMP pour les alertes critiques.</p>
+                        </div>
+                      </div>
+                      <div class="n-step">
+                        <div class="step-num">7</div>
+                        <div class="step-body">
+                          <h6>Tests et validation finale</h6>
+                          <p>Ping entre tous les VLANs, test traceroute WAN, vérifier les tables de routage (<code
+                              style="color:var(--orange);font-family:var(--mono);font-size:0.82em">show ip route</code>).
+                            Simuler une panne d'interface pour vérifier la convergence OSPF. Sauvegarder la
+                            configuration (<code
+                              style="color:var(--orange);font-family:var(--mono);font-size:0.82em">copy run start</code>).
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="notice-section">
+                    <h5><i class="fas fa-clipboard-check"></i> Checklist de validation</h5>
+                    <div class="n-checklist">
+                      <div class="n-check"><i class="fas fa-check-square"></i>Console SSH accessible (port 22
+                        uniquement)</div>
+                      <div class="n-check"><i class="fas fa-check-square"></i>Table de routage complète et cohérente
+                      </div>
+                      <div class="n-check"><i class="fas fa-check-square"></i>Ping inter-VLAN fonctionnel</div>
+                      <div class="n-check"><i class="fas fa-check-square"></i>SNMP v3 collecté par le NMS</div>
+                      <div class="n-check"><i class="fas fa-check-square"></i>Configuration sauvegardée (NVRAM +
+                        backup)
+                      </div>
+                      <div class="n-check"><i class="fas fa-check-square"></i>Étiquettes et documentation à jour</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p><span>Sami ALAOUI KASMI</span> — BUT R&amp;T | Alternant Orange Business</p>
+      <div class="footer-links">
+        <a href="mailto:alaouikasmi.sami@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/sami-alaouikasmi" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/s5m87" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+      
+    </div>
+  </footer>
+
+  <script src="../nav.js"></script>
+  <script>
+    function toggleNotice(bar) {
+      const body = bar.nextElementSibling;
+      const icon = bar.querySelector('.ntoggle');
+      body.classList.toggle('open');
+      icon.classList.toggle('open');
+    }
+  </script>
+</body>
+
+</html>

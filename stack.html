@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stack technique — Sami ALAOUI KASMI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ─── Intro ─── */
+    .stack-intro {
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 36px;
+    }
+    .stack-intro p {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 10px;
+    }
+    .stack-intro p strong { color: var(--text); }
+    .stack-intro p:last-child { margin-bottom: 0; }
+
+    /* ─── Carte catégorie ─── */
+    .stack-category {
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius);
+      margin-bottom: 28px;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .stack-category:hover {
+      border-color: var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .sc-header {
+      background: linear-gradient(135deg, rgba(255, 107, 0, 0.08), rgba(255, 107, 0, 0.02));
+      padding: 22px 30px;
+      border-bottom: 1px solid var(--border2);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .sc-icon {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      background: var(--orange-glow);
+      border: 1px solid var(--border);
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      flex-shrink: 0;
+    }
+    .sc-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .sc-subtitle {
+      font-size: 0.82rem;
+      color: var(--orange);
+      font-family: var(--mono);
+      font-weight: 500;
+    }
+
+    .sc-body {
+      padding: 24px 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    /* ─── Tool item ─── */
+    .tool-item {
+      background: var(--card2);
+      border: 1px solid var(--border2);
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: var(--transition);
+    }
+    .tool-item:hover {
+      border-color: var(--orange);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px -8px rgba(255, 107, 0, 0.25);
+    }
+    .tool-ico {
+      width: 38px; height: 38px;
+      border-radius: 8px;
+      background: var(--bg);
+      border: 1px solid var(--border2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--orange);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .tool-meta { flex: 1; min-width: 0; }
+    .tool-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+    .tool-tag {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+    .tool-level {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .lvl-strong   { background: #2ECC71; box-shadow: 0 0 8px rgba(46, 204, 113, 0.6); }
+    .lvl-medium   { background: var(--orange); box-shadow: 0 0 8px rgba(255, 107, 0, 0.5); }
+    .lvl-learning { background: var(--text-faint); }
+
+    /* ─── Légende ─── */
+    .stack-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+      border-radius: 10px;
+      padding: 14px 20px;
+      margin-bottom: 28px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .stack-legend .lg-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ─── Bloc certifications visées ─── */
+    .target-block {
+      background: linear-gradient(135deg, rgba(255, 107, 0, 0.04), rgba(255, 107, 0, 0.01));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-top: 36px;
+    }
+    .target-block h2 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .target-block h2 i { color: var(--orange); }
+    .target-block p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .target-block p strong { color: var(--text); }
+    .target-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .target-list .goal-tag {
+      padding: 6px 14px; border-radius: 20px;
+      background: var(--card); border: 1px solid var(--border);
+      font-size: 0.79rem; color: var(--orange); font-weight: 500;
+      display: flex; align-items: center; gap: 6px;
+    }
+
+    @media (max-width: 700px) {
+      .sc-body { grid-template-columns: 1fr; }
+      .sc-header { padding: 18px 20px; }
+      .stack-intro { padding: 22px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">&lt;<span>Sami</span> /&gt;</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="about.html">À propos</a></li>
+    <li><a href="competences.html">Bilan compétences</a></li>
+    <li><a href="stack.html" class="active">Stack technique</a></li>
+    <li><a href="orange.html">Orange Business</a></li>
+    <li><a href="projets.html">Projets</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="CV Sami ALAOUI KASMI.pdf" download class="nav-cv"><i class="fas fa-download"></i> Mon CV</a>
+  <div class="nav-burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Accueil</a>
+  <a href="about.html" onclick="closeMenu()">À propos</a>
+  <a href="competences.html" onclick="closeMenu()">Bilan compétences</a>
+  <a href="stack.html" onclick="closeMenu()">Stack technique</a>
+  <a href="orange.html" onclick="closeMenu()">Orange Business</a>
+  <a href="projets.html" onclick="closeMenu()">Projets</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-orb"></div>
+  <div class="container">
+    <div class="section-tag">Outils &amp; technologies</div>
+    <h1>Stack technique</h1>
+    <p>L'ensemble des technologies, outils et environnements que je manipule en IUT et chez Orange Business — du réseau à la sécurité, du terrain au laboratoire.</p>
+  </div>
+</div>
+
+<!-- STACK TECHNIQUE -->
+<section style="background:var(--bg)">
+  <div class="container">
+
+    <!-- Intro -->
+    <div class="stack-intro fade-in">
+      <p>
+        Cette page regroupe mon <strong>stack technique</strong> : les équipements, logiciels et langages
+        que j'utilise au quotidien, organisés par domaine. Chaque outil est annoté d'un niveau de maîtrise
+        (solide, intermédiaire ou en apprentissage) qui reflète mon usage réel — à la fois en
+        <strong>environnement IUT</strong> (TP, SAÉ, projets) et en <strong>environnement Orange Business</strong>
+        (interventions terrain, déploiements clients).
+      </p>
+      <p>
+        L'objectif : donner une vision concrète de mes compétences techniques, au-delà des intitulés de cours.
+      </p>
+    </div>
+
+    <!-- Légende -->
+    <div class="stack-legend fade-in">
+      <div class="lg-item"><span class="tool-level lvl-strong"></span> Solide — utilisé régulièrement</div>
+      <div class="lg-item"><span class="tool-level lvl-medium"></span> Intermédiaire — usage maîtrisé en contexte</div>
+      <div class="lg-item"><span class="tool-level lvl-learning"></span> En apprentissage — exploration en cours</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+        RÉSEAUX & ROUTAGE
+    ═══════════════════════════════════════════════ -->
+    <div class="stack-category fade-in">
+      <div class="sc-header">
+        <div class="sc-icon"><i class="fas fa-network-wired"></i></div>
+        <div>
+          <div class="sc-title">Réseaux &amp; routage</div>
+          <div class="sc-subtitle">// LAN · WAN · routage IP · commutation</div>
+        </div>
+      </div>
+      <div class="sc-body">
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-router"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">Cisco IOS</div>
+            <div class="tool-tag">CLI · VLAN · OSPF · ACL</div>
+          </div>
+          <span class="tool-level lvl-strong" title="Solide"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-server"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">Huawei VRP</div>
+            <div class="tool-tag">Routeurs Orange · config terrain</div>
+          </div>
+          <span class="tool-level lvl-medium" title="Intermédiaire"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-project-diagram"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">GNS3</div>
+            <div class="tool-tag">Simulation · topologies labo</div>
+          </div>
+          <span class="tool-level lvl-strong" title="Solide"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-sitemap"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">Packet Tracer</div>
+            <div class="tool-tag">TP IUT · prototypage</div>
+          </div>
+          <span class="tool-level lvl-strong" title="Solide"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-route"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">OSPF / BGP</div>
+            <div class="tool-tag">Routage dynamique</div>
+          </div>
+          <span class="tool-level lvl-medium" title="Intermédiaire"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-ethernet"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">VLAN / Trunk 802.1Q</div>
+            <div class="tool-tag">Segmentation L2</div>
+          </div>
+          <span class="tool-level lvl-strong" title="Solide"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+        TÉLÉCOMS & FIBRE
+    ═══════════════════════════════════════════════ -->
+    <div class="stack-category fade-in">
+      <div class="sc-header">
+        <div class="sc-icon"><i class="fas fa-wave-square"></i></div>
+        <div>
+          <div class="sc-title">Télécoms &amp; fibre optique</div>
+          <div class="sc-subtitle">// FTTH · FTTO · FTTE · VoIP · IPBX</div>
+        </div>
+      </div>
+      <div class="sc-body">
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-wifi"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">FTTH / FTTO / FTTE</div>
+            <div class="tool-tag">Architectures fibre Orange</div>
+          </div>
+          <span class="tool-level lvl-strong" title="Solide"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-phone"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">Connect Pro</div>
+            <div class="tool-tag">Solution Orange Business</div>
+          </div>
+          <span class="tool-level lvl-strong" title="Solide"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-headset"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">IPBX (Yealink, Alcatel)</div>
+            <div class="tool-tag">Téléphonie sur IP</div>
+          </div>
+          <span class="tool-level lvl-medium" title="Intermédiaire"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-broadcast-tower"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">Livebox Pro</div>
+            <div class="tool-tag">LBB230 · LBB7 Pro · ONT</div>
+          </div>
+          <span class="tool-level lvl-strong" title="Solide"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-bolt"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">PTO / soudure fibre</div>
+            <div class="tool-tag">Raccordement terrain</div>
+          </div>
+          <span class="tool-level lvl-medium" title="Intermédiaire"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-microphone"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">SIP / VoIP</div>
+            <div class="tool-tag">Protocole voix sur IP</div>
+          </div>
+          <span class="tool-level lvl-medium" title="Intermédiaire"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+        CYBERSÉCURITÉ
+    ═══════════════════════════════════════════════ -->
+    <div class="stack-category fade-in">
+      <div class="sc-header">
+        <div class="sc-icon"><i class="fas fa-shield-halved"></i></div>
+        <div>
+          <div class="sc-title">Cybersécurité</div>
+          <div class="sc-subtitle">// audit · pentest · analyse · monitoring</div>
+        </div>
+      </div>
+      <div class="sc-body">
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-search"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">Nmap</div>
+            <div class="tool-tag">Scan de ports · fingerprinting</div>
+          </div>
+          <span class="tool-level lvl-strong" title="Solide"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-bug"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">OpenVAS</div>
+            <div class="tool-tag">Scanner de vulnérabilités</div>
+          </div>
+          <span class="tool-level lvl-medium" title="Intermédiaire"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-magnifying-glass-chart"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">Wireshark</div>
+            <div class="tool-tag">Analyse de trames</div>
+          </div>
+          <span class="tool-level lvl-strong" title="Solide"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-skull-crossbones"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">Metasploit</div>
+            <div class="tool-tag">Framework d'exploitation</div>
+          </div>
+          <span class="tool-level lvl-learning" title="En apprentissage"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fab fa-linux"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">Kali Linux</div>
+            <div class="tool-tag">Distribution pentest</div>
+          </div>
+          <span class="tool-level lvl-medium" title="Intermédiaire"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-lock"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">CVSS / CVE</div>
+            <div class="tool-tag">Scoring vulnérabilités</div>
+          </div>
+          <span class="tool-level lvl-medium" title="Intermédiaire"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+        SYSTÈME & VIRTUALISATION
+    ═══════════════════════════════════════════════ -->
+    <div class="stack-category fade-in">
+      <div class="sc-header">
+        <div class="sc-icon"><i class="fas fa-microchip"></i></div>
+        <div>
+          <div class="sc-title">Système &amp; virtualisation</div>
+          <div class="sc-subtitle">// OS · admin · hyperviseurs</div>
+        </div>
+      </div>
+      <div class="sc-body">
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fab fa-linux"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">Linux (Debian, Ubuntu)</div>
+            <div class="tool-tag">Bash · services · firewall</div>
+          </div>
+          <span class="tool-level lvl-strong" title="Solide"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fab fa-windows"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">Windows Server</div>
+            <div class="tool-tag">AD · DHCP · DNS</div>
+          </div>
+          <span class="tool-level lvl-medium" title="Intermédiaire"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-cube"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">VirtualBox / VMware</div>
+            <div class="tool-tag">Virtualisation labo</div>
+          </div>
+          <span class="tool-level lvl-strong" title="Solide"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fab fa-docker"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">Docker</div>
+            <div class="tool-tag">Conteneurs · compose</div>
+          </div>
+          <span class="tool-level lvl-learning" title="En apprentissage"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-terminal"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">Bash / PowerShell</div>
+            <div class="tool-tag">Scripting admin</div>
+          </div>
+          <span class="tool-level lvl-medium" title="Intermédiaire"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+        PROGRAMMATION & AUTOMATISATION
+    ═══════════════════════════════════════════════ -->
+    <div class="stack-category fade-in">
+      <div class="sc-header">
+        <div class="sc-icon"><i class="fas fa-code"></i></div>
+        <div>
+          <div class="sc-title">Programmation &amp; automatisation</div>
+          <div class="sc-subtitle">// scripting · web · réseau programmable</div>
+        </div>
+      </div>
+      <div class="sc-body">
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fab fa-python"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">Python</div>
+            <div class="tool-tag">Scripts · Netmiko · automatisation</div>
+          </div>
+          <span class="tool-level lvl-medium" title="Intermédiaire"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fab fa-html5"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">HTML / CSS</div>
+            <div class="tool-tag">Front · maquettes · portfolio</div>
+          </div>
+          <span class="tool-level lvl-strong" title="Solide"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fab fa-js"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">JavaScript</div>
+            <div class="tool-tag">Interactivité · DOM</div>
+          </div>
+          <span class="tool-level lvl-medium" title="Intermédiaire"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-database"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">SQL</div>
+            <div class="tool-tag">Requêtes · MySQL · SQLite</div>
+          </div>
+          <span class="tool-level lvl-medium" title="Intermédiaire"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fab fa-git-alt"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">Git / GitHub</div>
+            <div class="tool-tag">Versioning · collaboration</div>
+          </div>
+          <span class="tool-level lvl-medium" title="Intermédiaire"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-robot"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">Ansible</div>
+            <div class="tool-tag">Déploiement automatisé</div>
+          </div>
+          <span class="tool-level lvl-learning" title="En apprentissage"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+        OUTILS PRO & MÉTIER
+    ═══════════════════════════════════════════════ -->
+    <div class="stack-category fade-in">
+      <div class="sc-header">
+        <div class="sc-icon"><i class="fas fa-toolbox"></i></div>
+        <div>
+          <div class="sc-title">Outils pro &amp; métier</div>
+          <div class="sc-subtitle">// supervision · ticketing · documentation</div>
+        </div>
+      </div>
+      <div class="sc-body">
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-headset"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">GLPI</div>
+            <div class="tool-tag">Ticketing Orange · inventaire</div>
+          </div>
+          <span class="tool-level lvl-strong" title="Solide"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-chart-line"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">Zabbix / Nagios</div>
+            <div class="tool-tag">Supervision réseau</div>
+          </div>
+          <span class="tool-level lvl-learning" title="En apprentissage"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-mobile-screen"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">Outils internes Orange</div>
+            <div class="tool-tag">Portails techniciens</div>
+          </div>
+          <span class="tool-level lvl-strong" title="Solide"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-file-lines"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">Markdown · LaTeX</div>
+            <div class="tool-tag">Documentation technique</div>
+          </div>
+          <span class="tool-level lvl-medium" title="Intermédiaire"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-pen-ruler"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">Figma / draw.io</div>
+            <div class="tool-tag">Schémas réseau · maquettes</div>
+          </div>
+          <span class="tool-level lvl-medium" title="Intermédiaire"></span>
+        </div>
+        <div class="tool-item">
+          <div class="tool-ico"><i class="fas fa-tools"></i></div>
+          <div class="tool-meta">
+            <div class="tool-name">Outillage terrain</div>
+            <div class="tool-tag">Réflectomètre · testeur · soudeuse</div>
+          </div>
+          <span class="tool-level lvl-medium" title="Intermédiaire"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Axes & certifications -->
+    <div class="target-block fade-in">
+      <h2><i class="fas fa-arrow-trend-up"></i> Stack visée pour la 3ᵉ année</h2>
+      <p>
+        Je souhaite consolider ma stack autour de <strong>trois axes</strong> : approfondir
+        l'<strong>automatisation réseau</strong> (Python/Netmiko, Ansible), me former aux
+        <strong>outils de supervision et SOC</strong> (Splunk, Elastic Stack, Zabbix avancé), et
+        renforcer la <strong>partie offensive</strong> (Metasploit avancé, post-exploitation).
+      </p>
+      <div class="target-list">
+        <span class="goal-tag"><i class="fas fa-certificate"></i> Cisco CCNA</span>
+        <span class="goal-tag"><i class="fas fa-certificate"></i> CompTIA Security+</span>
+        <span class="goal-tag"><i class="fas fa-cog"></i> Ansible</span>
+        <span class="goal-tag"><i class="fas fa-shield"></i> Splunk / Elastic Stack</span>
+        <span class="goal-tag"><i class="fab fa-docker"></i> Docker / Kubernetes</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p><span>Sami ALAOUI KASMI</span> — BUT R&amp;T | Alternant Orange Business</p>
+    <div class="footer-links">
+      <a href="mailto:alaouikasmi.sami@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/sami-alaouikasmi" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/s5m87" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+</footer>
+<script src="nav.js"></script>
+</body>
+</html>

@@ -72,18 +72,20 @@
   <ul class="nav-links">
     <li><a href="index.html">Accueil</a></li>
     <li><a href="about.html">À propos</a></li>
-    <li><a href="competences.html">Compétences</a></li>
+    <li><a href="competences.html">Bilan compétences</a></li>
+    <li><a href="stack.html">Stack technique</a></li>
     <li><a href="orange.html">Orange Business</a></li>
     <li><a href="projets.html">Projets</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="#" class="nav-cv" onclick="event.preventDefault();alert('Ajoutez votre CV ici.')"><i class="fas fa-download"></i> Mon CV</a>
+  <a href="CV Sami ALAOUI KASMI.pdf" download class="nav-cv"><i class="fas fa-download"></i> Mon CV</a>
   <div class="nav-burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html" onclick="closeMenu()">Accueil</a>
   <a href="about.html" onclick="closeMenu()">À propos</a>
-  <a href="competences.html" onclick="closeMenu()">Compétences</a>
+  <a href="competences.html" onclick="closeMenu()">Bilan compétences</a>
+  <a href="stack.html" onclick="closeMenu()">Stack technique</a>
   <a href="orange.html" onclick="closeMenu()">Orange Business</a>
   <a href="projets.html" onclick="closeMenu()">Projets</a>
   <a href="contact.html" onclick="closeMenu()">Contact</a>
@@ -111,14 +113,14 @@
         </div>
         <div class="about-text">
           <p>
-            Étudiant en <strong>BUT Réseaux &amp; Télécommunications</strong>, je suis actuellement en alternance chez
-            <strong>Orange Business</strong> où j'interviens chaque semaine sur des déploiements et configurations
-            de solutions télécoms pour des clients professionnels en Caen.
+            Étudiant en BUT Réseaux &amp; Télécommunications, je suis actuellement en alternance chez
+            Orange Business où j'interviens chaque semaine sur des déploiements et configurations
+            de solutions télécoms pour des clients professionnels dans le Calvados.
           </p>
           <p>
-            Curieux et rigoureux, je m'intéresse particulièrement à la <strong>cybersécurité</strong>,
-            à l'administration <strong>réseau</strong>, aux technologies de la <strong>fibre optique</strong>
-            et aux infrastructures <strong>cloud</strong>. Mon expérience terrain m'a donné une vision
+            Curieux et rigoureux, je m'intéresse particulièrement à la cybersécurité,
+            à l'administration réseau, aux technologies de la fibre optique
+            et aux infrastructures cloud. Mon expérience terrain m'a donné une vision
             concrète des problématiques d'entreprise.
           </p>
         </div>
@@ -139,15 +141,15 @@
         <!-- Mini stats -->
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px">
           <div style="background:var(--card);border:1px solid var(--border2);border-radius:10px;padding:18px;text-align:center">
-            <div style="font-size:1.6rem;font-weight:800;color:var(--orange)">1+</div>
-            <div style="font-size:0.73rem;color:var(--text-muted);margin-top:3px">Ans d'alternance</div>
+            <div style="font-size:1.6rem;font-weight:800;color:var(--orange)">1</div>
+            <div style="font-size:0.73rem;color:var(--text-muted);margin-top:3px">An d'alternance</div>
           </div>
           <div style="background:var(--card);border:1px solid var(--border2);border-radius:10px;padding:18px;text-align:center">
-            <div style="font-size:1.6rem;font-weight:800;color:var(--orange)">250+</div>
+            <div style="font-size:1.6rem;font-weight:800;color:var(--orange)">+250</div>
             <div style="font-size:0.73rem;color:var(--text-muted);margin-top:3px">Interventions terrain</div>
           </div>
           <div style="background:var(--card);border:1px solid var(--border2);border-radius:10px;padding:18px;text-align:center">
-            <div style="font-size:1.6rem;font-weight:800;color:var(--orange)">20</div>
+            <div style="font-size:1.6rem;font-weight:800;color:var(--orange)">+20</div>
             <div style="font-size:0.73rem;color:var(--text-muted);margin-top:3px">Projets académiques</div>
           </div>
         </div>
@@ -178,16 +180,9 @@
             <div>
               <div class="tl-year">2022 → 2025</div>
               <div class="tl-title">Baccalauréat</div>
+              <div class="tl-desc"></div>
             </div>
           </div>
-          <div class="tl-item">
-            
-          </div>
-        </div>
-
-        <!-- Info card -->
-
-
         </div>
       </div>
     </div>
@@ -232,7 +227,7 @@
       <div class="form-card">
         <div class="form-card-icon"><i class="fas fa-school"></i></div>
         <h3>Baccalauréat</h3>
-        <div class="school"></div>
+        <div class="school">Mathématiques et Sciences de l'Ingénieur</div>
         <div class="years">2022 → 2025</div>
         <p>
           Formation technologique axée sur les systèmes embarqués, la programmation et les réseaux de communication.
@@ -305,13 +300,13 @@
 
 <footer>
   <div class="container">
-    <p>Conçu par <span>Sami ALAOUI KASMI</span> — BUT R&amp;T | Alternant Orange Business</p>
+    <p><span>Sami ALAOUI KASMI</span> — BUT R&amp;T | Alternant Orange Business</p>
     <div class="footer-links">
-      <a href="mailto:alaouikasmi.sami2007@hotmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="mailto:alaouikasmi.sami@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/sami-alaouikasmi" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/s5m87" target="_blank"><i class="fab fa-github"></i></a>
     </div>
-    <p style="margin-top:10px;font-size:0.73rem">© 2026 Sami ALAOUI KASMI</p>
+    
   </div>
 </footer>
 <script src="nav.js"></script>

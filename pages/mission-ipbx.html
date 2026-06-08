@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation IPBX — Sami ALAOUI KASMI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../missions-style.css" />
+</head>
+
+<body>
+  <nav id="navbar">
+    <a href="../index.html" class="nav-logo">&lt;<span>Sami</span> /&gt;</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Accueil</a></li>
+      <li><a href="../about.html">À propos</a></li>
+      <li><a href="../competences.html">Bilan compétences</a></li>
+      <li><a href="../stack.html">Stack technique</a></li>
+      <li><a href="../orange.html">Orange Business</a></li>
+      <li><a href="../projets.html">Projets</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <a href="../CV Sami ALAOUI KASMI.pdf" download class="nav-cv"><i class="fas fa-download"></i> Mon CV</a>
+    <div class="nav-burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html" onclick="closeMenu()">Accueil</a>
+    <a href="../about.html" onclick="closeMenu()">À propos</a>
+    <a href="../competences.html" onclick="closeMenu()">Bilan compétences</a>
+    <a href="../stack.html" onclick="closeMenu()">Stack technique</a>
+    <a href="../orange.html" onclick="closeMenu()">Orange Business</a>
+    <a href="../projets.html" onclick="closeMenu()">Projets</a>
+    <a href="../contact.html" onclick="closeMenu()">Contact</a>
+  </div>
+
+  <div class="page-header">
+    <div class="page-header-orb"></div>
+    <div class="container">
+      <a href="../orange.html" class="mission-back-btn"><i class="fas fa-arrow-left"></i> Retour à Orange Business</a>
+      <div class="section-tag">Mission 5</div>
+      <h1>Installation IPBX</h1>
+      <p>Autocommutateur IP — Téléphonie d'entreprise SIP/VoIP avec messagerie unifiée</p>
+    </div>
+  </div>
+
+  <section style="background:var(--bg2);padding-bottom:60px">
+    <div class="container">
+<div class="mission-card fade-in d1">
+          <div class="mission-hdr">
+            <div class="mission-icon"><i class="fas fa-phone-volume"></i></div>
+            <div class="mission-hdr-text">
+              <h3>Installation IPBX</h3>
+              <p>Autocommutateur IP — Téléphonie d'entreprise SIP/VoIP avec messagerie unifiée</p>
+            </div>
+          </div>
+
+          <div class="diagram-area">
+            <div class="diagram-label">// Architecture IPBX — Téléphonie IP d'entreprise</div>
+            <svg viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg" width="100%">
+              <defs>
+                <marker id="ip-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+                  <path d="M0 0 L8 4 L0 8 z" fill="#FF6B00" />
+                </marker>
+                <marker id="ip-b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+                  <path d="M0 0 L8 4 L0 8 z" fill="#3B82F6" />
+                </marker>
+                <marker id="ip-g" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+                  <path d="M0 0 L8 4 L0 8 z" fill="#2ECC71" />
+                </marker>
+              </defs>
+              <!-- PSTN / SIP Trunk -->
+              <rect x="5" y="55" width="105" height="50" rx="8" fill="#1A2235" stroke="#FF6B00" stroke-width="1.5" />
+              <text x="57" y="75" text-anchor="middle" fill="#E8EDF5" font-size="10" font-family="Inter,sans-serif"
+                font-weight="600">SIP Trunk</text>
+              <text x="57" y="88" text-anchor="middle" fill="#8B97B0" font-size="9"
+                font-family="Inter,sans-serif">Orange SIP / PSTN</text>
+              <text x="57" y="100" text-anchor="middle" fill="#FF6B00" font-size="8"
+                font-family="JetBrains Mono,monospace">G.711 / G.729</text>
+              <!-- SIP line -->
+              <line x1="110" y1="80" x2="173" y2="80" stroke="#FF6B00" stroke-width="2" stroke-dasharray="4,2"
+                marker-end="url(#ip-a)" />
+              <text x="141" y="73" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">SIP
+                / TLS</text>
+              <!-- IPBX Server -->
+              <rect x="175" y="40" width="120" height="80" rx="8" fill="#1A2235" stroke="#FF6B00" stroke-width="2" />
+              <text x="235" y="64" text-anchor="middle" fill="#E8EDF5" font-size="12" font-family="Inter,sans-serif"
+                font-weight="700">IPBX</text>
+              <text x="235" y="78" text-anchor="middle" fill="#8B97B0" font-size="9" font-family="Inter,sans-serif">3CX
+                / Asterisk</text>
+              <text x="235" y="91" text-anchor="middle" fill="#8B97B0" font-size="8"
+                font-family="Inter,sans-serif">Alcatel OXO/OXE</text>
+              <text x="235" y="110" text-anchor="middle" fill="#FF6B00" font-size="8"
+                font-family="JetBrains Mono,monospace">SRTP · TLS</text>
+              <!-- Lines from IPBX to endpoints -->
+              <line x1="295" y1="60" x2="365" y2="33" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#ip-b)" />
+              <line x1="295" y1="70" x2="365" y2="65" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#ip-b)" />
+              <line x1="295" y1="80" x2="365" y2="97" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#ip-b)" />
+              <line x1="295" y1="90" x2="365" y2="129" stroke="#2ECC71" stroke-width="1.5" stroke-dasharray="4,2"
+                marker-end="url(#ip-g)" />
+              <!-- IP Phone 1 -->
+              <rect x="367" y="18" width="110" height="30" rx="6" fill="#1A2235" stroke="#3B82F6" stroke-width="1" />
+              <text x="422" y="35" text-anchor="middle" fill="#8B97B0" font-size="9"
+                font-family="Inter,sans-serif">Téléphone IP (×N)</text>
+              <!-- IP Phone 2 -->
+              <rect x="367" y="50" width="110" height="30" rx="6" fill="#1A2235" stroke="#3B82F6" stroke-width="1" />
+              <text x="422" y="67" text-anchor="middle" fill="#8B97B0" font-size="9"
+                font-family="Inter,sans-serif">Téléphone IP PoE</text>
+              <!-- Softphone -->
+              <rect x="367" y="82" width="110" height="30" rx="6" fill="#1A2235" stroke="#3B82F6" stroke-width="1" />
+              <text x="422" y="99" text-anchor="middle" fill="#8B97B0" font-size="9"
+                font-family="Inter,sans-serif">Softphone / PC</text>
+              <!-- DECT -->
+              <rect x="367" y="114" width="110" height="30" rx="6" fill="#1A2235" stroke="#2ECC71" stroke-width="1" />
+              <text x="422" y="131" text-anchor="middle" fill="#8B97B0" font-size="9"
+                font-family="Inter,sans-serif">DECT / Mobile</text>
+              <!-- IVR / features -->
+              <rect x="510" y="45" width="115" height="70" rx="8" fill="#0E1420" stroke="#4A5568" stroke-width="1.5"
+                stroke-dasharray="4,2" />
+              <text x="567" y="62" text-anchor="middle" fill="#4A5568" font-size="8"
+                font-family="JetBrains Mono,monospace">FONCTIONNALITÉS</text>
+              <text x="567" y="77" text-anchor="middle" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">IVR
+                / File d'attente</text>
+              <text x="567" y="90" text-anchor="middle" fill="#8B97B0" font-size="8"
+                font-family="Inter,sans-serif">Messagerie vocale</text>
+              <text x="567" y="103" text-anchor="middle" fill="#8B97B0" font-size="8"
+                font-family="Inter,sans-serif">Conférence / Renvoi</text>
+              <!-- Legend -->
+              <line x1="10" y1="148" x2="34" y2="148" stroke="#3B82F6" stroke-width="2" />
+              <text x="38" y="151" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">SIP/RTP (chiffré
+                SRTP)</text>
+              <line x1="200" y1="148" x2="224" y2="148" stroke="#2ECC71" stroke-width="2" stroke-dasharray="4,2" />
+              <text x="228" y="151" fill="#8B97B0" font-size="8" font-family="Inter,sans-serif">SIP sans fil
+                (DECT/WiFi)</text>
+            </svg>
+          </div>
+
+          <div class="mission-body">
+            <p class="mission-desc"><strong style="color:var(--text)">IPBX (IP Private Branch eXchange)</strong>
+              est
+              un
+              autocommutateur téléphonique privé fonctionnant sur protocole SIP/H.323 via le réseau IP. Il
+              remplace
+              l'ancien PABX analogique et gère toutes les communications internes/externes de l'entreprise.
+              Orange
+              propose des solutions 3CX, Alcatel OXO Connect, ou Business Talk (cloud). Les flux vocaux sont
+              chiffrés
+              via SRTP et la signalisation via TLS.</p>
+
+            <div class="pills" style="margin-bottom:20px">
+              <span class="tech-pill">SIP / RTP</span><span class="tech-pill">SRTP / TLS</span><span
+                class="tech-pill">3CX / Asterisk</span>
+              <span class="tech-pill">DECT</span><span class="tech-pill">G.711 / G.729</span><span class="tech-pill">QoS
+                DSCP EF</span><span class="tech-pill">IVR</span>
+            </div>
+
+            <!-- ─── Compétences & AC mobilisés ─── -->
+            <div class="ac-block">
+              <div class="block-title"><i class="fas fa-graduation-cap"></i> Compétences &amp; Apprentissages Critiques mobilisés</div>
+
+              <div class="competence-group">
+                <div class="competence-head">RT2 — Connecter les entreprises et les usagers</div>
+                <ul class="ac-list">
+                  <li><span class="ac-code">AC12.04</span>Connexion des systèmes de ToIP (Niveau 1) : compréhension du protocole SIP, des codecs voix (G.711, G.729), du transport RTP et de la signalisation.</li>
+                  <li><span class="ac-code">AC22.01</span>Déploiement de systèmes de transmissions complexes (Niveau 2) : raccordement du SIP Trunk Orange, intégration de l'IPBX dans l'architecture LAN/WAN existante.</li>
+                </ul>
+              </div>
+
+              <div class="competence-group">
+                <div class="competence-head">RT1 — Administrer les réseaux et l'Internet · Niveau 2</div>
+                <ul class="ac-list">
+                  <li><span class="ac-code">AC21.02</span>QoS sur le LAN : marquage DSCP EF pour la voix, séparation VLAN voix/données, priorisation des flux RTP.</li>
+                  <li><span class="ac-code">AC21.04</span>Déploiement de services réseaux avancés : configuration de l'IVR, file d'attente, messagerie vocale, groupes d'appel, conférences.</li>
+                </ul>
+              </div>
+
+              <div class="competence-group">
+                <div class="competence-head">Cyber1 — Administrer un SI sécurisé · Niveau 1</div>
+                <ul class="ac-list">
+                  <li><span class="ac-code">AC24.03</span>Sécurisation des services : chiffrement de la signalisation (SIP-TLS) et du média (SRTP), restriction des plages d'IP autorisées à s'enregistrer sur le SIP Trunk.</li>
+                  <li><span class="ac-code">AC24.01</span>Bonnes pratiques cybersécurité : mots de passe forts sur chaque extension SIP, limitation du nombre de tentatives d'authentification (anti-fraude téléphonique / toll fraud).</li>
+                </ul>
+              </div>
+
+              <div class="competence-group">
+                <div class="competence-head">RT3 — Créer des outils et des applications pour les R&amp;T · Niveau 2</div>
+                <ul class="ac-list">
+                  <li><span class="ac-code">AC23.04</span>Administration d'un système de gestion de données : configuration de la base utilisateurs (extensions, droits d'appel, profils horaires) sur 3CX / Asterisk.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- ─── Analyse réflexive et autoévaluation ─── -->
+            <div class="reflex-block">
+              <div class="block-title"><i class="fas fa-brain"></i> Analyse réflexive &amp; autoévaluation</div>
+              <div class="reflex-grid">
+                <div class="reflex-item">
+                  <div class="reflex-item-icon"><i class="fas fa-lightbulb"></i></div>
+                  <div class="reflex-item-body">
+                    <div class="reflex-item-label">Ce que j'ai appris</div>
+                    <div class="reflex-item-text">L'IPBX est ma mission la plus transversale : elle mêle réseau (VLAN, QoS, sécurité périmétrique), télécoms (codecs, SIP, RTP) et système (administration serveur 3CX/Asterisk). J'ai compris pourquoi la voix sur IP est si sensible à la qualité réseau : un seul paquet RTP perdu sur 200 = grésillement audible. La QoS ne peut pas être en option.</div>
+                  </div>
+                </div>
+                <div class="reflex-item">
+                  <div class="reflex-item-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                  <div class="reflex-item-body">
+                    <div class="reflex-item-label">Difficultés rencontrées</div>
+                    <div class="reflex-item-text">Lors d'une migration PABX analogique → IPBX 3CX, j'ai sous-estimé la complexité du portage des numéros (SDA) et du mapping des extensions historiques. Résultat : des utilisateurs n'ont pas pu être joints pendant une demi-journée. C'est ma plus grande erreur jusqu'à présent et l'impact business était lourd.</div>
+                  </div>
+                </div>
+                <div class="reflex-item">
+                  <div class="reflex-item-icon"><i class="fas fa-tools"></i></div>
+                  <div class="reflex-item-body">
+                    <div class="reflex-item-label">Comment je les ai surmontées</div>
+                    <div class="reflex-item-text">J'ai construit avec mon tuteur une grille de checklist de bascule téléphonie (extensions, SDA, renvois actifs, groupes d'appel, plages horaires) qui est désormais utilisée par l'équipe. J'ai aussi appris l'analyse de flux SIP avec Wireshark pour diagnostiquer les problèmes d'enregistrement (REGISTER refusé, codec mismatch, etc.).</div>
+                  </div>
+                </div>
+                <div class="reflex-item">
+                  <div class="reflex-item-icon"><i class="fas fa-chart-line"></i></div>
+                  <div class="reflex-item-body">
+                    <div class="reflex-item-label">Évolution de mon autonomie</div>
+                    <div class="reflex-item-text">Je gère seul l'ajout/suppression de postes IP sur un IPBX existant. Sur les déploiements complets ou migrations PABX→IPBX, je travaille toujours en binôme avec mon tuteur — l'enjeu d'une coupure téléphonique en environnement de production reste trop sensible pour que j'opère seul.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="self-eval-row">
+                <span class="self-eval-label">Niveau auto-évalué :</span>
+                <span class="level-badge intermediaire"><i class="fas fa-chart-bar"></i> Intermédiaire</span>
+                <span class="self-eval-label" style="margin-left:auto">Axes de progrès : approfondir Asterisk en ligne de commande (dialplan custom), comprendre les attaques toll-fraud et anti-spam SIP.</span>
+              </div>
+            </div>
+
+            <div class="mission-gallery">
+              <div class="gallery-item">
+                <img src="/Portfolio/images/IMG_1441.JPG" alt="Mise en service du serveur IPBX 3CX en baie">
+              </div>
+
+              <div class="gallery-item">
+                <img src="/Portfolio/images/IMG_1445.JPG" alt="Configuration des extensions SIP et des groupes d'appel">
+              </div>
+
+              <div class="gallery-item">
+                <img src="/Portfolio/images/PABX1.jpg" alt="Ancien PABX analogique remplacé par la solution IPBX">
+              </div>
+
+              <div class="gallery-item">
+                <img src="/Portfolio/images/PABX2.jpg" alt="Tests d'appels entrants/sortants et vérification de la QoS voix">
+              </div>
+            </div>
+            <div class="notice-wrap">
+              <div class="notice-title-bar" onclick="toggleNotice(this)">
+                <span class="notice-badge">NOTICE D'INSTALLATION</span>
+                <h4>Fiche Technique — IPBX</h4>
+                <i class="fas fa-chevron-down ntoggle"></i>
+              </div>
+              <div class="notice-body">
+                <div style="padding:24px;display:grid;gap:22px">
+                  <div class="notice-section">
+                    <h5><i class="fas fa-box-open"></i> Prérequis</h5>
+                    <div class="prereq-grid">
+                      <div class="prereq-card">
+                        <div class="pc-label">Matériel</div>
+                        <ul>
+                          <li>Serveur ou appliance IPBX (3CX / Alcatel OXO Connect)</li>
+                          <li>Téléphones IP compatibles SIP (PoE)</li>
+                          <li>Switch PoE+ dédié voix (VLAN voix séparé)</li>
+                          <li>Base et combinés DECT si déploiement sans fil</li>
+                          <li>Câbles RJ45 Cat6, alimentation ondulée (UPS)</li>
+                        </ul>
+                      </div>
+                      <div class="prereq-card">
+                        <div class="pc-label">Informations client</div>
+                        <ul>
+                          <li>Plan de numérotation interne (plage d'extensions)</li>
+                          <li>Numéros DDI (Direct Dial In) fournis par Orange</li>
+                          <li>Paramètres du trunk SIP Orange (serveur, credentials)</li>
+                          <li>Liste des utilisateurs et de leurs besoins (renvoi, groupe…)</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="notice-section">
+                    <h5><i class="fas fa-list-ol"></i> Étapes d'installation</h5>
+                    <div class="notice-steps">
+                      <div class="n-step">
+                        <div class="step-num">1</div>
+                        <div class="step-body">
+                          <h6>Analyse des besoins et plan de numérotation</h6>
+                          <p>Recenser le nombre de postes internes, les groupements d'appels, les files
+                            d'attente,
+                            l'IVR
+                            (accueil vocal), les renvois et les numéros DDI. Créer un plan de numérotation (ex
+                            :
+                            1xx
+                            pour postes, 200-299 pour salles, 300+ pour groupements). Valider avec le client
+                            avant
+                            installation.</p>
+                        </div>
+                      </div>
+                      <div class="n-step">
+                        <div class="step-num">2</div>
+                        <div class="step-body">
+                          <h6>Installation physique du serveur IPBX</h6>
+                          <p>Installer le serveur dans la baie réseau du client. Connecter sur le VLAN voix
+                            dédié.
+                            Pour
+                            une solution virtualisée (3CX sur VM), créer la VM avec les ressources
+                            recommandées
+                            (4
+                            vCPU,
+                            8 Go RAM minimum pour &gt; 50 postes). Mettre à jour le firmware/OS avant
+                            configuration.
+                          </p>
+                          <div class="callout warn"><i class="fas fa-exclamation-triangle"></i>Le réseau VoIP
+                            doit
+                            obligatoirement être sur un VLAN dédié, séparé du VLAN données, pour garantir la
+                            qualité
+                            audio et la sécurité.</div>
+                        </div>
+                      </div>
+                      <div class="n-step">
+                        <div class="step-num">3</div>
+                        <div class="step-body">
+                          <h6>Configuration du trunk SIP Orange</h6>
+                          <p>Créer le trunk SIP dans l'interface admin de l'IPBX. Renseigner le serveur SIP
+                            d'Orange
+                            (proxy SIP), les credentials d'authentification, les numéros DDI. Sélectionner les
+                            codecs
+                            dans l'ordre de priorité : G.711 ulaw/alaw, puis G.729 pour économiser la bande
+                            passante.
+                            Activer SIP OPTIONS heartbeat toutes les 30s.</p>
+                        </div>
+                      </div>
+                      <div class="n-step">
+                        <div class="step-num">4</div>
+                        <div class="step-body">
+                          <h6>Création des extensions et groupements</h6>
+                          <p>Créer chaque extension SIP avec : numéro interne, nom, mot de passe SIP fort.
+                            Créer
+                            les
+                            groupements d'appels (ring all / round-robin / least-used). Configurer les files
+                            d'attente
+                            avec musique d'attente, annonces et time-out. Créer l'IVR (menu vocal) avec les
+                            routes
+                            selon
+                            les touches.</p>
+                        </div>
+                      </div>
+                      <div class="n-step">
+                        <div class="step-num">5</div>
+                        <div class="step-body">
+                          <h6>Auto-provisioning des téléphones IP</h6>
+                          <p>Configurer l'option DHCP 66 (TFTP server) pointant vers le serveur de
+                            provisioning
+                            de
+                            l'IPBX. Brancher les téléphones sur les ports PoE : ils récupèrent automatiquement
+                            leur
+                            configuration (adresse IP, serveur SIP, extension). Vérifier l'enregistrement SIP
+                            de
+                            chaque
+                            poste dans la console IPBX.</p>
+                          <div class="callout info"><i class="fas fa-info-circle"></i>Si le DHCP option 66
+                            n'est
+                            pas
+                            disponible, utiliser le PnP (Plug and Play) via URL de configuration encodée dans
+                            le
+                            téléphone ou la provisioning platform du fabricant.</div>
+                        </div>
+                      </div>
+                      <div class="n-step">
+                        <div class="step-num">6</div>
+                        <div class="step-body">
+                          <h6>Sécurisation de l'IPBX</h6>
+                          <p>Installer et configurer fail2ban (bloquer après 5 échecs SIP REGISTER). Activer
+                            TLS
+                            pour
+                            la
+                            signalisation SIP (port 5061) avec un certificat valide. Activer SRTP pour le
+                            chiffrement
+                            des flux RTP. Restreindre l'accès admin à l'IP du réseau LAN uniquement.
+                            Désactiver
+                            les
+                            comptes SIP par défaut.</p>
+                          <div class="callout warn"><i class="fas fa-exclamation-triangle"></i>Un IPBX non
+                            sécurisé
+                            est
+                            une cible prioritaire pour les fraudeurs téléphoniques (toll fraud). Une seule
+                            compromission
+                            peut générer des milliers d'euros de communications vers des numéros surtaxés.
+                          </div>
+                        </div>
+                      </div>
+                      <div class="n-step">
+                        <div class="step-num">7</div>
+                        <div class="step-body">
+                          <h6>QoS VoIP et tests de qualité</h6>
+                          <p>Configurer le marquage DSCP EF (Expedited Forwarding, valeur 46) sur les flux RTP
+                            dans
+                            le
+                            switch et le routeur. Vérifier la priorisation sur toute la chaîne réseau. Tester
+                            la
+                            qualité
+                            audio avec le score MOS (Mean Opinion Score) &gt; 4 attendu. Effectuer des tests
+                            de
+                            charge
+                            (appels simultanés).</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="notice-section">
+                    <h5><i class="fas fa-clipboard-check"></i> Checklist de validation</h5>
+                    <div class="n-checklist">
+                      <div class="n-check"><i class="fas fa-check-square"></i>Trunk SIP Orange enregistré et
+                        actif
+                      </div>
+                      <div class="n-check"><i class="fas fa-check-square"></i>Tous les postes SIP enregistrés
+                      </div>
+                      <div class="n-check"><i class="fas fa-check-square"></i>Appels internes et externes
+                        testés
+                      </div>
+                      <div class="n-check"><i class="fas fa-check-square"></i>IVR et messagerie vocale
+                        fonctionnels
+                      </div>
+                      <div class="n-check"><i class="fas fa-check-square"></i>SRTP/TLS actifs (chiffrement
+                        vocal)
+                      </div>
+                      <div class="n-check"><i class="fas fa-check-square"></i>fail2ban actif (anti-brute force
+                        SIP)
+                      </div>
+                      <div class="n-check"><i class="fas fa-check-square"></i>QoS DSCP EF configurée sur le
+                        réseau
+                      </div>
+                      <div class="n-check"><i class="fas fa-check-square"></i>Formation utilisateurs effectuée
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p><span>Sami ALAOUI KASMI</span> — BUT R&amp;T | Alternant Orange Business</p>
+      <div class="footer-links">
+        <a href="mailto:alaouikasmi.sami@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/sami-alaouikasmi" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/s5m87" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+      
+    </div>
+  </footer>
+
+  <script src="../nav.js"></script>
+  <script>
+    function toggleNotice(bar) {
+      const body = bar.nextElementSibling;
+      const icon = bar.querySelector('.ntoggle');
+      body.classList.toggle('open');
+      icon.classList.toggle('open');
+    }
+  </script>
+</body>
+
+</html>

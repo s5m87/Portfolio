@@ -2,52 +2,267 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Compétences — Sami ALAOUI KASMI</title>
+  <title>Bilan par compétence — Sami ALAOUI KASMI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    .skills-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px; }
-    .skill-card {
-      background:var(--card);border:1px solid var(--border2);
-      border-radius:var(--radius);padding:28px;
-      transition:var(--transition);position:relative;overflow:hidden;
+    /* ─── Page intro ─── */
+    .bilan-intro {
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 36px;
     }
-    .skill-card::before {
-      content:'';position:absolute;top:0;left:0;right:0;height:2px;
-      background:linear-gradient(90deg,var(--orange),transparent);
-      transform:scaleX(0);transform-origin:left;transition:var(--transition);
+    .bilan-intro p {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 10px;
     }
-    .skill-card:hover { border-color:var(--border);transform:translateY(-4px);box-shadow:var(--shadow-orange); }
-    .skill-card:hover::before { transform:scaleX(1); }
-    .sk-icon {
-      width:44px;height:44px;border-radius:10px;
-      background:var(--orange-glow);border:1px solid var(--border);
-      display:flex;align-items:center;justify-content:center;
-      color:var(--orange);font-size:1.1rem;margin-bottom:18px;
-    }
-    .sk-title { font-weight:700;font-size:1rem;margin-bottom:18px; }
-    .soft-grid { display:flex;flex-wrap:wrap;gap:7px;margin-top:8px; }
-    .soft-tag {
-      padding:5px 11px;border-radius:6px;
-      background:var(--bg3);border:1px solid var(--border2);
-      font-size:0.77rem;color:var(--text-muted);
-    }
-    .sk-section-label { font-size:0.76rem;color:var(--text-muted);font-weight:500;margin-bottom:10px;margin-top:18px; }
+    .bilan-intro p strong { color: var(--text); }
+    .bilan-intro p:last-child { margin-bottom: 0; }
 
-    /* Radar chart (CSS-only approximation) */
-    .radar-wrap {
-      background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);
-      padding:32px;margin-top:48px;
+    /* ─── Cartes de compétence ─── */
+    .competence-bilan-card {
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius);
+      margin-bottom: 28px;
+      overflow: hidden;
+      transition: var(--transition);
     }
-    .radar-title { font-size:1rem;font-weight:700;margin-bottom:24px; }
-    .level-bars { display:grid;gap:14px; }
-    .level-row { display:flex;align-items:center;gap:14px; }
-    .level-label { font-size:0.82rem;color:var(--text-muted);min-width:160px; }
-    .level-track { flex:1;height:6px;background:var(--bg3);border-radius:3px;overflow:hidden; }
-    .level-fill { height:100%;background:linear-gradient(90deg,var(--orange),var(--orange-light));border-radius:3px;width:0;transition:width 1.2s cubic-bezier(0.4,0,0.2,1); }
-    .level-pct { font-family:var(--mono);font-size:0.72rem;color:var(--orange);min-width:34px;text-align:right; }
+    .competence-bilan-card:hover {
+      border-color: var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .cb-header {
+      background: linear-gradient(135deg, rgba(255, 107, 0, 0.08), rgba(255, 107, 0, 0.02));
+      padding: 24px 30px;
+      border-bottom: 1px solid var(--border2);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .cb-icon {
+      width: 56px; height: 56px;
+      border-radius: 12px;
+      background: var(--orange-glow);
+      border: 1px solid var(--border);
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.45rem;
+      flex-shrink: 0;
+    }
+    .cb-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .cb-subtitle {
+      font-size: 0.83rem;
+      color: var(--orange);
+      font-family: var(--mono);
+      font-weight: 500;
+    }
+    .cb-level {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg);
+      border: 1px solid var(--border2);
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .cb-level .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+
+    .cb-body {
+      padding: 26px 30px;
+    }
+
+    /* Double colonne IUT vs Entreprise */
+    .iut-vs-ent {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+    .iut-col, .ent-col {
+      background: var(--card2);
+      border: 1px solid var(--border2);
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+    .iut-col { border-left: 3px solid #3B82F6; }
+    .ent-col { border-left: 3px solid var(--orange); }
+
+    .col-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      margin-bottom: 12px;
+    }
+    .iut-col .col-head i { color: #3B82F6; }
+    .ent-col .col-head i { color: var(--orange); }
+
+    .col-list {
+      list-style: none;
+      padding: 0;
+    }
+    .col-list li {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      padding: 5px 0 5px 16px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .col-list li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--text-faint);
+    }
+
+    /* Complémentarités */
+    .complementarity {
+      background: rgba(46, 204, 113, 0.05);
+      border: 1px solid rgba(46, 204, 113, 0.2);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 18px;
+    }
+    .complementarity-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+      color: #2ECC71;
+    }
+    .complementarity-head i { font-size: 0.9rem; }
+    .complementarity p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+    .complementarity p strong { color: var(--text); }
+
+    /* Validation des AC */
+    .ac-validation {
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 18px;
+    }
+    .ac-validation-head {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      font-family: var(--mono);
+      letter-spacing: 0.04em;
+    }
+    .ac-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .ac-tag {
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      padding: 4px 10px;
+      border-radius: 5px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .ac-tag.acquis {
+      background: rgba(46, 204, 113, 0.12);
+      color: #2ECC71;
+      border: 1px solid rgba(46, 204, 113, 0.3);
+    }
+    .ac-tag.en-cours {
+      background: var(--orange-glow);
+      color: var(--orange);
+      border: 1px solid var(--border);
+    }
+    .ac-tag.a-travailler {
+      background: rgba(139, 151, 176, 0.1);
+      color: var(--text-muted);
+      border: 1px solid var(--border2);
+    }
+
+    /* Axes de progrès */
+    .progress-axes {
+      background: var(--bg3);
+      border-left: 3px solid #FF6B00;
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+    }
+    .progress-axes-head {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .progress-axes-head i { color: var(--orange); }
+    .progress-axes p {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* Auto-évaluation globale */
+    .global-eval {
+      background: linear-gradient(135deg, rgba(255, 107, 0, 0.04), rgba(255, 107, 0, 0.01));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-top: 36px;
+    }
+    .global-eval h2 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .global-eval h2 i { color: var(--orange); }
+    .global-eval p {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+    .global-eval p strong { color: var(--text); }
+
+    @media(max-width:768px) {
+      .iut-vs-ent { grid-template-columns: 1fr; }
+      .cb-header { flex-wrap: wrap; }
+      .cb-level { margin-left: 0; margin-top: 8px; }
+    }
   </style>
 </head>
 <body>
@@ -56,18 +271,20 @@
   <ul class="nav-links">
     <li><a href="index.html">Accueil</a></li>
     <li><a href="about.html">À propos</a></li>
-    <li><a href="competences.html">Compétences</a></li>
+    <li><a href="competences.html">Bilan compétences</a></li>
+    <li><a href="stack.html">Stack technique</a></li>
     <li><a href="orange.html">Orange Business</a></li>
     <li><a href="projets.html">Projets</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="#" class="nav-cv" onclick="event.preventDefault();alert('Ajoutez votre CV ici.')"><i class="fas fa-download"></i> Mon CV</a>
+  <a href="CV Sami ALAOUI KASMI.pdf" download class="nav-cv"><i class="fas fa-download"></i> Mon CV</a>
   <div class="nav-burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html" onclick="closeMenu()">Accueil</a>
   <a href="about.html" onclick="closeMenu()">À propos</a>
-  <a href="competences.html" onclick="closeMenu()">Compétences</a>
+  <a href="competences.html" onclick="closeMenu()">Bilan compétences</a>
+  <a href="stack.html" onclick="closeMenu()">Stack technique</a>
   <a href="orange.html" onclick="closeMenu()">Orange Business</a>
   <a href="projets.html" onclick="closeMenu()">Projets</a>
   <a href="contact.html" onclick="closeMenu()">Contact</a>
@@ -76,130 +293,353 @@
 <div class="page-header">
   <div class="page-header-orb"></div>
   <div class="container">
-    <div class="section-tag">Stack technique</div>
-    <h1>Compétences</h1>
-    <p>Compétences acquises en formation et renforcées par l'expérience terrain chez Orange Business.</p>
+    <div class="section-tag">Référentiel BUT R&amp;T</div>
+    <h1>Bilan par compétence</h1>
+    <p>Synthèse de ma progression sur les 4 compétences du BUT Réseaux &amp; Télécommunications, au croisement des apprentissages IUT et des missions chez Orange Business.</p>
   </div>
 </div>
 
 <section style="background:var(--bg)">
   <div class="container">
-    <div class="section-header center fade-in">
-      <div class="section-tag">Technique</div>
-      <h2 class="section-title">Compétences techniques</h2>
+
+    <!-- Intro -->
+    <div class="bilan-intro fade-in">
+      <p>
+        Ce bilan met en regard, pour chacune des quatre compétences du référentiel BUT R&amp;T,
+        <strong>ce que j'ai consolidé à l'IUT</strong> (cours, TP, SAÉ) et <strong>ce que j'ai renforcé en
+        entreprise chez Orange Business</strong> (missions terrain). L'objectif est de montrer comment
+        les deux environnements se complètent, où se situent mes points forts et quels sont mes axes de
+        progrès à l'horizon de la 3ᵉ année de BUT.
+      </p>
+      <p>
+        Chaque compétence est évaluée à travers ses <strong>Apprentissages Critiques (AC)</strong> du
+        référentiel, classés en trois statuts : ✅ acquis &amp; consolidé · 🟠 en cours d'acquisition ·
+        ⚪ à travailler en année 3.
+      </p>
     </div>
 
-    <div class="skills-grid">
-
-      <!-- Réseaux -->
-      <div class="skill-card fade-in">
-        <div class="sk-icon"><i class="fas fa-network-wired"></i></div>
-        <div class="sk-title">Réseaux</div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">TCP/IP &amp; modèle OSI</span><span class="skill-bar-val">90%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div></div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Cisco IOS / Routage</span><span class="skill-bar-val">80%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div></div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">VLAN / STP / Trunk</span><span class="skill-bar-val">78%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="78"></div></div></div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">OSPF / BGP</span><span class="skill-bar-val">65%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="65"></div></div></div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">DHCP / DNS / NAT/PAT</span><span class="skill-bar-val">85%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div></div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">WiFi / WPA2-Enterprise</span><span class="skill-bar-val">70%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div></div>
-        <div class="sk-section-label">Outils réseau</div>
-        <div class="soft-grid"><span class="soft-tag">Wireshark</span><span class="soft-tag">Cisco Packet Tracer</span><span class="soft-tag">GNS3</span><span class="soft-tag">Nmap</span><span class="soft-tag">iperf3</span></div>
+    <!-- ═══════════════════════════════════════════════
+        COMPÉTENCE 1 — RT1
+    ═══════════════════════════════════════════════ -->
+    <div class="competence-bilan-card fade-in">
+      <div class="cb-header">
+        <div class="cb-icon"><i class="fas fa-network-wired"></i></div>
+        <div>
+          <div class="cb-title">RT1 — Administrer les réseaux et l'Internet</div>
+          <div class="cb-subtitle">Niveau 2 — Administrer un réseau</div>
+        </div>
+        <div class="cb-level"><span class="dot"></span> Intermédiaire+</div>
       </div>
+      <div class="cb-body">
 
-      <!-- Systèmes -->
-      <div class="skill-card fade-in d1">
-        <div class="sk-icon"><i class="fas fa-server"></i></div>
-        <div class="sk-title">Systèmes</div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Linux (Debian / Ubuntu)</span><span class="skill-bar-val">82%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div></div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Windows Server 2019/2022</span><span class="skill-bar-val">72%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="72"></div></div></div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Active Directory / GPO</span><span class="skill-bar-val">65%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="65"></div></div></div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Bash scripting</span><span class="skill-bar-val">72%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="72"></div></div></div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">PowerShell</span><span class="skill-bar-val">62%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="62"></div></div></div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">VMware / VirtualBox</span><span class="skill-bar-val">76%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="76"></div></div></div>
-        <div class="sk-section-label">Outils systèmes</div>
-        <div class="soft-grid"><span class="soft-tag">GLPI</span><span class="soft-tag">Docker</span><span class="soft-tag">Zabbix</span><span class="soft-tag">Grafana</span><span class="soft-tag">Git</span></div>
-      </div>
-
-      <!-- Cybersécurité -->
-      <div class="skill-card fade-in d2">
-        <div class="sk-icon"><i class="fas fa-shield-halved"></i></div>
-        <div class="sk-title">Cybersécurité</div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Firewall / ACL / iptables</span><span class="skill-bar-val">76%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="76"></div></div></div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">VPN IPSec / SSL / WireGuard</span><span class="skill-bar-val">70%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div></div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Analyse de trafic / PCAP</span><span class="skill-bar-val">80%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div></div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Pentest (bases) / Metasploit</span><span class="skill-bar-val">52%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="52"></div></div></div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">SIEM / Monitoring / Alerting</span><span class="skill-bar-val">58%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="58"></div></div></div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Sécurité SIP / SRTP / TLS</span><span class="skill-bar-val">65%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="65"></div></div></div>
-        <div class="sk-section-label">Outils sécu</div>
-        <div class="soft-grid"><span class="soft-tag">Kali Linux</span><span class="soft-tag">Nmap</span><span class="soft-tag">Metasploit</span><span class="soft-tag">fail2ban</span><span class="soft-tag">OpenVAS</span></div>
-      </div>
-
-      <!-- Télécoms & Fibre -->
-      <div class="skill-card fade-in d3">
-        <div class="sk-icon"><i class="fas fa-wave-square"></i></div>
-        <div class="sk-title">Télécoms &amp; Fibre optique</div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">FTTH / FTTE / FTTO</span><span class="skill-bar-val">80%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div></div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">GPON / XGS-PON</span><span class="skill-bar-val">72%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="72"></div></div></div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Soudure optique / OTDR</span><span class="skill-bar-val">68%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="68"></div></div></div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">VoIP / SIP / RTP</span><span class="skill-bar-val">74%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="74"></div></div></div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">IPBX (Asterisk / 3CX)</span><span class="skill-bar-val">68%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="68"></div></div></div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">QoS &amp; priorisation de flux</span><span class="skill-bar-val">70%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div></div>
-        <div class="sk-section-label">Équipements</div>
-        <div class="soft-grid"><span class="soft-tag">ONT/OLT</span><span class="soft-tag">Powermètre optique</span><span class="soft-tag">Réflectomètre</span><span class="soft-tag">CPE Orange</span></div>
-      </div>
-
-      <!-- Dev & Automatisation -->
-      <div class="skill-card fade-in d1">
-        <div class="sk-icon"><i class="fas fa-code"></i></div>
-        <div class="sk-title">Dev &amp; Automatisation</div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Python (scripting réseau)</span><span class="skill-bar-val">72%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="72"></div></div></div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Bash / Shell scripting</span><span class="skill-bar-val">70%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div></div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">Ansible (bases)</span><span class="skill-bar-val">45%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="45"></div></div></div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">HTML / CSS (web)</span><span class="skill-bar-val">60%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="60"></div></div></div>
-        <div class="skill-bar-item"><div class="skill-bar-hdr"><span class="skill-bar-name">SQL (bases)</span><span class="skill-bar-val">50%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="50"></div></div></div>
-        <div class="sk-section-label">Bibliothèques Python</div>
-        <div class="soft-grid"><span class="soft-tag">scapy</span><span class="soft-tag">netmiko</span><span class="soft-tag">paramiko</span><span class="soft-tag">pandas</span><span class="soft-tag">requests</span></div>
-      </div>
-
-      <!-- Soft Skills -->
-      <div class="skill-card fade-in d2">
-        <div class="sk-icon"><i class="fas fa-users"></i></div>
-        <div class="sk-title">Soft Skills</div>
-        <div style="display:grid;gap:10px;margin-top:6px">
-          <div style="background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:12px 14px">
-            <div style="font-size:0.8rem;font-weight:600;margin-bottom:4px"><i class="fas fa-bullseye" style="color:var(--orange);margin-right:7px"></i>Rigueur &amp; Organisation</div>
-            <div style="font-size:0.77rem;color:var(--text-muted)">Gestion de tickets GLPI, suivi des interventions, documentation systématique</div>
+        <div class="iut-vs-ent">
+          <div class="iut-col">
+            <div class="col-head"><i class="fas fa-graduation-cap"></i> Acquis à l'IUT</div>
+            <ul class="col-list">
+              <li>Fondamentaux TCP/IP et modèle OSI (Ressources R1.01, R2.01)</li>
+              <li>Subnetting IPv4/IPv6, calculs d'adressage</li>
+              <li>Configuration de base Cisco IOS (VLAN, routage statique)</li>
+              <li>SAÉ d'infrastructure réseau d'entreprise (segmentation, ACL)</li>
+              <li>Notions OSPF et BGP en TP</li>
+            </ul>
           </div>
-          <div style="background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:12px 14px">
-            <div style="font-size:0.8rem;font-weight:600;margin-bottom:4px"><i class="fas fa-person-running" style="color:var(--orange);margin-right:7px"></i>Autonomie terrain</div>
-            <div style="font-size:0.77rem;color:var(--text-muted)">Interventions seul chez les clients, diagnostic et résolution en autonomie</div>
-          </div>
-          <div style="background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:12px 14px">
-            <div style="font-size:0.8rem;font-weight:600;margin-bottom:4px"><i class="fas fa-handshake" style="color:var(--orange);margin-right:7px"></i>Relation client</div>
-            <div style="font-size:0.77rem;color:var(--text-muted)">Explication technique adaptée, pédagogie, gestion des attentes</div>
-          </div>
-          <div style="background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:12px 14px">
-            <div style="font-size:0.8rem;font-weight:600;margin-bottom:4px"><i class="fas fa-lightbulb" style="color:var(--orange);margin-right:7px"></i>Curiosité &amp; Veille</div>
-            <div style="font-size:0.77rem;color:var(--text-muted)">Auto-formation continue, suivi des nouvelles technologies réseau et sécu</div>
+          <div class="ent-col">
+            <div class="col-head"><i class="fas fa-wifi"></i> Renforcé en entreprise</div>
+            <ul class="col-list">
+              <li>Déploiement de routeurs Cisco/Huawei en production (Mission Routeur)</li>
+              <li>Configuration OSPF mono-zone en environnement réel</li>
+              <li>Mise en service de Connect Pro chez plus de 30 clients</li>
+              <li>Diagnostic terrain : ping, traceroute, lecture de logs routeur</li>
+              <li>Documentation GLPI et procédures internes Orange</li>
+            </ul>
           </div>
         </div>
-      </div>
 
+        <div class="complementarity">
+          <div class="complementarity-head"><i class="fas fa-link"></i> Complémentarité IUT / entreprise</div>
+          <p>
+            L'IUT m'a donné le <strong>cadre théorique</strong> indispensable pour comprendre ce que je configure
+            (rôle d'un routeur, propagation OSPF, intérêt des ACL). L'entreprise m'a appris la
+            <strong>rigueur opérationnelle</strong> qui n'apparaît pas dans les cours : étiquetage,
+            sauvegarde systématique des configs, gestion thermique en baie, vérification des prérequis
+            avant tout déplacement.
+          </p>
+        </div>
+
+        <div class="ac-validation">
+          <div class="ac-validation-head">// VALIDATION DES APPRENTISSAGES CRITIQUES</div>
+          <div class="ac-tags">
+            <span class="ac-tag acquis"><i class="fas fa-check"></i> AC21.03</span>
+            <span class="ac-tag acquis"><i class="fas fa-check"></i> AC21.05</span>
+            <span class="ac-tag acquis"><i class="fas fa-check"></i> AC21.06</span>
+            <span class="ac-tag en-cours"><i class="fas fa-spinner"></i> AC21.01</span>
+            <span class="ac-tag en-cours"><i class="fas fa-spinner"></i> AC21.02</span>
+            <span class="ac-tag en-cours"><i class="fas fa-spinner"></i> AC21.04</span>
+          </div>
+        </div>
+
+        <div class="progress-axes">
+          <div class="progress-axes-head"><i class="fas fa-arrow-up"></i> Axes de progression année 3</div>
+          <p>
+            Approfondir BGP (peering inter-AS, route-maps, communities), pratiquer l'automatisation
+            réseau via Python/Netmiko ou Ansible, et passer la certification Cisco CCNA en fin d'année.
+          </p>
+        </div>
+      </div>
     </div>
 
+    <!-- ═══════════════════════════════════════════════
+        COMPÉTENCE 2 — RT2
+    ═══════════════════════════════════════════════ -->
+    <div class="competence-bilan-card fade-in d1">
+      <div class="cb-header">
+        <div class="cb-icon"><i class="fas fa-wave-square"></i></div>
+        <div>
+          <div class="cb-title">RT2 — Connecter les entreprises et les usagers</div>
+          <div class="cb-subtitle">Niveau 2 — Maîtriser les composantes des solutions de connexion</div>
+        </div>
+        <div class="cb-level"><span class="dot"></span> Maîtrisé</div>
+      </div>
+      <div class="cb-body">
 
+        <div class="iut-vs-ent">
+          <div class="iut-col">
+            <div class="col-head"><i class="fas fa-graduation-cap"></i> Acquis à l'IUT</div>
+            <ul class="col-list">
+              <li>Principes de la transmission (modulation, codage, multiplexage)</li>
+              <li>Caractérisation des signaux (TP mesure et analyse)</li>
+              <li>Architecture des réseaux opérateurs (NRO, collecte, BLOM)</li>
+              <li>Notions de ToIP, SIP, RTP en cours</li>
+              <li>SAÉ déploiement de supports de transmission</li>
+            </ul>
+          </div>
+          <div class="ent-col">
+            <div class="col-head"><i class="fas fa-wifi"></i> Renforcé en entreprise</div>
+            <ul class="col-list">
+              <li>Tirage de câble drop et soudure optique (Missions FTTH, FTTE, FTTO)</li>
+              <li>Mesures terrain : powermètre, OTDR sur traces réelles</li>
+              <li>Compréhension concrète de la chaîne GPON Orange (OLT → ONT)</li>
+              <li>Configuration et exploitation d'IPBX (Mission IPBX)</li>
+              <li>Connexions multi-site MPLS et VLAN inter-locataires (FTTE)</li>
+              <li>Relation directe avec le client final (savoir-être commercial)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="complementarity">
+          <div class="complementarity-head"><i class="fas fa-link"></i> Complémentarité IUT / entreprise</div>
+          <p>
+            C'est la compétence où la <strong>complémentarité est la plus visible</strong>. L'IUT m'a expliqué
+            <em>pourquoi</em> une fibre fonctionne (réflexion totale interne, longueurs d'onde 1310/1550 nm).
+            L'entreprise m'a appris <em>comment</em> la déployer concrètement (clivage, soudure, mesures
+            d'affaiblissement, gestion des connecteurs SC/APC). Sans l'un ou l'autre, je serais incapable
+            de réaliser une prestation complète.
+          </p>
+        </div>
+
+        <div class="ac-validation">
+          <div class="ac-validation-head">// VALIDATION DES APPRENTISSAGES CRITIQUES</div>
+          <div class="ac-tags">
+            <span class="ac-tag acquis"><i class="fas fa-check"></i> AC22.01</span>
+            <span class="ac-tag acquis"><i class="fas fa-check"></i> AC22.03</span>
+            <span class="ac-tag acquis"><i class="fas fa-check"></i> AC22.04</span>
+            <span class="ac-tag acquis"><i class="fas fa-check"></i> AC22.05</span>
+            <span class="ac-tag acquis"><i class="fas fa-check"></i> AC12.04</span>
+            <span class="ac-tag acquis"><i class="fas fa-check"></i> AC12.05</span>
+            <span class="ac-tag en-cours"><i class="fas fa-spinner"></i> AC22.02</span>
+          </div>
+        </div>
+
+        <div class="progress-axes">
+          <div class="progress-axes-head"><i class="fas fa-arrow-up"></i> Axes de progression année 3</div>
+          <p>
+            Approfondir la configuration des accès distants sécurisés (VPN IPSec/SSL), maîtriser la
+            supervision active des CPE FTTO côté opérateur, viser la certification fibre optique Orange.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+        COMPÉTENCE 3 — RT3
+    ═══════════════════════════════════════════════ -->
+    <div class="competence-bilan-card fade-in d2">
+      <div class="cb-header">
+        <div class="cb-icon"><i class="fas fa-code"></i></div>
+        <div>
+          <div class="cb-title">RT3 — Créer des outils et des applications pour les R&amp;T</div>
+          <div class="cb-subtitle">Niveau 2 — Développer une application R&amp;T</div>
+        </div>
+        <div class="cb-level"><span class="dot"></span> Intermédiaire</div>
+      </div>
+      <div class="cb-body">
+
+        <div class="iut-vs-ent">
+          <div class="iut-col">
+            <div class="col-head"><i class="fas fa-graduation-cap"></i> Acquis à l'IUT</div>
+            <ul class="col-list">
+              <li>Programmation Python (algorithmique, structures de données)</li>
+              <li>Scripting Bash et automatisation système</li>
+              <li>Bases de SQL et de l'administration de données</li>
+              <li>HTML/CSS et notions web (Ressource R1.10)</li>
+              <li>Projet Python — inventaire réseau via Netmiko (SAÉ S4)</li>
+              <li>Travail collaboratif avec Git</li>
+            </ul>
+          </div>
+          <div class="ent-col">
+            <div class="col-head"><i class="fas fa-wifi"></i> Renforcé en entreprise</div>
+            <ul class="col-list">
+              <li>Administration de la base utilisateurs IPBX (3CX, Asterisk)</li>
+              <li>Génération de rapports automatisés via GLPI</li>
+              <li>Création de procédures et notices techniques internes</li>
+              <li>Conception et réalisation de ce portfolio web (HTML/CSS/JS)</li>
+              <li>Lecture et adaptation de scripts existants (configs Cisco templates)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="complementarity">
+          <div class="complementarity-head"><i class="fas fa-link"></i> Complémentarité IUT / entreprise</div>
+          <p>
+            C'est la compétence où <strong>l'IUT prend le pas sur l'entreprise</strong>, car mon poste actuel
+            est principalement axé sur du terrain. L'entreprise m'a néanmoins fait comprendre l'utilité
+            <strong>concrète</strong> de l'automatisation (réduire le temps de config d'un routeur de 45 à
+            10 min via un template), ce qui motive fortement mon investissement côté IUT en Python/Ansible.
+          </p>
+        </div>
+
+        <div class="ac-validation">
+          <div class="ac-validation-head">// VALIDATION DES APPRENTISSAGES CRITIQUES</div>
+          <div class="ac-tags">
+            <span class="ac-tag acquis"><i class="fas fa-check"></i> AC23.04</span>
+            <span class="ac-tag en-cours"><i class="fas fa-spinner"></i> AC23.01</span>
+            <span class="ac-tag en-cours"><i class="fas fa-spinner"></i> AC23.02</span>
+            <span class="ac-tag en-cours"><i class="fas fa-spinner"></i> AC23.03</span>
+            <span class="ac-tag en-cours"><i class="fas fa-spinner"></i> AC23.05</span>
+          </div>
+        </div>
+
+        <div class="progress-axes">
+          <div class="progress-axes-head"><i class="fas fa-arrow-up"></i> Axes de progression année 3</div>
+          <p>
+            Développer un outil Python d'audit automatisé de configuration Cisco, approfondir Ansible
+            pour l'orchestration multi-équipements, monter en compétence sur les API REST des
+            équipements réseau modernes.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+        COMPÉTENCE 4 — CYBER
+    ═══════════════════════════════════════════════ -->
+    <div class="competence-bilan-card fade-in d3">
+      <div class="cb-header">
+        <div class="cb-icon"><i class="fas fa-shield-halved"></i></div>
+        <div>
+          <div class="cb-title">Cyber — Administrer un SI sécurisé</div>
+          <div class="cb-subtitle">Niveau 1 — Sensibiliser aux vulnérabilités et aux remédiations</div>
+        </div>
+        <div class="cb-level"><span class="dot"></span> Intermédiaire</div>
+      </div>
+      <div class="cb-body">
+
+        <div class="iut-vs-ent">
+          <div class="iut-col">
+            <div class="col-head"><i class="fas fa-graduation-cap"></i> Acquis à l'IUT</div>
+            <ul class="col-list">
+              <li>Bonnes pratiques cybersécurité (ANSSI, RGPD)</li>
+              <li>SAÉ Audit sécurité — Nmap, OpenVAS, Wireshark, CVSS</li>
+              <li>SAÉ Pentest — découverte Metasploit, Kali Linux</li>
+              <li>Notions cryptographiques (chiffrement symétrique/asymétrique, TLS)</li>
+              <li>Analyse de différents types d'attaques (MITM, phishing, ransomware)</li>
+              <li>Lecture de documents techniques en anglais (RFC, CVE descriptions)</li>
+            </ul>
+          </div>
+          <div class="ent-col">
+            <div class="col-head"><i class="fas fa-wifi"></i> Renforcé en entreprise</div>
+            <ul class="col-list">
+              <li>Hardening systématique des équipements (Connect Pro, routeurs, IPBX)</li>
+              <li>Mise en place de TLS et SRTP sur les services IPBX</li>
+              <li>Sensibilisation à la fraude téléphonique (toll fraud) et anti-spam SIP</li>
+              <li>Application des chartes de sécurité Orange (mots de passe, logs)</li>
+              <li>Compréhension des enjeux de continuité de service (SLA)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="complementarity">
+          <div class="complementarity-head"><i class="fas fa-link"></i> Complémentarité IUT / entreprise</div>
+          <p>
+            L'IUT m'apporte la <strong>vision offensive</strong> (comment on attaque, comment on audite) et
+            les fondamentaux théoriques. L'entreprise m'apporte la <strong>vision défensive industrialisée</strong>
+            (procédures de hardening, conformité, gestion des incidents en production). C'est exactement
+            le mariage que je cherche à approfondir car c'est mon orientation professionnelle cible.
+          </p>
+        </div>
+
+        <div class="ac-validation">
+          <div class="ac-validation-head">// VALIDATION DES APPRENTISSAGES CRITIQUES</div>
+          <div class="ac-tags">
+            <span class="ac-tag acquis"><i class="fas fa-check"></i> AC24.01</span>
+            <span class="ac-tag acquis"><i class="fas fa-check"></i> AC24.02</span>
+            <span class="ac-tag acquis"><i class="fas fa-check"></i> AC24.03</span>
+            <span class="ac-tag acquis"><i class="fas fa-check"></i> AC24.05</span>
+            <span class="ac-tag acquis"><i class="fas fa-check"></i> AC24.06</span>
+            <span class="ac-tag en-cours"><i class="fas fa-spinner"></i> AC24.04</span>
+            <span class="ac-tag en-cours"><i class="fas fa-spinner"></i> AC25.01</span>
+            <span class="ac-tag a-travailler"><i class="fas fa-circle"></i> AC25.02</span>
+          </div>
+        </div>
+
+        <div class="progress-axes">
+          <div class="progress-axes-head"><i class="fas fa-arrow-up"></i> Axes de progression année 3</div>
+          <p>
+            Approfondir les outils de pentest (Metasploit avancé, exploitation post-intrusion), me former
+            aux outils de SIEM/SOC (Splunk, Elastic Stack), viser la certification CompTIA Security+
+            puis CEH à moyen terme.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+        AUTO-ÉVALUATION GLOBALE & PROJECTION
+    ═══════════════════════════════════════════════ -->
+    <div class="global-eval fade-in">
+      <h2><i class="fas fa-compass"></i> Auto-évaluation globale et perspectives</h2>
+      <p>
+        À mi-parcours de mon BUT R&amp;T, je considère que <strong>RT2 est aujourd'hui ma compétence
+        la plus solide</strong> grâce à l'effet combiné des cours sur la transmission et des nombreuses
+        missions terrain Orange (FTTH, FTTE, FTTO, IPBX). <strong>RT1 progresse vite</strong> car j'y suis
+        confronté quasi quotidiennement, mais BGP et l'automatisation restent à consolider.
+      </p>
+      <p>
+        <strong>RT3 et Cyber</strong> sont mes deux axes d'effort principaux : RT3 parce que mon poste
+        actuel est plus orienté terrain que développement, et Cyber parce que c'est l'orientation
+        professionnelle que je vise. Je compte profiter de ma 3ᵉ année (parcours Cyber au BUT) et de la
+        suite de mon alternance pour combler ces écarts.
+      </p>
+      <p>
+        Le portfolio que vous consultez aujourd'hui est lui-même un livrable de la compétence RT3 :
+        sa conception (HTML/CSS/JS, structuration, navigation, charte graphique) m'a permis de pratiquer
+        concrètement les apprentissages critiques AC23.02 (développer une application web) et AC23.04
+        (administration de données structurées).
+      </p>
+    </div>
 
   </div>
 </section>
 
 <footer>
   <div class="container">
-    <p>Conçu par <span>Sami ALAOUI KASMI</span> — BUT R&amp;T | Alternant Orange Business</p>
+    <p><span>Sami ALAOUI KASMI</span> — BUT R&amp;T | Alternant Orange Business</p>
     <div class="footer-links">
-      <a href="mailto:alaouikasmi.sami2007@hotmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="mailto:alaouikasmi.sami@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/sami-alaouikasmi" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/s5m87" target="_blank"><i class="fab fa-github"></i></a>
     </div>
-    <p style="margin-top:10px;font-size:0.73rem">© 2026 Sami ALAOUI KASMI</p>
+    
   </div>
 </footer>
 <script src="nav.js"></script>

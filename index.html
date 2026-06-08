@@ -181,26 +181,54 @@
       justify-content: center;
     }
 
+    /* ── Photo / Profile circle (style index2.html, tout orange) ── */
     .photo-ring {
       position: absolute;
-      inset: -12px;
+      inset: -16px;
       border-radius: 50%;
-      background: conic-gradient(var(--orange) 0deg, transparent 120deg, var(--orange) 240deg, transparent 360deg);
-      animation: spin 8s linear infinite;
+      background: conic-gradient(
+        from 0deg,
+        var(--orange) 0deg,
+        transparent 90deg,
+        var(--orange) 180deg,
+        transparent 270deg,
+        var(--orange) 360deg
+      );
+      animation: spin 10s linear infinite;
+      filter: blur(2px);
     }
+    .photo-ring2 {
+      position: absolute;
+      inset: -2px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      animation: spin 24s linear infinite reverse;
+    }
+    .photo-ring2::before,
+    .photo-ring2::after {
+      content: '';
+      position: absolute;
+      width: 8px; height: 8px;
+      background: var(--orange);
+      border-radius: 50%;
+      box-shadow: 0 0 16px var(--orange);
+    }
+    .photo-ring2::before { top: -4px; left: 50%; transform: translateX(-50%); }
+    .photo-ring2::after  { bottom: -4px; left: 50%; transform: translateX(-50%); }
 
     .photo-inner {
       position: relative;
-      width: 280px;
-      height: 280px;
+      width: 300px;
+      height: 300px;
       border-radius: 50%;
-      background: var(--card2);
+      background: linear-gradient(135deg, var(--card2), var(--bg3));
       overflow: hidden;
       z-index: 1;
       border: 4px solid var(--bg);
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: 0 20px 60px -20px rgba(255, 107, 0, 0.4), inset 0 0 80px rgba(255, 107, 0, 0.05);
     }
 
     .photo-inner img {
@@ -211,24 +239,37 @@
 
     .photo-placeholder {
       font-size: 6.5rem;
-      color: var(--text-faint);
+      color: var(--orange);
+      opacity: 0.7;
+    }
+
+    /* Contour du bouton Me contacter en orange */
+    .hero-actions .btn-outline {
+      border-color: var(--orange);
+      color: var(--orange);
+    }
+    .hero-actions .btn-outline:hover {
+      background: var(--orange-glow);
+      color: var(--orange);
+      border-color: var(--orange);
     }
 
     .photo-badge {
       position: absolute;
-      bottom: 8px;
-      right: 8px;
+      bottom: 4px;
+      right: -10px;
       z-index: 2;
       background: var(--orange);
       color: #fff;
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-size: 0.7rem;
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-size: 0.72rem;
       font-weight: 700;
       display: flex;
       align-items: center;
       gap: 6px;
-      box-shadow: 0 4px 16px rgba(255, 107, 0, 0.4);
+      box-shadow: 0 8px 24px rgba(255, 107, 0, 0.5);
+      border: 2px solid var(--bg);
     }
 
     @media(max-width:900px) {
@@ -257,8 +298,8 @@
 
     @media(max-width:480px) {
       .photo-inner {
-        width: 220px;
-        height: 220px;
+        width: 240px;
+        height: 240px;
       }
 
       .hero-nav-grid {
@@ -275,7 +316,8 @@
     <ul class="nav-links">
       <li><a href="index.html">Accueil</a></li>
       <li><a href="about.html">À propos</a></li>
-      <li><a href="competences.html">Compétences</a></li>
+      <li><a href="competences.html">Bilan compétences</a></li>
+    <li><a href="stack.html">Stack technique</a></li>
       <li><a href="orange.html">Orange Business</a></li>
       <li><a href="projets.html">Projets</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -290,7 +332,8 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html" onclick="closeMenu()">Accueil</a>
     <a href="about.html" onclick="closeMenu()">À propos &amp; Formation</a>
-    <a href="competences.html" onclick="closeMenu()">Compétences</a>
+    <a href="competences.html" onclick="closeMenu()">Bilan compétences</a>
+  <a href="stack.html" onclick="closeMenu()">Stack technique</a>
     <a href="orange.html" onclick="closeMenu()">Orange Business</a>
     <a href="projets.html" onclick="closeMenu()">Projets</a>
     <a href="contact.html" onclick="closeMenu()">Contact</a>
@@ -312,24 +355,21 @@
             pour entreprises clientes.
           </p>
           <div class="hero-actions">
-            <a href="CV Sami ALAOUI KASMI.pdf" download class="btn btn-primary">
-              <i class="fas fa-download"></i> Télécharger mon CV
-            </a>
             <a href="contact.html" class="btn btn-outline">
               <i class="fas fa-paper-plane"></i> Me contacter
             </a>
           </div>
           <div class="hero-stats">
             <div>
-              <div class="stat-num">1+</div>
-              <div class="stat-lbl">Ans d'alternance</div>
+              <div class="stat-num">1</div>
+              <div class="stat-lbl">An d'alternance</div>
             </div>
             <div>
-              <div class="stat-num">250+</div>
+              <div class="stat-num">+250</div>
               <div class="stat-lbl">Interventions terrain</div>
             </div>
             <div>
-              <div class="stat-num">20</div>
+              <div class="stat-num">+20</div>
               <div class="stat-lbl">Projets académiques</div>
             </div>
           </div>
@@ -349,9 +389,12 @@
 
         <div class="hero-photo-wrap">
           <div class="photo-ring"></div>
+          <div class="photo-ring2"></div>
           <div class="photo-inner">
-            <!-- <img src="photo.jpg" alt="Sami ALAOUI KASMI" /> -->
-            <div class="photo-placeholder"><i class="fas fa-user"></i></div>
+            <!-- Remplace cette balise par : <img src="images/photo-sami.jpg" alt="Sami ALAOUI KASMI" />
+                 quand tu auras une vraie photo professionnelle (format carré recommandé, ~400×400px) -->
+            <img src="images/photo-sami.jpg" alt="Sami ALAOUI KASMI" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="photo-placeholder" style="display:none;"><i class="fas fa-user"></i></div>
           </div>
           <div class="photo-badge"><i class="fas fa-wifi"></i> Orange Business</div>
         </div>
@@ -361,13 +404,13 @@
 
   <footer>
     <div class="container">
-      <p>Conçu par <span>Sami ALAOUI KASMI</span> — BUT R&amp;T | Alternant Orange Business</p>
+      <p><span>Sami ALAOUI KASMI</span> — BUT R&amp;T | Alternant Orange Business</p>
       <div class="footer-links">
-        <a href="mailto:alaouikasmi.sami2007@hotmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="mailto:alaouikasmi.sami@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/sami-alaouikasmi" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/s5m87" target="_blank"><i class="fab fa-github"></i></a>
       </div>
-      <p style="margin-top:10px;font-size:0.73rem">© 2026 Sami ALAOUI KASMI</p>
+      
     </div>
   </footer>
 
