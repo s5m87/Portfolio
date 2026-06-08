@@ -483,3 +483,29 @@ footer span { color: var(--orange); }
 .gallery-add i{
     font-size:2rem;
 }
+/* ── Point 8 : SVG architecture readability on mobile ── */
+.diagram-area {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.diagram-area svg {
+  min-width: 620px;
+  display: block;
+}
+@media (max-width: 700px) {
+  .diagram-area {
+    border: 1px dashed var(--border2);
+    border-radius: 8px;
+    padding: 6px;
+    position: relative;
+  }
+  .diagram-area::after {
+    content: "← Faites défiler horizontalement →";
+    display: block;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--text-faint);
+    margin-top: 4px;
+  }
+}

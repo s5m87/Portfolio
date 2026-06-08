@@ -5,6 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Orange Business — Sami ALAOUI KASMI</title>
+  <meta name="description" content="Présentation de l'entreprise Orange Business, du service Unité d'Intervention de Caen et des missions confiées à Sami ALAOUI KASMI en alternance BUT R&T." />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Orange Business — Mon entreprise d'accueil" />
+  <meta property="og:description" content="L'entreprise, le service, les missions principales et la projection professionnelle d'un alternant BUT R&T." />
+  <meta property="og:image" content="images/image_profil.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
@@ -478,6 +483,183 @@
       color: var(--orange);
     }
 
+    /* ═══════════════════════════════════════════════
+       Point 6 — Organigramme du service (Équipe Multi Activités Calvados)
+    ═══════════════════════════════════════════════ */
+    .org-block {
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius);
+      padding: 28px 28px 32px;
+      margin-top: 28px;
+    }
+    .org-block-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+    .org-block-head i { color: var(--orange); }
+    .org-block-sub {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+      line-height: 1.6;
+    }
+
+    /* Box manager principal */
+    .org-manager {
+      background: #0E1420;
+      border: 1px solid var(--orange);
+      border-radius: 10px;
+      padding: 16px 22px;
+      max-width: 760px;
+      margin: 0 auto 0;
+      box-shadow: 0 6px 24px rgba(255, 107, 0, 0.12);
+    }
+    .org-manager-title {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 4px;
+    }
+    .org-manager-names {
+      font-size: 0.8rem;
+      color: var(--orange);
+      text-align: center;
+      font-family: var(--mono);
+    }
+    .org-manager-names strong { color: var(--text-muted); font-weight: 500; }
+
+    /* Trait de liaison vertical */
+    .org-connector {
+      width: 2px;
+      height: 32px;
+      background: var(--orange);
+      margin: 0 auto;
+      opacity: 0.6;
+    }
+    .org-hbar {
+      max-width: 92%;
+      height: 2px;
+      background: var(--orange);
+      margin: 0 auto 0;
+      opacity: 0.6;
+    }
+
+    /* Grille des équipes */
+    .org-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      margin-top: 0;
+    }
+    .org-team {
+      position: relative;
+      background: var(--card2);
+      border: 1px solid var(--border2);
+      border-radius: 10px;
+      padding: 18px 12px 14px;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .org-team::before {
+      content: '';
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      width: 2px;
+      height: 16px;
+      background: var(--orange);
+      opacity: 0.6;
+      transform: translateX(-50%);
+    }
+    .org-team:hover {
+      border-color: var(--border);
+      transform: translateY(-2px);
+    }
+    .org-team-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      margin: 0 auto 10px;
+    }
+    .org-team-code {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 4px;
+      line-height: 1;
+    }
+    .org-team-name {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .org-team-desc {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      font-style: italic;
+    }
+    /* Équipe de Sami — mise en avant */
+    .org-team.is-mine {
+      background: var(--orange);
+      border-color: var(--orange);
+      box-shadow: 0 8px 28px rgba(255, 107, 0, 0.35);
+    }
+    .org-team.is-mine .org-team-icon {
+      background: #fff;
+      color: var(--orange);
+    }
+    .org-team.is-mine .org-team-code,
+    .org-team.is-mine .org-team-name {
+      color: #fff;
+    }
+    .org-team.is-mine .org-team-desc {
+      color: rgba(255, 255, 255, 0.92);
+    }
+    .org-team-badge {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: #fff;
+      color: var(--orange);
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: var(--mono);
+    }
+
+    .org-legend {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px dashed var(--border2);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+    .org-legend strong { color: var(--orange); }
+
+    @media (max-width: 900px) {
+      .org-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .org-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
     /* Projection professionnelle (fin de page) */
     .projection-section {
       background: linear-gradient(135deg, rgba(255, 107, 0, 0.05), rgba(255, 107, 0, 0.02));
@@ -821,7 +1003,7 @@
           <div class="sc-head"><i class="fas fa-sitemap"></i> Mon positionnement dans l'entreprise</div>
           <ul>
             <li><strong>Service :</strong> Unité d'Intervention (UI) — équipe technique d'intervention terrain, agence de Caen</li>
-            <li><strong>Tuteur entreprise :</strong> technicien sénior référent des installations B2B sur le département du Calvados</li>
+            <li><strong>Tuteur entreprise :</strong> technicien senior référent des installations B2B sur le département du Calvados</li>
             <li><strong>Statut :</strong> Alternant technicien réseaux &amp; télécoms — contrat d'apprentissage de 3 ans (2025 → 2028)</li>
             <li><strong>Rythme :</strong> alternance 1 mois IUT / 1 mois entreprise</li>
             <li><strong>Périmètre :</strong> interventions chez les clients professionnels d'Orange Business (TPE, PME, ETI) sur le grand Ouest</li>
@@ -838,6 +1020,89 @@
             <li>Documentation des interventions via tickets GLPI et clôture des PV de mise en service</li>
             <li>Niveau d'autonomie progressif : accompagné en début de contrat, aujourd'hui en autonomie sur la majorité des prestations standards</li>
           </ul>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════
+          ORGANIGRAMME DU SERVICE — ÉQUIPE MULTI ACTIVITÉS CALVADOS
+        ═══════════════════════════════════════════════ -->
+        <div class="org-block fade-in">
+          <div class="org-block-head"><i class="fas fa-sitemap"></i> Organigramme du service</div>
+          <p class="org-block-sub">
+            Je suis rattaché à l'<strong>Équipe Multi Activités Calvados</strong>, qui regroupe six pôles
+            techniques d'intervention. Mon pôle, mis en évidence ci-dessous, est l'équipe
+            <strong style="color:var(--orange)">Entreprise (E)</strong> — celle qui prend en charge les
+            <em>clients professionnels</em> du département (TPE, PME, ETI).
+          </p>
+
+          <!-- Manager principal -->
+          <div class="org-manager">
+            <div class="org-manager-title">Équipe Multi Activités Calvados</div>
+            <div class="org-manager-names">
+              <strong>Managers :</strong> Jean-Charles LEBLOND MARO · Abderrazzak GONAT · Rodolphe SIMON
+            </div>
+          </div>
+
+          <!-- Trait vertical vers le hbar -->
+          <div class="org-connector"></div>
+          <!-- Trait horizontal qui relie les 6 équipes -->
+          <div class="org-hbar"></div>
+
+          <!-- Grille des 6 équipes -->
+          <div class="org-grid">
+
+            <div class="org-team is-mine">
+              <div class="org-team-badge">MON ÉQUIPE</div>
+              <div class="org-team-icon"><i class="fas fa-building"></i></div>
+              <div class="org-team-code">E</div>
+              <div class="org-team-name">Entreprise</div>
+              <div class="org-team-desc">Services aux Professionnels</div>
+            </div>
+
+            <div class="org-team">
+              <div class="org-team-icon"><i class="fas fa-project-diagram"></i></div>
+              <div class="org-team-code">RS</div>
+              <div class="org-team-name">Réseau Structurant</div>
+              <div class="org-team-desc">Gestion des infrastructures</div>
+            </div>
+
+            <div class="org-team">
+              <div class="org-team-icon"><i class="fas fa-phone"></i></div>
+              <div class="org-team-code">PABX</div>
+              <div class="org-team-name">Téléphonie VoIP</div>
+              <div class="org-team-desc">Standards téléphoniques</div>
+            </div>
+
+            <div class="org-team">
+              <div class="org-team-icon"><i class="fas fa-phone-volume"></i></div>
+              <div class="org-team-code">BL</div>
+              <div class="org-team-name">Boucle Locale</div>
+              <div class="org-team-desc">Raccordement clients</div>
+            </div>
+
+            <div class="org-team">
+              <div class="org-team-icon"><i class="fas fa-house-user"></i></div>
+              <div class="org-team-code">GP</div>
+              <div class="org-team-name">Grand Public</div>
+              <div class="org-team-desc">Services aux Particuliers</div>
+            </div>
+
+            <div class="org-team">
+              <div class="org-team-icon"><i class="fas fa-network-wired"></i></div>
+              <div class="org-team-code">EVT</div>
+              <div class="org-team-name">Environnement Technique</div>
+              <div class="org-team-desc">Supervision des équipements réseau</div>
+            </div>
+
+          </div>
+
+          <p class="org-legend">
+            <strong>Pourquoi cette organisation ?</strong> Le découpage par pôle (Entreprise, Grand Public,
+            Boucle Locale, Téléphonie, Réseau Structurant, Environnement Technique) permet à chaque
+            technicien de se spécialiser tout en mutualisant les moyens (véhicules, outillage, astreinte).
+            Mon positionnement dans le pôle <strong>E</strong> me donne accès à toute la variété des
+            prestations B2B Orange — du raccordement Connect Pro à l'IPBX, en passant par la fibre FTTO
+            avec engagement SLA — d'où la diversité des 5 missions analysées dans ce portfolio.
+          </p>
         </div>
       </div>
 
